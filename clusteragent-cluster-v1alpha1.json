@@ -1,0 +1,2003 @@
+{
+  "description": "Clusteragent is the Schema for the clusteragents API",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "cluster.appdynamics.com/v1alpha1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Clusteragent"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "ClusteragentSpec defines the desired state of Clusteragent",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "controllerUrl"
+      ],
+      "properties": {
+        "accessSecret": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agentEnvVar": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agentLabel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agentLogOverride": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agentMountName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agentMountPath": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agentOpts": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agentSSLCert": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agentSSLPassword": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agentSSLStoreName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "agentServerPort": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        },
+        "agentUserOverride": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "analyticsAgentContainerName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "analyticsAgentImage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "analyticsAgentUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appDAnalyticsLabel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appDAppLabel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appDDotNetAttachImage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appDInitContainerName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appDJavaAttachImage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appDTierLabel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appLogMountName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appLogMountPath": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appNameLabel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appNameLiteral": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "appNameStrategy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "args": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "biqRequestCpu": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "biqRequestMem": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "biqService": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "clusterMetricsSyncInterval": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "containerAppCorrelationMethod": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "containerBatchSize": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "containerRegistrationInterval": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "containerSchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "controllerUrl": {
+          "description": "account info",
+          "type": "string"
+        },
+        "customSSLSecret": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "daemonSchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dashboardDelayMin": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "dashboardSuffix": {
+          "description": "dashboard",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dashboardTemplatePath": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaultAnalyticsHost": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaultAnalyticsPort": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "defaultAnalyticsSslEnabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "defaultAppName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaultContainerMatchString": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaultCustomConfig": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaultEnv": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaultInstrumentMatchString": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaultInstrumentationLabelMatch": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "defaultInstrumentationTech": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deploySchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "enableClusterAgentRestartProbe": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "enableForceReInstrumentation": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "enableInstallationReport": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "env": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "EnvVar represents an environment variable present in a Container.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "name": {
+                "description": "Name of the environment variable. Must be a C_IDENTIFIER.",
+                "type": "string"
+              },
+              "value": {
+                "description": "Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "valueFrom": {
+                "description": "Source for the environment variable's value. Cannot be used if value is not empty.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "configMapKeyRef": {
+                    "description": "Selects a key of a ConfigMap.",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "description": "The key to select.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "optional": {
+                        "description": "Specify whether the ConfigMap or its key must be defined",
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "fieldRef": {
+                    "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "fieldPath"
+                    ],
+                    "properties": {
+                      "apiVersion": {
+                        "description": "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "fieldPath": {
+                        "description": "Path of the field to select in the specified API version.",
+                        "type": "string"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "resourceFieldRef": {
+                    "description": "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "resource"
+                    ],
+                    "properties": {
+                      "containerName": {
+                        "description": "Container name: required for volumes, optional for env vars",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "divisor": {
+                        "description": "Specifies the output format of the exposed resources, defaults to \"1\"",
+                        "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                        "x-kubernetes-int-or-string": true
+                      },
+                      "resource": {
+                        "description": "Required: resource to select",
+                        "type": "string"
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  },
+                  "secretKeyRef": {
+                    "description": "Selects a key of a secret in the pod's namespace",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "key"
+                    ],
+                    "properties": {
+                      "key": {
+                        "description": "The key of the secret to select from.  Must be a valid secret key.",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "optional": {
+                        "description": "Specify whether the Secret or its key must be defined",
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
+                      }
+                    },
+                    "x-kubernetes-map-type": "atomic"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "epSchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "eventAPILimit": {
+          "description": "limits",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "eventSchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "eventServiceUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "eventUploadInterval": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "fsGroup": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "globalAccount": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "httpClientTimeout": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "image": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "imageInfo": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "agentMountPath",
+              "image",
+              "imagePullPolicy"
+            ],
+            "properties": {
+              "agentMountPath": {
+                "type": "string"
+              },
+              "alpineInitContainerImage": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "image": {
+                "type": "string"
+              },
+              "imagePullPolicy": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "imagePullSecret": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "initContainerDir": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "initRequestCpu": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "initRequestMem": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instrumentContainer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instrumentMatchString": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "instrumentRule": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "agentEnvVar": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "appDAppLabel": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "appDTierLabel": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "appNameLiteral": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "biQ": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "containerName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "matchString": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "method": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "namespaces": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "tech": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "uniqueHostID": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "version": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "instrumentationMaxPollingAttempts": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "instrumentationMethod": {
+          "description": "instrumentation",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instrumentationNsStatusPollingIntervalMinutes": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "instrumentationRules": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "allowPrivilegeEscalation": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "analyticsHost": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "analyticsPort": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "analyticsSslEnabled": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "appName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "appNameLabel": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "capabilities": {
+                "description": "Adds and removes POSIX capabilities from running containers.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "add": {
+                    "description": "Added capabilities",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "description": "Capability represent POSIX capabilities type",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "drop": {
+                    "description": "Removed capabilities",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "description": "Capability represent POSIX capabilities type",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              },
+              "containerMatchString": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "customAgentConfig": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "customAgentConfigSource": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "required": [
+                    "configMapName"
+                  ],
+                  "properties": {
+                    "configMapName": {
+                      "type": "string"
+                    },
+                    "subDir": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              },
+              "env": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "imageInfo": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "agentMountPath",
+                  "image",
+                  "imagePullPolicy"
+                ],
+                "properties": {
+                  "agentMountPath": {
+                    "type": "string"
+                  },
+                  "alpineInitContainerImage": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "image": {
+                    "type": "string"
+                  },
+                  "imagePullPolicy": {
+                    "type": "string"
+                  }
+                }
+              },
+              "instrumentContainer": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "labelMatch": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "language": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "matchString": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "namespaceRegex": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "netvizInfo": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "bciEnabled": {
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "port": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "nodeName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "privileged": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "procMount": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "readOnlyRootFilesystem": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "runAsGroup": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "int64"
+              },
+              "runAsNonRoot": {
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "runAsUser": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "int64"
+              },
+              "seLinuxOptions": {
+                "description": "SELinuxOptions are the labels to be applied to the container",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "level": {
+                    "description": "Level is SELinux level label that applies to the container.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "role": {
+                    "description": "Role is a SELinux role label that applies to the container.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "description": "Type is a SELinux type label that applies to the container.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "user": {
+                    "description": "User is a SELinux user label that applies to the container.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "seccompProfile": {
+                "description": "SeccompProfile defines a pod/container's seccomp profile settings. Only one profile source may be set.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "localhostProfile": {
+                    "description": "localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is \"Localhost\".",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "description": "type indicates which kind of seccomp profile will be applied. Valid options are: \n Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "tierName": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tierNameLabel": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "windowsOptions": {
+                "description": "WindowsSecurityContextOptions contain Windows-specific options and credentials.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "gmsaCredentialSpec": {
+                    "description": "GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "gmsaCredentialSpecName": {
+                    "description": "GMSACredentialSpecName is the name of the GMSA credential spec to use.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "hostProcess": {
+                    "description": "HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "runAsUserName": {
+                    "description": "The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "jDKMountName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "jDKMountPath": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "jobSchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "labels": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "logFileBackups": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "logFileSizeMb": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "logLevel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "logLines": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "logSchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "maxPodLogsTailLinesCount": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "maxPodsToRegisterCount": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "memoryThresholdForRestart": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "metadataServerPort": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "metadataSyncInterval": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "metricUploadRetryCount": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "metricUploadRetryIntervalMilliSeconds": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "metricsSyncInterval": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "netVizPort": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "netvizInfo": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "bciEnabled": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "port": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          }
+        },
+        "nodeNamePrefix": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nodeSchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nodeSelector": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "nodesToMonitor": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "nodesToMonitorExclude": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "nsSchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nsToExcludeRegex": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nsToInstrument": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "nsToInstrumentExclude": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "nsToInstrumentRegex": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nsToMonitor": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "nsToMonitorExclude": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "nsToMonitorRegex": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "numberOfTaskWorkers": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "overconsumptionThreshold": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "podBatchSize": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "podEventNumber": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "podFilter": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "allowlistedLabels": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "allowlistedNames": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "blocklistedLabels": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "blocklistedNames": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "podSchemaName": {
+          "description": "snapshot schemas",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pprofEnabled": {
+          "description": "pprof properties",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "pprofPort": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "priorityClassName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "proxyPass": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "proxyUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "proxyUser": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rSSchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resources": {
+          "description": "ResourceRequirements describes the compute resource requirements.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "limits": {
+              "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": {
+                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                "x-kubernetes-int-or-string": true
+              }
+            },
+            "requests": {
+              "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": {
+                "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+                "x-kubernetes-int-or-string": true
+              }
+            }
+          }
+        },
+        "resourcesToInstrument": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "rqSchemaName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "runAsGroup": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "runAsUser": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "serviceAccountName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "snapshotSyncInterval": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "stdoutLogging": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "systemSSLCert": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tierNameLabel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tierNameStrategy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tolerations": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "effect": {
+                "description": "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "key": {
+                "description": "Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "operator": {
+                "description": "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tolerationSeconds": {
+                "description": "TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.",
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "int64"
+              },
+              "value": {
+                "description": "Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "uniqueHostID": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "status": {
+      "description": "ClusteragentStatus defines the observed state of Clusteragent",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "lastUpdateTime",
+        "state"
+      ],
+      "properties": {
+        "lastUpdateTime": {
+          "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "object",
+          "required": [
+            "logLevel",
+            "logLines",
+            "metricsSyncInterval",
+            "snapshotSyncInterval"
+          ],
+          "properties": {
+            "analyticsAgentImage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "appDDotNetAttachImage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "appDJavaAttachImage": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "biqService": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "defaultInstrumentationTech": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "instrumentMatchString": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "instrumentRule": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "agentEnvVar": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "appDAppLabel": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "appDTierLabel": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "appNameLiteral": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "biQ": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "containerName": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "matchString": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "method": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "namespaces": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "tech": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "uniqueHostID": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "version": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            },
+            "instrumentationMethod": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "logLevel": {
+              "type": "string"
+            },
+            "logLines": {
+              "type": "integer"
+            },
+            "metricsSyncInterval": {
+              "type": "integer"
+            },
+            "nodesToMonitor": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "nodesToMonitorExclude": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "nsToInstrument": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "nsToInstrumentExclude": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "nsToMonitor": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "nsToMonitorExclude": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "snapshotSyncInterval": {
+              "type": "integer"
+            },
+            "version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "cluster.appdynamics.com",
+      "kind": "Clusteragent",
+      "version": "v1alpha1"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

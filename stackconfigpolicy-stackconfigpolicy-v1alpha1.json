@@ -1,0 +1,402 @@
+{
+  "description": "StackConfigPolicy represents a StackConfigPolicy resource in a Kubernetes cluster.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "stackconfigpolicy.k8s.elastic.co/v1alpha1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "StackConfigPolicy"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "elasticsearch": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "clusterSettings": {
+              "description": "ClusterSettings holds the Elasticsearch cluster settings (/_cluster/settings)",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "config": {
+              "description": "Config holds the settings that go into elasticsearch.yml.",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "indexLifecyclePolicies": {
+              "description": "IndexLifecyclePolicies holds the Index Lifecycle policies settings (/_ilm/policy)",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "indexTemplates": {
+              "description": "IndexTemplates holds the Index and Component Templates settings",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "ingestPipelines": {
+              "description": "IngestPipelines holds the Ingest Pipelines settings (/_ingest/pipeline)",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "secretMounts": {
+              "description": "SecretMounts are additional Secrets that need to be mounted into the Elasticsearch pods.",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "secureSettings": {
+              "description": "SecureSettings are additional Secrets that contain data to be configured to Elasticsearch's keystore.",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "securityRoleMappings": {
+              "description": "SecurityRoleMappings holds the Role Mappings settings (/_security/role_mapping)",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "snapshotLifecyclePolicies": {
+              "description": "SnapshotLifecyclePolicies holds the Snapshot Lifecycle Policies settings (/_slm/policy)",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "snapshotRepositories": {
+              "description": "SnapshotRepositories holds the Snapshot Repositories settings (/_snapshot)",
+              "x-kubernetes-preserve-unknown-fields": true
+            }
+          }
+        },
+        "kibana": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "config": {
+              "description": "Config holds the settings that go into kibana.yml.",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "secureSettings": {
+              "description": "SecureSettings are additional Secrets that contain data to be configured to Kibana's keystore.",
+              "x-kubernetes-preserve-unknown-fields": true
+            }
+          }
+        },
+        "resourceSelector": {
+          "description": "A label selector is a label query over a set of resources. The result of matchLabels and\nmatchExpressions are ANDed. An empty label selector matches all objects. A null\nlabel selector matches no objects.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "matchExpressions": {
+              "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "key",
+                  "operator"
+                ],
+                "properties": {
+                  "key": {
+                    "description": "key is the label key that the selector applies to.",
+                    "type": "string"
+                  },
+                  "operator": {
+                    "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                    "type": "string"
+                  },
+                  "values": {
+                    "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "matchLabels": {
+              "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "x-kubernetes-map-type": "atomic"
+        },
+        "secureSettings": {
+          "description": "Deprecated: SecureSettings only applies to Elasticsearch and is deprecated. It must be set per application instead.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "SecretSource defines a data source based on a Kubernetes Secret.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "secretName"
+            ],
+            "properties": {
+              "entries": {
+                "description": "Entries define how to project each key-value pair in the secret to filesystem paths.\nIf not defined, all keys will be projected to similarly named paths in the filesystem.\nIf defined, only the specified keys will be projected to the corresponding paths.",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "KeyToPath defines how to map a key in a Secret object to a filesystem path.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "required": [
+                    "key"
+                  ],
+                  "properties": {
+                    "key": {
+                      "description": "Key is the key contained in the secret.",
+                      "type": "string"
+                    },
+                    "path": {
+                      "description": "Path is the relative file path to map the key to.\nPath must not be an absolute file path and must not contain any \"..\" components.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              },
+              "secretName": {
+                "description": "SecretName is the name of the secret.",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "details": {
+          "description": "Details holds the status details for each resource to be configured.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "description": "ResourcePolicyStatus models the status of the policy for one resource to be configured.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "currentVersion": {
+                  "description": "CurrentVersion denotes the current version of filesettings applied to the Elasticsearch cluster\nThis field does not apply to Kibana resources",
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "format": "int64"
+                },
+                "error": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "version": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "format": "int64"
+                    }
+                  }
+                },
+                "expectedVersion": {
+                  "description": "ExpectedVersion denotes the expected version of filesettings that should be applied to the Elasticsearch cluster\nThis field does not apply to Kibana resources",
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "format": "int64"
+                },
+                "phase": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "errors": {
+          "description": "Errors is the number of resources which have an incorrect configuration",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the most recent generation observed for this StackConfigPolicy.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "phase": {
+          "description": "Phase is the phase of the StackConfigPolicy.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ready": {
+          "description": "Ready is the number of resources successfully configured.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "readyCount": {
+          "description": "ReadyCount is a human representation of the number of resources successfully configured.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resources": {
+          "description": "Resources is the number of resources to be configured.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "resourcesStatuses": {
+          "description": "ResourcesStatuses holds the status for each resource to be configured.\nDeprecated: Details is used to store the status of resources from ECK 2.11",
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "description": "ResourcePolicyStatus models the status of the policy for one resource to be configured.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "currentVersion": {
+                "description": "CurrentVersion denotes the current version of filesettings applied to the Elasticsearch cluster\nThis field does not apply to Kibana resources",
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "int64"
+              },
+              "error": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "message": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "version": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "format": "int64"
+                  }
+                }
+              },
+              "expectedVersion": {
+                "description": "ExpectedVersion denotes the expected version of filesettings that should be applied to the Elasticsearch cluster\nThis field does not apply to Kibana resources",
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "int64"
+              },
+              "phase": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "stackconfigpolicy.k8s.elastic.co",
+      "kind": "StackConfigPolicy",
+      "version": "v1alpha1"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

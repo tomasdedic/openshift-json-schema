@@ -1,0 +1,248 @@
+{
+  "description": "ProjectOperatorConfig is the Schema for the projectoperatorconfigs API",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "ops.csas.cz/v1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "ProjectOperatorConfig"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "ProjectOperatorConfigSpec defines the desired state of ProjectOperatorConfig",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "appProjectRolePolicies",
+        "applicationSource",
+        "applicationSourcePath",
+        "applicationSourceTargetRevision",
+        "argoRoleBindings",
+        "groups",
+        "sourceRepos"
+      ],
+      "properties": {
+        "appProjectRolePolicies": {
+          "description": "ArgoCD RBAC policies - role and allowed actions",
+          "type": "array",
+          "items": {
+            "description": "Defines ArgoCD RBAC policy",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "actions",
+              "role"
+            ],
+            "properties": {
+              "actions": {
+                "description": "Allowed actions",
+                "type": "array",
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "role": {
+                "description": "Name of the role",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "applicationSource": {
+          "description": "Templated main application repository for given project. \n NOTE {} serves as project name placeholder",
+          "type": "string"
+        },
+        "applicationSourcePath": {
+          "description": "Application repository path for given project.",
+          "type": "string"
+        },
+        "applicationSourceTargetRevision": {
+          "description": "Templated main application repository revision (branch) \n NOTE {} serves as environment name placeholder",
+          "type": "string"
+        },
+        "argoRoleBindings": {
+          "description": "ArgoCD Server and Controller roles mapping",
+          "type": "object",
+          "required": [
+            "controller",
+            "server"
+          ],
+          "properties": {
+            "controller": {
+              "description": "ArgoCD Application Controller role mapping",
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "server": {
+              "description": "ArgoCD Server role mapping",
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "blacklistedNamespaceResources": {
+          "description": "ArgoCD AppProject blacklistedResources specification (added to hard-coded list)",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying concepts during lookup stages without having partially valid types",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "group",
+              "kind"
+            ],
+            "properties": {
+              "group": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "groups": {
+          "description": "List of groups, including their role mapping per environment type",
+          "type": "array",
+          "items": {
+            "description": "Group RoleBindings for this project",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "name"
+            ],
+            "properties": {
+              "environmentRoleBinding": {
+                "description": "Map of role bindings for this group per environment type",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "name": {
+                "description": "Templated name of the group \n NOTE {} serves as project name placeholder",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "orphanedResources": {
+          "description": "ArgoCD AppProject orphanedResources specification (added to had-coded list)",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "ignore": {
+              "description": "Ignore contains a list of resources that are to be excluded from orphaned resources monitoring",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "description": "OrphanedResourceKey is a reference to a resource to be ignored from",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "group": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "kind": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            },
+            "warn": {
+              "description": "Warn indicates if warning condition should be created for apps which have orphaned resources",
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          }
+        },
+        "sourceRepos": {
+          "description": "Templated list of allowed source repositories for Argo \n NOTE {} serves as project name placeholder and * is a wildcard",
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "ops.csas.cz",
+      "kind": "ProjectOperatorConfig",
+      "version": "v1"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

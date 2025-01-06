@@ -1,0 +1,118 @@
+{
+  "description": "A Log File Metric Exporter instance. LogFileMetricExporter is the Schema for the logFileMetricExporters API",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "logging.openshift.io/v1alpha1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "LogFileMetricExporter"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "LogFileMetricExporterSpec defines the desired state of LogFileMetricExporter",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "nodeSelector": {
+          "description": "Define which Nodes the Pods are scheduled on.",
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "resources": {
+          "description": "The resource requirements for the LogFileMetricExporter"
+        },
+        "tolerations": {
+          "description": "Define the tolerations the Pods will accept"
+        }
+      }
+    },
+    "status": {
+      "description": "LogFileMetricExporterStatus defines the observed state of LogFileMetricExporter",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "conditions": {
+          "description": "Conditions of the Log File Metrics Exporter.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Condition represents an observation of an object's state. Conditions are an\nextension mechanism intended to be used when the details of an observation\nare not a priori known or would not apply to all instances of a given Kind.\n\n\nConditions should be added to explicitly convey properties that users and\ncomponents care about rather than requiring those properties to be inferred\nfrom other observations. Once defined, the meaning of a Condition can not be\nchanged arbitrarily - it becomes part of the API, and has the same\nbackwards- and forwards-compatibility concerns of any other part of the API.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "message": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "description": "ConditionReason is intended to be a one-word, CamelCase representation of\nthe category of cause of the current status. It is intended to be used in\nconcise output, such as one-line kubectl get output, and in summarizing\noccurrences of causes.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "description": "ConditionType is the type of the condition and is typically a CamelCased\nword or short phrase.\n\n\nCondition types should indicate state in the \"abnormal-true\" polarity. For\nexample, if the condition indicates when a policy is invalid, the \"is valid\"\ncase is probably the norm, so the condition should be called \"Invalid\".",
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "logging.openshift.io",
+      "kind": "LogFileMetricExporter",
+      "version": "v1alpha1"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}
