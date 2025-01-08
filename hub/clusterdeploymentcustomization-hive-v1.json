@@ -1,0 +1,200 @@
+{
+  "description": "ClusterDeploymentCustomization is the Schema for clusterdeploymentcustomizations API.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "hive.openshift.io/v1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "ClusterDeploymentCustomization"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "ClusterDeploymentCustomizationSpec defines the desired state of ClusterDeploymentCustomization.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "installConfigPatches": {
+          "description": "InstallConfigPatches is a list of patches to be applied to the install-config.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "PatchEntity represent a json patch (RFC 6902) to be applied to the install-config",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "op",
+              "path",
+              "value"
+            ],
+            "properties": {
+              "from": {
+                "description": "From is the json path to copy or move the value from",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "op": {
+                "description": "Op is the operation to perform: add, remove, replace, move, copy, test",
+                "type": "string"
+              },
+              "path": {
+                "description": "Path is the json path to the value to be modified",
+                "type": "string"
+              },
+              "value": {
+                "description": "Value is the value to be used in the operation",
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "ClusterDeploymentCustomizationStatus defines the observed state of ClusterDeploymentCustomization.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "clusterDeploymentRef": {
+          "description": "ClusterDeploymentRef is a reference to the cluster deployment that this customization is applied on.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
+        },
+        "clusterPoolRef": {
+          "description": "ClusterPoolRef is the name of the current cluster pool the CDC used at.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "name": {
+              "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
+        },
+        "conditions": {
+          "description": "Conditions describes the state of the operator's reconciliation functionality.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Condition represents the state of the operator's reconciliation functionality.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastHeartbeatTime": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "lastTransitionTime": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "message": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "description": "ConditionType is the state of the operator's reconciliation functionality.",
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "lastAppliedConfiguration": {
+          "description": "LastAppliedConfiguration contains the last applied patches to the install-config. The information will retain for reference in case the customization is updated.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "hive.openshift.io",
+      "kind": "ClusterDeploymentCustomization",
+      "version": "v1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

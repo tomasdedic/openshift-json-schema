@@ -1,0 +1,59 @@
+{
+  "description": "AWSClusterStaticIdentity is the Schema for the awsclusterstaticidentities API\nIt represents a reference to an AWS access key ID and secret access key, stored in a secret.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "infrastructure.cluster.x-k8s.io/v1beta2"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "AWSClusterStaticIdentity"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "Spec for this AWSClusterStaticIdentity",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "secretRef"
+      ],
+      "properties": {
+        "allowedNamespaces": {
+          "description": "AllowedNamespaces is used to identify which namespaces are allowed to use the identity from.\nNamespaces can be selected either using an array of namespaces or with label selector.\nAn empty allowedNamespaces object indicates that AWSClusters can use this identity from any namespace.\nIf this object is nil, no namespaces will be allowed (default behaviour, if this field is not provided)\nA namespace should be either in the NamespaceList or match with Selector to use the identity."
+        },
+        "secretRef": {
+          "description": "Reference to a secret containing the credentials. The secret should\ncontain the following data keys:\n AccessKeyID: AKIAIOSFODNN7EXAMPLE\n SecretAccessKey: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY\n SessionToken: Optional",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "infrastructure.cluster.x-k8s.io",
+      "kind": "AWSClusterStaticIdentity",
+      "version": "v1beta2"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

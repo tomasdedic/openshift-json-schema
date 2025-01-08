@@ -1,0 +1,139 @@
+{
+  "description": "PolicySet is the schema for the policysets API. A policy set is a logical grouping of policies\nfrom the same namespace. The policy set is bound to a placement resource and applies the\nplacement to all policies within the set. The status reports the overall compliance of the set.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "policy.open-cluster-management.io/v1beta1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "PolicySet"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "PolicySetSpec defines the group of policies to be included in the policy set.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "policies"
+      ],
+      "properties": {
+        "description": {
+          "description": "Description is the description of this policy set.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "policies": {
+          "description": "Policies is a list of policy names that are contained within the policy set.",
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "PolicySetStatus reports the observed status of the policy set resulting from its policies.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "compliant": {
+          "description": "Compliant reports the observed status resulting from the compliance of the policies within.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Compliant",
+            "Pending",
+            "NonCompliant"
+          ]
+        },
+        "placement": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "PolicySetStatusPlacement reports how and what managed cluster placement resources are attached to\nthe policy set.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "placement": {
+                "description": "Placement is the name of the Placement resource, from the cluster.open-cluster-management.io\nAPI group, that is bound to the policy.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "placementBinding": {
+                "description": "PlacementBinding is the name of the PlacementBinding resource, from the\npolicies.open-cluster-management.io API group, that binds the placement resource to the policy\nset.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "placementRule": {
+                "description": "PlacementRule (deprecated) is the name of the PlacementRule resource, from the\napps.open-cluster-management.io API group, that is bound to the policy.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "statusMessage": {
+          "description": "StatusMessge reports the current state while determining the compliance of the policy set.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "policy.open-cluster-management.io",
+      "kind": "PolicySet",
+      "version": "v1beta1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

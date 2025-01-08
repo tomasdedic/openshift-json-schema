@@ -1,0 +1,126 @@
+{
+  "description": "ROSACluster is the Schema for the ROSAClusters API.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "infrastructure.cluster.x-k8s.io/v1beta2"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "ROSACluster"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "ROSAClusterSpec defines the desired state of ROSACluster.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "controlPlaneEndpoint": {
+          "description": "ControlPlaneEndpoint represents the endpoint used to communicate with the control plane.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "host",
+            "port"
+          ],
+          "properties": {
+            "host": {
+              "description": "The hostname on which the API server is serving.",
+              "type": "string"
+            },
+            "port": {
+              "description": "The port on which the API server is serving.",
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "ROSAClusterStatus defines the observed state of ROSACluster.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "failureDomains": {
+          "description": "FailureDomains specifies a list fo available availability zones that can be used",
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "description": "FailureDomainSpec is the Schema for Cluster API failure domains.\nIt allows controllers to understand how many failure domains a cluster can optionally span across.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "attributes": {
+                "description": "Attributes is a free form map of attributes an infrastructure provider might use or require.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "controlPlane": {
+                "description": "ControlPlane determines if this failure domain is suitable for use by control plane machines.",
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "ready": {
+          "description": "Ready is when the ROSAControlPlane has a API server URL.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "infrastructure.cluster.x-k8s.io",
+      "kind": "ROSACluster",
+      "version": "v1beta2"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

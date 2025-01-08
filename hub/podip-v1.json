@@ -1,0 +1,15 @@
+{
+  "description": "PodIP represents a single IP address allocated to the pod.",
+  "type": "object",
+  "properties": {
+    "ip": {
+      "description": "IP is the IP address assigned to the pod",
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

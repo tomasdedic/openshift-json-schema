@@ -1,0 +1,489 @@
+{
+  "description": "LVMCluster is the Schema for the lvmclusters API",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "lvm.topolvm.io/v1alpha1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "LVMCluster"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "LVMClusterSpec defines the desired state of LVMCluster",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "storage": {
+          "description": "Storage describes the deviceClass configuration for local storage devices",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "deviceClasses": {
+              "description": "DeviceClasses are a rules that assign local storage devices to volumegroups that are used for creating lvm based PVs",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "thinPoolConfig"
+                ],
+                "properties": {
+                  "default": {
+                    "description": "Default is a flag to indicate whether the device-class is the default",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "deviceSelector": {
+                    "description": "DeviceSelector is a set of rules that should match for a device to be included in the LVMCluster",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "optionalPaths": {
+                        "description": "A list of device paths which could be chosen for creating Volume Group. For example \"/dev/disk/by-path/pci-0000:04:00.0-nvme-1\" We discourage using the device names as they can change over node restarts.",
+                        "type": [
+                          "array",
+                          "null"
+                        ],
+                        "items": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "paths": {
+                        "description": "A list of device paths which would be chosen for creating Volume Group. For example \"/dev/disk/by-path/pci-0000:04:00.0-nvme-1\" We discourage using the device names as they can change over node restarts.",
+                        "type": [
+                          "array",
+                          "null"
+                        ],
+                        "items": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "fstype": {
+                    "description": "FilesystemType sets the filesystem the device should use",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "enum": [
+                      "xfs",
+                      "ext4",
+                      ""
+                    ]
+                  },
+                  "name": {
+                    "description": "Name of the class, the VG and possibly the storageclass. Validations to confirm that this field can be used as metadata.name field in storageclass ref: https://github.com/kubernetes/apimachinery/blob/de7147/pkg/util/validation/validation.go#L209",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "maxLength": 245,
+                    "minLength": 1,
+                    "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+                  },
+                  "nodeSelector": {
+                    "description": "NodeSelector chooses nodes on which to create the deviceclass",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "nodeSelectorTerms"
+                    ],
+                    "properties": {
+                      "nodeSelectorTerms": {
+                        "description": "Required. A list of node selector terms. The terms are ORed.",
+                        "type": "array",
+                        "items": {
+                          "description": "A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "properties": {
+                            "matchExpressions": {
+                              "description": "A list of node selector requirements by node's labels.",
+                              "type": [
+                                "array",
+                                "null"
+                              ],
+                              "items": {
+                                "description": "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "required": [
+                                  "key",
+                                  "operator"
+                                ],
+                                "properties": {
+                                  "key": {
+                                    "description": "The label key that the selector applies to.",
+                                    "type": "string"
+                                  },
+                                  "operator": {
+                                    "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                                    "type": "string"
+                                  },
+                                  "values": {
+                                    "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.",
+                                    "type": [
+                                      "array",
+                                      "null"
+                                    ],
+                                    "items": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "matchFields": {
+                              "description": "A list of node selector requirements by node's fields.",
+                              "type": [
+                                "array",
+                                "null"
+                              ],
+                              "items": {
+                                "description": "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                                "type": [
+                                  "object",
+                                  "null"
+                                ],
+                                "required": [
+                                  "key",
+                                  "operator"
+                                ],
+                                "properties": {
+                                  "key": {
+                                    "description": "The label key that the selector applies to.",
+                                    "type": "string"
+                                  },
+                                  "operator": {
+                                    "description": "Represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.",
+                                    "type": "string"
+                                  },
+                                  "values": {
+                                    "description": "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.",
+                                    "type": [
+                                      "array",
+                                      "null"
+                                    ],
+                                    "items": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "thinPoolConfig": {
+                    "description": "ThinPoolConfig contains configurations for the thin-pool",
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "overprovisionRatio"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the thin pool to be created",
+                        "type": "string"
+                      },
+                      "overprovisionRatio": {
+                        "description": "OverProvisionRatio is the factor by which additional storage can be provisioned compared to the available storage in the thin pool.",
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "sizePercent": {
+                        "description": "SizePercent specifies the percentage of space in the LVM volume group for creating the thin pool. If the size configuration is 100, the whole disk will be used. By default, 90% of the disk is used for the thin pool to allow for data or metadata expansion later on.",
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "maximum": 100,
+                        "minimum": 10
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "tolerations": {
+          "description": "Tolerations to apply to nodes to act on",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "effect": {
+                "description": "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "key": {
+                "description": "Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "operator": {
+                "description": "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "tolerationSeconds": {
+                "description": "TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.",
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "int64"
+              },
+              "value": {
+                "description": "Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "LVMClusterStatus defines the observed state of LVMCluster",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "conditions": {
+          "description": "Conditions describes the state of the resource.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Condition represents the state of the operator's reconciliation functionality.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastHeartbeatTime": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "lastTransitionTime": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "message": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "description": "ConditionType is the state of the operator's reconciliation functionality.",
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "deviceClassStatuses": {
+          "description": "DeviceClassStatuses describes the status of all deviceClasses",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "DeviceClassStatus defines the observed status of the deviceclass across all nodes",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "name": {
+                "description": "Name is the name of the deviceclass",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "nodeStatus": {
+                "description": "NodeStatus tells if the deviceclass was created on the node",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "NodeStatus defines the observed state of the deviceclass on the node",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "devices": {
+                      "description": "Devices is the list of devices used by the deviceclass",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "node": {
+                      "description": "Node is the name of the node",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "reason": {
+                      "description": "Reason provides more detail on the VG creation status",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "status": {
+                      "description": "Status is the status of the VG on the node",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "ready": {
+          "description": "Ready describes if the LVMCluster is ready.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "state": {
+          "description": "State describes the LVMCluster state.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "lvm.topolvm.io",
+      "kind": "LVMCluster",
+      "version": "v1alpha1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

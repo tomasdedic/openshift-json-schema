@@ -1,0 +1,147 @@
+{
+  "description": "SubscriptionStatus provides detailed status for all the resources that are deployed by the application in a cluster.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "apps.open-cluster-management.io/v1alpha1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "SubscriptionStatus"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "statuses": {
+      "description": "SubscriptionClusterStatusMap contains the status of deployment packages in a cluster.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "packages": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "SubscriptionUnitStatus provides the status of a single deployment package.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "lastUpdateTime"
+            ],
+            "properties": {
+              "apiVersion": {
+                "description": "API version of the deployment package.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "kind": {
+                "description": "Kind of the deployment package.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "lastUpdateTime": {
+                "description": "Timestamp of when the deployment package was last updated.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "Informational message or error output from the deployment of the package.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "description": "Name of the deployment package.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "namespace": {
+                "description": "Namespace where the deployment package is deployed.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "phase": {
+                "description": "Phase of the deployment package (unknown/deployed/failed/propagationFailed).",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "subscription": {
+          "description": "SubscriptionOverallStatus provides the overall status of the subscription. It is computed using the status of\nall the deployment packages in the subscription.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "lastUpdateTime": {
+              "description": "Timestamp of when the overall subscription status was last updated.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "message": {
+              "description": "Informational message or error output from the overall subscription status.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "phase": {
+              "description": "Phase of the overall subscription status (unknown/deployed/failed).",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "apps.open-cluster-management.io",
+      "kind": "SubscriptionStatus",
+      "version": "v1alpha1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

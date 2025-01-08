@@ -1,0 +1,348 @@
+{
+  "description": "Backup is a Velero resource that represents the capture of Kubernetes cluster state at a point in time (API objects and associated volume state).",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "velero.io/v1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Backup"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "BackupSpec defines the specification for a Velero backup.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "csiSnapshotTimeout": {
+          "description": "CSISnapshotTimeout specifies the time used to wait for CSI VolumeSnapshot status turns to ReadyToUse during creation, before returning error as timeout. The default value is 10 minute.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "datamover": {
+          "description": "DataMover specifies the data mover to be used by the backup. If DataMover is \"\" or \"velero\", the built-in data mover will be used.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "defaultVolumesToFsBackup": {
+          "description": "DefaultVolumesToFsBackup specifies whether pod volume file system backup should be used for all volumes by default."
+        },
+        "defaultVolumesToRestic": {
+          "description": "DefaultVolumesToRestic specifies whether restic should be used to take a backup of all pod volumes by default. \n Deprecated: this field is no longer used and will be removed entirely in future. Use DefaultVolumesToFsBackup instead."
+        },
+        "excludedClusterScopedResources": {
+          "description": "ExcludedClusterScopedResources is a slice of cluster-scoped resource type names to exclude from the backup. If set to \"*\", all cluster-scoped resource types are excluded. The default value is empty."
+        },
+        "excludedNamespaceScopedResources": {
+          "description": "ExcludedNamespaceScopedResources is a slice of namespace-scoped resource type names to exclude from the backup. If set to \"*\", all namespace-scoped resource types are excluded. The default value is empty."
+        },
+        "excludedNamespaces": {
+          "description": "ExcludedNamespaces contains a list of namespaces that are not included in the backup."
+        },
+        "excludedResources": {
+          "description": "ExcludedResources is a slice of resource names that are not included in the backup."
+        },
+        "hooks": {
+          "description": "Hooks represent custom behaviors that should be executed at different phases of the backup.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "resources": {
+              "description": "Resources are hooks that should be executed when backing up individual instances of a resource."
+            }
+          },
+          "additionalProperties": false
+        },
+        "includeClusterResources": {
+          "description": "IncludeClusterResources specifies whether cluster-scoped resources should be included for consideration in the backup."
+        },
+        "includedClusterScopedResources": {
+          "description": "IncludedClusterScopedResources is a slice of cluster-scoped resource type names to include in the backup. If set to \"*\", all cluster-scoped resource types are included. The default value is empty, which means only related cluster-scoped resources are included."
+        },
+        "includedNamespaceScopedResources": {
+          "description": "IncludedNamespaceScopedResources is a slice of namespace-scoped resource type names to include in the backup. The default value is \"*\"."
+        },
+        "includedNamespaces": {
+          "description": "IncludedNamespaces is a slice of namespace names to include objects from. If empty, all namespaces are included."
+        },
+        "includedResources": {
+          "description": "IncludedResources is a slice of resource names to include in the backup. If empty, all resources are included."
+        },
+        "itemOperationTimeout": {
+          "description": "ItemOperationTimeout specifies the time used to wait for asynchronous BackupItemAction operations The default value is 1 hour.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "labelSelector": {
+          "description": "LabelSelector is a metav1.LabelSelector to filter with when adding individual objects to the backup. If empty or nil, all objects are included. Optional.",
+          "x-kubernetes-map-type": "atomic"
+        },
+        "metadata": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "labels": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "orLabelSelectors": {
+          "description": "OrLabelSelectors is list of metav1.LabelSelector to filter with when adding individual objects to the backup. If multiple provided they will be joined by the OR operator. LabelSelector as well as OrLabelSelectors cannot co-exist in backup request, only one of them can be used."
+        },
+        "orderedResources": {
+          "description": "OrderedResources specifies the backup order of resources of specific Kind. The map key is the resource name and value is a list of object names separated by commas. Each resource name has format \"namespace/objectname\".  For cluster resources, simply use \"objectname\".",
+          "additionalProperties": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "resourcePolicy": {
+          "description": "ResourcePolicy specifies the referenced resource policies that backup should follow",
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "kind",
+            "name"
+          ],
+          "properties": {
+            "apiGroup": {
+              "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "kind": {
+              "description": "Kind is the type of resource being referenced",
+              "type": "string"
+            },
+            "name": {
+              "description": "Name is the name of resource being referenced",
+              "type": "string"
+            }
+          },
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
+        },
+        "snapshotMoveData": {
+          "description": "SnapshotMoveData specifies whether snapshot data should be moved"
+        },
+        "snapshotVolumes": {
+          "description": "SnapshotVolumes specifies whether to take snapshots of any PV's referenced in the set of objects included in the Backup."
+        },
+        "storageLocation": {
+          "description": "StorageLocation is a string containing the name of a BackupStorageLocation where the backup should be stored.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ttl": {
+          "description": "TTL is a time.Duration-parseable string describing how long the Backup should be retained for.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "volumeSnapshotLocations": {
+          "description": "VolumeSnapshotLocations is a list containing names of VolumeSnapshotLocations associated with this backup.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "BackupStatus captures the current status of a Velero backup.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "backupItemOperationsAttempted": {
+          "description": "BackupItemOperationsAttempted is the total number of attempted async BackupItemAction operations for this backup.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "backupItemOperationsCompleted": {
+          "description": "BackupItemOperationsCompleted is the total number of successfully completed async BackupItemAction operations for this backup.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "backupItemOperationsFailed": {
+          "description": "BackupItemOperationsFailed is the total number of async BackupItemAction operations for this backup which ended with an error.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "completionTimestamp": {
+          "description": "CompletionTimestamp records the time a backup was completed. Completion time is recorded even on failed backups. Completion time is recorded before uploading the backup object. The server's time is used for CompletionTimestamps",
+          "format": "date-time"
+        },
+        "csiVolumeSnapshotsAttempted": {
+          "description": "CSIVolumeSnapshotsAttempted is the total number of attempted CSI VolumeSnapshots for this backup.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "csiVolumeSnapshotsCompleted": {
+          "description": "CSIVolumeSnapshotsCompleted is the total number of successfully completed CSI VolumeSnapshots for this backup.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "errors": {
+          "description": "Errors is a count of all error messages that were generated during execution of the backup.  The actual errors are in the backup's log file in object storage.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "expiration": {
+          "description": "Expiration is when this Backup is eligible for garbage-collection.",
+          "format": "date-time"
+        },
+        "failureReason": {
+          "description": "FailureReason is an error that caused the entire backup to fail.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "formatVersion": {
+          "description": "FormatVersion is the backup format version, including major, minor, and patch version.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phase": {
+          "description": "Phase is the current state of the Backup.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "New",
+            "FailedValidation",
+            "InProgress",
+            "WaitingForPluginOperations",
+            "WaitingForPluginOperationsPartiallyFailed",
+            "Finalizing",
+            "FinalizingPartiallyFailed",
+            "Completed",
+            "PartiallyFailed",
+            "Failed",
+            "Deleting"
+          ]
+        },
+        "progress": {
+          "description": "Progress contains information about the backup's execution progress. Note that this information is best-effort only -- if Velero fails to update it during a backup for any reason, it may be inaccurate/stale."
+        },
+        "startTimestamp": {
+          "description": "StartTimestamp records the time a backup was started. Separate from CreationTimestamp, since that value changes on restores. The server's time is used for StartTimestamps",
+          "format": "date-time"
+        },
+        "validationErrors": {
+          "description": "ValidationErrors is a slice of all validation errors (if applicable)."
+        },
+        "version": {
+          "description": "Version is the backup format major version. Deprecated: Please see FormatVersion",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "volumeSnapshotsAttempted": {
+          "description": "VolumeSnapshotsAttempted is the total number of attempted volume snapshots for this backup.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "volumeSnapshotsCompleted": {
+          "description": "VolumeSnapshotsCompleted is the total number of successfully completed volume snapshots for this backup.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "warnings": {
+          "description": "Warnings is a count of all warning messages that were generated during execution of the backup. The actual warnings are in the backup's log file in object storage.",
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "velero.io",
+      "kind": "Backup",
+      "version": "v1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -1,0 +1,938 @@
+{
+  "description": "AstraControlCenter is the Schema for the astracontrolcenters API",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "astra.netapp.io/v1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "AstraControlCenter"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "AstraControlCenterSpec defines parameters the administrator can use to adapt ACC to their datacenter environment.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "accountName",
+        "astraAddress",
+        "astraVersion",
+        "autoSupport",
+        "email"
+      ],
+      "properties": {
+        "accountName": {
+          "description": "Astra Control Center account name",
+          "type": "string"
+        },
+        "additionalValues": {
+          "description": "Additional values to apply to the AstraControlCenter deployment.",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "astraAddress": {
+          "description": "AstraAddress defines how Astra will be found in the data center.  This IP address and/or DNS A record must be created prior to provisioning Astra Control Center. Example - \"astra.example.com\" The A record and its IP address must be allocated prior to provisioning Astra Control Center",
+          "type": "string"
+        },
+        "astraKubeConfigSecret": {
+          "description": "AstraKubeConfigSecret if present and secret exists operator will attempt to add KubeConfig to Managed Clusters.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "astraResourcesScaler": {
+          "description": "Scaling options for AstraControlCenter Resource limits.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Off",
+            "Default"
+          ]
+        },
+        "astraVersion": {
+          "description": "Version of AstraControlCenter to deploy.  You are provided a Helm repository with a corresponding version. Example - 1.5.2, 1.4.2-patch",
+          "type": "string",
+          "pattern": "(\\d*\\.\\d*\\.\\d*(-.*)?)|\\d+-.*"
+        },
+        "autoSupport": {
+          "description": "AutoSupport indicates willingness to participate in NetApp's proactive support application, NetApp Active IQ. An internet connection is required (port 442) and all support data is anonymized. The default election is true and indicates no support data will be sent to NetApp. An empty or blank election is the same as a default election. Air gapped installations should enter false.",
+          "type": "object",
+          "required": [
+            "enrolled"
+          ],
+          "properties": {
+            "enrolled": {
+              "description": "Enrolled determines if you want to send anonymous data to NetApp for support purposes.",
+              "type": "boolean"
+            },
+            "url": {
+              "description": "URL determines where the anonymous data will be sent",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "crds": {
+          "description": "Options for how ACC should handle CRDs.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "externalCertManager": {
+              "description": "By default, ACC will install the required cert-manager CRDs. Note, CRDs are a cluster wide object and installing them may have an impact on other parts of the cluster. You can use this flag to signal to ACC that these CRDs will be installed and managed by the cluster administrator outside of ACC.",
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "externalTraefik": {
+              "description": "By default, ACC will install the required Traefik CRDs. Note, CRDs are a cluster wide object and installing them may have an impact on other parts of the cluster. You can use this flag to signal to ACC that these CRDs will be installed and managed by the cluster administrator outside of ACC.",
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "shouldUpgrade": {
+              "description": "Determines if CRDs should be upgraded when ACC is upgraded. If true, all external CRDs will be upgraded If false, they will be ignored during ACC upgrade process.",
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "email": {
+          "description": "EmailAddress will be notified by Astra as events warrant.",
+          "type": "string"
+        },
+        "firstName": {
+          "description": "The first name of the SRE supporting Astra.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "imageRegistry": {
+          "description": "The container image registry that is hosting the Astra application images, ACC Operator and ACC Helm Repository.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "name": {
+              "description": "The name of the image registry.  For example \"example.registry/astra\".  Do not prefix with protocol.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "secret": {
+              "description": "The name of the Kubernetes secret that will authenticate with the image registry.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "ingressType": {
+          "description": "IngressType The type of ingress to that ACC should be configured for",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Generic",
+            "AccTraefik"
+          ]
+        },
+        "lastName": {
+          "description": "The last name of the SRE supporting Astra.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mongoPort": {
+          "description": "MongoPort is used to override the port used for communication with MongoDB",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "mongoResources": {
+          "description": "The resource limit for mongodb",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "memory": {
+              "description": "The memory limit for mongoDB",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "scaleSize": {
+          "description": "ScaleSize The size of replicas for ACC services",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Small",
+            "Medium"
+          ]
+        },
+        "storageClass": {
+          "description": "The storage class to be used for PVCs. If not set, default storage class will be used.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "volumeReclaimPolicy": {
+          "description": "Reclaim policy to be set for persistent volumes",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "AstraControlCenterStatus defines the observed state of AstraControlCenter",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "accConditionHistory": {
+          "description": "AccConditionHistory contains the history of the deployment state of the Astra Control Center Instance.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "items": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "astraVersion": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "condition": {
+                    "description": "Condition contains details for one aspect of the current state of this API Resource. --- This struct is intended for direct use as an array at the field path .status.conditions.  For example, \n \ttype FooStatus struct{ \t    // Represents the observations of a foo's current state. \t    // Known .status.conditions.type are: \"Available\", \"Progressing\", and \"Degraded\" \t    // +patchMergeKey=type \t    // +patchStrategy=merge \t    // +listType=map \t    // +listMapKey=type \t    Conditions []metav1.Condition `json:\"conditions,omitempty\" patchStrategy:\"merge\" patchMergeKey:\"type\" protobuf:\"bytes,1,rep,name=conditions\"` \n \t    // other fields \t}",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "lastTransitionTime",
+                      "message",
+                      "reason",
+                      "status",
+                      "type"
+                    ],
+                    "properties": {
+                      "lastTransitionTime": {
+                        "description": "lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "message": {
+                        "description": "message is a human readable message indicating details about the transition. This may be an empty string.",
+                        "type": "string",
+                        "maxLength": 32768
+                      },
+                      "observedGeneration": {
+                        "description": "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.",
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "format": "int64",
+                        "minimum": 0
+                      },
+                      "reason": {
+                        "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.",
+                        "type": "string",
+                        "maxLength": 1024,
+                        "minLength": 1,
+                        "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$"
+                      },
+                      "status": {
+                        "description": "status of the condition, one of True, False, Unknown.",
+                        "type": "string",
+                        "enum": [
+                          "True",
+                          "False",
+                          "Unknown"
+                        ]
+                      },
+                      "type": {
+                        "description": "type of condition in CamelCase or in foo.example.com/CamelCase. --- Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important. The regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)",
+                        "type": "string",
+                        "maxLength": 316,
+                        "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "generation": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "format": "int64"
+                  },
+                  "observedGeneration": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ],
+                    "format": "int64"
+                  },
+                  "observedSpec": {
+                    "description": "AstraControlCenterSpec defines parameters the administrator can use to adapt ACC to their datacenter environment.",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "accountName",
+                      "astraAddress",
+                      "astraVersion",
+                      "autoSupport",
+                      "email"
+                    ],
+                    "properties": {
+                      "accountName": {
+                        "description": "Astra Control Center account name",
+                        "type": "string"
+                      },
+                      "additionalValues": {
+                        "description": "Additional values to apply to the AstraControlCenter deployment.",
+                        "x-kubernetes-preserve-unknown-fields": true
+                      },
+                      "astraAddress": {
+                        "description": "AstraAddress defines how Astra will be found in the data center.  This IP address and/or DNS A record must be created prior to provisioning Astra Control Center. Example - \"astra.example.com\" The A record and its IP address must be allocated prior to provisioning Astra Control Center",
+                        "type": "string"
+                      },
+                      "astraKubeConfigSecret": {
+                        "description": "AstraKubeConfigSecret if present and secret exists operator will attempt to add KubeConfig to Managed Clusters.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "astraResourcesScaler": {
+                        "description": "Scaling options for AstraControlCenter Resource limits.",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "enum": [
+                          "Off",
+                          "Default"
+                        ]
+                      },
+                      "astraVersion": {
+                        "description": "Version of AstraControlCenter to deploy.  You are provided a Helm repository with a corresponding version. Example - 1.5.2, 1.4.2-patch",
+                        "type": "string",
+                        "pattern": "(\\d*\\.\\d*\\.\\d*(-.*)?)|\\d+-.*"
+                      },
+                      "autoSupport": {
+                        "description": "AutoSupport indicates willingness to participate in NetApp's proactive support application, NetApp Active IQ. An internet connection is required (port 442) and all support data is anonymized. The default election is true and indicates no support data will be sent to NetApp. An empty or blank election is the same as a default election. Air gapped installations should enter false.",
+                        "type": "object",
+                        "required": [
+                          "enrolled"
+                        ],
+                        "properties": {
+                          "enrolled": {
+                            "description": "Enrolled determines if you want to send anonymous data to NetApp for support purposes.",
+                            "type": "boolean"
+                          },
+                          "url": {
+                            "description": "URL determines where the anonymous data will be sent",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "crds": {
+                        "description": "Options for how ACC should handle CRDs.Options for how ACC should handle CRDs.",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "properties": {
+                          "externalCertManager": {
+                            "description": "By default, ACC will install the required cert-manager CRDs. Note, CRDs are a cluster wide object and installing them may have an impact on other parts of the cluster. You can use this flag to signal to ACC that these CRDs will be installed and managed by the cluster administrator outside of ACC.",
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
+                          },
+                          "externalTraefik": {
+                            "description": "By default, ACC will install the required Traefik CRDs. Note, CRDs are a cluster wide object and installing them may have an impact on other parts of the cluster. You can use this flag to signal to ACC that these CRDs will be installed and managed by the cluster administrator outside of ACC.",
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
+                          },
+                          "shouldUpgrade": {
+                            "description": "Determines if CRDs should be upgraded when ACC is upgraded. If true, all external CRDs will be upgraded If false, they will be ignored during ACC upgrade process.",
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "email": {
+                        "description": "EmailAddress will be notified by Astra as events warrant.",
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "description": "The first name of the SRE supporting Astra.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "imageRegistry": {
+                        "description": "The container image registry that is hosting the Astra application images, ACC Operator and ACC Helm Repository.",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "The name of the image registry.  For example \"example.registry/astra\".  Do not prefix with protocol.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "secret": {
+                            "description": "The name of the Kubernetes secret that will authenticate with the image registry.",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "ingressType": {
+                        "description": "IngressType The type of ingress to that ACC should be configured for",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "enum": [
+                          "Generic",
+                          "AccTraefik"
+                        ]
+                      },
+                      "lastName": {
+                        "description": "The last name of the SRE supporting Astra.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "mongoPort": {
+                        "description": "MongoPort is used to override the port used for communication with MongoDB",
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "format": "int64"
+                      },
+                      "mongoResources": {
+                        "description": "The resource limit for mongodb",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "properties": {
+                          "memory": {
+                            "description": "The memory limit for mongoDB",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "scaleSize": {
+                        "description": "ScaleSize The size of replicas for ACC services",
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "enum": [
+                          "Small",
+                          "Medium"
+                        ]
+                      },
+                      "storageClass": {
+                        "description": "The storage class to be used for PVCs. If not set, default storage class will be used.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "volumeReclaimPolicy": {
+                        "description": "Reclaim policy to be set for persistent volumes",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "observedVersion": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "timestamp": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "certManager": {
+          "description": "Used to indicate to acc-operator that an external cert-manager is in use.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cluster": {
+          "description": "Cluster field is used to indicate information about the kubernetes cluster that ACC is running on.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "type": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "vendorVersion": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "conditions": {
+          "description": "Astra Control Center Instance conditions.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource. --- This struct is intended for direct use as an array at the field path .status.conditions.  For example, type FooStatus struct{     // Represents the observations of a foo's current state.     // Known .status.conditions.type are: \"Available\", \"Progressing\", and \"Degraded\"     // +patchMergeKey=type     // +patchStrategy=merge     // +listType=map     // +listMapKey=type     Conditions []metav1.Condition `json:\"conditions,omitempty\" patchStrategy:\"merge\" patchMergeKey:\"type\" protobuf:\"bytes,1,rep,name=conditions\"` \n     // other fields }",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition. This may be an empty string.",
+                "type": "string",
+                "maxLength": 32768
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.",
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "int64",
+                "minimum": 0
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.",
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "type": "string",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ]
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase. --- Many .condition.type values are consistent across resources like Available, but because arbitrary conditions can be useful (see .node.status.conditions), the ability to deconflict is important. The regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)",
+                "type": "string",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "deploymentState": {
+          "description": "DeploymentState is the deployment state of the Astra Control Center Instance. This field is deprecated, please use the \"Ready\" Condition instead.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observedGeneration": {
+          "description": "The last observed generation of the spec.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "observedSpec": {
+          "description": "ObservedSpec is the last observed Astra custom resource spec",
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "accountName",
+            "astraAddress",
+            "astraVersion",
+            "autoSupport",
+            "email"
+          ],
+          "properties": {
+            "accountName": {
+              "description": "Astra Control Center account name",
+              "type": "string"
+            },
+            "additionalValues": {
+              "description": "Additional values to apply to the AstraControlCenter deployment.",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "astraAddress": {
+              "description": "AstraAddress defines how Astra will be found in the data center.  This IP address and/or DNS A record must be created prior to provisioning Astra Control Center. Example - \"astra.example.com\" The A record and its IP address must be allocated prior to provisioning Astra Control Center",
+              "type": "string"
+            },
+            "astraKubeConfigSecret": {
+              "description": "AstraKubeConfigSecret if present and secret exists operator will attempt to add KubeConfig to Managed Clusters.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "astraResourcesScaler": {
+              "description": "Scaling options for AstraControlCenter Resource limits.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "Off",
+                "Default"
+              ]
+            },
+            "astraVersion": {
+              "description": "Version of AstraControlCenter to deploy.  You are provided a Helm repository with a corresponding version. Example - 1.5.2, 1.4.2-patch",
+              "type": "string",
+              "pattern": "(\\d*\\.\\d*\\.\\d*(-.*)?)|\\d+-.*"
+            },
+            "autoSupport": {
+              "description": "AutoSupport indicates willingness to participate in NetApp's proactive support application, NetApp Active IQ. An internet connection is required (port 442) and all support data is anonymized. The default election is true and indicates no support data will be sent to NetApp. An empty or blank election is the same as a default election. Air gapped installations should enter false.",
+              "type": "object",
+              "required": [
+                "enrolled"
+              ],
+              "properties": {
+                "enrolled": {
+                  "description": "Enrolled determines if you want to send anonymous data to NetApp for support purposes.",
+                  "type": "boolean"
+                },
+                "url": {
+                  "description": "URL determines where the anonymous data will be sent",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "crds": {
+              "description": "Options for how ACC should handle CRDs.Options for how ACC should handle CRDs.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "externalCertManager": {
+                  "description": "By default, ACC will install the required cert-manager CRDs. Note, CRDs are a cluster wide object and installing them may have an impact on other parts of the cluster. You can use this flag to signal to ACC that these CRDs will be installed and managed by the cluster administrator outside of ACC.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "externalTraefik": {
+                  "description": "By default, ACC will install the required Traefik CRDs. Note, CRDs are a cluster wide object and installing them may have an impact on other parts of the cluster. You can use this flag to signal to ACC that these CRDs will be installed and managed by the cluster administrator outside of ACC.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "shouldUpgrade": {
+                  "description": "Determines if CRDs should be upgraded when ACC is upgraded. If true, all external CRDs will be upgraded If false, they will be ignored during ACC upgrade process.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "email": {
+              "description": "EmailAddress will be notified by Astra as events warrant.",
+              "type": "string"
+            },
+            "firstName": {
+              "description": "The first name of the SRE supporting Astra.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "imageRegistry": {
+              "description": "The container image registry that is hosting the Astra application images, ACC Operator and ACC Helm Repository.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "name": {
+                  "description": "The name of the image registry.  For example \"example.registry/astra\".  Do not prefix with protocol.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "secret": {
+                  "description": "The name of the Kubernetes secret that will authenticate with the image registry.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "ingressType": {
+              "description": "IngressType The type of ingress to that ACC should be configured for",
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "Generic",
+                "AccTraefik"
+              ]
+            },
+            "lastName": {
+              "description": "The last name of the SRE supporting Astra.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "mongoPort": {
+              "description": "MongoPort is used to override the port used for communication with MongoDB",
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "mongoResources": {
+              "description": "The resource limit for mongodb",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "memory": {
+                  "description": "The memory limit for mongoDB",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "scaleSize": {
+              "description": "ScaleSize The size of replicas for ACC services",
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "Small",
+                "Medium"
+              ]
+            },
+            "storageClass": {
+              "description": "The storage class to be used for PVCs. If not set, default storage class will be used.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "volumeReclaimPolicy": {
+              "description": "Reclaim policy to be set for persistent volumes",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "observedVersion": {
+          "description": "The last observed astraVersion of the spec.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "postInstall": {
+          "description": "PostInstall is the status of the Astra Control Center Instance's initial PostInstall step. This field is deprecated, please use the \"PostInstallComplete\" Condition instead.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "serviceMesh": {
+          "description": "ServiceMesh field is used to indicate information about the service mesh running on acc namespace",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "type": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "uuid": {
+          "description": "Uuid is the unique ID for a given Astra Control Center installation. This Uuid is unique throughout the k8s cluster lifecycle.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "astra.netapp.io",
+      "kind": "AstraControlCenter",
+      "version": "v1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

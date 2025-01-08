@@ -1,0 +1,426 @@
+{
+  "description": "Policy is the schema for the policies API. Policy wraps other policy engine resources in its\n\"policy-templates\" array in order to deliver the resources to managed clusters.",
+  "type": "object",
+  "required": [
+    "metadata",
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "policy.open-cluster-management.io/v1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Policy"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "PolicySpec defines the configurations of the policy engine resources to deliver to the managed\nclusters.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "disabled",
+        "policy-templates"
+      ],
+      "properties": {
+        "copyPolicyMetadata": {
+          "description": "CopyPolicyMetadata specifies whether the labels and annotations of a policy should be copied\nwhen replicating the policy to a managed cluster. If set to \"true\", all of the labels and\nannotations of the policy are copied to the replicated policy. If set to \"false\", only the\npolicy framework-specific policy labels and annotations are copied to the replicated policy.\nThis setting is useful if there is tracking for metadata that should only exist on the root\npolicy. It is recommended to set this to \"false\" when using Argo CD to deploy the policy\ndefinition since Argo CD uses metadata for tracking that should not be replicated. The default\nvalue is \"true\".",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "dependencies": {
+          "description": "PolicyDependencies is a list of dependency objects detailed with extra considerations for\ncompliance that should be fulfilled before applying the policies to the managed clusters.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Each PolicyDependency defines an object reference which must be in a certain compliance\nstate before the policy should be created.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "compliance",
+              "name"
+            ],
+            "properties": {
+              "apiVersion": {
+                "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "compliance": {
+                "description": "Compliance is the required ComplianceState of the object that the policy depends on, at the\nfollowing path, .status.compliant.",
+                "type": "string",
+                "enum": [
+                  "Compliant",
+                  "Pending",
+                  "NonCompliant"
+                ]
+              },
+              "kind": {
+                "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "description": "Name is the name of the object that the policy depends on.",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "Namespace is the namespace of the object that the policy depends on (optional).",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "disabled": {
+          "description": "Disabled is a boolean parameter you can use to enable and disable the policy. When disabled,\nthe policy is removed from managed clusters.",
+          "type": "boolean"
+        },
+        "policy-templates": {
+          "description": "PolicyTemplates is a list of definitions of policy engine resources to apply to managed\nclusters along with configurations on how it should be applied.",
+          "type": "array",
+          "items": {
+            "description": "PolicyTemplate is the definition of the policy engine resource to apply to the managed cluster,\nalong with configurations on how it should be applied.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "objectDefinition"
+            ],
+            "properties": {
+              "extraDependencies": {
+                "description": "ExtraDependencies is additional PolicyDependencies that only apply to this policy template.\nExtraDependencies is a list of dependency objects detailed with extra considerations for\ncompliance that should be fulfilled before applying the policy template to the managed\nclusters.",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "Each PolicyDependency defines an object reference which must be in a certain compliance\nstate before the policy should be created.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "required": [
+                    "compliance",
+                    "name"
+                  ],
+                  "properties": {
+                    "apiVersion": {
+                      "description": "APIVersion defines the versioned schema of this representation of an object.\nServers should convert recognized schemas to the latest internal value, and\nmay reject unrecognized values.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "compliance": {
+                      "description": "Compliance is the required ComplianceState of the object that the policy depends on, at the\nfollowing path, .status.compliant.",
+                      "type": "string",
+                      "enum": [
+                        "Compliant",
+                        "Pending",
+                        "NonCompliant"
+                      ]
+                    },
+                    "kind": {
+                      "description": "Kind is a string value representing the REST resource this object represents.\nServers may infer this from the endpoint the client submits requests to.\nCannot be updated.\nIn CamelCase.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "name": {
+                      "description": "Name is the name of the object that the policy depends on.",
+                      "type": "string"
+                    },
+                    "namespace": {
+                      "description": "Namespace is the namespace of the object that the policy depends on (optional).",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "ignorePending": {
+                "description": "IgnorePending is a boolean parameter to specify whether to ignore the \"Pending\" status of this\ntemplate when calculating the overall policy status. The default value is \"false\" to not ignore a\n\"Pending\" status.",
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "objectDefinition": {
+                "description": "A Kubernetes object defining the policy to apply to a managed cluster",
+                "x-kubernetes-preserve-unknown-fields": true
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "remediationAction": {
+          "description": "RemediationAction specifies the remediation of the policy. The parameter values are \"enforce\"\nand \"inform\". If specified, the value that is defined overrides any remediationAction parameter\ndefined in the child policies in the \"policy-templates\" section. Important: Not all policy\nengine kinds support the enforce feature.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Inform",
+            "inform",
+            "Enforce",
+            "enforce"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "PolicyStatus reports the observed status of the policy resulting from its policy templates.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "compliant": {
+          "description": "ComplianceState reports the observed status resulting from the definitions of this policy. This\nstatus field is only used in the replicated policy in the managed cluster namespace.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Compliant",
+            "Pending",
+            "NonCompliant"
+          ]
+        },
+        "details": {
+          "description": "Details is the list of compliance details for each policy template definition. This status\nfield is only used in the replicated policy in the managed cluster namespace.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "DetailsPerTemplate reports the current compliance state and list of recent compliance messages\nfor a given policy template.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "compliant": {
+                "description": "ComplianceState reports the observed status resulting from the definitions of the policy.",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "enum": [
+                  "Compliant",
+                  "Pending",
+                  "NonCompliant"
+                ]
+              },
+              "history": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "ComplianceHistory reports a compliance message from a given time and event.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "eventName": {
+                      "description": "EventName is the name of the event attached to the message.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "lastTimestamp": {
+                      "description": "LastTimestamp is the timestamp of the event that reported the message.",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "date-time"
+                    },
+                    "message": {
+                      "description": "Message is the compliance message resulting from evaluating the policy resource.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "templateMeta": {
+                "x-kubernetes-preserve-unknown-fields": true
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "placement": {
+          "description": "Placement is a list of managed cluster placement resources bound to the policy. This status\nfield is only used in the root policy on the hub cluster.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Placement reports how and what managed cluster placement resources are attached to the policy.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "decisions": {
+                "description": "Decisions is the list of managed clusters returned by the placement resource for this binding.",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "PlacementDecision is the cluster name returned by the placement resource.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "clusterName": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "clusterNamespace": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "placement": {
+                "description": "Placement is the name of the Placement resource, from the cluster.open-cluster-management.io\nAPI group, that is bound to the policy.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "placementBinding": {
+                "description": "PlacementBinding is the name of the PlacementBinding resource, from the\npolicies.open-cluster-management.io API group, that binds the placement resource to the policy.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "placementRule": {
+                "description": "PlacementRule (deprecated) is the name of the PlacementRule resource, from the\napps.open-cluster-management.io API group, that is bound to the policy.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "policySet": {
+                "description": "PolicySet is the name of the policy set containing this policy and bound to the placement. If\nspecified, then for this placement the policy is being propagated through this policy set\nrather than the policy being bound directly to a placement and propagated individually.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "status": {
+          "description": "Status is a list of managed clusters and the current compliance state of each one. This\nstatus field is only used in the root policy on the hub cluster.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "CompliancePerClusterStatus reports the name of a managed cluster and its compliance state for\nthis policy.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "clustername": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "clusternamespace": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "compliant": {
+                "description": "ComplianceState reports the observed status resulting from the definitions of the policy.",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "enum": [
+                  "Compliant",
+                  "Pending",
+                  "NonCompliant"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "policy.open-cluster-management.io",
+      "kind": "Policy",
+      "version": "v1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

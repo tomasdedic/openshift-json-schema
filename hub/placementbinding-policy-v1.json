@@ -1,0 +1,163 @@
+{
+  "description": "PlacementBinding is the schema for the placementbindings API. A PlacementBinding resource binds a\nmanaged cluster placement resource to a policy or policy set, along with configurable overrides.",
+  "type": "object",
+  "required": [
+    "placementRef",
+    "subjects"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "policy.open-cluster-management.io/v1"
+      ]
+    },
+    "bindingOverrides": {
+      "description": "BindingOverrides defines the overrides for the subjects.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "remediationAction": {
+          "description": "RemediationAction overrides the policy remediationAction on target clusters. This parameter is\noptional. If you set it, you must set it to \"enforce\".",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Enforce",
+            "enforce"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "PlacementBinding"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "placementRef": {
+      "description": "PlacementSubject defines the placement resource that is being bound to the subjects defined in\nthe placement binding.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "apiGroup",
+        "kind",
+        "name"
+      ],
+      "properties": {
+        "apiGroup": {
+          "description": "APIGroup is the API group to which the kind belongs. Must be set to\n\"cluster.open-cluster-management.io\" for Placement or \"apps.open-cluster-management.io\" for\nPlacementRule (deprecated).",
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "apps.open-cluster-management.io",
+            "cluster.open-cluster-management.io"
+          ]
+        },
+        "kind": {
+          "description": "Kind is the kind of the placement resource. Must be set to either \"Placement\" or\n\"PlacementRule\" (deprecated).",
+          "type": "string",
+          "minLength": 1,
+          "enum": [
+            "PlacementRule",
+            "Placement"
+          ]
+        },
+        "name": {
+          "description": "Name is the name of the placement resource being bound.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "PlacementBindingStatus defines the observed state of the PlacementBinding resource.",
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "subFilter": {
+      "description": "SubFilter provides the ability to apply overrides to a subset of bound clusters when multiple\nplacement bindings are used to bind a policy to placements. When set, only the overrides will be\napplied to the clusters bound by this placement binding but it will not be considered for placing\nthe policy. This parameter is optional. If you set it, you must set it to \"restricted\".",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "restricted"
+      ]
+    },
+    "subjects": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "minItems": 1,
+      "items": {
+        "description": "Subject defines the resource to bind to the placement resource.",
+        "type": [
+          "object",
+          "null"
+        ],
+        "required": [
+          "apiGroup",
+          "kind",
+          "name"
+        ],
+        "properties": {
+          "apiGroup": {
+            "description": "APIGroup is the API group to which the kind belongs. Must be set to\n\"policy.open-cluster-management.io\".",
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "policy.open-cluster-management.io"
+            ]
+          },
+          "kind": {
+            "description": "Kind is the kind of the object to bind to the placement resource. Must be set to either\n\"Policy\" or \"PolicySet\".",
+            "type": "string",
+            "minLength": 1,
+            "enum": [
+              "Policy",
+              "PolicySet"
+            ]
+          },
+          "name": {
+            "description": "Name is the name of the policy or policy set to bind to the placement resource.",
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "policy.open-cluster-management.io",
+      "kind": "PlacementBinding",
+      "version": "v1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

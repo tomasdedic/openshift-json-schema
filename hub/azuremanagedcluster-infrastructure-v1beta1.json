@@ -1,0 +1,89 @@
+{
+  "description": "AzureManagedCluster is the Schema for the azuremanagedclusters API.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "infrastructure.cluster.x-k8s.io/v1beta1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "AzureManagedCluster"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "AzureManagedClusterSpec defines the desired state of AzureManagedCluster.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "controlPlaneEndpoint": {
+          "description": "ControlPlaneEndpoint represents the endpoint used to communicate with the control plane.\nImmutable, populated by the AKS API at create.\nBecause this field is programmatically set by CAPZ after resource creation, we define it as +optional\nin the API schema to permit resource admission.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "host",
+            "port"
+          ],
+          "properties": {
+            "host": {
+              "description": "The hostname on which the API server is serving.",
+              "type": "string"
+            },
+            "port": {
+              "description": "The port on which the API server is serving.",
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "AzureManagedClusterStatus defines the observed state of AzureManagedCluster.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "ready": {
+          "description": "Ready is true when the provider resource is ready.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "infrastructure.cluster.x-k8s.io",
+      "kind": "AzureManagedCluster",
+      "version": "v1beta1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

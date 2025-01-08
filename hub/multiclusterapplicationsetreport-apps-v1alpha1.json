@@ -1,0 +1,214 @@
+{
+  "description": "MulticlusterApplicationSetReport provides a report of the status of an application from all the managed clusters where the application is deployed on. It provides a summary of the number of clusters in the various states. If an error or warning occurred when installing the application on a managed cluster, the conditions, including the waring and error message, is captured in the report.",
+  "type": "object",
+  "required": [
+    "metadata"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "apps.open-cluster-management.io/v1alpha1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "MulticlusterApplicationSetReport"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "statuses": {
+      "description": "AppConditions defines all the error/warning conditions in all clusters where a particular application is deployed.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "clusterConditions": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "ClusterCondition defines all the error/warning conditions in one cluster for an application.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "app": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "cluster": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "conditions": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "Condition defines a type of error/warning",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "message": {
+                      "description": "Message is the warning/error message associated with this condition.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "type": {
+                      "description": "Type identifies if the condition is a warning or an error.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "healthStatus": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "syncStatus": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "resources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "ResourceRef identifies the resource that is deployed by the application.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "apiVersion": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "kind": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "namespace": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "summary": {
+          "description": "ReportSummary provides a summary by providing a count of the total number of clusters where the application is deployed. It also provides a count of how many clusters where an application are in the following states: synced, notSynced, healthy, notHealthy, and inProgress.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "clusters": {
+              "description": "Clusters provides the count of all managed clusters the application is deployed.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "healthy": {
+              "description": "Healthy provides the count of healthy applications.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "inProgress": {
+              "description": "InProgress provides the count of applications that are in the process of being deployed.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "notHealthy": {
+              "description": "NotHealthy provides the count of non-healthy applications.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "notSynced": {
+              "description": "NotSynced provides the count of the out of sync applications.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "synced": {
+              "description": "Synced provides the count of synced applications.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "apps.open-cluster-management.io",
+      "kind": "MulticlusterApplicationSetReport",
+      "version": "v1alpha1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

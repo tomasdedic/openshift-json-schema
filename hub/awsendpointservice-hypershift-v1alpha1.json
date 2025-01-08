@@ -1,0 +1,224 @@
+{
+  "description": "AWSEndpointService specifies a request for an Endpoint Service in AWS",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "hypershift.openshift.io/v1alpha1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "AWSEndpointService"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "AWSEndpointServiceSpec defines the desired state of AWSEndpointService",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "networkLoadBalancerName"
+      ],
+      "properties": {
+        "networkLoadBalancerName": {
+          "description": "The name of the NLB for which an Endpoint Service should be configured",
+          "type": "string"
+        },
+        "resourceTags": {
+          "description": "Tags to apply to the EndpointService",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "AWSResourceTag is a tag to apply to AWS resources created for the cluster.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "key",
+              "value"
+            ],
+            "properties": {
+              "key": {
+                "description": "Key is the key of the tag.",
+                "type": "string",
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[0-9A-Za-z_.:/=+-@]+$"
+              },
+              "value": {
+                "description": "Value is the value of the tag.\n\n\nSome AWS service do not support empty values. Since tags are added to\nresources in many services, the length of the tag value must meet the\nrequirements of all services.",
+                "type": "string",
+                "maxLength": 256,
+                "minLength": 1,
+                "pattern": "^[0-9A-Za-z_.:/=+-@]+$"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "subnetIDs": {
+          "description": "SubnetIDs is the list of subnet IDs to which guest nodes can attach",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "AWSEndpointServiceStatus defines the observed state of AWSEndpointService",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "conditions": {
+          "description": "Conditions contains details for the current state of the Endpoint Service\nrequest If there is an error processing the request e.g. the NLB doesn't\nexist, then the Available condition will be false, reason AWSErrorReason,\nand the error reported in the message.\n\n\nCurrent condition types are: \"Available\"",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource.\n---\nThis struct is intended for direct use as an array at the field path .status.conditions.  For example,\n\n\n\ttype FooStatus struct{\n\t    // Represents the observations of a foo's current state.\n\t    // Known .status.conditions.type are: \"Available\", \"Progressing\", and \"Degraded\"\n\t    // +patchMergeKey=type\n\t    // +patchStrategy=merge\n\t    // +listType=map\n\t    // +listMapKey=type\n\t    Conditions []metav1.Condition `json:\"conditions,omitempty\" patchStrategy:\"merge\" patchMergeKey:\"type\" protobuf:\"bytes,1,rep,name=conditions\"`\n\n\n\t    // other fields\n\t}",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another.\nThis should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition.\nThis may be an empty string.",
+                "type": "string",
+                "maxLength": 32768
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon.\nFor instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date\nwith respect to the current state of the instance.",
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "int64",
+                "minimum": 0
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition.\nProducers of specific condition types may define expected values and meanings for this field,\nand whether the values are considered a guaranteed API.\nThe value should be a CamelCase string.\nThis field may not be empty.",
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "type": "string",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ]
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase.\n---\nMany .condition.type values are consistent across resources like Available, but because arbitrary conditions can be\nuseful (see .node.status.conditions), the ability to deconflict is important.\nThe regex it matches is (dns1123SubdomainFmt/)?(qualifiedNameFmt)",
+                "type": "string",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
+              }
+            },
+            "additionalProperties": false
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "dnsName": {
+          "description": "Deprecated: Use DNSNames instead",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dnsNames": {
+          "description": "DNSName are the names for the records created in the hypershift private zone",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "dnsZoneID": {
+          "description": "DNSZoneID is ID for the hypershift private zone",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "endpointID": {
+          "description": "EndpointID is the ID of the Endpoint created in the guest VPC",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "endpointServiceName": {
+          "description": "EndpointServiceName is the name of the Endpoint Service created in the\nmanagement VPC",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "hypershift.openshift.io",
+      "kind": "AWSEndpointService",
+      "version": "v1alpha1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

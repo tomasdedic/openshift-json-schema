@@ -1,0 +1,181 @@
+{
+  "description": "PolicyAutomation is the schema for the policyautomations API. PolicyAutomation configures\ncreation of an AnsibleJob, from the tower.ansible.com API group, to initiate Ansible to run upon\nnoncompliant events of the attached policy, or when you manually initiate the run with the\n\"policy.open-cluster-management.io/rerun=true\" annotation.",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "policy.open-cluster-management.io/v1beta1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "PolicyAutomation"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "PolicyAutomationSpec defines how and when automation is initiated for the referenced policy.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "automationDef",
+        "mode",
+        "policyRef"
+      ],
+      "properties": {
+        "automationDef": {
+          "description": "AutomationDef defines the automation to invoke.",
+          "type": "object",
+          "required": [
+            "name",
+            "secret"
+          ],
+          "properties": {
+            "extra_vars": {
+              "description": "ExtraVars is passed to the Ansible job at execution time and is a known Ansible entity.",
+              "x-kubernetes-preserve-unknown-fields": true
+            },
+            "jobTtl": {
+              "description": "JobTTL sets the time to live for the Kubernetes AnsibleJob object after the Ansible job run has\nfinished.",
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "name": {
+              "description": "Name of the Ansible Template to run in Ansible Automation Platform as a job.",
+              "type": "string",
+              "minLength": 1
+            },
+            "policyViolationsLimit": {
+              "description": "The maximum number of violating cluster contexts that are provided to the Ansible job as\nextra variables. When policyViolationsLimit is set to \"0\", it means no limit. The default value\nis \"1000\".",
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0
+            },
+            "secret": {
+              "description": "TowerSecret is the name of the secret that contains the Ansible Automation Platform credential.",
+              "type": "string",
+              "minLength": 1
+            },
+            "type": {
+              "description": "Type of the automation to invoke",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "delayAfterRunSeconds": {
+          "description": "DelayAfterRunSeconds sets the minimum number of seconds before an automation can run again due\nto a new violation on the same managed cluster. This only applies to the EveryEvent mode. The\ndefault value is \"0\".",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "eventHook": {
+          "description": "EventHook specifies the compliance state that initiates automation. This must be set to\n\"noncompliant\".",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "noncompliant"
+          ]
+        },
+        "mode": {
+          "description": "Mode specifies how often automation is initiated. The supported values are \"once\", \"everyEvent\",\nand \"disabled\".",
+          "type": "string",
+          "enum": [
+            "once",
+            "everyEvent",
+            "disabled"
+          ]
+        },
+        "policyRef": {
+          "description": "PolicyRef is the name of the policy that this automation resource is bound to.",
+          "type": "string"
+        },
+        "rescanAfter": {
+          "description": "RescanAfter is reserved for future use and should not be set.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "PolicyAutomationStatus defines the observed state of the PolicyAutomation resource.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "clustersWithEvent": {
+          "description": "Cluster name as the key of ClustersWithEvent",
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "description": "ClusterEvent shows the PolicyAutomation event on each target cluster.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "automationStartTime",
+              "eventTime"
+            ],
+            "properties": {
+              "automationStartTime": {
+                "description": "AutomationStartTime is the policy automation start time for everyEvent mode.",
+                "type": "string"
+              },
+              "eventTime": {
+                "description": "EventTime is the last policy compliance transition event time.",
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "policy.open-cluster-management.io",
+      "kind": "PolicyAutomation",
+      "version": "v1beta1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -1,0 +1,12 @@
+{
+  "description": "ManagedClusterSetSpec describes the attributes of the ManagedClusterSet",
+  "type": "object",
+  "properties": {
+    "clusterSelector": {
+      "description": "ClusterSelector represents a selector of ManagedClusters",
+      "$ref": "_definitions.json#/definitions/io.open-cluster-management.api.cluster.v1beta2.ManagedClusterSelector"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -1,0 +1,225 @@
+{
+  "description": "IBMPowerVSMachineTemplate is the Schema for the ibmpowervsmachinetemplates API.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "infrastructure.cluster.x-k8s.io/v1beta1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "IBMPowerVSMachineTemplate"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "IBMPowerVSMachineTemplateSpec defines the desired state of IBMPowerVSMachineTemplate.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "template"
+      ],
+      "properties": {
+        "template": {
+          "description": "IBMPowerVSMachineTemplateResource holds the IBMPowerVSMachine spec.",
+          "type": "object",
+          "required": [
+            "spec"
+          ],
+          "properties": {
+            "spec": {
+              "description": "IBMPowerVSMachineSpec defines the desired state of IBMPowerVSMachine.",
+              "type": "object",
+              "required": [
+                "network",
+                "serviceInstanceID"
+              ],
+              "properties": {
+                "image": {
+                  "description": "Image is the reference to the Image from which to create the machine instance.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "id": {
+                      "description": "ID of resource",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "minLength": 1
+                    },
+                    "name": {
+                      "description": "Name of resource",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "minLength": 1
+                    },
+                    "regex": {
+                      "description": "Regular expression to match resource,\nIn case of multiple resources matches the provided regular expression the first matched resource will be selected",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "imageRef": {
+                  "description": "ImageRef is an optional reference to a provider-specific resource that holds\nthe details for provisioning the Image for a Cluster.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "name": {
+                      "description": "Name of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names\nTODO: Add other useful fields. apiVersion, kind, uid?",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "x-kubernetes-map-type": "atomic",
+                  "additionalProperties": false
+                },
+                "memory": {
+                  "description": "Memory is Amount of memory allocated (in GB)",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "network": {
+                  "description": "Network is the reference to the Network to use for this instance.",
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "description": "ID of resource",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "minLength": 1
+                    },
+                    "name": {
+                      "description": "Name of resource",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "minLength": 1
+                    },
+                    "regex": {
+                      "description": "Regular expression to match resource,\nIn case of multiple resources matches the provided regular expression the first matched resource will be selected",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "minLength": 1
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "procType": {
+                  "description": "ProcType is the processor type, e.g: dedicated, shared, capped",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "processors": {
+                  "description": "Processors is Number of processors allocated.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "pattern": "^\\d+(\\.)?(\\d)?(\\d)?$"
+                },
+                "providerID": {
+                  "description": "ProviderID is the unique identifier as specified by the cloud provider.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "serviceInstanceID": {
+                  "description": "ServiceInstanceID is the id of the power cloud instance where the vsi instance will get deployed.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sshKey": {
+                  "description": "SSHKey is the name of the SSH key pair provided to the vsi for authenticating users.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "sysType": {
+                  "description": "SysType is the System type used to host the vsi.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "IBMPowerVSMachineTemplateStatus defines the observed state of IBMPowerVSMachineTemplate.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "capacity": {
+          "description": "Capacity defines the resource capacity for this machine.\nThis value is used for autoscaling from zero operations as defined in:\nhttps://github.com/kubernetes-sigs/cluster-api/blob/main/docs/proposals/20210310-opt-in-autoscaling-from-zero.md",
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+            "x-kubernetes-int-or-string": true
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "infrastructure.cluster.x-k8s.io",
+      "kind": "IBMPowerVSMachineTemplate",
+      "version": "v1beta1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

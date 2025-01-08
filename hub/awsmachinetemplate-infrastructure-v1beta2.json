@@ -1,0 +1,788 @@
+{
+  "description": "AWSMachineTemplate is the schema for the Amazon EC2 Machine Templates API.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "infrastructure.cluster.x-k8s.io/v1beta2"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "AWSMachineTemplate"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "AWSMachineTemplateSpec defines the desired state of AWSMachineTemplate.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "template"
+      ],
+      "properties": {
+        "template": {
+          "description": "AWSMachineTemplateResource describes the data needed to create am AWSMachine from a template.",
+          "type": "object",
+          "required": [
+            "spec"
+          ],
+          "properties": {
+            "metadata": {
+              "description": "Standard object's metadata.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "annotations": {
+                  "description": "Annotations is an unstructured key value map stored with a resource that may be\nset by external tools to store and retrieve arbitrary metadata. They are not\nqueryable and should be preserved when modifying objects.\nMore info: http://kubernetes.io/docs/user-guide/annotations",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "labels": {
+                  "description": "Map of string keys and values that can be used to organize and categorize\n(scope and select) objects. May match selectors of replication controllers\nand services.\nMore info: http://kubernetes.io/docs/user-guide/labels",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            "spec": {
+              "description": "Spec is the specification of the desired behavior of the machine.",
+              "type": "object",
+              "required": [
+                "instanceType"
+              ],
+              "properties": {
+                "additionalSecurityGroups": {
+                  "description": "AdditionalSecurityGroups is an array of references to security groups that should be applied to the\ninstance. These security groups would be set in addition to any security groups defined\nat the cluster level or in the actuator. It is possible to specify either IDs of Filters. Using Filters\nwill cause additional requests to AWS API and if tags change the attached security groups might change too.",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "description": "AWSResourceReference is a reference to a specific AWS resource by ID or filters.\nOnly one of ID or Filters may be specified. Specifying more than one will result in\na validation error.",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "filters": {
+                        "description": "Filters is a set of key/value pairs used to identify a resource\nThey are applied according to the rules defined by the AWS API:\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html",
+                        "type": [
+                          "array",
+                          "null"
+                        ],
+                        "items": {
+                          "description": "Filter is a filter used to identify an AWS resource.",
+                          "type": [
+                            "object",
+                            "null"
+                          ],
+                          "required": [
+                            "name",
+                            "values"
+                          ],
+                          "properties": {
+                            "name": {
+                              "description": "Name of the filter. Filter names are case-sensitive.",
+                              "type": "string"
+                            },
+                            "values": {
+                              "description": "Values includes one or more filter values. Filter values are case-sensitive.",
+                              "type": "array",
+                              "items": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "id": {
+                        "description": "ID of resource",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalTags": {
+                  "description": "AdditionalTags is an optional set of tags to add to an instance, in addition to the ones added by default by the\nAWS provider. If both the AWSCluster and the AWSMachine specify the same tag name with different values, the\nAWSMachine's value takes precedence.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "ami": {
+                  "description": "AMI is the reference to the AMI from which to create the machine instance.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "eksLookupType": {
+                      "description": "EKSOptimizedLookupType If specified, will look up an EKS Optimized image in SSM Parameter store",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "enum": [
+                        "AmazonLinux",
+                        "AmazonLinuxGPU"
+                      ]
+                    },
+                    "id": {
+                      "description": "ID of resource",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "cloudInit": {
+                  "description": "CloudInit defines options related to the bootstrapping systems where\nCloudInit is used.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "insecureSkipSecretsManager": {
+                      "description": "InsecureSkipSecretsManager, when set to true will not use AWS Secrets Manager\nor AWS Systems Manager Parameter Store to ensure privacy of userdata.\nBy default, a cloud-init boothook shell script is prepended to download\nthe userdata from Secrets Manager and additionally delete the secret.",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "secretCount": {
+                      "description": "SecretCount is the number of secrets used to form the complete secret",
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "format": "int32"
+                    },
+                    "secretPrefix": {
+                      "description": "SecretPrefix is the prefix for the secret name. This is stored\ntemporarily, and deleted when the machine registers as a node against\nthe workload cluster.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "secureSecretsBackend": {
+                      "description": "SecureSecretsBackend, when set to parameter-store will utilize the AWS Systems Manager\nParameter Storage to distribute secrets. By default or with the value of secrets-manager,\nwill use AWS Secrets Manager instead.",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "enum": [
+                        "secrets-manager",
+                        "ssm-parameter-store"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "iamInstanceProfile": {
+                  "description": "IAMInstanceProfile is a name of an IAM instance profile to assign to the instance",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "ignition": {
+                  "description": "Ignition defined options related to the bootstrapping systems where Ignition is used.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "proxy": {
+                      "description": "Proxy defines proxy settings for Ignition.\nOnly valid for Ignition versions 3.1 and above.",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "properties": {
+                        "httpProxy": {
+                          "description": "HTTPProxy is the HTTP proxy to use for Ignition.\nA single URL that specifies the proxy server to use for HTTP and HTTPS requests,\nunless overridden by the HTTPSProxy or NoProxy options.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "httpsProxy": {
+                          "description": "HTTPSProxy is the HTTPS proxy to use for Ignition.\nA single URL that specifies the proxy server to use for HTTPS requests,\nunless overridden by the NoProxy option.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "noProxy": {
+                          "description": "NoProxy is the list of domains to not proxy for Ignition.\nSpecifies a list of strings to hosts that should be excluded from proxying.\n\n\nEach value is represented by:\n- An IP address prefix (1.2.3.4)\n- An IP address prefix in CIDR notation (1.2.3.4/8)\n- A domain name\n  - A domain name matches that name and all subdomains\n  - A domain name with a leading . matches subdomains only\n- A special DNS label (*), indicates that no proxying should be done\n\n\nAn IP address prefix and domain name can also include a literal port number (1.2.3.4:80).",
+                          "type": [
+                            "array",
+                            "null"
+                          ],
+                          "maxItems": 64,
+                          "items": {
+                            "description": "IgnitionNoProxy defines the list of domains to not proxy for Ignition.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "maxLength": 2048
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "storageType": {
+                      "description": "StorageType defines how to store the boostrap user data for Ignition.\nThis can be used to instruct Ignition from where to fetch the user data to bootstrap an instance.\n\n\nWhen omitted, the storage option will default to ClusterObjectStore.\n\n\nWhen set to \"ClusterObjectStore\", if the capability is available and a Cluster ObjectStore configuration\nis correctly provided in the Cluster object (under .spec.s3Bucket),\nan object store will be used to store bootstrap user data.\n\n\nWhen set to \"UnencryptedUserData\", EC2 Instance User Data will be used to store the machine bootstrap user data, unencrypted.\nThis option is considered less secure than others as user data may contain sensitive informations (keys, certificates, etc.)\nand users with ec2:DescribeInstances permission or users running pods\nthat can access the ec2 metadata service have access to this sensitive information.\nSo this is only to be used at ones own risk, and only when other more secure options are not viable.",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "enum": [
+                        "ClusterObjectStore",
+                        "UnencryptedUserData"
+                      ]
+                    },
+                    "tls": {
+                      "description": "TLS defines TLS settings for Ignition.\nOnly valid for Ignition versions 3.1 and above.",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "properties": {
+                        "certificateAuthorities": {
+                          "description": "CASources defines the list of certificate authorities to use for Ignition.\nThe value is the certificate bundle (in PEM format). The bundle can contain multiple concatenated certificates.\nSupported schemes are http, https, tftp, s3, arn, gs, and `data` (RFC 2397) URL scheme.",
+                          "type": [
+                            "array",
+                            "null"
+                          ],
+                          "maxItems": 64,
+                          "items": {
+                            "description": "IgnitionCASource defines the source of the certificate authority to use for Ignition.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "maxLength": 65536
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "version": {
+                      "description": "Version defines which version of Ignition will be used to generate bootstrap data.",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "enum": [
+                        "2.3",
+                        "3.0",
+                        "3.1",
+                        "3.2",
+                        "3.3",
+                        "3.4"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "imageLookupBaseOS": {
+                  "description": "ImageLookupBaseOS is the name of the base operating system to use for\nimage lookup the AMI is not set.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "imageLookupFormat": {
+                  "description": "ImageLookupFormat is the AMI naming format to look up the image for this\nmachine It will be ignored if an explicit AMI is set. Supports\nsubstitutions for {{.BaseOS}} and {{.K8sVersion}} with the base OS and\nkubernetes version, respectively. The BaseOS will be the value in\nImageLookupBaseOS or ubuntu (the default), and the kubernetes version as\ndefined by the packages produced by kubernetes/release without v as a\nprefix: 1.13.0, 1.12.5-mybuild.1, or 1.17.3. For example, the default\nimage format of capa-ami-{{.BaseOS}}-?{{.K8sVersion}}-* will end up\nsearching for AMIs that match the pattern capa-ami-ubuntu-?1.18.0-* for a\nMachine that is targeting kubernetes v1.18.0 and the ubuntu base OS. See\nalso: https://golang.org/pkg/text/template/",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "imageLookupOrg": {
+                  "description": "ImageLookupOrg is the AWS Organization ID to use for image lookup if AMI is not set.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "instanceID": {
+                  "description": "InstanceID is the EC2 instance ID for this machine.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "instanceMetadataOptions": {
+                  "description": "InstanceMetadataOptions is the metadata options for the EC2 instance.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "httpEndpoint": {
+                      "description": "Enables or disables the HTTP metadata endpoint on your instances.\n\n\nIf you specify a value of disabled, you cannot access your instance metadata.\n\n\nDefault: enabled",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "enum": [
+                        "enabled",
+                        "disabled"
+                      ]
+                    },
+                    "httpPutResponseHopLimit": {
+                      "description": "The desired HTTP PUT response hop limit for instance metadata requests. The\nlarger the number, the further instance metadata requests can travel.\n\n\nDefault: 1",
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "format": "int64",
+                      "maximum": 64,
+                      "minimum": 1
+                    },
+                    "httpTokens": {
+                      "description": "The state of token usage for your instance metadata requests.\n\n\nIf the state is optional, you can choose to retrieve instance metadata with\nor without a session token on your request. If you retrieve the IAM role\ncredentials without a token, the version 1.0 role credentials are returned.\nIf you retrieve the IAM role credentials using a valid session token, the\nversion 2.0 role credentials are returned.\n\n\nIf the state is required, you must send a session token with any instance\nmetadata retrieval requests. In this state, retrieving the IAM role credentials\nalways returns the version 2.0 credentials; the version 1.0 credentials are\nnot available.\n\n\nDefault: optional",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "enum": [
+                        "optional",
+                        "required"
+                      ]
+                    },
+                    "instanceMetadataTags": {
+                      "description": "Set to enabled to allow access to instance tags from the instance metadata.\nSet to disabled to turn off access to instance tags from the instance metadata.\nFor more information, see Work with instance tags using the instance metadata\n(https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS).\n\n\nDefault: disabled",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "enum": [
+                        "enabled",
+                        "disabled"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "instanceType": {
+                  "description": "InstanceType is the type of instance to create. Example: m4.xlarge",
+                  "type": "string",
+                  "minLength": 2
+                },
+                "networkInterfaces": {
+                  "description": "NetworkInterfaces is a list of ENIs to associate with the instance.\nA maximum of 2 may be specified.",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "maxItems": 2,
+                  "items": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "nonRootVolumes": {
+                  "description": "Configuration options for the non root storage volumes.",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "description": "Volume encapsulates the configuration options for the storage device.",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "size"
+                    ],
+                    "properties": {
+                      "deviceName": {
+                        "description": "Device name",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "encrypted": {
+                        "description": "Encrypted is whether the volume should be encrypted or not.",
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
+                      },
+                      "encryptionKey": {
+                        "description": "EncryptionKey is the KMS key to use to encrypt the volume. Can be either a KMS key ID or ARN.\nIf Encrypted is set and this is omitted, the default AWS key will be used.\nThe key must already exist and be accessible by the controller.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "iops": {
+                        "description": "IOPS is the number of IOPS requested for the disk. Not applicable to all types.",
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "format": "int64"
+                      },
+                      "size": {
+                        "description": "Size specifies size (in Gi) of the storage device.\nMust be greater than the image snapshot size or 8 (whichever is greater).",
+                        "type": "integer",
+                        "format": "int64",
+                        "minimum": 8
+                      },
+                      "throughput": {
+                        "description": "Throughput to provision in MiB/s supported for the volume type. Not applicable to all types.",
+                        "type": [
+                          "integer",
+                          "null"
+                        ],
+                        "format": "int64"
+                      },
+                      "type": {
+                        "description": "Type is the type of the volume (e.g. gp2, io1, etc...).",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "placementGroupName": {
+                  "description": "PlacementGroupName specifies the name of the placement group in which to launch the instance.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "placementGroupPartition": {
+                  "description": "PlacementGroupPartition is the partition number within the placement group in which to launch the instance.\nThis value is only valid if the placement group, referred in `PlacementGroupName`, was created with\nstrategy set to partition.",
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "format": "int64",
+                  "maximum": 7,
+                  "minimum": 1
+                },
+                "privateDnsName": {
+                  "description": "PrivateDNSName is the options for the instance hostname.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "enableResourceNameDnsAAAARecord": {
+                      "description": "EnableResourceNameDNSAAAARecord indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "enableResourceNameDnsARecord": {
+                      "description": "EnableResourceNameDNSARecord indicates whether to respond to DNS queries for instance hostnames with DNS A records.",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "hostnameType": {
+                      "description": "The type of hostname to assign to an instance.",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "enum": [
+                        "ip-name",
+                        "resource-name"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "providerID": {
+                  "description": "ProviderID is the unique identifier as specified by the cloud provider.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "publicIP": {
+                  "description": "PublicIP specifies whether the instance should get a public IP.\nPrecedence for this setting is as follows:\n1. This field if set\n2. Cluster/flavor setting\n3. Subnet default",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "rootVolume": {
+                  "description": "RootVolume encapsulates the configuration options for the root volume",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "required": [
+                    "size"
+                  ],
+                  "properties": {
+                    "deviceName": {
+                      "description": "Device name",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "encrypted": {
+                      "description": "Encrypted is whether the volume should be encrypted or not.",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "encryptionKey": {
+                      "description": "EncryptionKey is the KMS key to use to encrypt the volume. Can be either a KMS key ID or ARN.\nIf Encrypted is set and this is omitted, the default AWS key will be used.\nThe key must already exist and be accessible by the controller.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "iops": {
+                      "description": "IOPS is the number of IOPS requested for the disk. Not applicable to all types.",
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "format": "int64"
+                    },
+                    "size": {
+                      "description": "Size specifies size (in Gi) of the storage device.\nMust be greater than the image snapshot size or 8 (whichever is greater).",
+                      "type": "integer",
+                      "format": "int64",
+                      "minimum": 8
+                    },
+                    "throughput": {
+                      "description": "Throughput to provision in MiB/s supported for the volume type. Not applicable to all types.",
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "format": "int64"
+                    },
+                    "type": {
+                      "description": "Type is the type of the volume (e.g. gp2, io1, etc...).",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "securityGroupOverrides": {
+                  "description": "SecurityGroupOverrides is an optional set of security groups to use for the node.\nThis is optional - if not provided security groups from the cluster will be used.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "spotMarketOptions": {
+                  "description": "SpotMarketOptions allows users to configure instances to be run using AWS Spot instances.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "maxPrice": {
+                      "description": "MaxPrice defines the maximum price the user is willing to pay for Spot VM instances",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "sshKeyName": {
+                  "description": "SSHKeyName is the name of the ssh key to attach to the instance. Valid values are empty string (do not use SSH keys), a valid SSH key name, or omitted (use the default SSH key name)",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "subnet": {
+                  "description": "Subnet is a reference to the subnet to use for this instance. If not specified,\nthe cluster subnet will be used.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "filters": {
+                      "description": "Filters is a set of key/value pairs used to identify a resource\nThey are applied according to the rules defined by the AWS API:\nhttps://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "description": "Filter is a filter used to identify an AWS resource.",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "required": [
+                          "name",
+                          "values"
+                        ],
+                        "properties": {
+                          "name": {
+                            "description": "Name of the filter. Filter names are case-sensitive.",
+                            "type": "string"
+                          },
+                          "values": {
+                            "description": "Values includes one or more filter values. Filter values are case-sensitive.",
+                            "type": "array",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "id": {
+                      "description": "ID of resource",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "tenancy": {
+                  "description": "Tenancy indicates if instance should run on shared or single-tenant hardware.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "enum": [
+                    "default",
+                    "dedicated",
+                    "host"
+                  ]
+                },
+                "uncompressedUserData": {
+                  "description": "UncompressedUserData specify whether the user data is gzip-compressed before it is sent to ec2 instance.\ncloud-init has built-in support for gzip-compressed user data\nuser data stored in aws secret manager is always gzip-compressed.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "AWSMachineTemplateStatus defines a status for an AWSMachineTemplate.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "capacity": {
+          "description": "Capacity defines the resource capacity for this machine.\nThis value is used for autoscaling from zero operations as defined in:\nhttps://github.com/kubernetes-sigs/cluster-api/blob/main/docs/proposals/20210310-opt-in-autoscaling-from-zero.md",
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+            "x-kubernetes-int-or-string": true
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "infrastructure.cluster.x-k8s.io",
+      "kind": "AWSMachineTemplate",
+      "version": "v1beta2"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

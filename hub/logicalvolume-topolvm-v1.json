@@ -1,0 +1,119 @@
+{
+  "description": "LogicalVolume is the Schema for the logicalvolumes API",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "topolvm.io/v1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "LogicalVolume"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "LogicalVolumeSpec defines the desired state of LogicalVolume",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "name",
+        "nodeName",
+        "size"
+      ],
+      "properties": {
+        "accessType": {
+          "description": "'accessType' specifies how the user intends to consume the snapshot logical volume. Set to \"ro\" when creating a snapshot and to \"rw\" when restoring a snapshot or creating a clone. This field is populated only when LogicalVolume has a source.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deviceClass": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "nodeName": {
+          "type": "string"
+        },
+        "size": {
+          "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+          "x-kubernetes-int-or-string": true
+        },
+        "source": {
+          "description": "'source' specifies the logicalvolume name of the source; if present. This field is populated only when LogicalVolume has a source.",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "LogicalVolumeStatus defines the observed state of LogicalVolume",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "code": {
+          "description": "A Code is an unsigned 32-bit error code as defined in the gRPC spec.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        },
+        "currentSize": {
+          "pattern": "^(\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\\+|-)?(([0-9]+(\\.[0-9]*)?)|(\\.[0-9]+))))?$",
+          "x-kubernetes-int-or-string": true
+        },
+        "message": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "volumeID": {
+          "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "topolvm.io",
+      "kind": "LogicalVolume",
+      "version": "v1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}
