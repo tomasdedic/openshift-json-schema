@@ -65,7 +65,8 @@
                 "description": "IP is the address to configure on the router's interface. Can be IPv4 or IPv6.",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "mode": {
@@ -106,9 +107,11 @@
                     "Passthru"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "redirect": {
           "description": "Redirect represents the configuration parameters specific to redirect mode.",
@@ -172,12 +175,15 @@
                     "maximum": 65535,
                     "minimum": 1
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "Observed status of EgressRouter.",
@@ -239,10 +245,12 @@
                   "Degraded"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -252,5 +260,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

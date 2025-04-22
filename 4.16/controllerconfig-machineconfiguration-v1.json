@@ -94,7 +94,8 @@
               "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
             }
           },
-          "x-kubernetes-embedded-resource": true
+          "x-kubernetes-embedded-resource": true,
+          "additionalProperties": false
         },
         "etcdDiscoveryDomain": {
           "description": "etcdDiscoveryDomain is deprecated, use Infra.Status.EtcdDiscoveryDomain instead",
@@ -129,7 +130,8 @@
                 "description": "file holds the name of the file where the bundle will be written to disk",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -159,7 +161,8 @@
                 "description": "file holds the name of the file where the bundle will be written to disk",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -194,7 +197,8 @@
               "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
             }
           },
-          "x-kubernetes-embedded-resource": true
+          "x-kubernetes-embedded-resource": true,
+          "additionalProperties": false
         },
         "internalRegistryPullSecret": {
           "description": "internalRegistryPullSecret is the pull secret for the internal registry, used by rpm-ostree to pull images from the internal registry if present",
@@ -296,7 +300,8 @@
               ]
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         },
         "releaseImage": {
           "description": "releaseImage is the image used when installing the cluster",
@@ -307,7 +312,8 @@
           "type": "string",
           "format": "byte"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ControllerConfigStatus is the status for ControllerConfig",
@@ -359,7 +365,8 @@
                 "description": "type specifies the state of the operator's reconciliation functionality.",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -409,7 +416,8 @@
                 "description": "subject is the cert subject",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -421,7 +429,8 @@
           ],
           "format": "int64"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -431,5 +440,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

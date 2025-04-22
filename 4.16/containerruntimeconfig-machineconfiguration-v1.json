@@ -75,7 +75,8 @@
               ],
               "format": "int64"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "machineConfigPoolSelector": {
           "description": "MachineConfigPoolSelector selects which pools the ContainerRuntimeConfig shoud apply to. A nil selector will result in no pools being selected.",
@@ -122,7 +123,8 @@
                       ]
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "matchLabels": {
@@ -139,9 +141,11 @@
               }
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ContainerRuntimeConfigStatus defines the observed state of a ContainerRuntimeConfig",
@@ -195,7 +199,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -207,7 +212,8 @@
           ],
           "format": "int64"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -217,5 +223,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

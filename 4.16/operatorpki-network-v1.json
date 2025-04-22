@@ -51,9 +51,11 @@
               "type": "string",
               "minLength": 1
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "OperatorPKIStatus is not implemented.",
@@ -70,5 +72,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

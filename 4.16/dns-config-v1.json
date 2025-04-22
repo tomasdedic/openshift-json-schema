@@ -68,7 +68,8 @@
                   ],
                   "pattern": "^arn:(aws|aws-cn|aws-us-gov):iam::[0-9]{12}:role\\/.*$"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "type": {
               "description": "type is the underlying infrastructure provider for the cluster. Allowed values: \"\", \"AWS\". \n Individual components may not support all platforms, and must handle unrecognized platforms with best-effort defaults.",
@@ -105,7 +106,8 @@
               "message": "aws configuration is required when platform is AWS, and forbidden otherwise",
               "rule": "has(self.type) && self.type == 'AWS' ?  has(self.aws) : !has(self.aws)"
             }
-          ]
+          ],
+          "additionalProperties": false
         },
         "privateZone": {
           "description": "privateZone is the location where all the DNS records that are only available internally to the cluster exist. \n If this field is nil, no private records should be created. \n Once set, this field cannot be changed.",
@@ -134,7 +136,8 @@
                 ]
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "publicZone": {
           "description": "publicZone is the location where all the DNS records that are publicly accessible to the internet exist. \n If this field is nil, no public records should be created. \n Once set, this field cannot be changed.",
@@ -163,9 +166,11 @@
                 ]
               }
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "status holds observed values from the cluster. They may not be overridden.",
@@ -182,5 +187,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -109,7 +109,8 @@
               "description": "Name of the resource being referred to.",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "request": {
           "description": "The PEM-encoded X.509 certificate signing request to be submitted to the issuer for signing. \n If the CSR has a BasicConstraints extension, its isCA attribute must match the `isCA` value of this CertificateRequest. If the CSR has a KeyUsage extension, its key usages must match the key usages in the `usages` field of this CertificateRequest. If the CSR has a ExtKeyUsage extension, its extended key usages must match the extended key usages in the `usages` field of this CertificateRequest.",
@@ -169,7 +170,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "Status of the CertificateRequest. This is set and managed automatically. Read-only. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status",
@@ -246,7 +248,8 @@
                 "description": "Type of the condition, known values are (`Ready`, `InvalidRequest`, `Approved`, `Denied`).",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-map-keys": [
             "type"
@@ -261,7 +264,8 @@
           ],
           "format": "date-time"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -271,5 +275,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

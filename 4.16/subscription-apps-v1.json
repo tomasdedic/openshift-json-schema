@@ -1,0 +1,805 @@
+{
+  "description": "Subscription is the Schema for the subscriptions API",
+  "type": "object",
+  "required": [
+    "spec"
+  ],
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "apps.open-cluster-management.io/v1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Subscription"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "SubscriptionSpec defines the desired state of Subscription",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "channel"
+      ],
+      "properties": {
+        "allow": {
+          "description": "Specify a list of resources allowed for deployment",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "AllowDenyItem defines a group of resources allowed or denied for deployment",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "apiVersion": {
+                "description": "APIVersion specifies the API version for the group of resources",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "kinds": {
+                "description": "Kinds specifies a list of kinds under the same API version for the group of resources",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "channel": {
+          "description": "The primary channel namespaced name used by the subscription. Its format is \"<channel NameSpace>/<channel Name>\"",
+          "type": "string"
+        },
+        "deny": {
+          "description": "Specify a list of resources denied for deployment",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "AllowDenyItem defines a group of resources allowed or denied for deployment",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "apiVersion": {
+                "description": "APIVersion specifies the API version for the group of resources",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "kinds": {
+                "description": "Kinds specifies a list of kinds under the same API version for the group of resources",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "hooksecretref": {
+          "description": "Specify a secret reference used in Ansible job integration authentication",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "apiVersion": {
+              "description": "API version of the referent.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "fieldPath": {
+              "description": "If referring to a piece of an object instead of an entire object, this string\nshould contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2].\nFor example, if the object reference is to a container within a pod, this would take on a value like:\n\"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered\nthe event) or if no container name is specified \"spec.containers[2]\" (container with\nindex 2 in this pod). This syntax is chosen only to have some well-defined way of\nreferencing a part of an object.\nTODO: this design is not final and this field is subject to change in the future.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "kind": {
+              "description": "Kind of the referent.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "description": "Name of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "namespace": {
+              "description": "Namespace of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "resourceVersion": {
+              "description": "Specific resourceVersion to which this reference is made, if any.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "uid": {
+              "description": "UID of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
+        },
+        "name": {
+          "description": "Subscribe a package by its package name",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "overrides": {
+          "description": "Specify overrides when applied to clusters. Hub use only",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "ClusterOverrides defines a list of contents that will be overridden to a given cluster",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "clusterName",
+              "clusterOverrides"
+            ],
+            "properties": {
+              "clusterName": {
+                "description": "Cluster name",
+                "type": "string"
+              },
+              "clusterOverrides": {
+                "description": "ClusterOverrides defines a list of content for override",
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "description": "ClusterOverride defines the contents for override rules",
+                  "x-kubernetes-preserve-unknown-fields": true
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "packageFilter": {
+          "description": "Subscribe packages by a package filter",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "annotations": {
+              "description": "Annotations defines a type of filter for selecting resources by annotations",
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "filterRef": {
+              "description": "FilterRef defines a type of filter for selecting resources by another resource reference",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "name": {
+                  "description": "Name of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names\nTODO: Add other useful fields. apiVersion, kind, uid?",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
+            },
+            "labelSelector": {
+              "description": "LabelSelector defines a type of filter for selecting resources by label selector",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "matchExpressions": {
+                  "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "key",
+                      "operator"
+                    ],
+                    "properties": {
+                      "key": {
+                        "description": "key is the label key that the selector applies to.",
+                        "type": "string"
+                      },
+                      "operator": {
+                        "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                        "type": "string"
+                      },
+                      "values": {
+                        "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                        "type": [
+                          "array",
+                          "null"
+                        ],
+                        "items": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "matchLabels": {
+                  "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
+            },
+            "version": {
+              "description": "Version defines a type of filter for selecting resources by version",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "packageOverrides": {
+          "description": "Override packages",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Overrides defines a list of contents that will be overridden to a given resource",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "packageName"
+            ],
+            "properties": {
+              "packageAlias": {
+                "description": "PackageAlias defines the alias of the package name that will be onverriden",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "packageName": {
+                "description": "PackageName defines the package name that will be onverriden",
+                "type": "string"
+              },
+              "packageOverrides": {
+                "description": "PackageOverrides defines a list of content for override",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "PackageOverride provides the contents for overriding a package",
+                  "x-kubernetes-preserve-unknown-fields": true
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "placement": {
+          "description": "Specify a placement reference for selecting clusters. Hub use only",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "clusterSelector": {
+              "description": "A label selector is a label query over a set of resources. The result of matchLabels and\nmatchExpressions are ANDed. An empty label selector matches all objects. A null\nlabel selector matches no objects.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "matchExpressions": {
+                  "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "key",
+                      "operator"
+                    ],
+                    "properties": {
+                      "key": {
+                        "description": "key is the label key that the selector applies to.",
+                        "type": "string"
+                      },
+                      "operator": {
+                        "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                        "type": "string"
+                      },
+                      "values": {
+                        "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                        "type": [
+                          "array",
+                          "null"
+                        ],
+                        "items": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "matchLabels": {
+                  "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
+            },
+            "clusters": {
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "description": "GenericClusterReference - in alignment with kubefed",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "local": {
+              "description": "It indicates a standalone subscription if the Local pointer is set to be true",
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "placementRef": {
+              "description": "Specify a placement reference for selecting clusters",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "apiVersion": {
+                  "description": "API version of the referent.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "fieldPath": {
+                  "description": "If referring to a piece of an object instead of an entire object, this string\nshould contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2].\nFor example, if the object reference is to a container within a pod, this would take on a value like:\n\"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered\nthe event) or if no container name is specified \"spec.containers[2]\" (container with\nindex 2 in this pod). This syntax is chosen only to have some well-defined way of\nreferencing a part of an object.\nTODO: this design is not final and this field is subject to change in the future.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "kind": {
+                  "description": "Kind of the referent.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "description": "Name of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "namespace": {
+                  "description": "Namespace of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "resourceVersion": {
+                  "description": "Specific resourceVersion to which this reference is made, if any.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "uid": {
+                  "description": "UID of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "secondaryChannel": {
+          "description": "The secondary channel will be applied if the primary channel fails to connect",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "timewindow": {
+          "description": "Specify a time window to indicate when the subscription is handled",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "daysofweek": {
+              "description": "A list of days of a week, valid values include: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "hours": {
+              "description": "A list of hour ranges",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "description": "HourRange defines the time format, refer to https://golang.org/pkg/time/#pkg-constants",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "end": {
+                    "description": "End time of the hour range",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "start": {
+                    "description": "Start time of the hour range",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "location": {
+              "description": "time zone location, refer to TZ identifier in https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "windowtype": {
+              "description": "Activiate time window or not. The subscription deployment will only be handled during these active windows\nValid values include: active,blocked,Active,Blocked",
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "active",
+                "blocked",
+                "Active",
+                "Blocked"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "watchHelmNamespaceScopedResources": {
+          "description": "WatchHelmNamespaceScopedResources is used to enable watching namespace scope Helm chart resources",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "SubscriptionStatus defines the observed status of a subscription",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "ansiblejobs": {
+          "description": "AnsibleJobsStatus defines status of ansible jobs propagated by the subscription",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "lastposthookjob": {
+              "description": "The lastly propagated posthook job",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "lastprehookjob": {
+              "description": "The lastly propagated prehook job",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "posthookjobshistory": {
+              "description": "reserved for backward compatibility",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "prehookjobshistory": {
+              "description": "reserved for backward compatibility",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "appstatusReference": {
+          "description": "The CLI reference for getting the subscription status output",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lastUpdateTime": {
+          "description": "Timestamp of when the subscription status was last updated.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "message": {
+          "description": "Informational message of the subscription deployment",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phase": {
+          "description": "Phase of the subscription deployment",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "description": "additional error output of the subscription deployment",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "statuses": {
+          "description": "SubscriptionClusterStatusMap defines status of each subscription per cluster, key is cluster name",
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": {
+            "description": "SubscriptionPerClusterStatus defines status of each subscription in a cluster, key is package name",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "packages": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": {
+                  "description": "SubscriptionUnitStatus defines status of each package in a subscription",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "required": [
+                    "lastUpdateTime"
+                  ],
+                  "properties": {
+                    "lastUpdateTime": {
+                      "description": "Timestamp of when the deployment package was last updated.",
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "message": {
+                      "description": "Informational message from the deployment of the package.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "phase": {
+                      "description": "Phase of the deployment package (Propagated/Subscribed/Failed/PropagationFailed/PreHookSucessful).",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "reason": {
+                      "description": "additional error output from the deployment of the package.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "resourceStatus": {
+                      "description": "reserved for backward compatibility",
+                      "x-kubernetes-preserve-unknown-fields": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "apps.open-cluster-management.io",
+      "kind": "Subscription",
+      "version": "v1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

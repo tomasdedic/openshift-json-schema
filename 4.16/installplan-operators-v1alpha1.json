@@ -76,7 +76,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "InstallPlanStatus represents the information about the status of steps required to complete installation. \n Status may trail the actual state of a system.",
@@ -145,7 +146,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "bundleLookups": {
           "description": "BundleLookups is the set of in-progress requests to pull and unpackage bundle content to the cluster.",
@@ -219,7 +221,8 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "conditions": {
                 "description": "Conditions represents the overall state of a BundleLookup.",
@@ -275,7 +278,8 @@
                       "description": "Type of condition.",
                       "type": "string"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "identifier": {
@@ -296,8 +300,10 @@
               "replaces": {
                 "description": "Replaces is the name of the bundle to replace with the one found at Path.",
                 "type": "string"
-              }
-            }
+              },
+              "additionalProperties": false
+            },
+            "additionalProperties": false
           }
         },
         "catalogSources": {
@@ -361,7 +367,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "message": {
@@ -437,13 +444,15 @@
                   "version": {
                     "type": "string"
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "status": {
                 "description": "StepStatus is the current status of a particular resource an in InstallPlan",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "startTime": {
@@ -454,7 +463,8 @@
           ],
           "format": "date-time"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -464,5 +474,6 @@
       "version": "v1alpha1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

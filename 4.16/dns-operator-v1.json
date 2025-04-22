@@ -56,7 +56,8 @@
               ],
               "pattern": "^(0|([0-9]+(\\.[0-9]+)?(ns|us|\u00b5s|\u03bcs|ms|s|m|h))+)$"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "logLevel": {
           "description": "logLevel describes the desired logging verbosity for CoreDNS. Any one of the following values may be specified: * Normal logs errors from upstream resolvers. * Debug logs errors, NXDOMAIN responses, and NODATA responses. * Trace logs errors and all responses. Setting logLevel: Trace will produce extremely verbose logs. Valid values are: \"Normal\", \"Debug\", \"Trace\". Defaults to \"Normal\".",
@@ -147,10 +148,12 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "operatorLogLevel": {
           "description": "operatorLogLevel controls the logging level of the DNS Operator. Valid values are: \"Normal\", \"Debug\", \"Trace\". Defaults to \"Normal\". setting operatorLogLevel: Trace will produce extremely verbose logs.",
@@ -238,7 +241,8 @@
                                 "description": "name is the metadata.name of the referenced config map",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "serverName": {
                             "description": "serverName is the upstream server to connect to when forwarding DNS queries. This is required when Transport is set to \"TLS\". ServerName will be validated against the DNS naming conventions in RFC 1123 and should match the TLS certificate installed in the upstream resolver(s).",
@@ -246,7 +250,8 @@
                             "maxLength": 253,
                             "pattern": "^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])(\\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9]))*$"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "transport": {
                         "description": "transport allows cluster administrators to opt-in to using a DNS-over-TLS connection between cluster DNS and an upstream resolver(s). Configuring TLS as the transport at this level without configuring a CABundle will result in the system certificates being used to verify the serving certificate of the upstream resolver(s). \n Possible values: \"\" (empty) - This means no explicit choice has been made and the platform chooses the default which is subject to change over time. The current default is \"Cleartext\". \"Cleartext\" - Cluster admin specified cleartext option. This results in the same functionality as an empty value but may be useful when a cluster admin wants to be more explicit about the transport, or wants to switch from \"TLS\" to \"Cleartext\" explicitly. \"TLS\" - This indicates that DNS queries should be sent over a TLS connection. If Transport is set to TLS, you MUST also set ServerName. If a port is not included with the upstream IP, port 853 will be tried by default per RFC 7858 section 3.1; https://datatracker.ietf.org/doc/html/rfc7858#section-3.1.",
@@ -260,7 +265,8 @@
                           ""
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "upstreams": {
                     "description": "upstreams is a list of resolvers to forward name queries for subdomains of Zones. Each instance of CoreDNS performs health checking of Upstreams. When a healthy upstream returns an error during the exchange, another resolver is tried from Upstreams. The Upstreams are selected in the order specified in Policy. Each upstream is represented by an IP address or IP:port if the upstream listens on a port other than 53. \n A maximum of 15 upstreams is allowed per ForwardPlugin.",
@@ -276,7 +282,8 @@
                       ]
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "name": {
                 "description": "name is required and specifies a unique name for the server. Name must comply with the Service Name Syntax of rfc6335.",
@@ -298,7 +305,8 @@
                   ]
                 }
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "upstreamResolvers": {
@@ -362,7 +370,8 @@
                           "description": "name is the metadata.name of the referenced config map",
                           "type": "string"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "serverName": {
                       "description": "serverName is the upstream server to connect to when forwarding DNS queries. This is required when Transport is set to \"TLS\". ServerName will be validated against the DNS naming conventions in RFC 1123 and should match the TLS certificate installed in the upstream resolver(s).",
@@ -370,7 +379,8 @@
                       "maxLength": 253,
                       "pattern": "^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])(\\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9]))*$"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "transport": {
                   "description": "transport allows cluster administrators to opt-in to using a DNS-over-TLS connection between cluster DNS and an upstream resolver(s). Configuring TLS as the transport at this level without configuring a CABundle will result in the system certificates being used to verify the serving certificate of the upstream resolver(s). \n Possible values: \"\" (empty) - This means no explicit choice has been made and the platform chooses the default which is subject to change over time. The current default is \"Cleartext\". \"Cleartext\" - Cluster admin specified cleartext option. This results in the same functionality as an empty value but may be useful when a cluster admin wants to be more explicit about the transport, or wants to switch from \"TLS\" to \"Cleartext\" explicitly. \"TLS\" - This indicates that DNS queries should be sent over a TLS connection. If Transport is set to TLS, you MUST also set ServerName. If a port is not included with the upstream IP, port 853 will be tried by default per RFC 7858 section 3.1; https://datatracker.ietf.org/doc/html/rfc7858#section-3.1.",
@@ -384,7 +394,8 @@
                     ""
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "upstreams": {
               "description": "Upstreams is a list of resolvers to forward name queries for the \".\" domain. Each instance of CoreDNS performs health checking of Upstreams. When a healthy upstream returns an error during the exchange, another resolver is tried from Upstreams. The Upstreams are selected in the order specified in Policy. \n A maximum of 15 upstreams is allowed per ForwardPlugin. If no Upstreams are specified, /etc/resolv.conf is used by default",
@@ -429,12 +440,15 @@
                       ""
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "status is the most recently observed status of the DNS.",
@@ -499,10 +513,12 @@
               "type": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -512,5 +528,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

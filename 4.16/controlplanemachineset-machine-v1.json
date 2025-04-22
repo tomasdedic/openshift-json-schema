@@ -95,7 +95,8 @@
                       ]
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "matchLabels": {
@@ -118,7 +119,8 @@
               "message": "selector is immutable",
               "rule": "self == oldSelf"
             }
-          ]
+          ],
+          "additionalProperties": false
         },
         "state": {
           "description": "State defines whether the ControlPlaneMachineSet is Active or Inactive. When Inactive, the ControlPlaneMachineSet will not take any action on the state of the Machines within the cluster. When Active, the ControlPlaneMachineSet will reconcile the Machines and will update the Machines as necessary. Once Active, a ControlPlaneMachineSet cannot be made Inactive. To prevent further action please remove the ControlPlaneMachineSet.",
@@ -155,7 +157,8 @@
                 "OnDelete"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "template": {
           "description": "Template describes the Control Plane Machines that will be created by this ControlPlaneMachineSet.",
@@ -220,7 +223,8 @@
                                 "description": "AvailabilityZone is the availability zone of the instance.",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "subnet": {
                             "description": "Subnet is a reference to the subnet to use for this instance.",
@@ -272,7 +276,8 @@
                                         ]
                                       }
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               },
                               "id": {
@@ -305,9 +310,11 @@
                                 "message": "filters is required when type is Filters, and forbidden otherwise",
                                 "rule": "has(self.type) && self.type == 'Filters' ?  has(self.filters) : !has(self.filters)"
                               }
-                            ]
+                            ],
+                            "additionalProperties": false
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "azure": {
@@ -339,7 +346,8 @@
                             "description": "Availability Zone for the virtual machine. If nil, the virtual machine should be deployed to no zone.",
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "gcp": {
@@ -362,7 +370,8 @@
                             "description": "Zone is the zone in which the GCP machine provider will create the VM.",
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "nutanix": {
@@ -388,7 +397,8 @@
                             "minLength": 1,
                             "pattern": "[a-z0-9]([-a-z0-9]*[a-z0-9])?"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "x-kubernetes-list-map-keys": [
                         "name"
@@ -445,7 +455,8 @@
                                 "maxLength": 255,
                                 "minLength": 1
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           }
                         },
                         "x-kubernetes-validations": [
@@ -453,7 +464,8 @@
                             "message": "rootVolume.availabilityZone is required when availabilityZone is set",
                             "rule": "!has(self.availabilityZone) || !has(self.rootVolume) || has(self.rootVolume.availabilityZone)"
                           }
-                        ]
+                        ],
+                        "additionalProperties": false
                       }
                     },
                     "platform": {
@@ -499,7 +511,8 @@
                             "description": "name of the failure domain in which the vSphere machine provider will create the VM. Failure domains are defined in a cluster's config.openshift.io/Infrastructure resource. When balancing machines across failure domains, the control plane machine set will inject configuration from the Infrastructure resource into the machine providerSpec to allocate the machine to a failure domain.",
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "x-kubernetes-list-map-keys": [
                         "name"
@@ -532,7 +545,8 @@
                       "message": "nutanix configuration is required when platform is Nutanix, and forbidden otherwise",
                       "rule": "has(self.platform) && self.platform == 'Nutanix' ?  has(self.nutanix) : !has(self.nutanix)"
                     }
-                  ]
+                  ],
+                  "additionalProperties": false
                 },
                 "metadata": {
                   "description": "ObjectMeta is the standard object metadata More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata Labels are required to match the ControlPlaneMachineSet selector.",
@@ -578,7 +592,8 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "spec": {
                   "description": "Spec contains the desired configuration of the Control Plane Machines. The ProviderSpec within contains platform specific details for creating the Control Plane Machines. The ProviderSe should be complete apart from the platform specific failure domain field. This will be overriden when the Machines are created based on the FailureDomains field.",
@@ -621,7 +636,8 @@
                                 "maxLength": 512,
                                 "minLength": 3
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "x-kubernetes-list-map-keys": [
                             "name"
@@ -658,14 +674,16 @@
                                 "maxLength": 512,
                                 "minLength": 3
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "x-kubernetes-list-map-keys": [
                             "name"
                           ],
                           "x-kubernetes-list-type": "map"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "metadata": {
                       "description": "ObjectMeta will autopopulate the Node created. Use this to indicate what labels, annotations, name prefix, etc., should be used when creating the Node.",
@@ -770,10 +788,12 @@
                                 "description": "UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#uids",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           }
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "providerID": {
                       "description": "ProviderID is the identification ID of the machine provided by the provider. This field must match the provider ID as seen on the node object corresponding to this machine. This field is required by higher level consumers of cluster-api. Example use case is cluster autoscaler with cluster-api as provider. Clean-up logic in the autoscaler compares machines to nodes to find out machines at provider which could not get registered as Kubernetes nodes. With cluster-api as a generic out-of-tree provider for autoscaler, this field is required by autoscaler to be able to have a provider view of the list of machines. Another list of nodes is queried from the k8s apiserver and then a comparison is done to find out unregistered machines and are marked for delete. This field will be set by the actuators and consumed by higher level entities like autoscaler that will be interfacing with cluster-api as generic provider.",
@@ -793,7 +813,8 @@
                           "description": "Value is an inlined, serialized representation of the resource configuration. It is recommended that providers maintain their own versioned API types that should be serialized/deserialized from this field, akin to component config.",
                           "x-kubernetes-preserve-unknown-fields": true
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "taints": {
                       "description": "The list of the taints to be applied to the corresponding Node in additive manner. This list will not overwrite any other taints added to the Node on an ongoing basis by other entities. These taints should be actively reconciled e.g. if you ask the machine controller to apply a taint and then manually remove the taint the machine controller will put it back) but not have the machine controller remove any taints",
@@ -835,12 +856,15 @@
                               "null"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             }
           },
           "x-kubernetes-validations": [
@@ -848,9 +872,11 @@
               "message": "machines_v1beta1_machine_openshift_io configuration is required when machineType is machines_v1beta1_machine_openshift_io, and forbidden otherwise",
               "rule": "has(self.machineType) && self.machineType == 'machines_v1beta1_machine_openshift_io' ?  has(self.machines_v1beta1_machine_openshift_io) : !has(self.machines_v1beta1_machine_openshift_io)"
             }
-          ]
+          ],
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ControlPlaneMachineSetStatus represents the status of the ControlPlaneMachineSet CRD.",
@@ -920,7 +946,8 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-map-keys": [
             "type"
@@ -967,7 +994,8 @@
           ],
           "format": "int32"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -977,5 +1005,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

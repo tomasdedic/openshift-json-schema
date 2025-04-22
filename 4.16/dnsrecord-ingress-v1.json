@@ -78,7 +78,8 @@
             ]
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "status is the most recently observed status of the dnsRecord.",
@@ -152,7 +153,8 @@
                       "type": "string",
                       "minLength": 1
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "dnsZone": {
@@ -182,12 +184,15 @@
                       ]
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -197,5 +202,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

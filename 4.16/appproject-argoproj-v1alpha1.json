@@ -1,5 +1,5 @@
 {
-  "description": "AppProject provides a logical grouping of applications, providing controls for: * where the apps may deploy to (cluster whitelist) * what may be deployed (repository whitelist, resource whitelist/blacklist) * who can access these applications (roles, OIDC group claims bindings) * and what they can do (RBAC policies) * automation access to these roles (JWT tokens)",
+  "description": "AppProject provides a logical grouping of applications, providing controls for:\n* where the apps may deploy to (cluster whitelist)\n* what may be deployed (repository whitelist, resource whitelist/blacklist)\n* who can access these applications (roles, OIDC group claims bindings)\n* and what they can do (RBAC policies)\n* automation access to these roles (JWT tokens)",
   "type": "object",
   "required": [
     "metadata",
@@ -44,7 +44,7 @@
             "null"
           ],
           "items": {
-            "description": "GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying concepts during lookup stages without having partially valid types",
+            "description": "GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying\nconcepts during lookup stages without having partially valid types",
             "type": [
               "object",
               "null"
@@ -60,7 +60,8 @@
               "kind": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "clusterResourceWhitelist": {
@@ -70,7 +71,7 @@
             "null"
           ],
           "items": {
-            "description": "GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying concepts during lookup stages without having partially valid types",
+            "description": "GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying\nconcepts during lookup stages without having partially valid types",
             "type": [
               "object",
               "null"
@@ -86,7 +87,8 @@
               "kind": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "description": {
@@ -95,6 +97,42 @@
             "string",
             "null"
           ]
+        },
+        "destinationServiceAccounts": {
+          "description": "DestinationServiceAccounts holds information about the service accounts to be impersonated for the application sync operation for each destination.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "ApplicationDestinationServiceAccount holds information about the service account to be impersonated for the application sync operation.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "defaultServiceAccount",
+              "server"
+            ],
+            "properties": {
+              "defaultServiceAccount": {
+                "description": "DefaultServiceAccount to be used for impersonation during the sync operation",
+                "type": "string"
+              },
+              "namespace": {
+                "description": "Namespace specifies the target namespace for the application's resources.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "server": {
+                "description": "Server specifies the URL of the target cluster's Kubernetes control plane API.",
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
         },
         "destinations": {
           "description": "Destinations contains list of destinations available for deployment",
@@ -110,27 +148,28 @@
             ],
             "properties": {
               "name": {
-                "description": "Name is an alternate way of specifying the target cluster by its symbolic name",
+                "description": "Name is an alternate way of specifying the target cluster by its symbolic name. This must be set if Server is not set.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "namespace": {
-                "description": "Namespace specifies the target namespace for the application's resources. The namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace",
+                "description": "Namespace specifies the target namespace for the application's resources.\nThe namespace will only be set for namespace-scoped resources that have not set a value for .metadata.namespace",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "server": {
-                "description": "Server specifies the URL of the target cluster and must be set to the Kubernetes control plane API",
+                "description": "Server specifies the URL of the target cluster's Kubernetes control plane API. This must be set if Name is not set.",
                 "type": [
                   "string",
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "namespaceResourceBlacklist": {
@@ -140,7 +179,7 @@
             "null"
           ],
           "items": {
-            "description": "GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying concepts during lookup stages without having partially valid types",
+            "description": "GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying\nconcepts during lookup stages without having partially valid types",
             "type": [
               "object",
               "null"
@@ -156,7 +195,8 @@
               "kind": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "namespaceResourceWhitelist": {
@@ -166,7 +206,7 @@
             "null"
           ],
           "items": {
-            "description": "GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying concepts during lookup stages without having partially valid types",
+            "description": "GroupKind specifies a Group and a Kind, but does not force a version.  This is useful for identifying\nconcepts during lookup stages without having partially valid types",
             "type": [
               "object",
               "null"
@@ -182,7 +222,8 @@
               "kind": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "orphanedResources": {
@@ -223,7 +264,8 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "warn": {
@@ -233,7 +275,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "permitOnlyProjectScopedClusters": {
           "description": "PermitOnlyProjectScopedClusters determines whether destinations can only reference clusters which are project-scoped",
@@ -311,7 +354,8 @@
                         "null"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "name": {
@@ -331,7 +375,8 @@
                   ]
                 }
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "signatureKeys": {
@@ -354,7 +399,8 @@
                 "description": "The ID of the key in hexadecimal notation",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "sourceNamespaces": {
@@ -470,10 +516,12 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "AppProjectStatus contains status information for AppProject CRs",
@@ -527,13 +575,16 @@
                         "null"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -543,5 +594,6 @@
       "version": "v1alpha1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

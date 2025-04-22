@@ -82,5 +82,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.UncountedTerminatedPods"
     }
   },
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

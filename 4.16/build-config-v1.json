@@ -50,7 +50,8 @@
               "description": "name is the metadata.name of the referenced config map",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "buildDefaults": {
           "description": "BuildDefaults controls the default information for Builds",
@@ -114,9 +115,11 @@
                       "description": "name is the metadata.name of the referenced config map",
                       "type": "string"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "env": {
               "description": "Env is a set of default environment variables that will be applied to the build if the specified variables do not exist on the build",
@@ -181,7 +184,8 @@
                             ]
                           }
                         },
-                        "x-kubernetes-map-type": "atomic"
+                        "x-kubernetes-map-type": "atomic",
+                        "additionalProperties": false
                       },
                       "fieldRef": {
                         "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.",
@@ -205,7 +209,8 @@
                             "type": "string"
                           }
                         },
-                        "x-kubernetes-map-type": "atomic"
+                        "x-kubernetes-map-type": "atomic",
+                        "additionalProperties": false
                       },
                       "resourceFieldRef": {
                         "description": "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.",
@@ -234,7 +239,8 @@
                             "type": "string"
                           }
                         },
-                        "x-kubernetes-map-type": "atomic"
+                        "x-kubernetes-map-type": "atomic",
+                        "additionalProperties": false
                       },
                       "secretKeyRef": {
                         "description": "Selects a key of a secret in the pod's namespace",
@@ -265,11 +271,14 @@
                             ]
                           }
                         },
-                        "x-kubernetes-map-type": "atomic"
+                        "x-kubernetes-map-type": "atomic",
+                        "additionalProperties": false
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "gitProxy": {
@@ -327,9 +336,11 @@
                       "description": "name is the metadata.name of the referenced config map",
                       "type": "string"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "imageLabels": {
               "description": "ImageLabels is a list of docker labels that are applied to the resulting image. User can override a default label by providing a label with the same name in their Build/BuildConfig.",
@@ -357,7 +368,8 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "resources": {
@@ -387,7 +399,8 @@
                         "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
                         "type": "string"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
@@ -416,9 +429,11 @@
                     "x-kubernetes-int-or-string": true
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "buildOverrides": {
           "description": "BuildOverrides controls override settings for builds",
@@ -460,7 +475,8 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "nodeSelector": {
@@ -525,12 +541,15 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -540,5 +559,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

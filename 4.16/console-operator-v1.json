@@ -64,7 +64,8 @@
                     ]
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "brand": {
               "description": "brand is the default branding of the web console which can be overridden by providing the brand field.  There is a limited set of specific brand options. This field controls elements of the console such as the logo. Invalid value will prevent a console rollout.",
@@ -108,7 +109,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "customProductName": {
               "description": "customProductName is the name that will be displayed in page titles, logo alt text, and the about dialog instead of the normal OpenShift product name.",
@@ -197,7 +199,8 @@
                                 ]
                               }
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         }
                       },
                       "tags": {
@@ -213,7 +216,8 @@
                           ]
                         }
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "types": {
@@ -272,9 +276,11 @@
                       "message": "disabled is forbidden when state is not Disabled",
                       "rule": "self.state == 'Disabled' ? true : !has(self.disabled)"
                     }
-                  ]
+                  ],
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "documentationBaseURL": {
               "description": "documentationBaseURL links to external documentation are shown in various sections of the web console.  Providing documentationBaseURL will override the default documentation URL. Invalid value will prevent a console rollout.",
@@ -339,7 +345,8 @@
                           "type": "string",
                           "pattern": "^[a-z0-9]+$"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     }
                   },
                   "visibility": {
@@ -416,7 +423,8 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
                           },
                           "required": {
@@ -478,10 +486,12 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "state": {
                         "description": "state defines the perspective is enabled or disabled or access review check is required.",
@@ -498,7 +508,8 @@
                         "message": "accessReview configuration is required when state is AccessReview, and forbidden otherwise",
                         "rule": "self.state == 'AccessReview' ?  has(self.accessReview) : !has(self.accessReview)"
                       }
-                    ]
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "x-kubernetes-validations": [
@@ -506,7 +517,8 @@
                     "message": "pinnedResources is allowed only for dev and forbidden for other perspectives",
                     "rule": "has(self.id) && self.id != 'dev'? !has(self.pinnedResources) : true"
                   }
-                ]
+                ],
+                "additionalProperties": false
               },
               "x-kubernetes-list-map-keys": [
                 "id"
@@ -533,7 +545,8 @@
                     ]
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "quickStarts": {
               "description": "quickStarts allows customization of available ConsoleQuickStart resources in console.",
@@ -555,9 +568,11 @@
                     ]
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "ingress": {
           "description": "ingress allows to configure the alternative ingress for the console. This field is intended for clusters without ingress capability, where access to routes is not possible.",
@@ -602,7 +617,8 @@
                 }
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "logLevel": {
           "description": "logLevel is an intent based logging for an overall component.  It does not give fine grained control, but it is a simple way to manage coarse grained logging choices that operators have to interpret for their operands. \n Valid values are: \"Normal\", \"Debug\", \"Trace\", \"TraceAll\". Defaults to \"Normal\".",
@@ -678,9 +694,11 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "route": {
           "description": "route contains hostname and secret reference that contains the serving certificate. If a custom route is specified, a new route will be created with the provided hostname, under which console will be available. In case of custom hostname uses the default routing suffix of the cluster, the Secret specification for a serving certificate will not be needed. In case of custom hostname points to an arbitrary domain, manual DNS configurations steps are necessary. The default console route will be maintained to reserve the default hostname for console if the custom route is removed. If not specified, default route will be used. DEPRECATED",
@@ -710,15 +728,18 @@
                   "description": "name is the metadata.name of the referenced secret",
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "unsupportedConfigOverrides": {
           "description": "unsupportedConfigOverrides overrides the final configuration that was computed by the operator. Red Hat does not support the use of this field. Misuse of this field could lead to unexpected behavior or conflict with other configuration options. Seek guidance from the Red Hat support before using this field. Use of this property blocks cluster upgrades, it must be removed before upgrading your cluster.",
           "x-kubernetes-preserve-unknown-fields": true
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ConsoleStatus defines the observed status of the Console.",
@@ -771,7 +792,8 @@
               "type": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-map-keys": [
             "type"
@@ -834,7 +856,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -861,7 +884,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -871,5 +895,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

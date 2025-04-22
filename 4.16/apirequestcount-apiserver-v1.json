@@ -46,7 +46,8 @@
           "maximum": 100,
           "minimum": 0
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "status contains the observed state of the resource.",
@@ -116,7 +117,8 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "currentHour": {
@@ -185,7 +187,8 @@
                                 ],
                                 "maxLength": 20
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           }
                         },
                         "requestCount": {
@@ -213,7 +216,8 @@
                           ],
                           "maxLength": 512
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     }
                   },
                   "nodeName": {
@@ -234,7 +238,8 @@
                     "format": "int64",
                     "minimum": 0
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "requestCount": {
@@ -246,7 +251,8 @@
               "format": "int64",
               "minimum": 0
             }
-          }
+          },
+          "additionalProperties": false
         },
         "last24h": {
           "description": "last24h contains request history for the last 24 hours, indexed by the hour, so 12:00AM-12:59 is in index 0, 6am-6:59am is index 6, etc. The index of the current hour is updated live and then duplicated into the requestsLastHour field.",
@@ -321,7 +327,8 @@
                                   ],
                                   "maxLength": 20
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
                           },
                           "requestCount": {
@@ -349,7 +356,8 @@
                             ],
                             "maxLength": 512
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "nodeName": {
@@ -370,7 +378,8 @@
                       "format": "int64",
                       "minimum": 0
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "requestCount": {
@@ -382,7 +391,8 @@
                 "format": "int64",
                 "minimum": 0
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "removedInRelease": {
@@ -404,7 +414,8 @@
           "format": "int64",
           "minimum": 0
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -414,5 +425,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -108,7 +108,8 @@
                           "value": {
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "libs": {
@@ -153,10 +154,12 @@
                           "value": {
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "recurse": {
                   "description": "Recurse specifies whether to scan a directory recursively for manifests",
@@ -165,7 +168,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "helm": {
               "description": "Helm holds helm specific options",
@@ -201,7 +205,8 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "ignoreMissingValueFiles": {
@@ -245,7 +250,8 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "passCredentials": {
@@ -296,7 +302,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "kustomize": {
               "description": "Kustomize holds kustomize specific options",
@@ -380,7 +387,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "path": {
               "description": "Path is a directory path within the Git repository, and is only valid for applications sourced from Git.",
@@ -421,7 +429,8 @@
                         "description": "Value is the value of the variable",
                         "type": "string"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "name": {
@@ -481,10 +490,12 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "ref": {
               "description": "Ref is reference to another source within sources field. This field will not be used if used with a `source` tag.",
@@ -504,7 +515,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "description": {
           "description": "Description of the Namespace",
@@ -558,7 +570,8 @@
                 "description": "Name of the role the subject will get",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "ipamName": {
@@ -643,7 +656,8 @@
                 "description": "Type of resource that this limit applies to.",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "orphanIgnore": {
@@ -677,7 +691,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "sccRanges": {
@@ -697,7 +712,8 @@
             ]
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ProjectEnvironmentStatus defines the observed state of ProjectEnvironment",
@@ -748,10 +764,12 @@
               "type": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -761,5 +779,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

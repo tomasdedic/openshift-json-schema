@@ -15,5 +15,6 @@
       "$ref": "_definitions.json#/definitions/com.github.openshift.api.quota.v1.ClusterResourceQuotaSelector"
     }
   },
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

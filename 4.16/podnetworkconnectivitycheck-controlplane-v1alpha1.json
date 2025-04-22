@@ -64,9 +64,11 @@
               "description": "name is the metadata.name of the referenced secret",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "Status contains the observed status of the connectivity check",
@@ -118,7 +120,8 @@
                 "description": "Type of the condition",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "failures": {
@@ -162,7 +165,8 @@
                 "description": "Start time of check action.",
                 "format": "date-time"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "outages": {
@@ -223,7 +227,8 @@
                       "description": "Start time of check action.",
                       "format": "date-time"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "message": {
@@ -278,10 +283,12 @@
                       "description": "Start time of check action.",
                       "format": "date-time"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "successes": {
@@ -325,10 +332,12 @@
                 "description": "Start time of check action.",
                 "format": "date-time"
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -338,5 +347,6 @@
       "version": "v1alpha1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

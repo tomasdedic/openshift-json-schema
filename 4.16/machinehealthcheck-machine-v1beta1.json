@@ -103,7 +103,8 @@
               ]
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         },
         "selector": {
           "description": "Label selector to match machines whose health will be exercised. Note: An empty selector will match all machines.",
@@ -150,7 +151,8 @@
                       ]
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "matchLabels": {
@@ -167,7 +169,8 @@
               }
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         },
         "unhealthyConditions": {
           "description": "UnhealthyConditions contains a list of the conditions that determine whether a node is considered unhealthy.  The conditions are combined in a logical OR, i.e. if any of the conditions is met, the node is unhealthy.",
@@ -205,10 +208,12 @@
                 ],
                 "minLength": 1
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "Most recently observed status of MachineHealthCheck resource",
@@ -273,7 +278,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "currentHealthy": {
@@ -301,7 +307,8 @@
           "format": "int32",
           "minimum": 0
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -311,5 +318,6 @@
       "version": "v1beta1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

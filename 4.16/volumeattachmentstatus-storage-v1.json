@@ -34,5 +34,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeError"
     }
   },
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

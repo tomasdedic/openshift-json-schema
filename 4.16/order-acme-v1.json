@@ -105,14 +105,16 @@
               "description": "Name of the resource being referred to.",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "request": {
           "description": "Certificate signing request bytes in DER encoding. This will be used when finalizing the order. This field must be set on the order.",
           "type": "string",
           "format": "byte"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "type": [
@@ -166,7 +168,8 @@
                       "description": "URL is the URL of this challenge. It can be used to retrieve additional metadata about the Challenge from the ACME server.",
                       "type": "string"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "identifier": {
@@ -203,7 +206,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "certificate": {
@@ -259,7 +263,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -269,5 +274,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

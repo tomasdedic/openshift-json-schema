@@ -141,7 +141,8 @@
                   "format": "int32",
                   "minimum": 0
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "gpus": {
               "description": "Minimum and maximum number of different GPUs in cluster, in the format <gpu_type>:<min>:<max>. Cluster autoscaler will not scale the cluster beyond these numbers. Can be passed multiple times.",
@@ -175,7 +176,8 @@
                     "type": "string",
                     "minLength": 1
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "maxNodesTotal": {
@@ -207,9 +209,11 @@
                   "format": "int32",
                   "minimum": 0
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "scaleDown": {
           "description": "Configuration of scale down operation",
@@ -265,7 +269,8 @@
               ],
               "pattern": "(0.[0-9]+)"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "skipNodesWithLocalStorage": {
           "description": "Enables/Disables `--skip-nodes-with-local-storage` CA feature flag. If true cluster autoscaler will never delete nodes with pods with local storage, e.g. EmptyDir or HostPath. true by default at autoscaler",
@@ -274,7 +279,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "Most recently observed status of ClusterAutoscaler resource",
@@ -291,5 +297,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

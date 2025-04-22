@@ -88,7 +88,8 @@
                       "None"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "x-kubernetes-list-map-keys": [
                 "group"
@@ -108,7 +109,8 @@
                 "None"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "clientCA": {
           "description": "clientCA references a ConfigMap containing a certificate bundle for the signers that will be recognized for incoming client certificates in addition to the operator managed signers. If this is empty, then only operator managed signers are valid. You usually only have to set this if you have your own PKI you wish to honor client certificates from. The ConfigMap must exist in the openshift-config namespace and contain the following required fields: - ConfigMap.Data[\"ca-bundle.crt\"] - CA bundle.",
@@ -124,7 +126,8 @@
               "description": "name is the metadata.name of the referenced config map",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "encryption": {
           "description": "encryption allows the configuration of encryption of resources at the datastore layer.",
@@ -146,7 +149,8 @@
                 "aesgcm"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "servingCerts": {
           "description": "servingCert is the TLS cert info for serving secure traffic. If not specified, operator managed certificates will be used for serving secure traffic.",
@@ -195,12 +199,15 @@
                         "description": "name is the metadata.name of the referenced secret",
                         "type": "string"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "tlsSecurityProfile": {
           "description": "tlsSecurityProfile specifies settings for TLS connections for externally exposed servers. \n If unset, a default (which may change between releases) is chosen. Note that only Old, Intermediate and Custom profiles are currently supported, and the maximum available minTLSVersion is VersionTLS12.",
@@ -234,9 +241,11 @@
                 "Custom"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "status holds observed values from the cluster. They may not be overridden.",
@@ -253,5 +262,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

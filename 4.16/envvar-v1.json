@@ -24,5 +24,6 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.EnvVarSource"
     }
   },
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

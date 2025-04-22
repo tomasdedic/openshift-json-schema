@@ -73,5 +73,6 @@
       "version": "v1alpha2"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

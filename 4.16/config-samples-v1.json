@@ -91,7 +91,8 @@
             ]
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ConfigStatus contains the actual configuration in effect, as well as various details that describe the state of the Samples Operator.",
@@ -168,7 +169,8 @@
                 "description": "type of condition.",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "managementState": {
@@ -219,7 +221,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -229,5 +232,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

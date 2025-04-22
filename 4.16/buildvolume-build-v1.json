@@ -35,5 +35,6 @@
       "$ref": "_definitions.json#/definitions/com.github.openshift.api.build.v1.BuildVolumeSource"
     }
   },
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

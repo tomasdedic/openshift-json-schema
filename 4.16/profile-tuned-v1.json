@@ -69,13 +69,15 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "tunedProfile": {
               "description": "TuneD profile to apply",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "profile": {
           "description": "Tuned profiles.",
@@ -103,10 +105,12 @@
                 "type": "string",
                 "minLength": 1
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ProfileStatus is the status for a Profile resource; the status is for internal use only and its fields may be changed/removed in the future.",
@@ -163,14 +167,16 @@
                 "description": "type specifies the aspect reported by this condition.",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "tunedProfile": {
           "description": "the current profile in use by the Tuned daemon",
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -180,5 +186,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

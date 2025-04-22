@@ -56,7 +56,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "platformSpec": {
           "description": "platformSpec holds desired information specific to the underlying infrastructure provider.",
@@ -108,11 +109,13 @@
                         ],
                         "pattern": "^https://"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-type": "atomic"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "azure": {
               "description": "Azure contains settings specific to the Azure infrastructure provider.",
@@ -227,7 +230,8 @@
                   "message": "ingressIPs list is required once set",
                   "rule": "!has(oldSelf.ingressIPs) || has(self.ingressIPs)"
                 }
-              ]
+              ],
+              "additionalProperties": false
             },
             "equinixMetal": {
               "description": "EquinixMetal contains settings specific to the Equinix Metal infrastructure provider.",
@@ -256,7 +260,8 @@
                     }
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "gcp": {
               "description": "GCP contains settings specific to the Google Cloud Platform infrastructure provider.",
@@ -347,7 +352,8 @@
                             "message": "name configuration is required when type is Name, and forbidden otherwise",
                             "rule": "has(self.type) && self.type == 'Name' ?  has(self.name) : !has(self.name)"
                           }
-                        ]
+                        ],
+                        "additionalProperties": false
                       },
                       "name": {
                         "description": "name defines the unique name of a failure domain. Name is required and must be at most 64 characters in length. It must consist of only lower case alphanumeric characters and hyphens (-). It must start and end with an alphanumeric character. This value is arbitrary and is used to identify the failure domain within the platform.",
@@ -403,14 +409,16 @@
                               "message": "name configuration is required when type is Name, and forbidden otherwise",
                               "rule": "has(self.type) && self.type == 'Name' ?  has(self.name) : !has(self.name)"
                             }
-                          ]
+                          ],
+                          "additionalProperties": false
                         },
                         "x-kubernetes-list-map-keys": [
                           "type"
                         ],
                         "x-kubernetes-list-type": "map"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
@@ -437,7 +445,8 @@
                       "maximum": 65535,
                       "minimum": 1
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "prismElements": {
                   "description": "prismElements holds one or more endpoint address and port data to access the Nutanix Prism Elements (clusters) of the Nutanix Prism Central. Currently we only support one Prism Element (cluster) for an OpenShift cluster, where all the Nutanix resources (VMs, subnets, volumes, etc.) used in the OpenShift cluster are located. In the future, we may support Nutanix resources (VMs, etc.) spread over multiple Prism Elements (clusters) of the Prism Central.",
@@ -473,21 +482,24 @@
                             "maximum": 65535,
                             "minimum": 1
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "name": {
                         "description": "name is the name of the Prism Element (cluster). This value will correspond with the cluster field configured on other resources (eg Machines, PVCs, etc).",
                         "type": "string",
                         "maxLength": 256
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
                   ],
                   "x-kubernetes-list-type": "map"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "openstack": {
               "description": "OpenStack contains settings specific to the OpenStack infrastructure provider.",
@@ -595,7 +607,8 @@
                   "message": "ingressIPs list is required once set",
                   "rule": "!has(oldSelf.ingressIPs) || has(self.ingressIPs)"
                 }
-              ]
+              ],
+              "additionalProperties": false
             },
             "ovirt": {
               "description": "Ovirt contains settings specific to the oVirt infrastructure provider.",
@@ -639,14 +652,16 @@
                         "format": "uri",
                         "pattern": "^https://"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
                   ],
                   "x-kubernetes-list-type": "map"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "type": {
               "description": "type is the underlying infrastructure provider for the cluster. This value controls whether infrastructure automation such as service load balancers, dynamic volume provisioning, machine creation and deletion, and other integrations are enabled. If None, no infrastructure automation is enabled. Allowed values are \"AWS\", \"Azure\", \"BareMetal\", \"GCP\", \"Libvirt\", \"OpenStack\", \"VSphere\", \"oVirt\", \"KubeVirt\", \"EquinixMetal\", \"PowerVS\", \"AlibabaCloud\", \"Nutanix\" and \"None\". Individual components may not support all platforms, and must handle unrecognized platforms as None if they do not support that platform.",
@@ -817,7 +832,8 @@
                             "minLength": 1,
                             "pattern": "^/.*?/vm/.*?"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "zone": {
                         "description": "zone defines the name of a zone tag that will be attached to a vCenter cluster. The tag category in vCenter must be named openshift-zone.",
@@ -825,7 +841,8 @@
                         "maxLength": 80,
                         "minLength": 1
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
@@ -942,7 +959,8 @@
                           },
                           "x-kubernetes-list-type": "set"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "internal": {
                       "description": "internal represents the network configuration of the node that is routable only within the cluster.",
@@ -988,9 +1006,11 @@
                           },
                           "x-kubernetes-list-type": "set"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "vcenters": {
                   "description": "vcenters holds the connection details for services to communicate with vCenter. Currently, only a single vCenter is supported. ---",
@@ -1038,7 +1058,8 @@
                         "type": "string",
                         "maxLength": 255
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-type": "atomic"
                 }
@@ -1052,11 +1073,14 @@
                   "message": "ingressIPs list is required once set",
                   "rule": "!has(oldSelf.ingressIPs) || has(self.ingressIPs)"
                 }
-              ]
+              ],
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "status holds observed values from the cluster. They may not be overridden.",
@@ -1213,14 +1237,16 @@
                         "maxLength": 128,
                         "minLength": 1
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-map-keys": [
                     "key"
                   ],
                   "x-kubernetes-list-type": "map"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "aws": {
               "description": "AWS contains settings specific to the Amazon Web Services infrastructure provider.",
@@ -1268,7 +1294,8 @@
                         "minLength": 1,
                         "pattern": "^[0-9A-Za-z_.:/=+-@]+$"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-type": "atomic"
                 },
@@ -1301,11 +1328,13 @@
                         ],
                         "pattern": "^https://"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-type": "atomic"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "azure": {
               "description": "Azure contains settings specific to the Azure infrastructure provider.",
@@ -1382,7 +1411,8 @@
                         "minLength": 1,
                         "pattern": "^[0-9A-Za-z_.=+-@]+$"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-type": "atomic",
                   "x-kubernetes-validations": [
@@ -1398,7 +1428,8 @@
                   "message": "resourceTags may only be configured during installation",
                   "rule": "!has(oldSelf.resourceTags) && !has(self.resourceTags) || has(oldSelf.resourceTags) && has(self.resourceTags)"
                 }
-              ]
+              ],
+              "additionalProperties": false
             },
             "baremetal": {
               "description": "BareMetal contains settings specific to the BareMetal platform.",
@@ -1489,7 +1520,8 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "machineNetworks": {
                   "description": "machineNetworks are IP networks used to connect all the OpenShift cluster nodes.",
@@ -1527,7 +1559,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "equinixMetal": {
               "description": "EquinixMetal contains settings specific to the Equinix Metal infrastructure provider.",
@@ -1550,7 +1583,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "external": {
               "description": "External contains settings specific to the generic External infrastructure provider.",
@@ -1590,7 +1624,8 @@
                       "message": "state may not be added or removed once set",
                       "rule": "(has(self.state) == has(oldSelf.state)) || (!has(oldSelf.state) && self.state != \"External\")"
                     }
-                  ]
+                  ],
+                  "additionalProperties": false
                 }
               },
               "x-kubernetes-validations": [
@@ -1598,7 +1633,8 @@
                   "message": "cloudControllerManager may not be added or removed once set",
                   "rule": "has(self.cloudControllerManager) == has(oldSelf.cloudControllerManager)"
                 }
-              ]
+              ],
+              "additionalProperties": false
             },
             "gcp": {
               "description": "GCP contains settings specific to the Google Cloud Platform infrastructure provider.",
@@ -1621,7 +1657,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "ibmcloud": {
               "description": "IBMCloud contains settings specific to the IBMCloud infrastructure provider.",
@@ -1709,14 +1746,16 @@
                           }
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
                   ],
                   "x-kubernetes-list-type": "map"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "kubevirt": {
               "description": "Kubevirt contains settings specific to the kubevirt infrastructure provider.",
@@ -1739,7 +1778,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "nutanix": {
               "description": "Nutanix contains settings specific to the Nutanix infrastructure provider.",
@@ -1830,9 +1870,11 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "openstack": {
               "description": "OpenStack contains settings specific to the OpenStack infrastructure provider.",
@@ -1930,7 +1972,8 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "machineNetworks": {
                   "description": "machineNetworks are IP networks used to connect all the OpenShift cluster nodes.",
@@ -1968,7 +2011,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "ovirt": {
               "description": "Ovirt contains settings specific to the oVirt infrastructure provider.",
@@ -2059,7 +2103,8 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "nodeDNSIP": {
                   "description": "deprecated: as of 4.6, this field is no longer set or honored.  It will be removed in a future release.",
@@ -2068,7 +2113,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "powervs": {
               "description": "PowerVS contains settings specific to the Power Systems Virtual Servers infrastructure provider.",
@@ -2141,7 +2187,8 @@
                         "format": "uri",
                         "pattern": "^https://"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
@@ -2161,7 +2208,8 @@
                   "message": "cannot unset resourceGroup once set",
                   "rule": "!has(oldSelf.resourceGroup) || has(self.resourceGroup)"
                 }
-              ]
+              ],
+              "additionalProperties": false
             },
             "type": {
               "description": "type is the underlying infrastructure provider for the cluster. This value controls whether infrastructure automation such as service load balancers, dynamic volume provisioning, machine creation and deletion, and other integrations are enabled. If None, no infrastructure automation is enabled. Allowed values are \"AWS\", \"Azure\", \"BareMetal\", \"GCP\", \"Libvirt\", \"OpenStack\", \"VSphere\", \"oVirt\", \"EquinixMetal\", \"PowerVS\", \"AlibabaCloud\", \"Nutanix\" and \"None\". Individual components may not support all platforms, and must handle unrecognized platforms as None if they do not support that platform. \n This value will be synced with to the `status.platform` and `status.platformStatus.type`. Currently this value cannot be changed once set.",
@@ -2278,7 +2326,8 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "machineNetworks": {
                   "description": "machineNetworks are IP networks used to connect all the OpenShift cluster nodes.",
@@ -2316,11 +2365,14 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -2330,5 +2382,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

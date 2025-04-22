@@ -167,7 +167,8 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "fieldRef": {
                     "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.",
@@ -190,7 +191,8 @@
                         "description": "Path of the field to select in the specified API version.",
                         "type": "string"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "resourceFieldRef": {
                     "description": "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.",
@@ -218,7 +220,8 @@
                         "description": "Required: resource to select",
                         "type": "string"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "secretKeyRef": {
                     "description": "Selects a key of a secret in the pod's namespace",
@@ -248,11 +251,14 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
-                }
+                },
+                "additionalProperties": false
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "eventServiceUrl": {
@@ -260,13 +266,6 @@
             "string",
             "null"
           ]
-        },
-        "fsGroup": {
-          "type": [
-            "integer",
-            "null"
-          ],
-          "format": "int64"
         },
         "globalAccount": {
           "type": [
@@ -409,7 +408,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "priorityClassName": {
@@ -465,7 +465,8 @@
                 "x-kubernetes-int-or-string": true
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "resourcesNetViz": {
           "description": "ResourceRequirements describes the compute resource requirements.",
@@ -496,21 +497,8 @@
                 "x-kubernetes-int-or-string": true
               }
             }
-          }
-        },
-        "runAsGroup": {
-          "type": [
-            "integer",
-            "null"
-          ],
-          "format": "int64"
-        },
-        "runAsUser": {
-          "type": [
-            "integer",
-            "null"
-          ],
-          "format": "int64"
+          },
+          "additionalProperties": false
         },
         "stdoutLogging": {
           "type": [
@@ -573,7 +561,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "uniqueHostId": {
@@ -582,7 +571,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "InfraVizStatus defines the observed state of InfraViz",
@@ -615,7 +605,8 @@
         "version": {
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -625,5 +616,6 @@
       "version": "v1alpha1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

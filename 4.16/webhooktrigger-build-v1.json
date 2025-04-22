@@ -21,5 +21,6 @@
       "$ref": "_definitions.json#/definitions/com.github.openshift.api.build.v1.SecretLocalReference"
     }
   },
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -57,7 +57,8 @@
                   "description": "name is the metadata.name of the referenced secret",
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "ca": {
               "description": "ca is an optional reference to a config map by name containing the PEM-encoded CA bundle. It is used as a trust anchor to validate the TLS certificate presented by the remote server. The key \"ca-bundle.crt\" is used to locate the data. If empty, the default system roots are used. The namespace for this configmap must be same as the namespace where the project helm chart repository is getting instantiated.",
@@ -73,7 +74,8 @@
                   "description": "name is the metadata.name of the referenced config map",
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "tlsClientConfig": {
               "description": "tlsClientConfig is an optional reference to a secret by name that contains the PEM-encoded TLS client certificate and private key to present when connecting to the server. The key \"tls.crt\" is used to locate the client certificate. The key \"tls.key\" is used to locate the private key. The namespace for this secret must be same as the namespace where the project helm chart repository is getting instantiated.",
@@ -89,7 +91,8 @@
                   "description": "name is the metadata.name of the referenced secret",
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "url": {
               "description": "Chart repository URL",
@@ -100,7 +103,8 @@
               "maxLength": 2048,
               "pattern": "^https?:\\/\\/"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "description": {
           "description": "Optional human readable repository description, it can be used by UI for displaying purposes",
@@ -127,7 +131,8 @@
           "maxLength": 100,
           "minLength": 1
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "Observed status of the repository within the namespace..",
@@ -197,10 +202,12 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -210,5 +217,6 @@
       "version": "v1beta1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

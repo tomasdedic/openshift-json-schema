@@ -101,11 +101,13 @@
                           ]
                         }
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 }
               },
-              "x-kubernetes-map-type": "atomic"
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
             },
             "scopes": {
               "description": "A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.",
@@ -121,7 +123,8 @@
                 ]
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "selector": {
           "description": "Selector is the selector used to match projects. It should only select active projects on the scale of dozens (though it can select many more less active projects).  These projects will contend on object creation through this resource.",
@@ -140,9 +143,11 @@
               "description": "LabelSelector is used to select projects by label.",
               "x-kubernetes-map-type": "atomic"
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "Status defines the actual enforced quota and its current usage",
@@ -183,9 +188,11 @@
                 "x-kubernetes-int-or-string": true
               }
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -195,5 +202,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

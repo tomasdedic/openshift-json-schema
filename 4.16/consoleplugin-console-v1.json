@@ -89,7 +89,8 @@
                   "maximum": 65535,
                   "minimum": 1
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "type": {
               "description": "type is the backend type which servers the console's plugin. Currently only \"Service\" is supported. \n ---",
@@ -98,7 +99,8 @@
                 "Service"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "displayName": {
           "description": "displayName is the display name of the plugin. The dispalyName should be between 1 and 128 characters.",
@@ -125,7 +127,8 @@
                 ""
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "proxy": {
           "description": "proxy is a list of proxies that describe various service type to which the plugin needs to connect to.",
@@ -208,7 +211,8 @@
                         "maximum": 65535,
                         "minimum": 1
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "type": {
                     "description": "type is the type of the console plugin's proxy. Currently only \"Service\" is supported. \n ---",
@@ -217,12 +221,15 @@
                       "Service"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -232,5 +239,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

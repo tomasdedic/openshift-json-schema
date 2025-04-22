@@ -72,7 +72,8 @@
                   ]
                 }
               },
-              "x-kubernetes-map-type": "atomic"
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
             },
             "type": {
               "description": "Defines the authentication type. The value is case-insensitive. \n \"Basic\" is not a supported value. \n Default: \"Bearer\"",
@@ -81,7 +82,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "basicAuth": {
           "description": "BasicAuth allow an endpoint to authenticate over basic authentication. More info: https://prometheus.io/docs/operating/configuration/#endpoint",
@@ -119,7 +121,8 @@
                   ]
                 }
               },
-              "x-kubernetes-map-type": "atomic"
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
             },
             "username": {
               "description": "`username` specifies a key of a Secret containing the username for authentication.",
@@ -150,9 +153,11 @@
                   ]
                 }
               },
-              "x-kubernetes-map-type": "atomic"
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "bearerTokenSecret": {
           "description": "Secret to mount to read bearer token for scraping targets. The secret needs to be in the same namespace as the probe and accessible by the Prometheus Operator.",
@@ -183,7 +188,8 @@
               ]
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         },
         "interval": {
           "description": "Interval at which targets are probed using the configured prober. If not specified Prometheus' global scrape interval is used.",
@@ -327,7 +333,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "module": {
@@ -382,7 +389,8 @@
                       ]
                     }
                   },
-                  "x-kubernetes-map-type": "atomic"
+                  "x-kubernetes-map-type": "atomic",
+                  "additionalProperties": false
                 },
                 "secret": {
                   "description": "Secret containing data to use for the targets.",
@@ -413,9 +421,11 @@
                       ]
                     }
                   },
-                  "x-kubernetes-map-type": "atomic"
+                  "x-kubernetes-map-type": "atomic",
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "clientSecret": {
               "description": "`clientSecret` specifies a key of a Secret containing the OAuth2 client's secret.",
@@ -443,7 +453,8 @@
                   ]
                 }
               },
-              "x-kubernetes-map-type": "atomic"
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
             },
             "endpointParams": {
               "description": "`endpointParams` configures the HTTP parameters to append to the token URL.",
@@ -476,7 +487,8 @@
               "type": "string",
               "minLength": 1
             }
-          }
+          },
+          "additionalProperties": false
         },
         "prober": {
           "description": "Specification for the prober to use for probing targets. The prober.URL parameter is required. Targets cannot be probed if left empty.",
@@ -517,7 +529,8 @@
               "description": "Mandatory URL of the prober.",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "sampleLimit": {
           "description": "SampleLimit defines per-scrape limit on number of scraped samples that will be accepted.",
@@ -613,7 +626,8 @@
                         ]
                       }
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "relabelingConfigs": {
                   "description": "RelabelConfigs to apply to the label set of the target before it gets scraped. The original ingress address is available via the `__tmp_prometheus_ingress_address` label. It can be used to customize the probed URL. The original scrape job's name is available via the `__tmp_prometheus_job_name` label. More info: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config",
@@ -710,7 +724,8 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "selector": {
@@ -758,7 +773,8 @@
                               ]
                             }
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "matchLabels": {
@@ -775,9 +791,11 @@
                       }
                     }
                   },
-                  "x-kubernetes-map-type": "atomic"
+                  "x-kubernetes-map-type": "atomic",
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "staticConfig": {
               "description": "staticConfig defines the static list of targets to probe and the relabeling configuration. If `ingress` is also defined, `staticConfig` takes precedence. More info: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#static_config.",
@@ -894,7 +912,8 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "static": {
@@ -910,9 +929,11 @@
                     ]
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "tlsConfig": {
           "description": "TLS configuration to use when scraping the endpoint.",
@@ -957,7 +978,8 @@
                       ]
                     }
                   },
-                  "x-kubernetes-map-type": "atomic"
+                  "x-kubernetes-map-type": "atomic",
+                  "additionalProperties": false
                 },
                 "secret": {
                   "description": "Secret containing data to use for the targets.",
@@ -988,9 +1010,11 @@
                       ]
                     }
                   },
-                  "x-kubernetes-map-type": "atomic"
+                  "x-kubernetes-map-type": "atomic",
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "cert": {
               "description": "Client certificate to present when doing client-authentication.",
@@ -1028,7 +1052,8 @@
                       ]
                     }
                   },
-                  "x-kubernetes-map-type": "atomic"
+                  "x-kubernetes-map-type": "atomic",
+                  "additionalProperties": false
                 },
                 "secret": {
                   "description": "Secret containing data to use for the targets.",
@@ -1059,9 +1084,11 @@
                       ]
                     }
                   },
-                  "x-kubernetes-map-type": "atomic"
+                  "x-kubernetes-map-type": "atomic",
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "insecureSkipVerify": {
               "description": "Disable target certificate validation.",
@@ -1099,7 +1126,8 @@
                   ]
                 }
               },
-              "x-kubernetes-map-type": "atomic"
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
             },
             "serverName": {
               "description": "Used to verify the hostname for the targets.",
@@ -1108,9 +1136,11 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1120,5 +1150,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

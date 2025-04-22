@@ -47,5 +47,6 @@
       "version": "v1beta3"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

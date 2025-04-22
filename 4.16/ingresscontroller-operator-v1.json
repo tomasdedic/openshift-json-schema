@@ -69,7 +69,8 @@
                   "description": "name is the metadata.name of the referenced config map",
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "clientCertificatePolicy": {
               "description": "clientCertificatePolicy specifies whether the ingress controller requires clients to provide certificates.  This field accepts the values \"Required\" or \"Optional\". \n Note that the ingress controller only checks client certificates for edge-terminated and reencrypt TLS routes; it cannot check certificates for cleartext HTTP or passthrough TLS routes.",
@@ -80,7 +81,8 @@
                 "Optional"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "defaultCertificate": {
           "description": "defaultCertificate is a reference to a secret containing the default certificate served by the ingress controller. When Routes don't specify their own certificate, defaultCertificate is used. \n The secret must contain the following keys and data: \n tls.crt: certificate file contents tls.key: key file contents \n If unset, a wildcard certificate is automatically generated and used. The certificate is valid for the ingress controller domain (and subdomains) and the generated certificate's CA will be automatically integrated with the cluster's trust store. \n If a wildcard certificate is used and shared by multiple HTTP/2 enabled routes (which implies ALPN) then clients (i.e., notably browsers) are at liberty to reuse open connections. This means a client can reuse a connection to another route and that is likely to fail. This behaviour is generally known as connection coalescing. \n The in-use certificate (whether generated or user-specified) will be automatically integrated with OpenShift's built-in OAuth server.",
@@ -97,7 +99,8 @@
               ]
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         },
         "domain": {
           "description": "domain is a DNS name serviced by the ingress controller and is used to configure multiple features: \n * For the LoadBalancerService endpoint publishing strategy, domain is used to configure DNS records. See endpointPublishingStrategy. \n * When using a generated default certificate, the certificate will be valid for domain and its subdomains. See defaultCertificate. \n * The value is published to individual Route statuses so that end-users know where to target external DNS records. \n domain must be unique among all IngressControllers, and cannot be updated. \n If empty, defaults to ingress.config.openshift.io/cluster .spec.domain.",
@@ -165,7 +168,8 @@
                   "maximum": 65535,
                   "minimum": 0
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "loadBalancer": {
               "description": "loadBalancer holds parameters for the load balancer. Present only if type is LoadBalancerService.",
@@ -224,7 +228,8 @@
                               ],
                               "format": "duration"
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "networkLoadBalancer": {
                           "description": "networkLoadBalancerParameters holds configuration parameters for an AWS network load balancer. Present only if type is NLB.",
@@ -241,7 +246,8 @@
                             "NLB"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "gcp": {
                       "description": "gcp provides configuration settings that are specific to GCP load balancers. \n If empty, defaults will be applied. See specific gcp fields for details about their defaults.",
@@ -261,7 +267,8 @@
                             "Local"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "ibm": {
                       "description": "ibm provides configuration settings that are specific to IBM Cloud load balancers. \n If empty, defaults will be applied. See specific ibm fields for details about their defaults.",
@@ -282,7 +289,8 @@
                             "PROXY"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "type": {
                       "description": "type is the underlying infrastructure provider for the load balancer. Allowed values are \"AWS\", \"Azure\", \"BareMetal\", \"GCP\", \"IBM\", \"Nutanix\", \"OpenStack\", and \"VSphere\".",
@@ -298,7 +306,8 @@
                         "IBM"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "scope": {
                   "description": "scope indicates the scope at which the load balancer is exposed. Possible values are \"External\" and \"Internal\".",
@@ -308,7 +317,8 @@
                     "External"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "nodePort": {
               "description": "nodePort holds parameters for the NodePortService endpoint publishing strategy. Present only if type is NodePortService.",
@@ -329,7 +339,8 @@
                     "PROXY"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "private": {
               "description": "private holds parameters for the Private endpoint publishing strategy. Present only if type is Private.",
@@ -350,7 +361,8 @@
                     "PROXY"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "type": {
               "description": "type is the publishing strategy to use. Valid values are: \n * LoadBalancerService \n Publishes the ingress controller using a Kubernetes LoadBalancer Service. \n In this configuration, the ingress controller deployment uses container networking. A LoadBalancer Service is created to publish the deployment. \n See: https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer \n If domain is set, a wildcard DNS record will be managed to point at the LoadBalancer Service's external name. DNS records are managed only in DNS zones defined by dns.config.openshift.io/cluster .spec.publicZone and .spec.privateZone. \n Wildcard DNS management is currently supported only on the AWS, Azure, and GCP platforms. \n * HostNetwork \n Publishes the ingress controller on node ports where the ingress controller is deployed. \n In this configuration, the ingress controller deployment uses host networking, bound to node ports 80 and 443. The user is responsible for configuring an external load balancer to publish the ingress controller via the node ports. \n * Private \n Does not publish the ingress controller. \n In this configuration, the ingress controller deployment uses container networking, and is not explicitly published. The user must manually publish the ingress controller. \n * NodePortService \n Publishes the ingress controller using a Kubernetes NodePort Service. \n In this configuration, the ingress controller deployment uses container networking. A NodePort Service is created to publish the deployment. The specific node ports are dynamically allocated by OpenShift; however, to support static port allocations, user changes to the node port field of the managed NodePort Service will preserved.",
@@ -362,7 +374,8 @@
                 "NodePortService"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "httpCompression": {
           "description": "httpCompression defines a policy for HTTP traffic compression. By default, there is no HTTP compression.",
@@ -387,7 +400,8 @@
               },
               "x-kubernetes-list-type": "set"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "httpEmptyRequestsPolicy": {
           "description": "httpEmptyRequestsPolicy describes how HTTP connections should be handled if the connection times out before a request is received. Allowed values for this field are \"Respond\" and \"Ignore\".  If the field is set to \"Respond\", the ingress controller sends an HTTP 400 or 408 response, logs the connection (if access logging is enabled), and counts the connection in the appropriate metrics.  If the field is set to \"Ignore\", the ingress controller closes the connection without sending a response, logging the connection, or incrementing metrics.  The default value is \"Respond\". \n Typically, these connections come from load balancers' health probes or Web browsers' speculative connections (\"preconnect\") and can be safely ignored.  However, these requests may also be caused by network errors, and so setting this field to \"Ignore\" may impede detection and diagnosis of problems.  In addition, these requests may be caused by port scans, in which case logging empty requests may aid in detecting intrusion attempts.",
@@ -414,7 +428,8 @@
               "description": "name is the metadata.name of the referenced config map",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "httpHeaders": {
           "description": "httpHeaders defines policy for HTTP headers. \n If this field is empty, the default values are used.",
@@ -471,7 +486,8 @@
                                 "maxLength": 16384,
                                 "minLength": 1
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "type": {
                             "description": "type defines the type of the action to be applied on the header. Possible values are Set or Delete. Set allows you to set HTTP request and response headers. Delete allows you to delete HTTP request and response headers.",
@@ -487,7 +503,8 @@
                             "message": "set is required when type is Set, and forbidden otherwise",
                             "rule": "has(self.type) && self.type == 'Set' ?  has(self.set) : !has(self.set)"
                           }
-                        ]
+                        ],
+                        "additionalProperties": false
                       },
                       "name": {
                         "description": "name specifies the name of a header on which to perform an action. Its value must be a valid HTTP header name as defined in RFC 2616 section 4.2. The name must consist only of alphanumeric and the following special characters, \"-!#$%&'*+.^_`\". The following header names are reserved and may not be modified via this API: Strict-Transport-Security, Proxy, Host, Cookie, Set-Cookie. It must be no more than 255 characters in length. Header name must be unique.",
@@ -518,7 +535,8 @@
                           }
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
@@ -572,7 +590,8 @@
                                 "maxLength": 16384,
                                 "minLength": 1
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "type": {
                             "description": "type defines the type of the action to be applied on the header. Possible values are Set or Delete. Set allows you to set HTTP request and response headers. Delete allows you to delete HTTP request and response headers.",
@@ -588,7 +607,8 @@
                             "message": "set is required when type is Set, and forbidden otherwise",
                             "rule": "has(self.type) && self.type == 'Set' ?  has(self.set) : !has(self.set)"
                           }
-                        ]
+                        ],
+                        "additionalProperties": false
                       },
                       "name": {
                         "description": "name specifies the name of a header on which to perform an action. Its value must be a valid HTTP header name as defined in RFC 2616 section 4.2. The name must consist only of alphanumeric and the following special characters, \"-!#$%&'*+.^_`\". The following header names are reserved and may not be modified via this API: Strict-Transport-Security, Proxy, Host, Cookie, Set-Cookie. It must be no more than 255 characters in length. Header name must be unique.",
@@ -619,7 +639,8 @@
                           }
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
@@ -632,7 +653,8 @@
                     }
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "forwardedHeaderPolicy": {
               "description": "forwardedHeaderPolicy specifies when and how the IngressController sets the Forwarded, X-Forwarded-For, X-Forwarded-Host, X-Forwarded-Port, X-Forwarded-Proto, and X-Forwarded-Proto-Version HTTP headers.  The value may be one of the following: \n * \"Append\", which specifies that the IngressController appends the headers, preserving existing headers. \n * \"Replace\", which specifies that the IngressController sets the headers, replacing any existing Forwarded or X-Forwarded-* headers. \n * \"IfNone\", which specifies that the IngressController sets the headers if they are not already set. \n * \"Never\", which specifies that the IngressController never sets the headers, preserving any existing headers. \n By default, the policy is \"Append\".",
@@ -677,9 +699,11 @@
                   "minLength": 0,
                   "pattern": "^$|^[-!#$%&'*+.0-9A-Z^_`a-z|~]+$"
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "logging": {
           "description": "logging defines parameters for what should be logged where.  If this field is empty, operational logs are enabled but access logs are disabled.",
@@ -722,7 +746,8 @@
                           "maximum": 8192,
                           "minimum": 480
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "syslog": {
                       "description": "syslog holds parameters for a syslog endpoint.  Present only if type is Syslog.",
@@ -789,7 +814,8 @@
                           "maximum": 65535,
                           "minimum": 1
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "type": {
                       "description": "type is the type of destination for logs.  It must be one of the following: \n * Container \n The ingress operator configures the sidecar container named \"logs\" on the ingress controller pod and configures the ingress controller to write logs to the sidecar.  The logs are then available as container logs.  The expectation is that the administrator configures a custom logging solution that reads logs from this sidecar.  Note that using container logs means that logs may be dropped if the rate of logs exceeds the container runtime's or the custom logging solution's capacity. \n * Syslog \n Logs are sent to a syslog endpoint.  The administrator must specify an endpoint that can receive syslog messages.  The expectation is that the administrator has configured a custom syslog instance.",
@@ -799,7 +825,8 @@
                         "Syslog"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "httpCaptureCookies": {
                   "description": "httpCaptureCookies specifies HTTP cookies that should be captured in access logs.  If this field is empty, no cookies are captured.",
@@ -818,7 +845,8 @@
                     "response": {
                       "description": "response specifies which HTTP response headers to capture. \n If this field is empty, no response headers are captured."
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "httpLogFormat": {
                   "description": "httpLogFormat specifies the format of the log message for an HTTP request. \n If this field is empty, log messages use the implementation's default HTTP log format.  For HAProxy's default HTTP log format, see the HAProxy documentation: http://cbonte.github.io/haproxy-dconv/2.0/configuration.html#8.2.3 \n Note that this format only applies to cleartext HTTP connections and to secure HTTP connections for which the ingress controller terminates encryption (that is, edge-terminated or reencrypt connections).  It does not affect the log format for TLS passthrough connections.",
@@ -838,9 +866,11 @@
                     "Ignore"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "namespaceSelector": {
           "description": "namespaceSelector is used to filter the set of namespaces serviced by the ingress controller. This is useful for implementing shards. \n If unset, the default is no filtering.",
@@ -887,7 +917,8 @@
                       ]
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "matchLabels": {
@@ -904,7 +935,8 @@
               }
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         },
         "nodePlacement": {
           "description": "nodePlacement enables explicit control over the scheduling of the ingress controller. \n If unset, defaults are used. See NodePlacement for more details.",
@@ -958,7 +990,8 @@
                           ]
                         }
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "matchLabels": {
@@ -975,7 +1008,8 @@
                   }
                 }
               },
-              "x-kubernetes-map-type": "atomic"
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
             },
             "tolerations": {
               "description": "tolerations is a list of tolerations applied to ingress controller deployments. \n The default is an empty list. \n See https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/",
@@ -1026,10 +1060,12 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "replicas": {
           "description": "replicas is the desired number of ingress controller replicas. If unset, the default depends on the value of the defaultPlacement field in the cluster config.openshift.io/v1/ingresses status. \n The value of replicas is set based on the value of a chosen field in the Infrastructure CR. If defaultPlacement is set to ControlPlane, the chosen field will be controlPlaneTopology. If it is set to Workers the chosen field will be infrastructureTopology. Replicas will then be set to 1 or 2 based whether the chosen field's value is SingleReplica or HighlyAvailable, respectively. \n These defaults are subject to change.",
@@ -1068,7 +1104,8 @@
                 "WildcardsDisallowed"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "routeSelector": {
           "description": "routeSelector is used to filter the set of Routes serviced by the ingress controller. This is useful for implementing shards. \n If unset, the default is no filtering.",
@@ -1115,7 +1152,8 @@
                       ]
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "matchLabels": {
@@ -1132,7 +1170,8 @@
               }
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         },
         "tlsSecurityProfile": {
           "description": "tlsSecurityProfile specifies settings for TLS connections for ingresscontrollers. \n If unset, the default is based on the apiservers.config.openshift.io/cluster resource. \n Note that when using the Old, Intermediate, and Modern profile types, the effective profile configuration is subject to change between releases. For example, given a specification to use the Intermediate profile deployed on release X.Y.Z, an upgrade to release X.Y.Z+1 may cause a new profile configuration to be applied to the ingress controller, resulting in a rollout.",
@@ -1166,7 +1205,8 @@
                 "Custom"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "tuningOptions": {
           "description": "tuningOptions defines parameters for adjusting the performance of ingress controller pods. All fields are optional and will use their respective defaults if not set. See specific tuningOptions fields for more details. \n Setting fields within tuningOptions is generally not recommended. The default values are suitable for most configurations.",
@@ -1283,13 +1323,15 @@
               ],
               "format": "duration"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "unsupportedConfigOverrides": {
           "description": "unsupportedConfigOverrides allows specifying unsupported configuration options.  Its use is unsupported.",
           "x-kubernetes-preserve-unknown-fields": true
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "status is the most recently observed status of the IngressController.",
@@ -1350,7 +1392,8 @@
               "type": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "domain": {
@@ -1419,7 +1462,8 @@
                   "maximum": 65535,
                   "minimum": 0
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "loadBalancer": {
               "description": "loadBalancer holds parameters for the load balancer. Present only if type is LoadBalancerService.",
@@ -1478,7 +1522,8 @@
                               ],
                               "format": "duration"
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "networkLoadBalancer": {
                           "description": "networkLoadBalancerParameters holds configuration parameters for an AWS network load balancer. Present only if type is NLB.",
@@ -1495,7 +1540,8 @@
                             "NLB"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "gcp": {
                       "description": "gcp provides configuration settings that are specific to GCP load balancers. \n If empty, defaults will be applied. See specific gcp fields for details about their defaults.",
@@ -1515,7 +1561,8 @@
                             "Local"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "ibm": {
                       "description": "ibm provides configuration settings that are specific to IBM Cloud load balancers. \n If empty, defaults will be applied. See specific ibm fields for details about their defaults.",
@@ -1536,7 +1583,8 @@
                             "PROXY"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "type": {
                       "description": "type is the underlying infrastructure provider for the load balancer. Allowed values are \"AWS\", \"Azure\", \"BareMetal\", \"GCP\", \"IBM\", \"Nutanix\", \"OpenStack\", and \"VSphere\".",
@@ -1552,7 +1600,8 @@
                         "IBM"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "scope": {
                   "description": "scope indicates the scope at which the load balancer is exposed. Possible values are \"External\" and \"Internal\".",
@@ -1562,7 +1611,8 @@
                     "External"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "nodePort": {
               "description": "nodePort holds parameters for the NodePortService endpoint publishing strategy. Present only if type is NodePortService.",
@@ -1583,7 +1633,8 @@
                     "PROXY"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "private": {
               "description": "private holds parameters for the Private endpoint publishing strategy. Present only if type is Private.",
@@ -1604,7 +1655,8 @@
                     "PROXY"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "type": {
               "description": "type is the publishing strategy to use. Valid values are: \n * LoadBalancerService \n Publishes the ingress controller using a Kubernetes LoadBalancer Service. \n In this configuration, the ingress controller deployment uses container networking. A LoadBalancer Service is created to publish the deployment. \n See: https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer \n If domain is set, a wildcard DNS record will be managed to point at the LoadBalancer Service's external name. DNS records are managed only in DNS zones defined by dns.config.openshift.io/cluster .spec.publicZone and .spec.privateZone. \n Wildcard DNS management is currently supported only on the AWS, Azure, and GCP platforms. \n * HostNetwork \n Publishes the ingress controller on node ports where the ingress controller is deployed. \n In this configuration, the ingress controller deployment uses host networking, bound to node ports 80 and 443. The user is responsible for configuring an external load balancer to publish the ingress controller via the node ports. \n * Private \n Does not publish the ingress controller. \n In this configuration, the ingress controller deployment uses container networking, and is not explicitly published. The user must manually publish the ingress controller. \n * NodePortService \n Publishes the ingress controller using a Kubernetes NodePort Service. \n In this configuration, the ingress controller deployment uses container networking. A NodePort Service is created to publish the deployment. The specific node ports are dynamically allocated by OpenShift; however, to support static port allocations, user changes to the node port field of the managed NodePort Service will preserved.",
@@ -1616,7 +1668,8 @@
                 "NodePortService"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "namespaceSelector": {
           "description": "namespaceSelector is the actual namespaceSelector in use.",
@@ -1663,7 +1716,8 @@
                       ]
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "matchLabels": {
@@ -1680,7 +1734,8 @@
               }
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         },
         "observedGeneration": {
           "description": "observedGeneration is the most recent generation observed.",
@@ -1735,7 +1790,8 @@
                       ]
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "matchLabels": {
@@ -1752,7 +1808,8 @@
               }
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         },
         "selector": {
           "description": "selector is a label selector, in string format, for ingress controller pods corresponding to the IngressController. The number of matching pods should equal the value of availableReplicas.",
@@ -1794,9 +1851,11 @@
                 "VersionTLS13"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1806,5 +1865,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

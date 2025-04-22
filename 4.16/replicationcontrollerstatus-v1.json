@@ -58,5 +58,6 @@
       "format": "int32"
     }
   },
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

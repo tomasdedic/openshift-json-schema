@@ -241,12 +241,6 @@
             "null"
           ]
         },
-        "containerAppCorrelationMethod": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "containerBatchSize": {
           "type": [
             "integer",
@@ -378,24 +372,6 @@
             "null"
           ]
         },
-        "enableClusterAgentRestartProbe": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "enableForceReInstrumentation": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "enableInstallationReport": {
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
         "env": {
           "type": [
             "array",
@@ -458,7 +434,7 @@
                         ]
                       }
                     },
-                    "x-kubernetes-map-type": "atomic"
+                    "additionalProperties": false
                   },
                   "fieldRef": {
                     "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.",
@@ -482,7 +458,7 @@
                         "type": "string"
                       }
                     },
-                    "x-kubernetes-map-type": "atomic"
+                    "additionalProperties": false
                   },
                   "resourceFieldRef": {
                     "description": "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.",
@@ -511,7 +487,7 @@
                         "type": "string"
                       }
                     },
-                    "x-kubernetes-map-type": "atomic"
+                    "additionalProperties": false
                   },
                   "secretKeyRef": {
                     "description": "Selects a key of a secret in the pod's namespace",
@@ -542,11 +518,13 @@
                         ]
                       }
                     },
-                    "x-kubernetes-map-type": "atomic"
+                    "additionalProperties": false
                   }
-                }
+                },
+                "additionalProperties": false
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "epSchemaName": {
@@ -624,19 +602,14 @@
               "agentMountPath": {
                 "type": "string"
               },
-              "alpineInitContainerImage": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
               "image": {
                 "type": "string"
               },
               "imagePullPolicy": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "imagePullSecret": {
@@ -776,25 +749,14 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
-        },
-        "instrumentationMaxPollingAttempts": {
-          "type": [
-            "integer",
-            "null"
-          ]
         },
         "instrumentationMethod": {
           "description": "instrumentation",
           "type": [
             "string",
-            "null"
-          ]
-        },
-        "instrumentationNsStatusPollingIntervalMinutes": {
-          "type": [
-            "integer",
             "null"
           ]
         },
@@ -809,12 +771,6 @@
               "null"
             ],
             "properties": {
-              "allowPrivilegeEscalation": {
-                "type": [
-                  "boolean",
-                  "null"
-                ]
-              },
               "analyticsHost": {
                 "type": [
                   "string",
@@ -845,43 +801,6 @@
                   "null"
                 ]
               },
-              "capabilities": {
-                "description": "Adds and removes POSIX capabilities from running containers.",
-                "type": [
-                  "object",
-                  "null"
-                ],
-                "properties": {
-                  "add": {
-                    "description": "Added capabilities",
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "items": {
-                      "description": "Capability represent POSIX capabilities type",
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    }
-                  },
-                  "drop": {
-                    "description": "Removed capabilities",
-                    "type": [
-                      "array",
-                      "null"
-                    ],
-                    "items": {
-                      "description": "Capability represent POSIX capabilities type",
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    }
-                  }
-                }
-              },
               "containerMatchString": {
                 "type": [
                   "string",
@@ -905,19 +824,18 @@
                     "null"
                   ],
                   "required": [
-                    "configMapName"
+                    "configMapName",
+                    "subDir"
                   ],
                   "properties": {
                     "configMapName": {
                       "type": "string"
                     },
                     "subDir": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "string"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "env": {
@@ -940,19 +858,14 @@
                   "agentMountPath": {
                     "type": "string"
                   },
-                  "alpineInitContainerImage": {
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
                   "image": {
                     "type": "string"
                   },
                   "imagePullPolicy": {
                     "type": "string"
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "instrumentContainer": {
                 "type": [
@@ -1014,31 +927,8 @@
                       "null"
                     ]
                   }
-                }
-              },
-              "nodeName": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "privileged": {
-                "type": [
-                  "boolean",
-                  "null"
-                ]
-              },
-              "procMount": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "readOnlyRootFilesystem": {
-                "type": [
-                  "boolean",
-                  "null"
-                ]
+                },
+                "additionalProperties": false
               },
               "runAsGroup": {
                 "type": [
@@ -1047,12 +937,6 @@
                 ],
                 "format": "int64"
               },
-              "runAsNonRoot": {
-                "type": [
-                  "boolean",
-                  "null"
-                ]
-              },
               "runAsUser": {
                 "type": [
                   "integer",
@@ -1060,116 +944,14 @@
                 ],
                 "format": "int64"
               },
-              "seLinuxOptions": {
-                "description": "SELinuxOptions are the labels to be applied to the container",
-                "type": [
-                  "object",
-                  "null"
-                ],
-                "properties": {
-                  "level": {
-                    "description": "Level is SELinux level label that applies to the container.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "role": {
-                    "description": "Role is a SELinux role label that applies to the container.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "type": {
-                    "description": "Type is a SELinux type label that applies to the container.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "user": {
-                    "description": "User is a SELinux user label that applies to the container.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                }
-              },
-              "seccompProfile": {
-                "description": "SeccompProfile defines a pod/container's seccomp profile settings. Only one profile source may be set.",
-                "type": [
-                  "object",
-                  "null"
-                ],
-                "properties": {
-                  "localhostProfile": {
-                    "description": "localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is \"Localhost\".",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "type": {
-                    "description": "type indicates which kind of seccomp profile will be applied. Valid options are: \n Localhost - a profile defined in a file on the node should be used. RuntimeDefault - the container runtime default profile should be used. Unconfined - no profile should be applied.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                }
-              },
               "tierName": {
                 "type": [
                   "string",
                   "null"
                 ]
-              },
-              "tierNameLabel": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "windowsOptions": {
-                "description": "WindowsSecurityContextOptions contain Windows-specific options and credentials.",
-                "type": [
-                  "object",
-                  "null"
-                ],
-                "properties": {
-                  "gmsaCredentialSpec": {
-                    "description": "GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "gmsaCredentialSpecName": {
-                    "description": "GMSACredentialSpecName is the name of the GMSA credential spec to use.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  },
-                  "hostProcess": {
-                    "description": "HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.",
-                    "type": [
-                      "boolean",
-                      "null"
-                    ]
-                  },
-                  "runAsUserName": {
-                    "description": "The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                }
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "jDKMountName": {
@@ -1244,18 +1026,6 @@
             "null"
           ]
         },
-        "memoryThresholdForRestart": {
-          "type": [
-            "integer",
-            "null"
-          ]
-        },
-        "metadataServerPort": {
-          "type": [
-            "integer",
-            "null"
-          ]
-        },
         "metadataSyncInterval": {
           "type": [
             "integer",
@@ -1304,7 +1074,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "nodeNamePrefix": {
           "type": [
@@ -1516,29 +1287,11 @@
                 ]
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "podSchemaName": {
           "description": "snapshot schemas",
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "pprofEnabled": {
-          "description": "pprof properties",
-          "type": [
-            "boolean",
-            "null"
-          ]
-        },
-        "pprofPort": {
-          "type": [
-            "integer",
-            "null"
-          ]
-        },
-        "priorityClassName": {
           "type": [
             "string",
             "null"
@@ -1597,7 +1350,8 @@
                 "x-kubernetes-int-or-string": true
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "resourcesToInstrument": {
           "type": [
@@ -1655,18 +1409,6 @@
             "null"
           ]
         },
-        "tierNameLabel": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "tierNameStrategy": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
         "tolerations": {
           "type": [
             "array",
@@ -1715,7 +1457,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "uniqueHostID": {
@@ -1724,7 +1467,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ClusteragentStatus defines the observed state of Clusteragent",
@@ -1888,7 +1632,8 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "instrumentationMethod": {
@@ -1987,9 +1732,11 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1999,5 +1746,6 @@
       "version": "v1alpha1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

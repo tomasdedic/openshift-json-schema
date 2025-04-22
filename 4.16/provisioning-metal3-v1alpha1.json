@@ -86,7 +86,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "provisioningDHCPExternal": {
           "description": "ProvisioningDHCPExternal indicates whether the DHCP server for IP addresses in the provisioning DHCP range is present within the metal3 cluster or external to it. This field is being deprecated in favor of provisioningNetwork.",
@@ -176,7 +177,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ProvisioningStatus defines the observed state of Provisioning",
@@ -229,7 +231,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "generations": {
@@ -288,7 +291,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "observedGeneration": {
@@ -314,7 +318,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -324,5 +329,6 @@
       "version": "v1alpha1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

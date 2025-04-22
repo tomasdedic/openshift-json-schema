@@ -1,0 +1,435 @@
+{
+  "description": "OperatorPolicy is the schema for the operatorpolicies API. You can use the operator policy to manage operators by providing automation for their management and reporting on the status across the various operator objects.",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "policy.open-cluster-management.io/v1beta1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "OperatorPolicy"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "OperatorPolicySpec defines the desired state of a particular operator on the cluster.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "complianceType",
+        "subscription",
+        "upgradeApproval"
+      ],
+      "properties": {
+        "complianceConfig": {
+          "description": "ComplianceConfig defines how resource statuses affect the OperatorPolicy status and compliance. When set to Compliant, the condition does not impact the OperatorPolicy compliance. When set to NonCompliant, the condition causes the OperatorPolicy to become NonCompliant.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "catalogSourceUnhealthy": {
+              "description": "CatalogSourceUnhealthy specifies how the CatalogSourceUnhealthy typed condition should affect overall policy compliance. The default value is `Compliant`.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "Compliant",
+                "NonCompliant"
+              ]
+            },
+            "deploymentsUnavailable": {
+              "description": "DeploymentsUnavailable specifies how the DeploymentCompliant typed condition should affect overall policy compliance. The default value is `NonCompliant`.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "Compliant",
+                "NonCompliant"
+              ]
+            },
+            "upgradesAvailable": {
+              "description": "UpgradesAvailable specifies how the InstallPlanCompliant typed condition should affect overall policy compliance. The default value is `Compliant`.",
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "Compliant",
+                "NonCompliant"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "complianceType": {
+          "description": "ComplianceType specifies the desired state of the operator on the cluster. If set to `musthave`, the policy is compliant when the operator is found. If set to `mustnothave`, the policy is compliant when the operator is not found.",
+          "type": "string",
+          "enum": [
+            "musthave",
+            "mustnothave"
+          ]
+        },
+        "operatorGroup": {
+          "description": "OperatorGroup specifies which `OperatorGroup` to inspect. Include the name, namespace, and any `spec` fields for the operator group. For more info, see `kubectl explain operatorgroups.spec` or view https://olm.operatorframework.io/docs/concepts/crds/operatorgroup/.",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "remediationAction": {
+          "description": "RemediationAction is the remediation of the policy. The parameter values are `enforce` and `inform`.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Inform",
+            "inform",
+            "Enforce",
+            "enforce"
+          ]
+        },
+        "removalBehavior": {
+          "description": "Use RemovalBehavior to define what resources need to be removed when enforcing `mustnothave` policies. When in `inform` mode, any resources that are deleted if the policy is set to `enforce` makes the policy noncompliant, but resources that are kept are compliant.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "clusterServiceVersions": {
+              "description": "Use the `clusterServiceVersions` parameter to specify whether to delete the ClusterServiceVersion. The default value is `Delete`.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "customResourceDefinitions": {
+              "description": "Use the customResourceDefinitions parameter to specify whether to delete any CustomResourceDefinitions associated with the operator. The default value is `Keep`, because deleting them should be done deliberately.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "operatorGroups": {
+              "description": "Use the `operatorGroups` parameter to specify whether to delete the OperatorGroup. The default value is `DeleteIfUnused`, which only deletes the OperatorGroup if there is not another resource using it.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "subscriptions": {
+              "description": "Use the `subscriptions` parameter to specify whether to delete the Subscription. The default value is `Delete`.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "severity": {
+          "description": "Severity is a user-defined severity for when an object is noncompliant with this configuration policy. The supported options are `low`, `medium`, `high`, and `critical`.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "low",
+            "Low",
+            "medium",
+            "Medium",
+            "high",
+            "High",
+            "critical",
+            "Critical"
+          ]
+        },
+        "subscription": {
+          "description": "Subscription specifies which operator `Subscription` resource to inspect. Include the namespace, and any `spec` fields for the Subscription. For more info, see `kubectl explain subscriptions.operators.coreos.com.spec` or view https://olm.operatorframework.io/docs/concepts/crds/subscription/.",
+          "x-kubernetes-preserve-unknown-fields": true
+        },
+        "upgradeApproval": {
+          "description": "UpgradeApproval determines whether 'upgrade' InstallPlans for the operator will be approved by the controller when the policy is enforced and in 'musthave' mode. The initial InstallPlan approval is not affected by this setting. This setting has no effect when the policy is in 'mustnothave' mode. Allowed values are \"None\" or \"Automatic\".",
+          "type": "string",
+          "enum": [
+            "None",
+            "Automatic"
+          ]
+        },
+        "versions": {
+          "description": "Versions is a list of non-empty strings that specifies which installed versions are compliant when in `inform` mode and which `InstallPlans` are approved when in `enforce` mode.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "description": "OperatorPolicyStatus is the observed state of the operators from the specifications given in the operator policy.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "compliant": {
+          "description": "ComplianceState reports the most recent compliance state of the operator policy.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Compliant",
+            "Pending",
+            "NonCompliant",
+            "Terminating"
+          ]
+        },
+        "conditions": {
+          "description": "Conditions includes historic details on the condition of the operator policy.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Condition contains details for one aspect of the current state of this API Resource.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "lastTransitionTime",
+              "message",
+              "reason",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastTransitionTime": {
+                "description": "lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "message is a human readable message indicating details about the transition. This may be an empty string.",
+                "type": "string",
+                "maxLength": 32768
+              },
+              "observedGeneration": {
+                "description": "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.",
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "format": "int64",
+                "minimum": 0
+              },
+              "reason": {
+                "description": "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.",
+                "type": "string",
+                "maxLength": 1024,
+                "minLength": 1,
+                "pattern": "^[A-Za-z]([A-Za-z0-9_,:]*[A-Za-z0-9_])?$"
+              },
+              "status": {
+                "description": "status of the condition, one of True, False, Unknown.",
+                "type": "string",
+                "enum": [
+                  "True",
+                  "False",
+                  "Unknown"
+                ]
+              },
+              "type": {
+                "description": "type of condition in CamelCase or in foo.example.com/CamelCase.",
+                "type": "string",
+                "maxLength": 316,
+                "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
+              }
+            },
+            "additionalProperties": false
+          },
+          "x-kubernetes-list-map-keys": [
+            "type"
+          ],
+          "x-kubernetes-list-type": "map"
+        },
+        "observedGeneration": {
+          "description": "ObservedGeneration is the latest generation observed by the controller.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "overlappingPolicies": {
+          "description": "The list of overlapping OperatorPolicies (as name.namespace) which all manage the same subscription, including this policy. When no overlapping is detected, this list will be empty.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "relatedObjects": {
+          "description": "RelatedObjects reports a list of resources associated with the operator policy.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "RelatedObject contains the details of an object matched by the policy.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "compliant": {
+                "description": "Compliant represents whether the related object is compliant with the definition of the policy.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "object": {
+                "description": "ObjectResource contains the identifying fields of the related object.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "apiVersion": {
+                    "description": "API version of the related object.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "kind": {
+                    "description": "Kind of the related object.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "metadata": {
+                    "description": "ObjectMetadata contains the metadata for an object matched by the configuration policy.",
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "properties": {
+                      "name": {
+                        "description": "Name of the related object.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "namespace": {
+                        "description": "Namespace of the related object.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              },
+              "properties": {
+                "description": "Properties are additional properties of the related object relevant to the configuration policy.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "createdByPolicy": {
+                    "description": "CreatedByPolicy reports whether the object was created by the configuration policy, which is important when pruning is configured.",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  },
+                  "uid": {
+                    "description": "UID stores the object UID to help track object ownership for deletion when pruning is configured.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              },
+              "reason": {
+                "description": "Reason is a human-readable message of why the related object has a particular compliance.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "additionalProperties": false
+            },
+            "additionalProperties": false
+          }
+        },
+        "resolvedSubscriptionLabel": {
+          "description": "The resolved name.namespace of the subscription",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subscriptionInterventionTime": {
+          "description": "Timestamp for a possible intervention to help a Subscription stuck with a ConstraintsNotSatisfiable condition. Can be in the future, indicating the policy is waiting for OLM to resolve the situation. If in the recent past, the policy may update the status of the Subscription.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "policy.open-cluster-management.io",
+      "kind": "OperatorPolicy",
+      "version": "v1beta1"
+    }
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/schema#"
+}

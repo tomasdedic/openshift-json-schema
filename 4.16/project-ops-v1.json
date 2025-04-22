@@ -81,7 +81,8 @@
                   "pattern": "^(([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$"
                 }
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "environments": {
@@ -200,7 +201,8 @@
                       "description": "Type of resource that this limit applies to.",
                       "type": "string"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "name": {
@@ -221,7 +223,8 @@
                 "description": "Environment type, which might modify its attribute or where it will be created",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "limits": {
@@ -299,7 +302,8 @@
                 "description": "Type of resource that this limit applies to.",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "orphanIgnore": {
@@ -333,7 +337,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "quotas": {
@@ -418,11 +423,13 @@
                             ]
                           }
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     }
                   }
                 },
-                "x-kubernetes-map-type": "atomic"
+                "x-kubernetes-map-type": "atomic",
+                "additionalProperties": false
               },
               "scopes": {
                 "description": "A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.",
@@ -438,10 +445,12 @@
                   ]
                 }
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ProjectStatus defines the observed state of Project",
@@ -492,10 +501,12 @@
               "type": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -505,5 +516,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -69,10 +69,12 @@
                 "maxLength": 253,
                 "minLength": 1
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "OperatorHubStatus defines the observed state of OperatorHub. The current state of the default hub sources will always be reflected here.",
@@ -124,10 +126,12 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -137,5 +141,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -80,7 +80,8 @@
           "description": "unsupportedConfigOverrides holds a sparse config that will override any previously set options.  It only needs to be the fields to override it will end up overlaying in the following order: 1. hardcoded defaults 2. observedConfig 3. unsupportedConfigOverrides",
           "x-kubernetes-preserve-unknown-fields": true
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "status is the most recently observed status of the Insights operator.",
@@ -133,7 +134,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "gatherStatus": {
@@ -220,7 +222,8 @@
                           "maxLength": 316,
                           "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "x-kubernetes-list-type": "atomic"
                   },
@@ -235,7 +238,8 @@
                     "maxLength": 256,
                     "minLength": 5
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "x-kubernetes-list-type": "atomic"
             },
@@ -255,7 +259,8 @@
               ],
               "format": "date-time"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "generations": {
           "description": "generations are used to determine when an item needs to be reconciled or has changed in a way that needs a reaction.",
@@ -313,7 +318,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "insightsReport": {
@@ -376,11 +382,13 @@
                     "maximum": 4,
                     "minimum": 1
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "x-kubernetes-list-type": "atomic"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "observedGeneration": {
           "description": "observedGeneration is the last generation change you've dealt with",
@@ -405,7 +413,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -415,5 +424,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

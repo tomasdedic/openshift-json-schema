@@ -110,9 +110,11 @@
                       "maximum": 65535,
                       "minimum": 1
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "gitImport": {
               "description": "gitImport allows the user to import code from a git repository.",
@@ -155,7 +157,8 @@
                       "minLength": 1,
                       "pattern": "^https:\\/\\/(github.com|gitlab.com|bitbucket.org)\\/[a-zA-Z0-9-]+\\/[a-zA-Z0-9-]+(.git)?$"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "service": {
                   "description": "service contains configuration for the Service resource created for this sample.",
@@ -174,9 +177,11 @@
                       "maximum": 65535,
                       "minimum": 1
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "type": {
               "description": "type of the sample, currently supported: \"GitImport\";\"ContainerImport\"",
@@ -192,7 +197,8 @@
               "message": "source.containerImport is required when source.type is ContainerImport, and forbidden otherwise",
               "rule": "self.type == 'ContainerImport' ? has(self.containerImport) : !has(self.containerImport)"
             }
-          ]
+          ],
+          "additionalProperties": false
         },
         "tags": {
           "description": "tags are optional string values that can be used to find samples in the samples catalog. \n Examples of common tags may be \"Java\", \"Quarkus\", etc. \n They will be displayed on the samples details page.",
@@ -223,7 +229,8 @@
           ],
           "maxLength": 20
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -233,5 +240,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

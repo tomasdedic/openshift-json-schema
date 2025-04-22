@@ -121,9 +121,11 @@
                       "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                       "type": "string"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "preferredChain": {
               "description": "PreferredChain is the chain to use if the ACME server outputs multiple. PreferredChain is no guarantee that this one gets delivered by the ACME endpoint. For example, for Let's Encrypt's DST crosssign you would use: \"DST Root CA X3\" or \"ISRG Root X1\" for the newer Let's Encrypt root CA. This value picks the first certificate bundle in the ACME alternative chains that has a certificate with this value as its issuer's CN",
@@ -151,7 +153,8 @@
                   "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "server": {
               "description": "Server is the URL used to access the ACME server's 'directory' endpoint. For example, for Let's Encrypt's staging endpoint, you would use: \"https://acme-staging-v02.api.letsencrypt.org/directory\". Only ACME v2 endpoints (i.e. RFC 8555) are supported.",
@@ -213,12 +216,14 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "host": {
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "akamai": {
                         "description": "Use the Akamai DNS zone management API to manage DNS01 challenge records.",
@@ -251,7 +256,8 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "clientSecretSecretRef": {
                             "description": "A reference to a specific 'key' within a Secret resource. In some instances, `key` is a required field.",
@@ -271,7 +277,8 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "clientTokenSecretRef": {
                             "description": "A reference to a specific 'key' within a Secret resource. In some instances, `key` is a required field.",
@@ -291,12 +298,14 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "serviceConsumerDomain": {
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "azureDNS": {
                         "description": "Use the Microsoft Azure DNS API to manage DNS01 challenge records.",
@@ -337,7 +346,8 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "environment": {
                             "description": "name of the Azure environment (default AzurePublicCloud)",
@@ -380,7 +390,8 @@
                                   "null"
                                 ]
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "resourceGroupName": {
                             "description": "resource group the DNS zone is located in",
@@ -397,7 +408,8 @@
                               "null"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "cloudDNS": {
                         "description": "Use the Google Cloud DNS API to manage DNS01 challenge records.",
@@ -440,9 +452,11 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "cloudflare": {
                         "description": "Use the Cloudflare API to manage DNS01 challenge records.",
@@ -472,7 +486,8 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "apiTokenSecretRef": {
                             "description": "API token used to authenticate with Cloudflare.",
@@ -495,7 +510,8 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "email": {
                             "description": "Email of the account, only required when using API key based authentication.",
@@ -504,7 +520,8 @@
                               "null"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "cnameStrategy": {
                         "description": "CNAMEStrategy configures how the DNS01 provider should handle CNAME records when found in DNS zones.",
@@ -545,9 +562,11 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "rfc2136": {
                         "description": "Use RFC2136 (\"Dynamic Updates in the Domain Name System\") (https://datatracker.ietf.org/doc/rfc2136/) to manage DNS01 challenge records.",
@@ -598,9 +617,11 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "route53": {
                         "description": "Use the AWS Route53 API to manage DNS01 challenge records.",
@@ -640,7 +661,8 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "hostedZoneID": {
                             "description": "If set, the provider will manage only this zone in Route53 and will not do an lookup using the route53:ListHostedZonesByName api call.",
@@ -681,9 +703,11 @@
                                 "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "webhook": {
                         "description": "Configure an external webhook based DNS01 challenge solver to manage DNS01 challenge records.",
@@ -708,9 +732,11 @@
                             "description": "The name of the solver to use, as defined in the webhook provider implementation. This will typically be the name of the provider, e.g. 'cloudflare'.",
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "http01": {
                     "description": "Configures cert-manager to attempt to complete authorizations by performing the HTTP01 challenge flow. It is not possible to obtain certificates for wildcard domain names (e.g. `*.example.com`) using the HTTP01 challenge mechanism.",
@@ -810,7 +836,8 @@
                                   "minLength": 1,
                                   "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$"
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
                           },
                           "serviceType": {
@@ -820,7 +847,8 @@
                               "null"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "ingress": {
                         "description": "The ingress based HTTP01 challenge solver will solve challenges by creating or modifying Ingress resources in order to route requests for '/.well-known/acme-challenge/XYZ' to 'challenge solver' pods that are provisioned by cert-manager for each Challenge to be completed.",
@@ -883,9 +911,11 @@
                                       ]
                                     }
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "name": {
                             "description": "The name of the ingress resource that should have ACME challenge solving routes inserted into it in order to solve HTTP01 challenges. This is typically used in conjunction with ingress controllers like ingress-gce, which maintains a 1:1 mapping between external IPs and ingress resources. Only one of `class`, `name` or `ingressClassName` may be specified.",
@@ -934,7 +964,8 @@
                                       ]
                                     }
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               },
                               "spec": {
                                 "description": "PodSpec defines overrides for the HTTP01 challenge solver pod. Check ACMEChallengeSolverHTTP01IngressPodSpec to find out currently supported fields. All other fields will be ignored.",
@@ -1016,7 +1047,8 @@
                                                               ]
                                                             }
                                                           }
-                                                        }
+                                                        },
+                                                        "additionalProperties": false
                                                       }
                                                     },
                                                     "matchFields": {
@@ -1057,18 +1089,21 @@
                                                               ]
                                                             }
                                                           }
-                                                        }
+                                                        },
+                                                        "additionalProperties": false
                                                       }
                                                     }
                                                   },
-                                                  "x-kubernetes-map-type": "atomic"
+                                                  "x-kubernetes-map-type": "atomic",
+                                                  "additionalProperties": false
                                                 },
                                                 "weight": {
                                                   "description": "Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.",
                                                   "type": "integer",
                                                   "format": "int32"
                                                 }
-                                              }
+                                              },
+                                              "additionalProperties": false
                                             }
                                           },
                                           "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -1129,7 +1164,8 @@
                                                               ]
                                                             }
                                                           }
-                                                        }
+                                                        },
+                                                        "additionalProperties": false
                                                       }
                                                     },
                                                     "matchFields": {
@@ -1170,17 +1206,21 @@
                                                               ]
                                                             }
                                                           }
-                                                        }
+                                                        },
+                                                        "additionalProperties": false
                                                       }
                                                     }
                                                   },
-                                                  "x-kubernetes-map-type": "atomic"
+                                                  "x-kubernetes-map-type": "atomic",
+                                                  "additionalProperties": false
                                                 }
                                               }
                                             },
-                                            "x-kubernetes-map-type": "atomic"
+                                            "x-kubernetes-map-type": "atomic",
+                                            "additionalProperties": false
                                           }
-                                        }
+                                        },
+                                        "additionalProperties": false
                                       },
                                       "podAffinity": {
                                         "description": "Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).",
@@ -1258,7 +1298,8 @@
                                                                   ]
                                                                 }
                                                               }
-                                                            }
+                                                            },
+                                                            "additionalProperties": false
                                                           }
                                                         },
                                                         "matchLabels": {
@@ -1275,7 +1316,8 @@
                                                           }
                                                         }
                                                       },
-                                                      "x-kubernetes-map-type": "atomic"
+                                                      "x-kubernetes-map-type": "atomic",
+                                                      "additionalProperties": false
                                                     },
                                                     "matchLabelKeys": {
                                                       "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
@@ -1350,7 +1392,8 @@
                                                                   ]
                                                                 }
                                                               }
-                                                            }
+                                                            },
+                                                            "additionalProperties": false
                                                           }
                                                         },
                                                         "matchLabels": {
@@ -1367,7 +1410,8 @@
                                                           }
                                                         }
                                                       },
-                                                      "x-kubernetes-map-type": "atomic"
+                                                      "x-kubernetes-map-type": "atomic",
+                                                      "additionalProperties": false
                                                     },
                                                     "namespaces": {
                                                       "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -1386,14 +1430,16 @@
                                                       "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
                                                       "type": "string"
                                                     }
-                                                  }
+                                                  },
+                                                  "additionalProperties": false
                                                 },
                                                 "weight": {
                                                   "description": "weight associated with matching the corresponding podAffinityTerm, in the range 1-100.",
                                                   "type": "integer",
                                                   "format": "int32"
                                                 }
-                                              }
+                                              },
+                                              "additionalProperties": false
                                             }
                                           },
                                           "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -1457,7 +1503,8 @@
                                                               ]
                                                             }
                                                           }
-                                                        }
+                                                        },
+                                                        "additionalProperties": false
                                                       }
                                                     },
                                                     "matchLabels": {
@@ -1474,7 +1521,8 @@
                                                       }
                                                     }
                                                   },
-                                                  "x-kubernetes-map-type": "atomic"
+                                                  "x-kubernetes-map-type": "atomic",
+                                                  "additionalProperties": false
                                                 },
                                                 "matchLabelKeys": {
                                                   "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
@@ -1549,7 +1597,8 @@
                                                               ]
                                                             }
                                                           }
-                                                        }
+                                                        },
+                                                        "additionalProperties": false
                                                       }
                                                     },
                                                     "matchLabels": {
@@ -1566,7 +1615,8 @@
                                                       }
                                                     }
                                                   },
-                                                  "x-kubernetes-map-type": "atomic"
+                                                  "x-kubernetes-map-type": "atomic",
+                                                  "additionalProperties": false
                                                 },
                                                 "namespaces": {
                                                   "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -1585,10 +1635,12 @@
                                                   "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
                                                   "type": "string"
                                                 }
-                                              }
+                                              },
+                                              "additionalProperties": false
                                             }
                                           }
-                                        }
+                                        },
+                                        "additionalProperties": false
                                       },
                                       "podAntiAffinity": {
                                         "description": "Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).",
@@ -1666,7 +1718,8 @@
                                                                   ]
                                                                 }
                                                               }
-                                                            }
+                                                            },
+                                                            "additionalProperties": false
                                                           }
                                                         },
                                                         "matchLabels": {
@@ -1683,7 +1736,8 @@
                                                           }
                                                         }
                                                       },
-                                                      "x-kubernetes-map-type": "atomic"
+                                                      "x-kubernetes-map-type": "atomic",
+                                                      "additionalProperties": false
                                                     },
                                                     "matchLabelKeys": {
                                                       "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
@@ -1758,7 +1812,8 @@
                                                                   ]
                                                                 }
                                                               }
-                                                            }
+                                                            },
+                                                            "additionalProperties": false
                                                           }
                                                         },
                                                         "matchLabels": {
@@ -1775,7 +1830,8 @@
                                                           }
                                                         }
                                                       },
-                                                      "x-kubernetes-map-type": "atomic"
+                                                      "x-kubernetes-map-type": "atomic",
+                                                      "additionalProperties": false
                                                     },
                                                     "namespaces": {
                                                       "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -1794,14 +1850,16 @@
                                                       "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
                                                       "type": "string"
                                                     }
-                                                  }
+                                                  },
+                                                  "additionalProperties": false
                                                 },
                                                 "weight": {
                                                   "description": "weight associated with matching the corresponding podAffinityTerm, in the range 1-100.",
                                                   "type": "integer",
                                                   "format": "int32"
                                                 }
-                                              }
+                                              },
+                                              "additionalProperties": false
                                             }
                                           },
                                           "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -1865,7 +1923,8 @@
                                                               ]
                                                             }
                                                           }
-                                                        }
+                                                        },
+                                                        "additionalProperties": false
                                                       }
                                                     },
                                                     "matchLabels": {
@@ -1882,7 +1941,8 @@
                                                       }
                                                     }
                                                   },
-                                                  "x-kubernetes-map-type": "atomic"
+                                                  "x-kubernetes-map-type": "atomic",
+                                                  "additionalProperties": false
                                                 },
                                                 "matchLabelKeys": {
                                                   "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
@@ -1957,7 +2017,8 @@
                                                               ]
                                                             }
                                                           }
-                                                        }
+                                                        },
+                                                        "additionalProperties": false
                                                       }
                                                     },
                                                     "matchLabels": {
@@ -1974,7 +2035,8 @@
                                                       }
                                                     }
                                                   },
-                                                  "x-kubernetes-map-type": "atomic"
+                                                  "x-kubernetes-map-type": "atomic",
+                                                  "additionalProperties": false
                                                 },
                                                 "namespaces": {
                                                   "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -1993,12 +2055,15 @@
                                                   "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
                                                   "type": "string"
                                                 }
-                                              }
+                                              },
+                                              "additionalProperties": false
                                             }
                                           }
-                                        }
+                                        },
+                                        "additionalProperties": false
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   },
                                   "imagePullSecrets": {
                                     "description": "If specified, the pod's imagePullSecrets",
@@ -2021,7 +2086,8 @@
                                           ]
                                         }
                                       },
-                                      "x-kubernetes-map-type": "atomic"
+                                      "x-kubernetes-map-type": "atomic",
+                                      "additionalProperties": false
                                     }
                                   },
                                   "nodeSelector": {
@@ -2100,12 +2166,15 @@
                                             "null"
                                           ]
                                         }
-                                      }
+                                      },
+                                      "additionalProperties": false
                                     }
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "serviceType": {
                             "description": "Optional service type for Kubernetes solver service. Supported values are NodePort or ClusterIP. If unset, defaults to NodePort.",
@@ -2114,9 +2183,11 @@
                               "null"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "selector": {
                     "description": "Selector selects a set of DNSNames on the Certificate resource that should be solved using this challenge solver. If not specified, the solver will be treated as the 'default' solver with the lowest priority, i.e. if any other solver has a more specific match, it will be used instead.",
@@ -2164,12 +2235,15 @@
                           ]
                         }
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "ca": {
           "description": "CA configures this issuer to sign certificates using a signing CA keypair stored in a Secret resource. This is used to build internal PKIs that are managed by cert-manager.",
@@ -2224,7 +2298,8 @@
               "description": "SecretName is the name of the secret used to sign Certificates issued by this Issuer.",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "selfSigned": {
           "description": "SelfSigned configures this issuer to 'self sign' certificates using the private key used to create the CertificateRequest object.",
@@ -2246,7 +2321,8 @@
                 ]
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "vault": {
           "description": "Vault configures this issuer to sign certificates using a HashiCorp Vault PKI backend.",
@@ -2302,9 +2378,11 @@
                           "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                           "type": "string"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "kubernetes": {
                   "description": "Kubernetes authenticates with Vault by passing the ServiceAccount token stored in the named Secret resource to the Vault server.",
@@ -2348,7 +2426,8 @@
                           "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                           "type": "string"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "serviceAccountRef": {
                       "description": "A reference to a service account that will be used to request a bound token (also known as \"projected token\"). Compared to using \"secretRef\", using this field means that you don't rely on statically bound tokens. To use this field, you must configure an RBAC rule to let cert-manager request a token.",
@@ -2364,9 +2443,11 @@
                           "description": "Name of the ServiceAccount used to request a token.",
                           "type": "string"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "tokenSecretRef": {
                   "description": "TokenSecretRef authenticates with Vault by presenting a token.",
@@ -2389,9 +2470,11 @@
                       "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                       "type": "string"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "caBundle": {
               "description": "Base64-encoded bundle of PEM CAs which will be used to validate the certificate chain presented by Vault. Only used if using HTTPS to connect to Vault and ignored for HTTP connections. Mutually exclusive with CABundleSecretRef. If neither CABundle nor CABundleSecretRef are defined, the certificate bundle in the cert-manager controller container is used to validate the TLS connection.",
@@ -2422,7 +2505,8 @@
                   "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "namespace": {
               "description": "Name of the vault namespace. Namespaces is a set of features within Vault Enterprise that allows Vault environments to support Secure Multi-tenancy. e.g: \"ns1\" More about namespaces can be found here https://www.vaultproject.io/docs/enterprise/namespaces",
@@ -2439,7 +2523,8 @@
               "description": "Server is the connection address for the Vault server, e.g: \"https://vault.example.com:8200\".",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "venafi": {
           "description": "Venafi configures this issuer to sign certificates using a Venafi TPP or Venafi Cloud policy zone.",
@@ -2479,7 +2564,8 @@
                       "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                       "type": "string"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "url": {
                   "description": "URL is the base URL for Venafi Cloud. Defaults to \"https://api.venafi.cloud/v1\".",
@@ -2488,7 +2574,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "tpp": {
               "description": "TPP specifies Trust Protection Platform configuration settings. Only one of TPP or Cloud may be specified.",
@@ -2520,21 +2607,25 @@
                       "description": "Name of the resource being referred to. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                       "type": "string"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "url": {
                   "description": "URL is the base URL for the vedsdk endpoint of the Venafi TPP instance, for example: \"https://tpp.example.com/vedsdk\".",
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "zone": {
               "description": "Zone is the Venafi Policy Zone to use for this issuer. All requests made to the Venafi platform will be restricted by the named zone policy. This field is required.",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "Status of the Issuer. This is set and managed automatically.",
@@ -2571,7 +2662,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "conditions": {
           "description": "List of status conditions to indicate the status of a CertificateRequest. Known condition types are `Ready`.",
@@ -2633,14 +2725,16 @@
                 "description": "Type of the condition, known values are (`Ready`).",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-map-keys": [
             "type"
           ],
           "x-kubernetes-list-type": "map"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -2650,5 +2744,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

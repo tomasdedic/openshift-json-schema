@@ -7,5 +7,6 @@
       "$ref": "_definitions.json#/definitions/com.github.openshift.api.route.v1.RouteHTTPHeaderActions"
     }
   },
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

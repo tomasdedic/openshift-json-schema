@@ -115,7 +115,8 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
                           },
                           "dns": {
@@ -158,7 +159,8 @@
                                   ]
                                 }
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "routes": {
                             "description": "Routes configures IP routes for the interface",
@@ -187,10 +189,12 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "type": {
                         "description": "Type is the type of IPAM module will be used for IP Address Management(IPAM). The supported values are IPAMTypeDHCP, IPAMTypeStatic",
@@ -199,7 +203,8 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "master": {
                     "description": "master is the host interface to create the macvlan interface from. If not specified, it will be default route interface",
@@ -224,7 +229,8 @@
                     "format": "int32",
                     "minimum": 0
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "type": {
                 "description": "type is the type of network The supported values are NetworkTypeRaw, NetworkTypeSimpleMacvlan",
@@ -233,7 +239,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "clusterNetwork": {
@@ -263,7 +270,8 @@
                 "format": "int32",
                 "minimum": 0
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "defaultNetwork": {
@@ -319,7 +327,8 @@
                   "format": "int32",
                   "minimum": 0
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "ovnKubernetesConfig": {
               "description": "ovnKubernetesConfig configures the ovn-kubernetes plugin.",
@@ -345,7 +354,8 @@
                       "maximum": 60,
                       "minimum": 0
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "gatewayConfig": {
                   "description": "gatewayConfig holds the configuration for node gateway options.",
@@ -398,7 +408,8 @@
                             }
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "ipv6": {
                       "description": "ipv6 allows users to configure IP settings for IPv6 connections. When omitted, this means no opinion and the default configuration is used. Check individual members fields within ipv6 for details of default values.",
@@ -468,7 +479,8 @@
                             }
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "routingViaHost": {
                       "description": "RoutingViaHost allows pod egress traffic to exit via the ovn-k8s-mp0 management port into the host before sending it out. If this is not set, traffic will always egress directly from OVN to outside without touching the host stack. Setting this to true means hardware offload will not be supported. Default is false if GatewayConfig is specified.",
@@ -477,7 +489,8 @@
                         "null"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "genevePort": {
                   "description": "geneve port is the UDP port to be used by geneve encapulation. Default is 6081",
@@ -522,7 +535,8 @@
                             "format": "int32",
                             "minimum": 0
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "hybridOverlayVXLANPort": {
@@ -533,7 +547,8 @@
                       ],
                       "format": "int32"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "ipsecConfig": {
                   "description": "ipsecConfig enables and configures IPsec for pods on the pod network within the cluster.",
@@ -560,7 +575,8 @@
                       "message": "ipsecConfig.mode is required",
                       "rule": "self == oldSelf || has(self.mode)"
                     }
-                  ]
+                  ],
+                  "additionalProperties": false
                 },
                 "ipv4": {
                   "description": "ipv4 allows users to configure IP settings for IPv4 connections. When ommitted, this means no opinions and the default configuration is used. Check individual fields within ipv4 for details of default values.",
@@ -613,7 +629,8 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "ipv6": {
                   "description": "ipv6 allows users to configure IP settings for IPv6 connections. When ommitted, this means no opinions and the default configuration is used. Check individual fields within ipv4 for details of default values.",
@@ -674,7 +691,8 @@
                         }
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "mtu": {
                   "description": "mtu is the MTU to use for the tunnel interface. This must be 100 bytes smaller than the uplink mtu. Default is 1400",
@@ -733,7 +751,8 @@
                         "null"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "v4InternalSubnet": {
                   "description": "v4InternalSubnet is a v4 subnet used internally by ovn-kubernetes in case the default one is being already used by something else. It must not overlap with any other subnet being used by OpenShift or by the node network. The size of the subnet must be larger than the number of nodes. The value cannot be changed after installation. Default is 100.64.0.0/16",
@@ -749,7 +768,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "type": {
               "description": "type is the type of network All NetworkTypes are supported except for NetworkTypeRaw",
@@ -758,7 +778,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "deployKubeProxy": {
           "description": "deployKubeProxy specifies whether or not a standalone kube-proxy should be deployed by the operator. Some network providers include kube-proxy or similar functionality. If unset, the plugin will attempt to select the correct value, which is false when OpenShift SDN and ovn-kubernetes are used and true otherwise.",
@@ -811,7 +832,8 @@
                     "pattern": "^(([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$"
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "netFlow": {
               "description": "netFlow defines the NetFlow configuration.",
@@ -836,7 +858,8 @@
                     "pattern": "^(([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$"
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "sFlow": {
               "description": "sFlow defines the SFlow configuration.",
@@ -861,9 +884,11 @@
                     "pattern": "^(([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[0-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$"
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "kubeProxyConfig": {
           "description": "kubeProxyConfig lets us configure desired proxy configuration. If not specified, sensible defaults will be chosen by OpenShift directly. Not consumed by all network providers - currently only openshift-sdn.",
@@ -906,7 +931,8 @@
                 }
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "logLevel": {
           "description": "logLevel is an intent based logging for an overall component.  It does not give fine grained control, but it is a simple way to manage coarse grained logging choices that operators have to interpret for their operands. \n Valid values are: \"Normal\", \"Debug\", \"Trace\", \"TraceAll\". Defaults to \"Normal\".",
@@ -965,7 +991,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "mode": {
               "description": "mode indicates the mode of network migration. The supported values are \"Live\", \"Offline\" and omitted. A \"Live\" migration operation will not cause service interruption by migrating the CNI of each node one by one. The cluster network will work as normal during the network migration. An \"Offline\" migration operation will cause service interruption. During an \"Offline\" migration, two rounds of node reboots are required. The cluster network will be malfunctioning during the network migration. When omitted, this means no opinion and the platform is left to choose a reasonable default which is subject to change over time. The current default value is \"Offline\".",
@@ -1011,7 +1038,8 @@
                       "format": "int32",
                       "minimum": 0
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "network": {
                   "description": "network contains information about MTU migration for the default network. Migrations are only allowed to MTU values lower than the machine's uplink MTU by the minimum appropriate offset.",
@@ -1038,9 +1066,11 @@
                       "format": "int32",
                       "minimum": 0
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "networkType": {
               "description": "networkType is the target type of network migration. Set this to the target network type to allow changing the default network. If unset, the operation of changing cluster default network plugin will be rejected. The supported values are OpenShiftSDN, OVNKubernetes",
@@ -1055,7 +1085,8 @@
               "message": "networkType migration in mode other than 'Live' may not be configured at the same time as mtu migration",
               "rule": "!has(self.mtu) || !has(self.networkType) || self.networkType == '' || has(self.mode) && self.mode == 'Live'"
             }
-          ]
+          ],
+          "additionalProperties": false
         },
         "observedConfig": {
           "description": "observedConfig holds a sparse config that controller has observed from the cluster state.  It exists in spec because it is an input to the level for the operator",
@@ -1105,7 +1136,8 @@
           "message": "invalid value for IPForwarding, valid values are 'Restricted' or 'Global'",
           "rule": "!has(self.defaultNetwork) || !has(self.defaultNetwork.ovnKubernetesConfig) || !has(self.defaultNetwork.ovnKubernetesConfig.gatewayConfig) || !has(self.defaultNetwork.ovnKubernetesConfig.gatewayConfig.ipForwarding) || self.defaultNetwork.ovnKubernetesConfig.gatewayConfig.ipForwarding == oldSelf.defaultNetwork.ovnKubernetesConfig.gatewayConfig.ipForwarding || self.defaultNetwork.ovnKubernetesConfig.gatewayConfig.ipForwarding == 'Restricted' || self.defaultNetwork.ovnKubernetesConfig.gatewayConfig.ipForwarding == 'Global'"
         }
-      ]
+      ],
+      "additionalProperties": false
     },
     "status": {
       "description": "NetworkStatus is detailed operator status, which is distilled up to the Network clusteroperator object.",
@@ -1158,7 +1190,8 @@
               "type": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-map-keys": [
             "type"
@@ -1221,7 +1254,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -1248,7 +1282,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1258,5 +1293,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

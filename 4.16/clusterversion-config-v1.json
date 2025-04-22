@@ -96,7 +96,8 @@
                 "vCurrent"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "channel": {
           "description": "channel is an identifier for explicitly requesting that a non-default set of updates be applied to this cluster. The default channel will be contain stable updates that are appropriate for production clusters.",
@@ -158,7 +159,8 @@
               "message": "Version must be set if Architecture is set",
               "rule": "has(self.architecture) && self.architecture != '' ? self.version != '' : true"
             }
-          ]
+          ],
+          "additionalProperties": false
         },
         "overrides": {
           "description": "overrides is list of overides for components that are managed by cluster version operator. Marking a component unmanaged will prevent the operator from creating or updating the object.",
@@ -200,7 +202,8 @@
                 "description": "unmanaged controls if cluster version operator should stop managing the resources in this cluster. Default: false",
                 "type": "boolean"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-map-keys": [
             "kind",
@@ -217,7 +220,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "status contains information about the available updates and any in-progress updates.",
@@ -308,7 +312,8 @@
               },
               "x-kubernetes-list-type": "atomic"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "conditionalUpdates": {
           "description": "conditionalUpdates contains the list of updates that may be recommended for this cluster if it meets specific required conditions. Consumers interested in the set of updates that are actually recommended for this cluster should use availableUpdates. This list may be empty if no updates are recommended, if the update service is unavailable, or if an empty or invalid channel has been specified.",
@@ -388,7 +393,8 @@
                       "maxLength": 316,
                       "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "x-kubernetes-list-map-keys": [
                   "type"
@@ -434,7 +440,8 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "risks": {
                 "description": "risks represents the range of issues associated with updating to the target release. The cluster-version operator will evaluate all entries, and only recommend the update if there is at least one entry and all entries recommend the update.",
@@ -481,7 +488,8 @@
                                 "description": "PromQL is a PromQL query classifying clusters. This query query should return a 1 in the match case and a 0 in the does-not-match case. Queries which return no time series, or which return values besides 0 or 1, are evaluation failures.",
                                 "type": "string"
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "type": {
                             "description": "type represents the cluster-condition type. This defines the members and semantics of any additional properties.",
@@ -491,7 +499,8 @@
                               "PromQL"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "x-kubernetes-list-type": "atomic"
                     },
@@ -511,14 +520,16 @@
                       "format": "uri",
                       "minLength": 1
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "x-kubernetes-list-map-keys": [
                   "name"
                 ],
                 "x-kubernetes-list-type": "map"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -567,7 +578,8 @@
                 "description": "type specifies the aspect reported by this condition.",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-map-keys": [
             "type"
@@ -613,7 +625,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "history": {
           "description": "history contains a list of the most recent versions applied to the cluster. This value may be empty during cluster startup, and then will be updated when a new update is being applied. The newest update is first in the list and it is ordered by recency. Updates in the history have state Completed if the rollout completed - if an update was failing or halfway applied the state will be Partial. Only a limited amount of update history is preserved.",
@@ -669,7 +682,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -682,7 +696,8 @@
           "description": "versionHash is a fingerprint of the content that the cluster will be updated with. It is used by the operator to avoid unnecessary work and is for internal use only.",
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -702,5 +717,6 @@
       "rule": "has(self.spec.capabilities) && has(self.spec.capabilities.additionalEnabledCapabilities) && self.spec.capabilities.baselineCapabilitySet == 'None' && 'marketplace' in self.spec.capabilities.additionalEnabledCapabilities ? 'OperatorLifecycleManager' in self.spec.capabilities.additionalEnabledCapabilities || (has(self.status) && has(self.status.capabilities) && has(self.status.capabilities.enabledCapabilities) && 'OperatorLifecycleManager' in self.status.capabilities.enabledCapabilities) : true"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -61,7 +61,8 @@
                   ],
                   "pattern": "^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b|aws-iso-e|aws-iso-f):kms:[a-z0-9-]+:[0-9]{12}:(key|alias)\\/.*$"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "azure": {
               "description": "azure is used to configure the Azure CSI driver.",
@@ -100,9 +101,11 @@
                       "maxLength": 36,
                       "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "driverType": {
               "description": "driverType indicates type of CSI driver for which the driverConfig is being applied to. Valid values are: AWS, Azure, GCP, IBMCloud, vSphere and omitted. Consumers should treat unknown values as a NO-OP.",
@@ -164,9 +167,11 @@
                       "minLength": 6,
                       "pattern": "^[a-z][a-z0-9-]+[a-z0-9]$"
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "ibmcloud": {
               "description": "ibmcloud is used to configure the IBM Cloud CSI driver.",
@@ -185,7 +190,8 @@
                   "minLength": 144,
                   "pattern": "^crn:v[0-9]+:bluemix:(public|private):(kms|hs-crypto):[a-z-]+:a/[0-9a-f]+:[0-9a-f-]{36}:key:[0-9a-f-]{36}$"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "vSphere": {
               "description": "vsphere is used to configure the vsphere CSI driver.",
@@ -238,7 +244,8 @@
                   },
                   "x-kubernetes-list-type": "atomic"
                 }
-              }
+              },
+              "additionalProperties": false
             }
           },
           "x-kubernetes-validations": [
@@ -246,7 +253,8 @@
               "message": "ibmcloud must be set if driverType is 'IBMCloud', but remain unset otherwise",
               "rule": "has(self.driverType) && self.driverType == 'IBMCloud' ? has(self.ibmcloud) : !has(self.ibmcloud)"
             }
-          ]
+          ],
+          "additionalProperties": false
         },
         "logLevel": {
           "description": "logLevel is an intent based logging for an overall component.  It does not give fine grained control, but it is a simple way to manage coarse grained logging choices that operators have to interpret for their operands. \n Valid values are: \"Normal\", \"Debug\", \"Trace\", \"TraceAll\". Defaults to \"Normal\".",
@@ -305,7 +313,8 @@
           "description": "unsupportedConfigOverrides overrides the final configuration that was computed by the operator. Red Hat does not support the use of this field. Misuse of this field could lead to unexpected behavior or conflict with other configuration options. Seek guidance from the Red Hat support before using this field. Use of this property blocks cluster upgrades, it must be removed before upgrading your cluster.",
           "x-kubernetes-preserve-unknown-fields": true
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "status holds observed values from the cluster. They may not be overridden.",
@@ -358,7 +367,8 @@
               "type": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-map-keys": [
             "type"
@@ -421,7 +431,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -448,7 +459,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -458,5 +470,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

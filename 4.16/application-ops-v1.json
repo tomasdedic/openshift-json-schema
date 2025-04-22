@@ -113,7 +113,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "info": {
@@ -138,7 +139,8 @@
               "value": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "source": {
@@ -212,7 +214,8 @@
                           "value": {
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "libs": {
@@ -257,10 +260,12 @@
                           "value": {
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "recurse": {
                   "description": "Recurse specifies whether to scan a directory recursively for manifests",
@@ -269,7 +274,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "helm": {
               "description": "Helm holds helm specific options",
@@ -305,7 +311,8 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "ignoreMissingValueFiles": {
@@ -349,7 +356,8 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "passCredentials": {
@@ -400,7 +408,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "kustomize": {
               "description": "Kustomize holds kustomize specific options",
@@ -484,7 +493,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "path": {
               "description": "Path is a directory path within the Git repository, and is only valid for applications sourced from Git.",
@@ -525,7 +535,8 @@
                         "description": "Value is the value of the variable",
                         "type": "string"
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "name": {
@@ -585,10 +596,12 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "ref": {
               "description": "Ref is reference to another source within sources field. This field will not be used if used with a `source` tag.",
@@ -608,7 +621,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "syncPolicy": {
           "description": "SyncPolicy controls when a sync will be performed",
@@ -645,7 +659,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "managedNamespaceMetadata": {
               "description": "ManagedNamespaceMetadata controls metadata in the given namespace (if CreateNamespace=true)",
@@ -678,7 +693,8 @@
                     ]
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "retry": {
               "description": "Retry controls failed sync retry behavior",
@@ -716,7 +732,8 @@
                         "null"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "limit": {
                   "description": "Limit is the maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.",
@@ -726,7 +743,8 @@
                   ],
                   "format": "int64"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "syncOptions": {
               "description": "Options allow you to specify whole app sync-options",
@@ -741,9 +759,11 @@
                 ]
               }
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "ApplicationStatus defines the observed state of Application",
@@ -792,7 +812,8 @@
                     "description": "Type is an application condition type",
                     "type": "string"
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "health": {
@@ -816,7 +837,8 @@
                     "null"
                   ]
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "history": {
               "description": "History contains information about the application's sync history",
@@ -947,7 +969,8 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               },
                               "libs": {
@@ -992,10 +1015,12 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "recurse": {
                             "description": "Recurse specifies whether to scan a directory recursively for manifests",
@@ -1004,7 +1029,8 @@
                               "null"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "helm": {
                         "description": "Helm holds helm specific options",
@@ -1040,7 +1066,8 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
                           },
                           "ignoreMissingValueFiles": {
@@ -1084,7 +1111,8 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
                           },
                           "passCredentials": {
@@ -1135,7 +1163,8 @@
                               "null"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "kustomize": {
                         "description": "Kustomize holds kustomize specific options",
@@ -1219,7 +1248,8 @@
                               "null"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "path": {
                         "description": "Path is a directory path within the Git repository, and is only valid for applications sourced from Git.",
@@ -1260,7 +1290,8 @@
                                   "description": "Value is the value of the variable",
                                   "type": "string"
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
                           },
                           "name": {
@@ -1320,10 +1351,12 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       },
                       "ref": {
                         "description": "Ref is reference to another source within sources field. This field will not be used if used with a `source` tag.",
@@ -1343,7 +1376,8 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "sources": {
                     "description": "Sources is a reference to the application sources used for the sync operation",
@@ -1425,7 +1459,8 @@
                                       "value": {
                                         "type": "string"
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   }
                                 },
                                 "libs": {
@@ -1470,10 +1505,12 @@
                                       "value": {
                                         "type": "string"
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   }
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             },
                             "recurse": {
                               "description": "Recurse specifies whether to scan a directory recursively for manifests",
@@ -1482,7 +1519,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "helm": {
                           "description": "Helm holds helm specific options",
@@ -1518,7 +1556,8 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             },
                             "ignoreMissingValueFiles": {
@@ -1562,7 +1601,8 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             },
                             "passCredentials": {
@@ -1613,7 +1653,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "kustomize": {
                           "description": "Kustomize holds kustomize specific options",
@@ -1697,7 +1738,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "path": {
                           "description": "Path is a directory path within the Git repository, and is only valid for applications sourced from Git.",
@@ -1738,7 +1780,8 @@
                                     "description": "Value is the value of the variable",
                                     "type": "string"
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             },
                             "name": {
@@ -1798,10 +1841,12 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "ref": {
                           "description": "Ref is reference to another source within sources field. This field will not be used if used with a `source` tag.",
@@ -1821,10 +1866,12 @@
                             "null"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "observedAt": {
@@ -1888,7 +1935,8 @@
                           "value": {
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "initiatedBy": {
@@ -1912,7 +1960,8 @@
                             "null"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "retry": {
                       "description": "Retry controls the strategy to apply if a sync fails",
@@ -1950,7 +1999,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "limit": {
                           "description": "Limit is the maximum number of attempts for retrying a failed sync. If set to 0, no retries will be performed.",
@@ -1960,7 +2010,8 @@
                           ],
                           "format": "int64"
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "sync": {
                       "description": "Sync contains parameters for the operation",
@@ -2031,7 +2082,8 @@
                                   "null"
                                 ]
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           }
                         },
                         "revision": {
@@ -2128,7 +2180,8 @@
                                           "value": {
                                             "type": "string"
                                           }
-                                        }
+                                        },
+                                        "additionalProperties": false
                                       }
                                     },
                                     "libs": {
@@ -2173,10 +2226,12 @@
                                           "value": {
                                             "type": "string"
                                           }
-                                        }
+                                        },
+                                        "additionalProperties": false
                                       }
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 },
                                 "recurse": {
                                   "description": "Recurse specifies whether to scan a directory recursively for manifests",
@@ -2185,7 +2240,8 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             },
                             "helm": {
                               "description": "Helm holds helm specific options",
@@ -2221,7 +2277,8 @@
                                           "null"
                                         ]
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   }
                                 },
                                 "ignoreMissingValueFiles": {
@@ -2265,7 +2322,8 @@
                                           "null"
                                         ]
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   }
                                 },
                                 "passCredentials": {
@@ -2316,7 +2374,8 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             },
                             "kustomize": {
                               "description": "Kustomize holds kustomize specific options",
@@ -2400,7 +2459,8 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             },
                             "path": {
                               "description": "Path is a directory path within the Git repository, and is only valid for applications sourced from Git.",
@@ -2441,7 +2501,8 @@
                                         "description": "Value is the value of the variable",
                                         "type": "string"
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   }
                                 },
                                 "name": {
@@ -2501,10 +2562,12 @@
                                           "null"
                                         ]
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   }
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             },
                             "ref": {
                               "description": "Ref is reference to another source within sources field. This field will not be used if used with a `source` tag.",
@@ -2524,7 +2587,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "sources": {
                           "description": "Sources overrides the source definition set in the application. This is typically set in a Rollback operation and is nil during a Sync operation",
@@ -2606,7 +2670,8 @@
                                             "value": {
                                               "type": "string"
                                             }
-                                          }
+                                          },
+                                          "additionalProperties": false
                                         }
                                       },
                                       "libs": {
@@ -2651,10 +2716,12 @@
                                             "value": {
                                               "type": "string"
                                             }
-                                          }
+                                          },
+                                          "additionalProperties": false
                                         }
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   },
                                   "recurse": {
                                     "description": "Recurse specifies whether to scan a directory recursively for manifests",
@@ -2663,7 +2730,8 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               },
                               "helm": {
                                 "description": "Helm holds helm specific options",
@@ -2699,7 +2767,8 @@
                                             "null"
                                           ]
                                         }
-                                      }
+                                      },
+                                      "additionalProperties": false
                                     }
                                   },
                                   "ignoreMissingValueFiles": {
@@ -2743,7 +2812,8 @@
                                             "null"
                                           ]
                                         }
-                                      }
+                                      },
+                                      "additionalProperties": false
                                     }
                                   },
                                   "passCredentials": {
@@ -2794,7 +2864,8 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               },
                               "kustomize": {
                                 "description": "Kustomize holds kustomize specific options",
@@ -2878,7 +2949,8 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               },
                               "path": {
                                 "description": "Path is a directory path within the Git repository, and is only valid for applications sourced from Git.",
@@ -2919,7 +2991,8 @@
                                           "description": "Value is the value of the variable",
                                           "type": "string"
                                         }
-                                      }
+                                      },
+                                      "additionalProperties": false
                                     }
                                   },
                                   "name": {
@@ -2979,10 +3052,12 @@
                                             "null"
                                           ]
                                         }
-                                      }
+                                      },
+                                      "additionalProperties": false
                                     }
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               },
                               "ref": {
                                 "description": "Ref is reference to another source within sources field. This field will not be used if used with a `source` tag.",
@@ -3002,7 +3077,8 @@
                                   "null"
                                 ]
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           }
                         },
                         "syncOptions": {
@@ -3039,7 +3115,8 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             },
                             "hook": {
                               "description": "Hook will submit any referenced resources to perform the sync. This is the default strategy",
@@ -3055,13 +3132,17 @@
                                     "null"
                                   ]
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "phase": {
                   "description": "Phase is the current phase of the operation",
@@ -3165,7 +3246,8 @@
                             "description": "Version specifies the API version of the resource",
                             "type": "string"
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     },
                     "revision": {
@@ -3259,7 +3341,8 @@
                                       "value": {
                                         "type": "string"
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   }
                                 },
                                 "libs": {
@@ -3304,10 +3387,12 @@
                                       "value": {
                                         "type": "string"
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   }
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             },
                             "recurse": {
                               "description": "Recurse specifies whether to scan a directory recursively for manifests",
@@ -3316,7 +3401,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "helm": {
                           "description": "Helm holds helm specific options",
@@ -3352,7 +3438,8 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             },
                             "ignoreMissingValueFiles": {
@@ -3396,7 +3483,8 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             },
                             "passCredentials": {
@@ -3447,7 +3535,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "kustomize": {
                           "description": "Kustomize holds kustomize specific options",
@@ -3531,7 +3620,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "path": {
                           "description": "Path is a directory path within the Git repository, and is only valid for applications sourced from Git.",
@@ -3572,7 +3662,8 @@
                                     "description": "Value is the value of the variable",
                                     "type": "string"
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             },
                             "name": {
@@ -3632,10 +3723,12 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "ref": {
                           "description": "Ref is reference to another source within sources field. This field will not be used if used with a `source` tag.",
@@ -3655,7 +3748,8 @@
                             "null"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "sources": {
                       "description": "Source records the application source information of the sync, used for comparing auto-sync",
@@ -3737,7 +3831,8 @@
                                         "value": {
                                           "type": "string"
                                         }
-                                      }
+                                      },
+                                      "additionalProperties": false
                                     }
                                   },
                                   "libs": {
@@ -3782,10 +3877,12 @@
                                         "value": {
                                           "type": "string"
                                         }
-                                      }
+                                      },
+                                      "additionalProperties": false
                                     }
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               },
                               "recurse": {
                                 "description": "Recurse specifies whether to scan a directory recursively for manifests",
@@ -3794,7 +3891,8 @@
                                   "null"
                                 ]
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "helm": {
                             "description": "Helm holds helm specific options",
@@ -3830,7 +3928,8 @@
                                         "null"
                                       ]
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               },
                               "ignoreMissingValueFiles": {
@@ -3874,7 +3973,8 @@
                                         "null"
                                       ]
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               },
                               "passCredentials": {
@@ -3925,7 +4025,8 @@
                                   "null"
                                 ]
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "kustomize": {
                             "description": "Kustomize holds kustomize specific options",
@@ -4009,7 +4110,8 @@
                                   "null"
                                 ]
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "path": {
                             "description": "Path is a directory path within the Git repository, and is only valid for applications sourced from Git.",
@@ -4050,7 +4152,8 @@
                                       "description": "Value is the value of the variable",
                                       "type": "string"
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               },
                               "name": {
@@ -4110,10 +4213,12 @@
                                         "null"
                                       ]
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "ref": {
                             "description": "Ref is reference to another source within sources field. This field will not be used if used with a `source` tag.",
@@ -4133,12 +4238,15 @@
                               "null"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "reconciledAt": {
               "description": "ReconciledAt indicates when the application state was reconciled using the latest git version",
@@ -4195,7 +4303,8 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "hook": {
                     "type": [
@@ -4247,7 +4356,8 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "sourceType": {
@@ -4304,7 +4414,8 @@
                     ]
                   }
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "sync": {
               "description": "Sync contains information about the application's current sync status",
@@ -4351,7 +4462,8 @@
                             "null"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "source": {
                       "description": "Source is a reference to the application's source used for comparison",
@@ -4427,7 +4539,8 @@
                                       "value": {
                                         "type": "string"
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   }
                                 },
                                 "libs": {
@@ -4472,10 +4585,12 @@
                                       "value": {
                                         "type": "string"
                                       }
-                                    }
+                                    },
+                                    "additionalProperties": false
                                   }
                                 }
-                              }
+                              },
+                              "additionalProperties": false
                             },
                             "recurse": {
                               "description": "Recurse specifies whether to scan a directory recursively for manifests",
@@ -4484,7 +4599,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "helm": {
                           "description": "Helm holds helm specific options",
@@ -4520,7 +4636,8 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             },
                             "ignoreMissingValueFiles": {
@@ -4564,7 +4681,8 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             },
                             "passCredentials": {
@@ -4615,7 +4733,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "kustomize": {
                           "description": "Kustomize holds kustomize specific options",
@@ -4699,7 +4818,8 @@
                                 "null"
                               ]
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "path": {
                           "description": "Path is a directory path within the Git repository, and is only valid for applications sourced from Git.",
@@ -4740,7 +4860,8 @@
                                     "description": "Value is the value of the variable",
                                     "type": "string"
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             },
                             "name": {
@@ -4800,10 +4921,12 @@
                                       "null"
                                     ]
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               }
                             }
-                          }
+                          },
+                          "additionalProperties": false
                         },
                         "ref": {
                           "description": "Ref is reference to another source within sources field. This field will not be used if used with a `source` tag.",
@@ -4823,7 +4946,8 @@
                             "null"
                           ]
                         }
-                      }
+                      },
+                      "additionalProperties": false
                     },
                     "sources": {
                       "description": "Sources is a reference to the application's multiple sources used for comparison",
@@ -4905,7 +5029,8 @@
                                         "value": {
                                           "type": "string"
                                         }
-                                      }
+                                      },
+                                      "additionalProperties": false
                                     }
                                   },
                                   "libs": {
@@ -4950,10 +5075,12 @@
                                         "value": {
                                           "type": "string"
                                         }
-                                      }
+                                      },
+                                      "additionalProperties": false
                                     }
                                   }
-                                }
+                                },
+                                "additionalProperties": false
                               },
                               "recurse": {
                                 "description": "Recurse specifies whether to scan a directory recursively for manifests",
@@ -4962,7 +5089,8 @@
                                   "null"
                                 ]
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "helm": {
                             "description": "Helm holds helm specific options",
@@ -4998,7 +5126,8 @@
                                         "null"
                                       ]
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               },
                               "ignoreMissingValueFiles": {
@@ -5042,7 +5171,8 @@
                                         "null"
                                       ]
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               },
                               "passCredentials": {
@@ -5093,7 +5223,8 @@
                                   "null"
                                 ]
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "kustomize": {
                             "description": "Kustomize holds kustomize specific options",
@@ -5177,7 +5308,8 @@
                                   "null"
                                 ]
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "path": {
                             "description": "Path is a directory path within the Git repository, and is only valid for applications sourced from Git.",
@@ -5218,7 +5350,8 @@
                                       "description": "Value is the value of the variable",
                                       "type": "string"
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               },
                               "name": {
@@ -5278,10 +5411,12 @@
                                         "null"
                                       ]
                                     }
-                                  }
+                                  },
+                                  "additionalProperties": false
                                 }
                               }
-                            }
+                            },
+                            "additionalProperties": false
                           },
                           "ref": {
                             "description": "Ref is reference to another source within sources field. This field will not be used if used with a `source` tag.",
@@ -5301,10 +5436,12 @@
                               "null"
                             ]
                           }
-                        }
+                        },
+                        "additionalProperties": false
                       }
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "revision": {
                   "description": "Revision contains information about the revision the comparison has been performed to",
@@ -5330,9 +5467,11 @@
                   "description": "Status is the sync state of the comparison",
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "conditions": {
           "description": "Conditions represent the latest available observations of an object's state",
@@ -5376,7 +5515,8 @@
               "type": {
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "name": {
@@ -5386,7 +5526,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -5396,5 +5537,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

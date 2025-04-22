@@ -82,7 +82,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "globallyDisableIrqLoadBalancing": {
           "description": "GloballyDisableIrqLoadBalancing toggles whether IRQ load balancing will be disabled for the Isolated CPU set. When the option is set to \"true\" it disables IRQs load balancing for the Isolated CPU set. Setting the option to \"false\" allows the IRQs to be balanced across all CPUs, however the IRQs load balancing can be disabled per pod CPUs when using irq-load-balancing.crio.io/cpu-quota.crio.io annotations. Defaults to \"false\"",
@@ -112,7 +113,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "hugepages": {
           "description": "HugePages defines a set of huge pages related parameters. It is possible to set huge pages with multiple size values at the same time. For example, hugepages can be set with 1G and 2M, both values will be set on the node by the performance-addon-operator. It is important to notice that setting hugepages default size to 1G will remove all 2M related folders from the node and it will be impossible to configure 2M hugepages under the node.",
@@ -164,10 +166,12 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "machineConfigLabel": {
           "description": "MachineConfigLabel defines the label to add to the MachineConfigs the operator creates. It has to be used in the MachineConfigSelector of the MachineConfigPool which targets this performance profile. Defaults to \"machineconfiguration.openshift.io/role=<same role as in NodeSelector label key>\"",
@@ -236,7 +240,8 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "userLevelNetworking": {
@@ -246,7 +251,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "nodeSelector": {
           "description": "NodeSelector defines the Node label to use in the NodeSelectors of resources like Tuned created by the operator. It most likely should, but does not have to match the node label in the NodeSelector of the MachineConfigPool which targets this performance profile. In the case when machineConfigLabels or machineConfigPoolSelector are not set, we are expecting a certain NodeSelector format <domain>/<role>: \"\" in order to be able to calculate the default values for the former mentioned fields.",
@@ -272,7 +278,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "realTimeKernel": {
           "description": "RealTimeKernel defines a set of real time kernel related parameters. RT kernel won't be installed when not set.",
@@ -288,7 +295,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "workloadHints": {
           "description": "WorkloadHints defines hints for different types of workloads. It will allow defining exact set of tuned and kernel arguments that should be applied on top of the node.",
@@ -318,9 +326,11 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "PerformanceProfileStatus defines the observed state of PerformanceProfile.",
@@ -379,7 +389,8 @@
                 "description": "ConditionType is the state of the operator's reconciliation functionality.",
                 "type": "string"
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "runtimeClass": {
@@ -396,7 +407,8 @@
             "null"
           ]
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -406,5 +418,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

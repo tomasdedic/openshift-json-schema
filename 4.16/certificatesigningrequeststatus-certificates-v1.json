@@ -26,5 +26,6 @@
       "x-kubernetes-list-type": "map"
     }
   },
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

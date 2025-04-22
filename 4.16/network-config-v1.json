@@ -65,7 +65,8 @@
                 "format": "int32",
                 "minimum": 0
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -125,9 +126,11 @@
                   },
                   "x-kubernetes-list-type": "atomic"
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "networkDiagnostics": {
           "description": "networkDiagnostics defines network diagnostics configuration. \n Takes precedence over spec.disableNetworkDiagnostics in network.operator.openshift.io. If networkDiagnostics is not specified or is empty, and the spec.disableNetworkDiagnostics flag in network.operator.openshift.io is set to true, the network diagnostics feature will be disabled.",
@@ -217,11 +220,13 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-type": "atomic"
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "targetPlacement": {
               "description": "targetPlacement controls the scheduling of network diagnostics target daemonset \n See NetworkDiagnosticsTargetPlacement for more details about default values.",
@@ -292,13 +297,16 @@
                           "null"
                         ]
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "x-kubernetes-list-type": "atomic"
                 }
-              }
+              },
+              "additionalProperties": false
             }
-          }
+          },
+          "additionalProperties": false
         },
         "networkType": {
           "description": "NetworkType is the plugin that is to be deployed (e.g. OpenShiftSDN). This should match a value that the cluster-network-operator understands, or else no networking will be installed. Currently supported values are: - OpenShiftSDN This field is immutable after installation.",
@@ -335,7 +343,8 @@
           "message": "cannot set networkDiagnostics.sourcePlacement and networkDiagnostics.targetPlacement when networkDiagnostics.mode is Disabled",
           "rule": "!has(self.networkDiagnostics) || !has(self.networkDiagnostics.mode) || self.networkDiagnostics.mode!='Disabled' || !has(self.networkDiagnostics.sourcePlacement) && !has(self.networkDiagnostics.targetPlacement)"
         }
-      ]
+      ],
+      "additionalProperties": false
     },
     "status": {
       "description": "status holds observed values from the cluster. They may not be overridden.",
@@ -373,7 +382,8 @@
                 "format": "int32",
                 "minimum": 0
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-type": "atomic"
         },
@@ -445,7 +455,8 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-map-keys": [
             "type"
@@ -491,7 +502,8 @@
                       "format": "int32",
                       "minimum": 0
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 },
                 "network": {
                   "description": "Network contains MTU migration configuration for the default network.",
@@ -518,9 +530,11 @@
                       "format": "int32",
                       "minimum": 0
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
-              }
+              },
+              "additionalProperties": false
             },
             "networkType": {
               "description": "NetworkType is the target plugin that is to be deployed. Currently supported values are: OpenShiftSDN, OVNKubernetes",
@@ -533,7 +547,8 @@
                 "OVNKubernetes"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "networkType": {
           "description": "NetworkType is the plugin that is deployed (e.g. OpenShiftSDN).",
@@ -556,7 +571,8 @@
           },
           "x-kubernetes-list-type": "atomic"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -566,5 +582,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

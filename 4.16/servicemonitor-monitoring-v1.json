@@ -53,7 +53,8 @@
                 "null"
               ]
             }
-          }
+          },
+          "additionalProperties": false
         },
         "bodySizeLimit": {
           "description": "When defined, bodySizeLimit specifies a job level limit on the size of uncompressed response body that will be accepted by Prometheus. \n It requires Prometheus >= v2.28.0.",
@@ -112,7 +113,8 @@
                         ]
                       }
                     },
-                    "x-kubernetes-map-type": "atomic"
+                    "x-kubernetes-map-type": "atomic",
+                    "additionalProperties": false
                   },
                   "type": {
                     "description": "Defines the authentication type. The value is case-insensitive. \n \"Basic\" is not a supported value. \n Default: \"Bearer\"",
@@ -121,7 +123,8 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "basicAuth": {
                 "description": "`basicAuth` configures the Basic Authentication credentials to use when scraping the target. \n Cannot be set at the same time as `authorization`, or `oauth2`.",
@@ -159,7 +162,8 @@
                         ]
                       }
                     },
-                    "x-kubernetes-map-type": "atomic"
+                    "x-kubernetes-map-type": "atomic",
+                    "additionalProperties": false
                   },
                   "username": {
                     "description": "`username` specifies a key of a Secret containing the username for authentication.",
@@ -190,9 +194,11 @@
                         ]
                       }
                     },
-                    "x-kubernetes-map-type": "atomic"
+                    "x-kubernetes-map-type": "atomic",
+                    "additionalProperties": false
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "bearerTokenFile": {
                 "description": "File to read bearer token for scraping the target. \n Deprecated: use `authorization` instead.",
@@ -230,7 +236,8 @@
                     ]
                   }
                 },
-                "x-kubernetes-map-type": "atomic"
+                "x-kubernetes-map-type": "atomic",
+                "additionalProperties": false
               },
               "enableHttp2": {
                 "description": "`enableHttp2` can be used to disable HTTP2 when scraping the target.",
@@ -370,7 +377,8 @@
                         "null"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "oauth2": {
@@ -418,7 +426,8 @@
                             ]
                           }
                         },
-                        "x-kubernetes-map-type": "atomic"
+                        "x-kubernetes-map-type": "atomic",
+                        "additionalProperties": false
                       },
                       "secret": {
                         "description": "Secret containing data to use for the targets.",
@@ -449,9 +458,11 @@
                             ]
                           }
                         },
-                        "x-kubernetes-map-type": "atomic"
+                        "x-kubernetes-map-type": "atomic",
+                        "additionalProperties": false
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "clientSecret": {
                     "description": "`clientSecret` specifies a key of a Secret containing the OAuth2 client's secret.",
@@ -479,7 +490,8 @@
                         ]
                       }
                     },
-                    "x-kubernetes-map-type": "atomic"
+                    "x-kubernetes-map-type": "atomic",
+                    "additionalProperties": false
                   },
                   "endpointParams": {
                     "description": "`endpointParams` configures the HTTP parameters to append to the token URL.",
@@ -512,7 +524,8 @@
                     "type": "string",
                     "minLength": 1
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "params": {
                 "description": "params define optional HTTP URL parameters.",
@@ -649,7 +662,8 @@
                         "null"
                       ]
                     }
-                  }
+                  },
+                  "additionalProperties": false
                 }
               },
               "scheme": {
@@ -718,7 +732,8 @@
                             ]
                           }
                         },
-                        "x-kubernetes-map-type": "atomic"
+                        "x-kubernetes-map-type": "atomic",
+                        "additionalProperties": false
                       },
                       "secret": {
                         "description": "Secret containing data to use for the targets.",
@@ -749,9 +764,11 @@
                             ]
                           }
                         },
-                        "x-kubernetes-map-type": "atomic"
+                        "x-kubernetes-map-type": "atomic",
+                        "additionalProperties": false
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "caFile": {
                     "description": "Path to the CA cert in the Prometheus container to use for the targets.",
@@ -796,7 +813,8 @@
                             ]
                           }
                         },
-                        "x-kubernetes-map-type": "atomic"
+                        "x-kubernetes-map-type": "atomic",
+                        "additionalProperties": false
                       },
                       "secret": {
                         "description": "Secret containing data to use for the targets.",
@@ -827,9 +845,11 @@
                             ]
                           }
                         },
-                        "x-kubernetes-map-type": "atomic"
+                        "x-kubernetes-map-type": "atomic",
+                        "additionalProperties": false
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   },
                   "certFile": {
                     "description": "Path to the client cert file in the Prometheus container for the targets.",
@@ -881,7 +901,8 @@
                         ]
                       }
                     },
-                    "x-kubernetes-map-type": "atomic"
+                    "x-kubernetes-map-type": "atomic",
+                    "additionalProperties": false
                   },
                   "serverName": {
                     "description": "Used to verify the hostname for the targets.",
@@ -890,7 +911,8 @@
                       "null"
                     ]
                   }
-                }
+                },
+                "additionalProperties": false
               },
               "trackTimestampsStaleness": {
                 "description": "`trackTimestampsStaleness` defines whether Prometheus tracks staleness of the metrics that have an explicit timestamp present in scraped data. Has no effect if `honorTimestamps` is false. \n It requires Prometheus >= v2.48.0.",
@@ -899,7 +921,8 @@
                   "null"
                 ]
               }
-            }
+            },
+            "additionalProperties": false
           }
         },
         "jobLabel": {
@@ -968,7 +991,8 @@
                 ]
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "podTargetLabels": {
           "description": "`podTargetLabels` defines the labels which are transferred from the associated Kubernetes `Pod` object onto the ingested metrics.",
@@ -1062,7 +1086,8 @@
                       ]
                     }
                   }
-                }
+                },
+                "additionalProperties": false
               }
             },
             "matchLabels": {
@@ -1079,7 +1104,8 @@
               }
             }
           },
-          "x-kubernetes-map-type": "atomic"
+          "x-kubernetes-map-type": "atomic",
+          "additionalProperties": false
         },
         "targetLabels": {
           "description": "`targetLabels` defines the labels which are transferred from the associated Kubernetes `Service` object onto the ingested metrics.",
@@ -1102,7 +1128,8 @@
           ],
           "format": "int64"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1112,5 +1139,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

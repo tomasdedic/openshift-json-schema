@@ -18,5 +18,6 @@
       "x-kubernetes-patch-strategy": "merge"
     }
   },
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -44,7 +44,8 @@
           "description": "Foo is an example field of Nfs. Edit nfs_types.go to remove/update",
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "status": {
       "description": "NfsStatus defines the observed state of Nfs",
@@ -61,5 +62,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

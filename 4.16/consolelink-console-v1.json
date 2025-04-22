@@ -62,7 +62,8 @@
               "description": "section is the section of the application menu in which the link should appear. This can be any text that will appear as a subheading in the application menu dropdown. A new section will be created if the text does not match text of an existing section.",
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         },
         "href": {
           "description": "href is the absolute secure URL for the link (must use https)",
@@ -126,7 +127,8 @@
                           ]
                         }
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "matchLabels": {
@@ -143,7 +145,8 @@
                   }
                 }
               },
-              "x-kubernetes-map-type": "atomic"
+              "x-kubernetes-map-type": "atomic",
+              "additionalProperties": false
             },
             "namespaces": {
               "description": "namespaces is an array of namespace names in which the dashboard link should appear.",
@@ -158,13 +161,15 @@
                 ]
               }
             }
-          }
+          },
+          "additionalProperties": false
         },
         "text": {
           "description": "text is the display text for the link",
           "type": "string"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -174,5 +179,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

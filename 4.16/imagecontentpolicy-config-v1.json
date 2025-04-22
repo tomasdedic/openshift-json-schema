@@ -79,14 +79,16 @@
                 "type": "string",
                 "pattern": "^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\\-]*[A-Za-z0-9])(:[0-9]+)?(\\/[^\\/:\\n]+)*(\\/[^\\/:\\n]+((:[^\\/:\\n]+)|(@[^\\n]+)))?$"
               }
-            }
+            },
+            "additionalProperties": false
           },
           "x-kubernetes-list-map-keys": [
             "source"
           ],
           "x-kubernetes-list-type": "map"
         }
-      }
+      },
+      "additionalProperties": false
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -96,5 +98,6 @@
       "version": "v1"
     }
   ],
+  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }
