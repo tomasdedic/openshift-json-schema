@@ -1,0 +1,994 @@
+{
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "forklift.konveyor.io/v1beta1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Migration"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "MigrationSpec defines the desired state of Migration",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "plan"
+      ],
+      "properties": {
+        "cancel": {
+          "description": "List of VMs which will have their imports canceled.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Source reference.\nEither the ID or Name must be specified.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "id": {
+                "description": "The object ID.\nvsphere:\n  The managed object ID.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "description": "An object Name.\nvsphere:\n  A qualified name.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "namespace": {
+                "description": "The VM Namespace\nOnly relevant for an openshift source.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "type": {
+                "description": "Type used to qualify the name.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "cutover": {
+          "description": "Date and time to finalize a warm migration.\nIf present, this will override the value set on the Plan.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "plan": {
+          "description": "Reference to the associated Plan.",
+          "type": "object",
+          "properties": {
+            "apiVersion": {
+              "description": "API version of the referent.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "fieldPath": {
+              "description": "If referring to a piece of an object instead of an entire object, this string\nshould contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2].\nFor example, if the object reference is to a container within a pod, this would take on a value like:\n\"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered\nthe event) or if no container name is specified \"spec.containers[2]\" (container with\nindex 2 in this pod). This syntax is chosen only to have some well-defined way of\nreferencing a part of an object.",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "kind": {
+              "description": "Kind of the referent.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "name": {
+              "description": "Name of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "namespace": {
+              "description": "Namespace of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "resourceVersion": {
+              "description": "Specific resourceVersion to which this reference is made, if any.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "uid": {
+              "description": "UID of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "x-kubernetes-map-type": "atomic"
+        }
+      }
+    },
+    "status": {
+      "description": "MigrationStatus defines the observed state of Migration",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "completed": {
+          "description": "Completed timestamp.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "conditions": {
+          "description": "List of conditions.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Condition",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "category",
+              "lastTransitionTime",
+              "status",
+              "type"
+            ],
+            "properties": {
+              "category": {
+                "description": "The condition category.",
+                "type": "string"
+              },
+              "durable": {
+                "description": "The condition is durable - never un-staged.",
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "items": {
+                "description": "A list of items referenced in the `Message`.",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "lastTransitionTime": {
+                "description": "When the last status transition occurred.",
+                "type": "string",
+                "format": "date-time"
+              },
+              "message": {
+                "description": "The human readable description of the condition.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "description": "The reason for the condition or transition.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "description": "The condition status [true,false].",
+                "type": "string"
+              },
+              "type": {
+                "description": "The condition type.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "observedGeneration": {
+          "description": "The most recent generation observed by the controller.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "started": {
+          "description": "Started timestamp.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "vms": {
+          "description": "VM status",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "VM Status",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "phase",
+              "pipeline"
+            ],
+            "properties": {
+              "completed": {
+                "description": "Completed timestamp.",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "conditions": {
+                "description": "List of conditions.",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "Condition",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "required": [
+                    "category",
+                    "lastTransitionTime",
+                    "status",
+                    "type"
+                  ],
+                  "properties": {
+                    "category": {
+                      "description": "The condition category.",
+                      "type": "string"
+                    },
+                    "durable": {
+                      "description": "The condition is durable - never un-staged.",
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "items": {
+                      "description": "A list of items referenced in the `Message`.",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "lastTransitionTime": {
+                      "description": "When the last status transition occurred.",
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "message": {
+                      "description": "The human readable description of the condition.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "reason": {
+                      "description": "The reason for the condition or transition.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "status": {
+                      "description": "The condition status [true,false].",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The condition type.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "deleteVmOnFailMigration": {
+                "description": "DeleteVmOnFailMigration controls whether the target VM created by this Plan is deleted when a migration fails.\nWhen true and the migration fails after the target VM has been created, the controller\nwill delete the target VM (and related target-side resources) during failed-migration cleanup\nand when the Plan is deleted. When false (default), the target VM is preserved to aid\ntroubleshooting. The source VM is never modified.\n\nNote: If the Plan-level option is set to true, the VM-level option will be ignored.",
+                "type": [
+                  "boolean",
+                  "null"
+                ]
+              },
+              "error": {
+                "description": "Errors",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "phase",
+                  "reasons"
+                ],
+                "properties": {
+                  "phase": {
+                    "type": "string"
+                  },
+                  "reasons": {
+                    "type": "array",
+                    "items": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              },
+              "firmware": {
+                "description": "The firmware type detected from the OVF file produced by virt-v2v.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "hooks": {
+                "description": "Enable hooks.",
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "description": "Plan hook.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "required": [
+                    "hook",
+                    "step"
+                  ],
+                  "properties": {
+                    "hook": {
+                      "description": "Hook reference.",
+                      "type": "object",
+                      "properties": {
+                        "apiVersion": {
+                          "description": "API version of the referent.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "fieldPath": {
+                          "description": "If referring to a piece of an object instead of an entire object, this string\nshould contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2].\nFor example, if the object reference is to a container within a pod, this would take on a value like:\n\"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered\nthe event) or if no container name is specified \"spec.containers[2]\" (container with\nindex 2 in this pod). This syntax is chosen only to have some well-defined way of\nreferencing a part of an object.",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "kind": {
+                          "description": "Kind of the referent.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "name": {
+                          "description": "Name of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "namespace": {
+                          "description": "Namespace of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "resourceVersion": {
+                          "description": "Specific resourceVersion to which this reference is made, if any.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "uid": {
+                          "description": "UID of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      },
+                      "x-kubernetes-map-type": "atomic"
+                    },
+                    "step": {
+                      "description": "Pipeline step.",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "id": {
+                "description": "The object ID.\nvsphere:\n  The managed object ID.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "instanceType": {
+                "description": "Selected InstanceType that will override the VM properties.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "luks": {
+                "description": "Disk decryption LUKS keys",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "apiVersion": {
+                    "description": "API version of the referent.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "fieldPath": {
+                    "description": "If referring to a piece of an object instead of an entire object, this string\nshould contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2].\nFor example, if the object reference is to a container within a pod, this would take on a value like:\n\"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered\nthe event) or if no container name is specified \"spec.containers[2]\" (container with\nindex 2 in this pod). This syntax is chosen only to have some well-defined way of\nreferencing a part of an object.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "kind": {
+                    "description": "Kind of the referent.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "name": {
+                    "description": "Name of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "namespace": {
+                    "description": "Namespace of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "resourceVersion": {
+                    "description": "Specific resourceVersion to which this reference is made, if any.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "uid": {
+                    "description": "UID of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "x-kubernetes-map-type": "atomic"
+              },
+              "name": {
+                "description": "An object Name.\nvsphere:\n  A qualified name.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "namespace": {
+                "description": "The VM Namespace\nOnly relevant for an openshift source.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "networkNameTemplate": {
+                "description": "NetworkNameTemplate is a template for generating network interface names in the target virtual machine.\nIt follows Go template syntax and has access to the following variables:\n  - .NetworkName: If target network is multus, name of the Multus network attachment definition, empty otherwise.\n  - .NetworkNamespace: If target network is multus, namespace where the network attachment definition is located.\n  - .NetworkType: type of the network (\"Multus\" or \"Pod\")\n  - .NetworkIndex: sequential index of the network interface (0-based)\nThe template can be used to customize network interface names based on target network configuration.\nNote:\n  - This template will override at the plan level template\n  - If not specified on VM level and on Plan leverl, default naming conventions will be used\nExamples:\n  \"net-{{.NetworkIndex}}\"\n  \"{{if eq .NetworkType \"Pod\"}}pod{{else}}multus-{{.NetworkIndex}}{{end}}\"",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "newName": {
+                "description": "The new name of the VM after matching DNS1123 requirements.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "operatingSystem": {
+                "description": "The Operating System detected by virt-v2v.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "phase": {
+                "description": "Phase",
+                "type": "string"
+              },
+              "pipeline": {
+                "description": "Migration pipeline.",
+                "type": "array",
+                "items": {
+                  "description": "Pipeline step.",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "required": [
+                    "name",
+                    "progress"
+                  ],
+                  "properties": {
+                    "annotations": {
+                      "description": "Annotations.",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "additionalProperties": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "completed": {
+                      "description": "Completed timestamp.",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "date-time"
+                    },
+                    "description": {
+                      "description": "Name",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "error": {
+                      "description": "Error.",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "required": [
+                        "phase",
+                        "reasons"
+                      ],
+                      "properties": {
+                        "phase": {
+                          "type": "string"
+                        },
+                        "reasons": {
+                          "type": "array",
+                          "items": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "name": {
+                      "description": "Name.",
+                      "type": "string"
+                    },
+                    "phase": {
+                      "description": "Phase",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "progress": {
+                      "description": "Progress.",
+                      "type": "object",
+                      "required": [
+                        "completed",
+                        "total"
+                      ],
+                      "properties": {
+                        "completed": {
+                          "description": "Completed units.",
+                          "type": "integer",
+                          "format": "int64"
+                        },
+                        "total": {
+                          "description": "Total units.",
+                          "type": "integer",
+                          "format": "int64"
+                        }
+                      }
+                    },
+                    "reason": {
+                      "description": "Reason",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "started": {
+                      "description": "Started timestamp.",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "format": "date-time"
+                    },
+                    "tasks": {
+                      "description": "Nested tasks.",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "description": "Migration task.",
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "required": [
+                          "name",
+                          "progress"
+                        ],
+                        "properties": {
+                          "annotations": {
+                            "description": "Annotations.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "additionalProperties": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "completed": {
+                            "description": "Completed timestamp.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time"
+                          },
+                          "description": {
+                            "description": "Name",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "error": {
+                            "description": "Error.",
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "required": [
+                              "phase",
+                              "reasons"
+                            ],
+                            "properties": {
+                              "phase": {
+                                "type": "string"
+                              },
+                              "reasons": {
+                                "type": "array",
+                                "items": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "name": {
+                            "description": "Name.",
+                            "type": "string"
+                          },
+                          "phase": {
+                            "description": "Phase",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "progress": {
+                            "description": "Progress.",
+                            "type": "object",
+                            "required": [
+                              "completed",
+                              "total"
+                            ],
+                            "properties": {
+                              "completed": {
+                                "description": "Completed units.",
+                                "type": "integer",
+                                "format": "int64"
+                              },
+                              "total": {
+                                "description": "Total units.",
+                                "type": "integer",
+                                "format": "int64"
+                              }
+                            }
+                          },
+                          "reason": {
+                            "description": "Reason",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "started": {
+                            "description": "Started timestamp.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "pvcNameTemplate": {
+                "description": "PVCNameTemplate is a template for generating PVC names for VM disks.\nIt follows Go template syntax and has access to the following variables:\n  - .VmName: name of the VM\n  - .PlanName: name of the migration plan\n  - .DiskIndex: initial volume index of the disk\n  - .WinDriveLetter: Windows drive letter (lowercase, if applicable, e.g. \"c\", requires guest agent)\n  - .RootDiskIndex: index of the root disk\n  - .Shared: true if the volume is shared by multiple VMs, false otherwise\n  - .FileName: name of the file in the source provider (VMware only, filename includes the .vmdk suffix)\nNote:\n  This template overrides the plan level template.\nExamples:\n  \"{{.VmName}}-disk-{{.DiskIndex}}\"\n  \"{{if eq .DiskIndex .RootDiskIndex}}root{{else}}data{{end}}-{{.DiskIndex}}\"\n  \"{{if .Shared}}shared-{{end}}{{.VmName}}-{{.DiskIndex}}\"",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "restorePowerState": {
+                "description": "Source VM power state before migration.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rootDisk": {
+                "description": "Choose the primary disk the VM boots from",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "started": {
+                "description": "Started timestamp.",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "targetName": {
+                "description": "TargetName specifies a custom name for the VM in the target cluster.\nIf not provided, the original VM name will be used and automatically adjusted to meet k8s DNS1123 requirements.\nIf provided, this exact name will be used instead. The migration will fail if the name is not unique or already in use.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "targetPowerState": {
+                "description": "TargetPowerState specifies the desired power state of the target VM after migration.\n- \"on\": Target VM will be powered on after migration\n- \"off\": Target VM will be powered off after migration\n- \"auto\" or nil (default): Target VM will match the source VM's power state",
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "enum": [
+                  "on",
+                  "off",
+                  "auto"
+                ]
+              },
+              "type": {
+                "description": "Type used to qualify the name.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "volumeNameTemplate": {
+                "description": "VolumeNameTemplate is a template for generating volume interface names in the target virtual machine.\nIt follows Go template syntax and has access to the following variables:\n  - .PVCName: name of the PVC mounted to the VM using this volume\n  - .VolumeIndex: sequential index of the volume interface (0-based)\nNote:\n  - This template will override at the plan level template\n  - If not specified on VM level and on Plan leverl, default naming conventions will be used\nExamples:\n  \"disk-{{.VolumeIndex}}\"\n  \"pvc-{{.PVCName}}\"",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "warm": {
+                "description": "Warm migration status",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "consecutiveFailures",
+                  "failures",
+                  "successes"
+                ],
+                "properties": {
+                  "consecutiveFailures": {
+                    "type": "integer"
+                  },
+                  "failures": {
+                    "type": "integer"
+                  },
+                  "nextPrecopyAt": {
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "format": "date-time"
+                  },
+                  "precopies": {
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "description": "Precopy durations",
+                      "type": [
+                        "object",
+                        "null"
+                      ],
+                      "properties": {
+                        "createTaskId": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "deltas": {
+                          "type": [
+                            "array",
+                            "null"
+                          ],
+                          "items": {
+                            "type": [
+                              "object",
+                              "null"
+                            ],
+                            "required": [
+                              "deltaId",
+                              "disk"
+                            ],
+                            "properties": {
+                              "deltaId": {
+                                "type": "string"
+                              },
+                              "disk": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "end": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "date-time"
+                        },
+                        "removeTaskId": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "snapshot": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "start": {
+                          "type": [
+                            "string",
+                            "null"
+                          ],
+                          "format": "date-time"
+                        }
+                      }
+                    }
+                  },
+                  "successes": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "forklift.konveyor.io",
+      "kind": "Migration",
+      "version": "v1beta1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": [],
+  "$schema": "http://json-schema.org/schema#"
+}

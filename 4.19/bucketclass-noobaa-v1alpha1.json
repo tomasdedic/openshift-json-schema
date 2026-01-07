@@ -1,0 +1,370 @@
+{
+  "description": "BucketClass is the Schema for the bucketclasses API",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "noobaa.io/v1alpha1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "BucketClass"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "Specification of the desired behavior of the noobaa BucketClass.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "namespacePolicy": {
+          "description": "NamespacePolicy specifies the namespace policy for the bucket class",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "cache": {
+              "description": "Cache is a namespace policy configuration of type Cache",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "caching": {
+                  "description": "Caching is the cache specification for the ns policy",
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "prefix": {
+                      "description": "Prefix is prefix of the future cached data",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "ttl": {
+                      "description": "TTL specifies the cache ttl",
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    }
+                  }
+                },
+                "hubResource": {
+                  "description": "HubResource is the read and write resource name to use",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "multi": {
+              "description": "Multi is a namespace policy configuration of type Multi",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "readResources": {
+                  "description": "ReadResources is an ordered list of read resources names to use",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "writeResource": {
+                  "description": "WriteResource is the write resource name to use",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "single": {
+              "description": "Single is a namespace policy configuration of type Single",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "resource": {
+                  "description": "Resource is the read and write resource name to use",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "type": {
+              "description": "Type is the namespace policy type",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "placementPolicy": {
+          "description": "PlacementPolicy specifies the placement policy for the bucket class",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "tiers": {
+              "description": "Tiers is an ordered list of tiers to use.\nThe model is a waterfall - push to first tier by default,\nand when no more space spill \"cold\" storage to next tier.",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "description": "Tier specifies a storage tier",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "backingStores": {
+                    "description": "BackingStores is an unordered list of backing store names.\nThe meaning of the list depends on the placement.",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "description": "BackingStoreName is just a name-reference to a BackingStore",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "placement": {
+                    "description": "Placement specifies the type of placement for the tier\nIf empty it should have a single backing store.",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "enum": [
+                      "Spread",
+                      "Mirror"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "quota": {
+          "description": "Quota specifies the quota configuration for the bucket class",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "maxObjects": {
+              "description": "limits the max total quantity of objects per bucket",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "maxSize": {
+              "description": "limits the max total size of objects per bucket",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        "replicationPolicy": {
+          "description": "ReplicationPolicy specifies a json of replication rules for the bucketclass",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "status": {
+      "description": "Most recently observed status of the noobaa BackingStore.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "conditions": {
+          "description": "Conditions is a list of conditions related to operator reconciliation",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "Condition represents the state of the operator's\nreconciliation functionality.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "status",
+              "type"
+            ],
+            "properties": {
+              "lastHeartbeatTime": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "lastTransitionTime": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date-time"
+              },
+              "message": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "type": {
+                "description": "ConditionType is the state of the operator's reconciliation functionality.",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "mode": {
+          "description": "Mode is a simple, high-level summary of where the System is in its lifecycle",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "phase": {
+          "description": "Phase is a simple, high-level summary of where the System is in its lifecycle",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relatedObjects": {
+          "description": "RelatedObjects is a list of objects related to this operator.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "description": "ObjectReference contains enough information to let you inspect or modify the referred object.",
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "apiVersion": {
+                "description": "API version of the referent.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fieldPath": {
+                "description": "If referring to a piece of an object instead of an entire object, this string\nshould contain a valid JSON/Go field access statement, such as desiredState.manifest.containers[2].\nFor example, if the object reference is to a container within a pod, this would take on a value like:\n\"spec.containers{name}\" (where \"name\" refers to the name of the container that triggered\nthe event) or if no container name is specified \"spec.containers[2]\" (container with\nindex 2 in this pod). This syntax is chosen only to have some well-defined way of\nreferencing a part of an object.",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "kind": {
+                "description": "Kind of the referent.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "name": {
+                "description": "Name of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "namespace": {
+                "description": "Namespace of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "resourceVersion": {
+                "description": "Specific resourceVersion to which this reference is made, if any.\nMore info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "uid": {
+                "description": "UID of the referent.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "x-kubernetes-map-type": "atomic"
+          }
+        }
+      }
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "noobaa.io",
+      "kind": "BucketClass",
+      "version": "v1alpha1"
+    }
+  ],
+  "x-kubernetes-selectable-fields": [],
+  "$schema": "http://json-schema.org/schema#"
+}
