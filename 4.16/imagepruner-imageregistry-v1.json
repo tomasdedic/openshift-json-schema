@@ -110,8 +110,7 @@
                                     ]
                                   }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "matchFields": {
@@ -152,21 +151,18 @@
                                     ]
                                   }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           }
                         },
-                        "x-kubernetes-map-type": "atomic",
-                        "additionalProperties": false
+                        "x-kubernetes-map-type": "atomic"
                       },
                       "weight": {
                         "description": "Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.",
                         "type": "integer",
                         "format": "int32"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -227,8 +223,7 @@
                                     ]
                                   }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "matchFields": {
@@ -269,21 +264,17 @@
                                     ]
                                   }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           }
                         },
-                        "x-kubernetes-map-type": "atomic",
-                        "additionalProperties": false
+                        "x-kubernetes-map-type": "atomic"
                       }
                     }
                   },
-                  "x-kubernetes-map-type": "atomic",
-                  "additionalProperties": false
+                  "x-kubernetes-map-type": "atomic"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "podAffinity": {
               "description": "Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).",
@@ -361,8 +352,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -379,8 +369,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "matchLabelKeys": {
                             "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
@@ -455,8 +444,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -473,8 +461,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaces": {
                             "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -493,16 +480,14 @@
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "weight": {
                         "description": "weight associated with matching the corresponding podAffinityTerm, in the range 1-100.",
                         "type": "integer",
                         "format": "int32"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -566,8 +551,7 @@
                                     ]
                                   }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "matchLabels": {
@@ -584,8 +568,7 @@
                             }
                           }
                         },
-                        "x-kubernetes-map-type": "atomic",
-                        "additionalProperties": false
+                        "x-kubernetes-map-type": "atomic"
                       },
                       "matchLabelKeys": {
                         "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
@@ -660,8 +643,7 @@
                                     ]
                                   }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "matchLabels": {
@@ -678,8 +660,7 @@
                             }
                           }
                         },
-                        "x-kubernetes-map-type": "atomic",
-                        "additionalProperties": false
+                        "x-kubernetes-map-type": "atomic"
                       },
                       "namespaces": {
                         "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -698,12 +679,10 @@
                         "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "podAntiAffinity": {
               "description": "Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).",
@@ -781,8 +760,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -799,8 +777,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "matchLabelKeys": {
                             "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
@@ -875,8 +852,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -893,8 +869,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaces": {
                             "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -913,16 +888,14 @@
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "weight": {
                         "description": "weight associated with matching the corresponding podAffinityTerm, in the range 1-100.",
                         "type": "integer",
                         "format": "int32"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -986,8 +959,7 @@
                                     ]
                                   }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "matchLabels": {
@@ -1004,8 +976,7 @@
                             }
                           }
                         },
-                        "x-kubernetes-map-type": "atomic",
-                        "additionalProperties": false
+                        "x-kubernetes-map-type": "atomic"
                       },
                       "matchLabelKeys": {
                         "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `LabelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both MatchLabelKeys and LabelSelector. Also, MatchLabelKeys cannot be set when LabelSelector isn't set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.",
@@ -1080,8 +1051,7 @@
                                     ]
                                   }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "matchLabels": {
@@ -1098,8 +1068,7 @@
                             }
                           }
                         },
-                        "x-kubernetes-map-type": "atomic",
-                        "additionalProperties": false
+                        "x-kubernetes-map-type": "atomic"
                       },
                       "namespaces": {
                         "description": "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -1118,15 +1087,12 @@
                         "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "failedJobsHistoryLimit": {
           "description": "failedJobsHistoryLimit specifies how many failed image pruner jobs to retain. Defaults to 3 if not set.",
@@ -1220,8 +1186,7 @@
                     "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
                     "type": "string"
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "x-kubernetes-list-map-keys": [
                 "name"
@@ -1250,8 +1215,7 @@
                 "x-kubernetes-int-or-string": true
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "schedule": {
           "description": "schedule specifies when to execute the job using standard cronjob syntax: https://wikipedia.org/wiki/Cron. Defaults to `0 0 * * *`.",
@@ -1324,12 +1288,10 @@
                   "null"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "ImagePrunerStatus reports image pruner operational status.",
@@ -1382,8 +1344,7 @@
               "type": {
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "observedGeneration": {
@@ -1394,8 +1355,7 @@
           ],
           "format": "int64"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1405,6 +1365,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

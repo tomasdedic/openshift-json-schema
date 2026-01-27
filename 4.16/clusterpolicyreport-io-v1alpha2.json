@@ -1,0 +1,65 @@
+{
+  "description": "ClusterPolicyReport is the Schema for the clusterpolicyreports API",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "wgpolicyk8s.io/__internal",
+        "wgpolicyk8s.io/v1alpha2"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "ClusterPolicyReport"
+      ]
+    },
+    "metadata": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta_v2"
+    },
+    "results": {
+      "description": "PolicyReportResult provides result details",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.sigs.wg-policy-prototypes.policy-report.pkg.api.wgpolicyk8s.io.v1alpha2.PolicyReportResult"
+      }
+    },
+    "scope": {
+      "description": "Scope is an optional reference to the report scope (e.g. a Deployment, Namespace, or Node)",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference"
+    },
+    "scopeSelector": {
+      "description": "ScopeSelector is an optional selector for multiple scopes (e.g. Pods). Either one of, or none of, but not both of, Scope or ScopeSelector should be specified.",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector_v4"
+    },
+    "summary": {
+      "description": "PolicyReportSummary provides a summary of results",
+      "$ref": "_definitions.json#/definitions/io.k8s.sigs.wg-policy-prototypes.policy-report.pkg.api.wgpolicyk8s.io.v1alpha2.PolicyReportSummary"
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "wgpolicyk8s.io",
+      "kind": "ClusterPolicyReport",
+      "version": "__internal"
+    },
+    {
+      "group": "wgpolicyk8s.io",
+      "kind": "ClusterPolicyReport",
+      "version": "v1alpha2"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -164,12 +164,10 @@
                 "message": "replacement is required for actions Replace and LabelMap",
                 "rule": "(self.action != 'Replace' && self.action != 'LabelMap') || has(self.replacement)"
               }
-            ],
-            "additionalProperties": false
+            ]
           }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "status describes the current state of this AlertRelabelConfig object.",
@@ -239,12 +237,10 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -254,6 +250,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

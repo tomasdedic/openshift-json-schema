@@ -95,12 +95,10 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               },
               "kubeAPIAudit": {
@@ -250,8 +248,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         },
                         "userGroups": {
@@ -293,12 +290,10 @@
                             ]
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "name": {
                 "description": "Name used to refer to the filter from a `pipeline`.",
@@ -337,8 +332,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "type": {
                 "description": "Type of filter.",
@@ -349,8 +343,7 @@
                   "prune"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "inputs": {
@@ -391,8 +384,7 @@
                         ],
                         "format": "int64"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "excludes": {
                     "description": "Excludes is the set of namespaces and containers to ignore when collecting logs.\nTakes precedence over Includes option.",
@@ -420,8 +412,7 @@
                             "null"
                           ]
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
                   },
                   "includes": {
@@ -450,8 +441,7 @@
                             "null"
                           ]
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
                   },
                   "namespaces": {
@@ -512,8 +502,7 @@
                                 ]
                               }
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "matchLabels": {
@@ -530,11 +519,9 @@
                         }
                       }
                     },
-                    "x-kubernetes-map-type": "atomic",
-                    "additionalProperties": false
+                    "x-kubernetes-map-type": "atomic"
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "audit": {
                 "description": "Audit, if present, enables `audit` logs.",
@@ -556,8 +543,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "infrastructure": {
                 "description": "Infrastructure, if present, enables `infrastructure` logs.",
@@ -579,8 +565,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "name": {
                 "description": "Name used to refer to the input of a `pipeline`.",
@@ -620,8 +605,7 @@
                         "maximum": 65535,
                         "minimum": 1024
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "syslog": {
                     "description": "SyslogReceiver receives logs from rsyslog",
@@ -640,8 +624,7 @@
                         "maximum": 65535,
                         "minimum": 1024
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "type": {
                     "description": "Type of Receiver plugin.",
@@ -650,11 +633,9 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "outputDefaults": {
@@ -692,11 +673,9 @@
                     "null"
                   ]
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "outputs": {
           "description": "Outputs are named destinations for log messages.\n\n\nThere is a built-in output named `default` which forwards to the default\nopenshift log store. You can define outputs to forward to other stores or\nlog processors, inside or outside the cluster.",
@@ -749,8 +728,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "cloudwatch": {
                 "description": "Cloudwatch provides configuration for the output type `cloudwatch`\n\n\nNote: the cloudwatch output recognizes the following keys in the Secret:\n\n\n\t`aws_secret_access_key`: AWS secret access key.\n\t`aws_access_key_id`: AWS secret access key ID.\n\n\nOr for sts-enabled clusters `credentials` or `role_arn` key specifying a properly formatted role arn",
@@ -784,8 +762,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "elasticsearch": {
                 "type": [
@@ -822,8 +799,7 @@
                     ],
                     "minimum": 6
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "fluentdForward": {
                 "description": "FluentdForward does not provide additional fields, but note that\nthe fluentforward output allows this additional keys in the Secret:\n\n\n\t`shared_key`: (string) Key to enable fluent-forward shared-key authentication.",
@@ -870,8 +846,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "http": {
                 "description": "Http provided configuration for sending json encoded logs to a generic http endpoint.",
@@ -917,8 +892,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "kafka": {
                 "description": "Kafka provides optional extra properties for `type: kafka`",
@@ -947,8 +921,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "limit": {
                 "description": "Limit imposes a limit in records-per-second on the total aggregate rate of logs forwarded\nto this output from any given collector container. The total log flow from an individual collector\ncontainer to this output cannot exceed the limit.  Generally, one collector is deployed per cluster node\nLogs may be dropped to enforce the limit. Missing or 0 means no rate limit.",
@@ -965,8 +938,7 @@
                     ],
                     "format": "int64"
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "loki": {
                 "description": "Loki provides optional extra properties for `type: loki`",
@@ -995,8 +967,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "name": {
                 "description": "Name used to refer to the output from a `pipeline`.",
@@ -1016,8 +987,7 @@
                     "description": "Name of a secret in the namespace configured for log forwarder secrets.",
                     "type": "string"
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "splunk": {
                 "description": "Splunk Deliver log data to Splunk\u2019s HTTP Event Collector\nProvides optional extra properties for `type: splunk_hec` ('splunk_hec_logs' after Vector 0.23",
@@ -1053,8 +1023,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "syslog": {
                 "description": "Syslog provides optional extra properties for output type `syslog`",
@@ -1137,8 +1106,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "tls": {
                 "description": "TLS contains settings for controlling options on TLS client connections.",
@@ -1186,11 +1154,9 @@
                           "Custom"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "tuning": {
                 "description": "Tuning parameters for the output.  Specifying these parameters will alter the characteristics\nof log forwarder which may be different from its behavior without the tuning.",
@@ -1246,8 +1212,7 @@
                     ],
                     "format": "int64"
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "type": {
                 "description": "Type of output plugin.",
@@ -1273,8 +1238,7 @@
                 ],
                 "pattern": "^$|[a-zA-z]+:\\/\\/.*"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "pipelines": {
@@ -1364,8 +1328,7 @@
                   "json"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "serviceAccountName": {
@@ -1375,8 +1338,7 @@
             "null"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "Status of the ClusterLogForwarder",
@@ -1429,8 +1391,7 @@
                 "description": "ConditionType is the type of the condition and is typically a CamelCased\nword or short phrase.\n\n\nCondition types should indicate state in the \"abnormal-true\" polarity. For\nexample, if the condition indicates when a policy is invalid, the \"is valid\"\ncase is probably the norm, so the condition should be called \"Invalid\".",
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "filters": {
@@ -1483,8 +1444,7 @@
                   "description": "ConditionType is the type of the condition and is typically a CamelCased\nword or short phrase.\n\n\nCondition types should indicate state in the \"abnormal-true\" polarity. For\nexample, if the condition indicates when a policy is invalid, the \"is valid\"\ncase is probably the norm, so the condition should be called \"Invalid\".",
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             }
           }
         },
@@ -1538,8 +1498,7 @@
                   "description": "ConditionType is the type of the condition and is typically a CamelCased\nword or short phrase.\n\n\nCondition types should indicate state in the \"abnormal-true\" polarity. For\nexample, if the condition indicates when a policy is invalid, the \"is valid\"\ncase is probably the norm, so the condition should be called \"Invalid\".",
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             }
           }
         },
@@ -1593,8 +1552,7 @@
                   "description": "ConditionType is the type of the condition and is typically a CamelCased\nword or short phrase.\n\n\nCondition types should indicate state in the \"abnormal-true\" polarity. For\nexample, if the condition indicates when a policy is invalid, the \"is valid\"\ncase is probably the norm, so the condition should be called \"Invalid\".",
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             }
           }
         },
@@ -1648,13 +1606,11 @@
                   "description": "ConditionType is the type of the condition and is typically a CamelCased\nword or short phrase.\n\n\nCondition types should indicate state in the \"abnormal-true\" polarity. For\nexample, if the condition indicates when a policy is invalid, the \"is valid\"\ncase is probably the norm, so the condition should be called \"Invalid\".",
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             }
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1664,6 +1620,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

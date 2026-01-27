@@ -60,8 +60,7 @@
             "tolerations": {
               "description": "Define the tolerations the collector pods will accept"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "filters": {
           "description": "Filters are applied to log records passing through a pipeline.\nThere are different types of filter that can select and modify log records in different ways.\nSee [FilterTypeSpec] for a list of filter types.",
@@ -133,12 +132,10 @@
                             "message": "only one of matches or notMatches can be defined per field",
                             "rule": "!(has(self.matches) && has(self.notMatches))"
                           }
-                        ],
-                        "additionalProperties": false
+                        ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               },
               "kubeAPIAudit": {
@@ -288,8 +285,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         },
                         "userGroups": {
@@ -331,12 +327,10 @@
                             ]
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "name": {
                 "description": "Name used to refer to the filter from a \"pipeline\".",
@@ -393,8 +387,7 @@
                       "pattern": "^(\\.[a-zA-Z0-9_]+|\\.\"[^\"]+\")(\\.[a-zA-Z0-9_]+|\\.\"[^\"]+\")*$"
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "type": {
                 "description": "Type of filter.\n\nPossible filter types are:\n\n1. detectMultilineException - Enables multi-line error detection of container logs. No additional configuration required.\n2. drop - Drop whole log records based on the evaluation of a set of regex tests. See field `drop` for configuration.\n3. kubeAPIAudit - Remove unwanted audit events and reduce event size to create a manageable audit trail. See field `kubeAPIaudit` for configuration.\n4. openshiftLabels - Labels to be applied to log records passing through a pipeline. See field `openshiftLabels` for configuration.\n5. parse - Enables parsing of log entries into structured logs. No additional configuration required.\n6. prune - Prune log record fields to reduce the size of logs flowing into a log store. See field `prune` for configuration.",
@@ -426,8 +419,7 @@
                 "message": "Additional type specific spec is required for the filter type",
                 "rule": "self.type != 'openshiftLabels' || has(self.openshiftLabels)"
               }
-            ],
-            "additionalProperties": false
+            ]
           },
           "x-kubernetes-list-map-keys": [
             "name"
@@ -481,8 +473,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "infrastructure": {
                 "description": "Infrastructure, Enables `infrastructure` logs.",
@@ -509,8 +500,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "name": {
                 "description": "Name used to refer to the input of a `pipeline`.",
@@ -545,8 +535,7 @@
                           "kubeAPIAudit"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "port": {
                     "description": "Port the Receiver listens on. It must be a value between 1024 and 65535",
@@ -600,8 +589,7 @@
                             "message": "Only one of configMapName and secretName can be set",
                             "rule": "!(has(self.configMapName) && has(self.secretName))"
                           }
-                        ],
-                        "additionalProperties": false
+                        ]
                       },
                       "certificate": {
                         "description": "Certificate points to the server certificate to use.",
@@ -641,8 +629,7 @@
                             "message": "Only one of configMapName and secretName can be set",
                             "rule": "!(has(self.configMapName) && has(self.secretName))"
                           }
-                        ],
-                        "additionalProperties": false
+                        ]
                       },
                       "key": {
                         "description": "Key points to the private key of the server certificate.",
@@ -663,8 +650,7 @@
                             "description": "SecretName contains the name of the Secret containing the referenced value.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "keyPassphrase": {
                         "description": "KeyPassphrase points to the passphrase used to unlock the private key.",
@@ -685,11 +671,9 @@
                             "description": "SecretName contains the name of the Secret containing the referenced value.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "type": {
                     "description": "Type of Receiver plugin.",
@@ -699,8 +683,7 @@
                       "syslog"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "type": {
                 "description": "Type of output sink.",
@@ -730,8 +713,7 @@
                 "message": "Additional type specific spec is required for the input type",
                 "rule": "self.type != 'receiver' || has(self.receiver)"
               }
-            ],
-            "additionalProperties": false
+            ]
           },
           "x-kubernetes-list-map-keys": [
             "name"
@@ -785,8 +767,7 @@
                           "secretName"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "azureResourceId": {
                     "description": "AzureResourceId the Resource ID of the Azure resource the data should be associated with.\nhttps://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-collector-api?tabs=powershell#request-headers",
@@ -822,7 +803,7 @@
                     ],
                     "properties": {
                       "deliveryMode": {
-                        "description": "DeliveryMode sets the delivery mode for log forwarding.",
+                        "description": "DeliveryMode sets the delivery mode for log forwarding.\nThis optional setting. When it is left unset, the system defaults to using an in-memory buffer.\nIn-memory buffers offer the highest performance due to low latency, but they have two limitations:\nthey will consume memory, and they do not provide durability \u2014 buffered data is lost on process termination or failure.",
                         "type": [
                           "string",
                           "null"
@@ -853,11 +834,9 @@
                         ],
                         "format": "int64"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "cloudwatch": {
                 "description": "Cloudwatch configures forwarding log events to AWS Cloudwatch logs",
@@ -910,8 +889,7 @@
                         "message": "Additional type specific spec is required for authentication",
                         "rule": "self.type != 'iamRole' || has(self.iamRole)"
                       }
-                    ],
-                    "additionalProperties": false
+                    ]
                   },
                   "groupName": {
                     "description": "GroupName defines the strategy for grouping logstreams\n\nThe GroupName can be a combination of static and dynamic values consisting of field paths followed by \"\\|\\|\" followed by another field path or a static value.\n\nA dynamic value is encased in single curly brackets \"{}\" and MUST end with a static fallback value separated with \"\\|\\|\".\n\nStatic values can only contain alphanumeric characters along with dashes, underscores, dots and forward slashes.\n\nExample:\n\n 1. foo-{.bar\\|\\|\"none\"}\n\n 2. {.foo\\|\\|.bar\\|\\|\"missing\"}\n\n 3. foo.{.bar.baz\\|\\|.qux.quux.corge\\|\\|.grault\\|\\|\"nil\"}-waldo.fred{.plugh\\|\\|\"none\"}",
@@ -937,8 +915,7 @@
                       }
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "elasticsearch": {
                 "description": "Elasticsearch configures forwarding log events to an Elasticsearch cluster",
@@ -985,8 +962,7 @@
                           "secretName"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "index": {
                     "description": "Index is the index for the logs. This supports template syntax to allow dynamic per-event values.\n\nThe Index can be a combination of static and dynamic values consisting of field paths followed by `||` followed by another field path or a static value.\n\nA dynamic value is encased in single curly brackets `{}` and MUST end with a static fallback value separated with `||`.\n\nStatic values can only contain alphanumeric characters along with dashes, underscores, dots and forward slashes.\n\nWhen forwarding logs to the Red Hat Managed Elasticsearch, the index must match the pattern ^(app|infra|audit)-write$\nwhere the prefix depends upon the log_type. This requires defining a distinct output for each log type or distinct pipelines\nwith the openshiftLabels filter. See the product documentation for examples.\n\nExample:\n\n 1. foo-{.bar||\"none\"}\n\n 2. {.foo||.bar||\"missing\"}\n\n 3. foo.{.bar.baz||.qux.quux.corge||.grault||\"nil\"}-waldo.fred{.plugh||\"none\"}",
@@ -1013,7 +989,7 @@
                         ]
                       },
                       "deliveryMode": {
-                        "description": "DeliveryMode sets the delivery mode for log forwarding.",
+                        "description": "DeliveryMode sets the delivery mode for log forwarding.\nThis optional setting. When it is left unset, the system defaults to using an in-memory buffer.\nIn-memory buffers offer the highest performance due to low latency, but they have two limitations:\nthey will consume memory, and they do not provide durability \u2014 buffered data is lost on process termination or failure.",
                         "type": [
                           "string",
                           "null"
@@ -1044,8 +1020,7 @@
                         ],
                         "format": "int64"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "url": {
                     "description": "URL to send log records to.\nBasic TLS is enabled if the URL scheme requires it (for example 'https' or 'tls').\nThe 'username@password' part of `url` is ignored.",
@@ -1063,8 +1038,7 @@
                     "maximum": 8,
                     "minimum": 6
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "googleCloudLogging": {
                 "description": "GoogleCloudLogging configures forwarding log events to GCP (formally Stackdriver) Operations",
@@ -1103,11 +1077,9 @@
                             "description": "SecretName contains the name of the Secret containing the referenced value.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "id": {
                     "description": "ID must be one of the required ID fields for the output",
@@ -1131,8 +1103,7 @@
                         "description": "Value is the value of the ID",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "logId": {
                     "description": "LogId is the log ID to which to publish logs. This identifies log stream.\n\nThe LogId can be a combination of static and dynamic values consisting of field paths followed by `||` followed by another field path or a static value.\n\nA dynamic value is encased in single curly brackets `{}` and MUST end with a static fallback value separated with `||`.\n\nStatic values can only contain alphanumeric characters along with dashes, underscores, dots and forward slashes.\n\nExample:\n\n 1. foo-{.bar||\"none\"}\n\n 2. {.foo||.bar||\"missing\"}\n\n 3. foo.{.bar.baz||.qux.quux.corge||.grault||\"nil\"}-waldo.fred{.plugh||\"none\"}",
@@ -1147,7 +1118,7 @@
                     ],
                     "properties": {
                       "deliveryMode": {
-                        "description": "DeliveryMode sets the delivery mode for log forwarding.",
+                        "description": "DeliveryMode sets the delivery mode for log forwarding.\nThis optional setting. When it is left unset, the system defaults to using an in-memory buffer.\nIn-memory buffers offer the highest performance due to low latency, but they have two limitations:\nthey will consume memory, and they do not provide durability \u2014 buffered data is lost on process termination or failure.",
                         "type": [
                           "string",
                           "null"
@@ -1178,11 +1149,9 @@
                         ],
                         "format": "int64"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "http": {
                 "description": "HTTP configures forwarding log events to an HTTP server",
@@ -1227,8 +1196,7 @@
                           "secretName"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "headers": {
                     "description": "Headers specify optional headers to be sent with the request",
@@ -1293,8 +1261,7 @@
                       }
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "kafka": {
                 "description": "Kafka configures forwarding log events to Apache Kafka topics",
@@ -1343,8 +1310,7 @@
                                 "description": "SecretName contains the name of the Secret containing the referenced value.",
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "username": {
                             "description": "Username points to the secret to be used as SASL username.",
@@ -1365,17 +1331,14 @@
                                 "description": "SecretName contains the name of the Secret containing the referenced value.",
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "brokers": {
-                    "description": "Brokers specifies the list of broker endpoints of a Kafka cluster.\n\nThe list represents only the initial set used by the collector's Kafka client for the\nfirst connection only. The collector's Kafka client fetches constantly an updated list\nfrom Kafka. These updates are not reconciled back to the collector configuration.\n\nIf none provided the target URL from the OutputSpec is used as fallback.",
+                    "description": "Brokers specifies the list of broker endpoints of a Kafka cluster.\n\nThe list represents only the initial set used by the collector's Kafka client for the\nfirst connection only. The collector's Kafka client fetches constantly an updated list\nfrom Kafka. These updates are not reconciled back to the collector configuration.\nIf provided, it must be a valid URL with a 'tcp' or 'tls' scheme.\nIf none is provided, the target URL from the OutputSpec is used as fallback.",
                     "type": [
                       "array",
                       "null"
@@ -1387,8 +1350,8 @@
                       ],
                       "x-kubernetes-validations": [
                         {
-                          "message": "invalid URL",
-                          "rule": "isURL(self)"
+                          "message": "each broker must be a valid URL with a tcp or tls scheme",
+                          "rule": "self == '' || (isURL(self) && (self.startsWith('tcp://') || self.startsWith('tls://')))"
                         }
                       ]
                     }
@@ -1405,15 +1368,15 @@
                     "description": "Tuning specs tuning for the output"
                   },
                   "url": {
-                    "description": "URL to send log records to.\n\nThe 'username@password' part of `url` is ignored.",
+                    "description": "URL to send log records to. This field is optional.\nIf provided, it must be a valid URL with a 'tcp' or 'tls' scheme, for example: 'tls://kafka.secure.com:9093/app-topic'.\nThe 'username@password' part of `url` is ignored.",
                     "type": [
                       "string",
                       "null"
                     ],
                     "x-kubernetes-validations": [
                       {
-                        "message": "invalid URL",
-                        "rule": "self == '' ||  isURL(self)"
+                        "message": "must be a valid URL with a tcp or tls scheme",
+                        "rule": "self == '' || (isURL(self) && (self.startsWith('tcp://') || self.startsWith('tls://')))"
                       }
                     ]
                   }
@@ -1423,8 +1386,7 @@
                     "message": "URL or brokers required",
                     "rule": "has(self.url) || self.brokers.size() > 0"
                   }
-                ],
-                "additionalProperties": false
+                ]
               },
               "loki": {
                 "description": "Loki configures forwarding log events to a Loki aggregation system",
@@ -1469,8 +1431,7 @@
                           "secretName"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "labelKeys": {
                     "description": "LabelKeys can be used to customize which log record keys are mapped to Loki stream labels.\n\nIf LabelKeys is not set, the default keys are:\n\n- log_type\n\n- kubernetes.container_name\n\n- kubernetes.namespace_name\n\n- kubernetes.pod_name\n\nOne additional label \"kubernetes_host\" is not part of the label keys configuration. It contains the hostname\nwhere the collector is running and is always present.\n\nNote: Loki label names must match the regular expression \"[a-zA-Z_:][a-zA-Z0-9_:]*\"\nLog record keys may contain characters like \".\" and \"/\" that are not allowed in Loki labels.\nLog record keys are translated to Loki labels by replacing any illegal characters with '_'.\n\nFor example the default log record keys translate to these Loki labels:\n\n- log_type\n\n- kubernetes_container_name\n\n- kubernetes_namespace_name\n\n- kubernetes_pod_name\n\nNote: the set of labels should be small, Loki imposes limits on the size and number of labels allowed.\nSee https://grafana.com/docs/loki/latest/configuration/#limits_config for more.\nLoki queries can also query based on any log record field (not just labels) using query filters.",
@@ -1506,8 +1467,7 @@
                       }
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "lokiStack": {
                 "description": "LokiStack configures forwarding log events to a Red Hat managed Loki deployment\nusing the Red Hat tenancy model",
@@ -1536,8 +1496,7 @@
                           }
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "dataModel": {
                     "description": "DataModel can be used to customize how log data is stored in LokiStack.\n\nThere are two different models to choose from:\n\n - Viaq\n - Otel\n\nWhen the data model is not set, it currently defaults to the \"Viaq\" data model.",
@@ -1584,8 +1543,7 @@
                               ]
                             }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "audit": {
                         "description": "Audit contains the label keys configuration for the \"audit\" tenant.",
@@ -1614,8 +1572,7 @@
                               ]
                             }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "global": {
                         "description": "Global contains a list of record keys which are used for all tenants.\n\nIf LabelKeys is not set, the default keys are:\n\n - log_type\n\n - kubernetes.container_name\n\n - kubernetes.namespace_name\n\n - kubernetes.pod_name\n\nOne additional label \"kubernetes_host\" is not part of the label keys configuration. It contains the hostname\nwhere the collector is running and is always present.",
@@ -1657,11 +1614,9 @@
                               ]
                             }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "target": {
                     "description": "Target points to the LokiStack resources that should be used as a target for the output.",
@@ -1681,8 +1636,7 @@
                         "type": "string",
                         "minLength": 3
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "tuning": {
                     "description": "Tuning specs tuning for the output",
@@ -1704,7 +1658,7 @@
                         ]
                       },
                       "deliveryMode": {
-                        "description": "DeliveryMode sets the delivery mode for log forwarding.",
+                        "description": "DeliveryMode sets the delivery mode for log forwarding.\nThis optional setting. When it is left unset, the system defaults to using an in-memory buffer.\nIn-memory buffers offer the highest performance due to low latency, but they have two limitations:\nthey will consume memory, and they do not provide durability \u2014 buffered data is lost on process termination or failure.",
                         "type": [
                           "string",
                           "null"
@@ -1735,8 +1689,7 @@
                         ],
                         "format": "int64"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "x-kubernetes-validations": [
@@ -1748,8 +1701,7 @@
                     "message": "'snappy' compression cannot be used when data model is 'Otel'",
                     "rule": "!has(self.tuning) || !has(self.tuning.compression) || self.tuning.compression != 'snappy' || !has(self.dataModel) || self.dataModel == 'Viaq'"
                   }
-                ],
-                "additionalProperties": false
+                ]
               },
               "name": {
                 "description": "Name used to refer to the output from a `pipeline`.",
@@ -1799,8 +1751,7 @@
                           "secretName"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "tuning": {
                     "description": "Tuning specs tuning for the output"
@@ -1816,8 +1767,7 @@
                       }
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "rateLimit": {
                 "description": "Limit imposes a limit in records-per-second on the total aggregate rate of logs forwarded\nto this output from any given collector container. The total log flow from an individual collector\ncontainer to this output cannot exceed the limit.  Generally, one collector is deployed per cluster node\nLogs may be dropped to enforce the limit. Missing or 0 means no rate limit.",
@@ -1836,8 +1786,7 @@
                     "minimum": 0,
                     "exclusiveMinimum": true
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "splunk": {
                 "description": "Splunk configures forwarding log events to Splunk's HTTP event collector",
@@ -1873,11 +1822,9 @@
                             "description": "SecretName contains the name of the Secret containing the referenced value.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "index": {
                     "description": "Index is the index for the logs. This supports template syntax to allow dynamic per-event values.\n\nThe Index can be a combination of static and dynamic values consisting of field paths followed by `||` followed by another field path or a static value.\n\nA dynamic value is encased in single curly brackets `{}` and MUST end with a static fallback value separated with `||`.\n\nStatic values can only contain alphanumeric characters along with dashes, underscores, dots and forward slashes.\n\nExample:\n\n 1. foo-{.bar||\"none\"}\n\n 2. {.foo||.bar||\"missing\"}\n\n 3. foo.{.bar.baz||.qux.quux.corge||.grault||\"nil\"}-waldo.fred{.plugh||\"none\"}",
@@ -1900,8 +1847,7 @@
                       }
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "syslog": {
                 "description": "Syslog configures forwarding log events to a receiver using the syslog protocol",
@@ -1934,7 +1880,7 @@
                     ]
                   },
                   "facility": {
-                    "description": "Facility to set on outgoing syslog records.\n\nFacility values are defined in https://tools.ietf.org/html/rfc5424#section-6.2.1.\n\nThe value can be a decimal integer. Facility keywords are not standardized,\nthis API recognizes at least the following case-insensitive keywords\n(defined by https://en.wikipedia.org/wiki/Syslog#Facility_Levels):\n\n    kernel user mail daemon auth syslog lpr news\n    uucp cron authpriv ftp ntp security console solaris-cron\n    local0 local1 local2 local3 local4 local5 local6 local7",
+                    "description": "Facility to set on outgoing syslog records.\n\nFacility values are defined in https://tools.ietf.org/html/rfc5424#section-6.2.1.\n\nThe value can be a decimal integer. Facility keywords are not standardized,\nthis API recognizes at least the following case-insensitive keywords\n(defined by https://en.wikipedia.org/wiki/Syslog#Facility_Levels):\n\n    kernel user mail daemon auth syslog lpr news\n    uucp cron authpriv ftp ntp security console solaris-cron\n    local0 local1 local2 local3 local4 local5 local6 local7\n\nThe Facility can be a combination of static and dynamic values consisting of field paths followed by `||` followed by another field path or a static value.\nA dynamic value is encased in single curly brackets `{}` and MUST end with a static fallback value separated with `||`.\n\nStatic values can only contain alphanumeric characters along with dashes, underscores, dots and forward slashes.\n\nExample:\n\n 1. {.foo||\"user\"}",
                     "type": [
                       "string",
                       "null"
@@ -1974,7 +1920,7 @@
                     ]
                   },
                   "severity": {
-                    "description": "Severity to set on outgoing syslog records.\n\nSeverity values are defined in https://tools.ietf.org/html/rfc5424#section-6.2.1\n\nThe value can be a decimal integer or one of these case-insensitive keywords:\n\n    Emergency Alert Critical Error Warning Notice Informational Debug",
+                    "description": "Severity to set on outgoing syslog records.\n\nSeverity values are defined in https://tools.ietf.org/html/rfc5424#section-6.2.1\n\nThe value can be a decimal integer or one of these case-insensitive keywords:\n\n    Emergency Alert Critical Error Warning Notice Informational Debug\n\nThe Severity can be a combination of static and dynamic values consisting of field paths followed by `||` followed by another field path or a static value.\nA dynamic value is encased in single curly brackets `{}` and MUST end with a static fallback value separated with `||`.\n\nStatic values can only contain alphanumeric characters along with dashes, underscores, dots and forward slashes.\n\nExample:\n\n 1. {.foo||\"Error\"}",
                     "type": [
                       "string",
                       "null"
@@ -1994,8 +1940,7 @@
                       }
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "tls": {
                 "description": "TLS contains settings for controlling options on TLS client connections.",
@@ -2042,8 +1987,7 @@
                         "message": "Only one of configMapName and secretName can be set",
                         "rule": "!(has(self.configMapName) && has(self.secretName))"
                       }
-                    ],
-                    "additionalProperties": false
+                    ]
                   },
                   "certificate": {
                     "description": "Certificate points to the server certificate to use.",
@@ -2083,8 +2027,7 @@
                         "message": "Only one of configMapName and secretName can be set",
                         "rule": "!(has(self.configMapName) && has(self.secretName))"
                       }
-                    ],
-                    "additionalProperties": false
+                    ]
                   },
                   "insecureSkipVerify": {
                     "description": "If InsecureSkipVerify is true, then the TLS client will be configured to skip validating server certificates.\n\nThis option is *not* recommended for production configurations.",
@@ -2112,8 +2055,7 @@
                         "description": "SecretName contains the name of the Secret containing the referenced value.",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "keyPassphrase": {
                     "description": "KeyPassphrase points to the passphrase used to unlock the private key.",
@@ -2134,8 +2076,7 @@
                         "description": "SecretName contains the name of the Secret containing the referenced value.",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "securityProfile": {
                     "description": "TLSSecurityProfile is the security profile to apply to the output connection.",
@@ -2169,11 +2110,9 @@
                           "Custom"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "type": {
                 "description": "Type of output sink.",
@@ -2238,8 +2177,7 @@
                 "message": "Additional type specific spec is required the for output type",
                 "rule": "self.type != 'otlp' || has(self.otlp)"
               }
-            ],
-            "additionalProperties": false
+            ]
           },
           "x-kubernetes-list-map-keys": [
             "name"
@@ -2301,8 +2239,7 @@
                   ]
                 }
               }
-            },
-            "additionalProperties": false
+            }
           },
           "x-kubernetes-list-map-keys": [
             "name"
@@ -2321,11 +2258,9 @@
               "type": "string",
               "pattern": "^[a-z][a-z0-9-]{2,62}[a-z0-9]$"
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "ClusterLogForwarderStatus defines the observed state of ClusterLogForwarder",
@@ -2395,8 +2330,7 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "filterConditions": {
@@ -2460,8 +2394,7 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "inputConditions": {
@@ -2525,8 +2458,7 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "outputConditions": {
@@ -2590,8 +2522,7 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "pipelineConditions": {
@@ -2655,12 +2586,10 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -2676,6 +2605,5 @@
       "rule": "self.metadata.name.matches('^[a-z][a-z0-9-]{1,61}[a-z0-9]$')"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

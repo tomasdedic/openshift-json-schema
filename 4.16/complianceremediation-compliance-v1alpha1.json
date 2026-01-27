@@ -1,5 +1,5 @@
 {
-  "description": "ComplianceRemediation represents a remediation that can be applied to the cluster to fix the found issues.",
+  "description": "ComplianceRemediation represents a remediation that can be applied to the\ncluster to fix the found issues.",
   "type": "object",
   "properties": {
     "apiVersion": {
@@ -41,35 +41,35 @@
           "type": "boolean"
         },
         "current": {
-          "description": "Defines the remediation that is proposed by the scan. If there is no \"outdated\" remediation in this object, the \"current\" remediation is what will be applied.",
+          "description": "Defines the remediation that is proposed by the scan. If there is no \"outdated\"\nremediation in this object, the \"current\" remediation is what will be applied.",
           "type": [
             "object",
             "null"
           ],
           "properties": {
             "object": {
-              "description": "The remediation payload. This would normally be a full Kubernetes object.",
+              "description": "The remediation payload. This would normally be a full Kubernetes\nobject.",
               "x-kubernetes-embedded-resource": true,
               "x-kubernetes-preserve-unknown-fields": true
             }
           }
         },
         "outdated": {
-          "description": "In case there was a previous remediation proposed by a previous scan, and that remediation now differs, the old remediation will be kept in this \"outdated\" key. This requires admin intervention to remove this outdated object and ensure the current is what's applied.",
+          "description": "In case there was a previous remediation proposed by a previous scan, and that remediation\nnow differs, the old remediation will be kept in this \"outdated\" key. This requires admin\nintervention to remove this outdated object and ensure the current is what's applied.",
           "type": [
             "object",
             "null"
           ],
           "properties": {
             "object": {
-              "description": "The remediation payload. This would normally be a full Kubernetes object.",
+              "description": "The remediation payload. This would normally be a full Kubernetes\nobject.",
               "x-kubernetes-embedded-resource": true,
               "x-kubernetes-preserve-unknown-fields": true
             }
           }
         },
         "type": {
-          "description": "The type of remediation that this object applies. The available types are: Configuration and Enforcement. Where the Configuration type fixes a configuration to match a compliance expectation. The Enforcement type, on the other hand, ensures that the cluster stays in compliance via means of authorization.",
+          "description": "The type of remediation that this object applies. The available\ntypes are: Configuration and Enforcement. Where the Configuration\ntype fixes a configuration to match a compliance expectation.\nThe Enforcement type, on the other hand, ensures that the cluster\nstays in compliance via means of authorization.",
           "type": [
             "string",
             "null"

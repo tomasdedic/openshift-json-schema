@@ -98,8 +98,7 @@
             ]
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -109,6 +108,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

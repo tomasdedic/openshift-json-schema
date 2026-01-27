@@ -50,8 +50,7 @@
               "description": "name is the metadata.name of the referenced config map",
               "type": "string"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "allowedRegistriesForImport": {
           "description": "allowedRegistriesForImport limits the container image registries that normal users may import images from. Set this list to the registries that you trust to contain valid Docker images and that you want applications to be able to import from. Users with permission to create Images or ImageStreamMappings via the API are not affected by this policy - typically only administrators or system integrations will have those permissions.",
@@ -80,8 +79,7 @@
                   "null"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "externalRegistryHostnames": {
@@ -159,11 +157,9 @@
                 ]
               }
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "status holds observed values from the cluster. They may not be overridden.",
@@ -192,8 +188,7 @@
             "null"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -203,6 +198,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

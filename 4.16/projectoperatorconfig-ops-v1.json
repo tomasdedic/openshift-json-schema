@@ -70,8 +70,7 @@
                 "description": "Name of the role",
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "applicationSource": {
@@ -114,8 +113,7 @@
                 ]
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "blacklistedNamespaceResources": {
           "description": "ArgoCD AppProject blacklistedResources specification (added to hard-coded list)",
@@ -140,8 +138,7 @@
               "kind": {
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "groups": {
@@ -174,8 +171,7 @@
                 "description": "Templated name of the group \n NOTE {} serves as project name placeholder",
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "orphanedResources": {
@@ -216,8 +212,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "warn": {
@@ -227,8 +222,7 @@
                 "null"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         },
         "sourceRepos": {
           "description": "Templated list of allowed source repositories for Argo \n NOTE {} serves as project name placeholder and * is a wildcard",
@@ -240,8 +234,7 @@
             ]
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -251,6 +244,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

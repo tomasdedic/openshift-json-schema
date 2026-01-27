@@ -437,6 +437,18 @@
             }
           }
         },
+        "deletionPropagationPolicy": {
+          "description": "DeletionPropagationPolicy defines how resources will be deleted (Foreground, Background, Orphan).",
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "Foreground",
+            "Background",
+            "Orphan"
+          ]
+        },
         "exclude": {
           "description": "ExcludeResources defines when cleanuppolicy should not be applied. The exclude\ncriteria can include resource information (e.g. kind, name, namespace, labels)\nand admission review request information like the name or role.",
           "type": [

@@ -60,8 +60,7 @@
               "kind": {
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "clusterResourceWhitelist": {
@@ -87,8 +86,7 @@
               "kind": {
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "description": {
@@ -130,8 +128,7 @@
                 "description": "Server specifies the URL of the target cluster's Kubernetes control plane API.",
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "destinations": {
@@ -168,8 +165,7 @@
                   "null"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "namespaceResourceBlacklist": {
@@ -195,8 +191,7 @@
               "kind": {
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "namespaceResourceWhitelist": {
@@ -222,8 +217,7 @@
               "kind": {
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "orphanedResources": {
@@ -264,8 +258,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "warn": {
@@ -275,8 +268,7 @@
                 "null"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         },
         "permitOnlyProjectScopedClusters": {
           "description": "PermitOnlyProjectScopedClusters determines whether destinations can only reference clusters which are project-scoped",
@@ -354,8 +346,7 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               },
               "name": {
@@ -375,8 +366,7 @@
                   ]
                 }
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "signatureKeys": {
@@ -399,8 +389,7 @@
                 "description": "The ID of the key in hexadecimal notation",
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "sourceNamespaces": {
@@ -516,12 +505,10 @@
                   "null"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "AppProjectStatus contains status information for AppProject CRs",
@@ -575,16 +562,13 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -594,6 +578,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

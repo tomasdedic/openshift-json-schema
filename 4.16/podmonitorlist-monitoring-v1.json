@@ -12,7 +12,7 @@
         "null"
       ],
       "enum": [
-        "monitoring.coreos.com/v1"
+        "monitoring.rhobs/v1"
       ]
     },
     "items": {
@@ -22,7 +22,7 @@
         "null"
       ],
       "items": {
-        "$ref": "_definitions.json#/definitions/com.coreos.monitoring.v1.PodMonitor"
+        "$ref": "_definitions.json#/definitions/rhobs.monitoring.v1.PodMonitor"
       }
     },
     "kind": {
@@ -42,11 +42,10 @@
   },
   "x-kubernetes-group-version-kind": [
     {
-      "group": "monitoring.coreos.com",
+      "group": "monitoring.rhobs",
       "kind": "PodMonitorList",
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

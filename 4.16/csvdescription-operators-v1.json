@@ -134,6 +134,5 @@
       "$ref": "_definitions.json#/definitions/com.github.operator-framework.api.pkg.lib.version.OperatorVersion"
     }
   },
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

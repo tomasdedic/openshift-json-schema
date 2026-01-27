@@ -42,6 +42,5 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.autoscaling.v2.CrossVersionObjectReference"
     }
   },
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

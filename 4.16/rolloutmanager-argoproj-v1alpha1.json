@@ -66,8 +66,7 @@
                 ]
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "controllerResources": {
           "description": "Resources requests/limits for Argo Rollout controller",
@@ -96,8 +95,7 @@
                     "description": "Name must match the name of one entry in pod.spec.resourceClaims of\nthe Pod where this field is used. It makes that resource available\ninside a container.",
                     "type": "string"
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "x-kubernetes-list-map-keys": [
                 "name"
@@ -126,8 +124,7 @@
                 "x-kubernetes-int-or-string": true
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "env": {
           "description": "Env lets you specify environment for Rollouts pods",
@@ -192,8 +189,7 @@
                         ]
                       }
                     },
-                    "x-kubernetes-map-type": "atomic",
-                    "additionalProperties": false
+                    "x-kubernetes-map-type": "atomic"
                   },
                   "fieldRef": {
                     "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`,\nspec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.",
@@ -217,8 +213,7 @@
                         "type": "string"
                       }
                     },
-                    "x-kubernetes-map-type": "atomic",
-                    "additionalProperties": false
+                    "x-kubernetes-map-type": "atomic"
                   },
                   "resourceFieldRef": {
                     "description": "Selects a resource of the container: only resources limits and requests\n(limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.",
@@ -247,8 +242,7 @@
                         "type": "string"
                       }
                     },
-                    "x-kubernetes-map-type": "atomic",
-                    "additionalProperties": false
+                    "x-kubernetes-map-type": "atomic"
                   },
                   "secretKeyRef": {
                     "description": "Selects a key of a secret in the pod's namespace",
@@ -279,14 +273,11 @@
                         ]
                       }
                     },
-                    "x-kubernetes-map-type": "atomic",
-                    "additionalProperties": false
+                    "x-kubernetes-map-type": "atomic"
                   }
-                },
-                "additionalProperties": false
+                }
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "extraCommandArgs": {
@@ -316,8 +307,7 @@
               "description": "Enabled will toggle HA support globally for RolloutManager.",
               "type": "boolean"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "image": {
           "description": "Image defines Argo Rollouts controller image (optional)",
@@ -402,12 +392,10 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "plugins": {
           "description": "Plugins specify the traffic and metric plugins in Argo Rollout",
@@ -448,8 +436,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "trafficManagement": {
@@ -484,12 +471,10 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "skipNotificationSecretDeployment": {
           "description": "SkipNotificationSecretDeployment lets you specify if the argo notification secret should be deployed",
@@ -505,8 +490,7 @@
             "null"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "RolloutManagerStatus defines the observed state of RolloutManager",
@@ -576,8 +560,7 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "phase": {
@@ -594,8 +577,7 @@
             "null"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -605,6 +587,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

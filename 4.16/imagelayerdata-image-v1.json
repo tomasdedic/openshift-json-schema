@@ -22,6 +22,5 @@
       "format": "int64"
     }
   },
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

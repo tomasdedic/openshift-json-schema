@@ -110,20 +110,17 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "tenantID": {
           "description": "TenantID of tenant where the recording rules are evaluated in.",
           "type": "string"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "RecordingRuleStatus defines the observed state of RecordingRule",
@@ -193,12 +190,10 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -208,6 +203,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

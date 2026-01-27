@@ -21,7 +21,7 @@
       "x-kubernetes-list-type": "atomic"
     },
     "checkType": {
-      "description": "What type of check will this rule execute: Platform, Node or none (represented by an empty string)",
+      "description": "What type of check will this rule execute:\nPlatform, Node or none (represented by an empty string)\nFor CustomRules, only Platform is supported.",
       "type": [
         "string",
         "null"
@@ -35,7 +35,7 @@
       ]
     },
     "id": {
-      "description": "The XCCDF ID",
+      "description": "The ID of the Rule",
       "type": [
         "string",
         "null"

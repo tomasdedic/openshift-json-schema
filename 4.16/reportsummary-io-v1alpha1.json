@@ -1,0 +1,47 @@
+{
+  "description": "ReportSummary provides a status count summary",
+  "type": "object",
+  "properties": {
+    "error": {
+      "description": "Error provides the count of policies that could not be evaluated",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int32"
+    },
+    "fail": {
+      "description": "Fail provides the count of policies whose requirements were not met",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int32"
+    },
+    "pass": {
+      "description": "Pass provides the count of policies whose requirements were met",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int32"
+    },
+    "skip": {
+      "description": "Skip indicates the count of policies that were not selected for evaluation",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int32"
+    },
+    "warn": {
+      "description": "Warn provides the count of non-scored policies whose requirements were not met",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int32"
+    }
+  },
+  "$schema": "http://json-schema.org/schema#"
+}

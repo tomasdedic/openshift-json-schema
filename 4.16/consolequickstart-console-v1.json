@@ -105,8 +105,7 @@
                   "null"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "conclusion": {
@@ -224,8 +223,7 @@
                     "type": "string",
                     "minLength": 1
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "summary": {
                 "description": "summary contains information about the passed step.",
@@ -249,20 +247,17 @@
                     "type": "string",
                     "minLength": 1
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "title": {
                 "description": "title describes the task and is displayed as a step heading.",
                 "type": "string",
                 "minLength": 1
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -272,6 +267,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

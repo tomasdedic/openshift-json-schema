@@ -113,8 +113,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "filter": {
                     "description": "Filter allows for limiting the results from the groups response using the Filter feature of the Azure Graph API",
@@ -163,8 +162,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "github": {
                 "description": "GitHub represents the GitHub provider",
@@ -213,8 +211,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "caSecret": {
                     "description": "CaSecret is a reference to a secret containing a CA certificate to communicate to the GitHub server Deprecated: Use Ca instead.",
@@ -253,8 +250,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "credentialsSecret": {
                     "description": "CredentialsSecret is a reference to a secret containing authentication details for the GitHub server",
@@ -290,8 +286,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "insecure": {
                     "description": "Insecure specifies whether to allow for unverified certificates to be used when communicating to GitHab",
@@ -348,8 +343,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "gitlab": {
                 "description": "GitLab represents the GitLab provider",
@@ -398,8 +392,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "caSecret": {
                     "description": "CaSecret is a reference to a secret containing a CA certificate to communicate to the GitLab server Deprecated: Use Ca instead.",
@@ -438,8 +431,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "credentialsSecret": {
                     "description": "CredentialsSecret is a reference to a secret containing authentication details for the GitLab server",
@@ -475,8 +467,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "groups": {
                     "description": "Groups represents a filtered list of groups to synchronize",
@@ -512,8 +503,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "keycloak": {
                 "description": "Keycloak represents the Keycloak provider",
@@ -564,8 +554,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "caSecret": {
                     "description": "CaSecret is a reference to a secret containing a CA certificate to communicate to the Keycloak server Deprecated: Use Ca instead.",
@@ -604,8 +593,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "credentialsSecret": {
                     "description": "CredentialsSecret is a reference to a secret containing authentication details for the Keycloak server",
@@ -641,8 +629,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "groups": {
                     "description": "Groups represents a filtered list of groups to synchronize",
@@ -697,8 +684,7 @@
                     "description": "URL is the location of the Keycloak server",
                     "type": "string"
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "ldap": {
                 "description": "Ldap represents the LDAP provider",
@@ -788,11 +774,9 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "augmentedActiveDirectory": {
                     "description": "ActiveDirectoryConfig represents the configuration for Augmented Active Directory",
@@ -879,8 +863,7 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "userNameAttributes": {
                         "description": "UserNameAttributes defines which attributes on an LDAP user entry will be interpreted as its OpenShift user name.",
@@ -938,11 +921,9 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "blacklist": {
                     "description": "Blacklist represents a list of groups to not synchronize",
@@ -994,8 +975,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "caSecret": {
                     "description": "CaSecret is a reference to a secret containing a CA certificate to communicate to LDAP Deprecated: Use Ca instead.",
@@ -1034,8 +1014,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "credentialsSecret": {
                     "description": "CredentialsSecret is a reference to a secret containing authentication details for communicating to LDAP",
@@ -1074,8 +1053,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "groupUIDNameMapping": {
                     "description": "/ LDAPGroupUIDToOpenShiftGroupNameMapping is an optional direct mapping of LDAP group UIDs to OpenShift group names",
@@ -1190,8 +1168,7 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "tolerateMemberNotFoundErrors": {
                         "description": "TolerateMemberNotFoundErrors determines the behavior of the LDAP sync job when missing user entries are encountered. If 'true', an LDAP query for users that doesn't find any will be tolerated and an only and error will be logged. If 'false', the LDAP sync job will fail if a query for users doesn't find any. The default value is 'false'. Misconfigured LDAP sync jobs with this flag set to 'true' can cause group membership to be removed, so it is recommended to use this flag with caution.",
@@ -1267,11 +1244,9 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "url": {
                     "description": "URL is the location of the LDAP Server",
@@ -1290,8 +1265,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "name": {
                 "description": "Name represents the name of the provider",
@@ -1347,8 +1321,7 @@
                         "description": "Namespace represents the namespace containing the resource",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "extractLoginUsername": {
                     "description": "ExtractLoginUsername is true if Okta username's are defaulted to emails and you would like the username only",
@@ -1395,11 +1368,9 @@
                     "description": "URL is the location of the Okta domain server",
                     "type": "string"
                   }
-                },
-                "additionalProperties": false
+                }
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "schedule": {
@@ -1409,8 +1380,7 @@
             "null"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "GroupSyncStatus defines the observed state of GroupSync",
@@ -1479,8 +1449,7 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           },
           "x-kubernetes-list-map-keys": [
             "type"
@@ -1495,8 +1464,7 @@
           ],
           "format": "date-time"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1506,6 +1474,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

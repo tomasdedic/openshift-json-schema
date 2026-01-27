@@ -98,8 +98,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "matchLabels": {
@@ -116,8 +115,7 @@
               }
             }
           },
-          "x-kubernetes-map-type": "atomic",
-          "additionalProperties": false
+          "x-kubernetes-map-type": "atomic"
         },
         "tlsSecurityProfile": {
           "description": "If unset, the default is based on the apiservers.config.openshift.io/cluster resource. Note that only Old and Intermediate profiles are currently supported, and the maximum available minTLSVersion is VersionTLS12.",
@@ -151,11 +149,9 @@
                 "Custom"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "KubeletConfigStatus defines the observed state of a KubeletConfig",
@@ -209,8 +205,7 @@
                   "null"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "observedGeneration": {
@@ -221,8 +216,7 @@
           ],
           "format": "int64"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -232,6 +226,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

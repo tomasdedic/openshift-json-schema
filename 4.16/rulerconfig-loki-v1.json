@@ -71,8 +71,7 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "headerAuth": {
                   "description": "Header authentication configuration for reaching the alertmanager endpoints.",
@@ -102,8 +101,7 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "tls": {
                   "description": "TLS configuration for reaching the alertmanager endpoints.",
@@ -147,11 +145,9 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "discovery": {
               "description": "Defines the configuration for DNS-based discovery of AlertManager hosts.",
@@ -175,8 +171,7 @@
                   ],
                   "pattern": "((([0-9]+)y)?(([0-9]+)w)?(([0-9]+)d)?(([0-9]+)h)?(([0-9]+)m)?(([0-9]+)s)?(([0-9]+)ms)?|0)"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "enableV2": {
               "description": "If enabled, then requests to Alertmanager use the v2 API.",
@@ -262,8 +257,7 @@
                   ],
                   "pattern": "((([0-9]+)y)?(([0-9]+)w)?(([0-9]+)d)?(([0-9]+)h)?(([0-9]+)m)?(([0-9]+)s)?(([0-9]+)ms)?|0)"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "relabelConfigs": {
               "description": "List of alert relabel configurations.",
@@ -343,12 +337,10 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "evaluationInterval": {
           "description": "Interval on how frequently to evaluate rules.",
@@ -409,8 +401,7 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "headerAuth": {
                         "description": "Header authentication configuration for reaching the alertmanager endpoints.",
@@ -440,8 +431,7 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "tls": {
                         "description": "TLS configuration for reaching the alertmanager endpoints.",
@@ -485,11 +475,9 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "discovery": {
                     "description": "Defines the configuration for DNS-based discovery of AlertManager hosts.",
@@ -513,8 +501,7 @@
                         ],
                         "pattern": "((([0-9]+)y)?(([0-9]+)w)?(([0-9]+)d)?(([0-9]+)h)?(([0-9]+)m)?(([0-9]+)s)?(([0-9]+)ms)?|0)"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "enableV2": {
                     "description": "If enabled, then requests to Alertmanager use the v2 API.",
@@ -600,8 +587,7 @@
                         ],
                         "pattern": "((([0-9]+)y)?(([0-9]+)w)?(([0-9]+)d)?(([0-9]+)h)?(([0-9]+)m)?(([0-9]+)s)?(([0-9]+)ms)?|0)"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "relabelConfigs": {
                     "description": "List of alert relabel configurations.",
@@ -681,15 +667,12 @@
                             "null"
                           ]
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "pollInterval": {
@@ -841,8 +824,7 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "timeout": {
@@ -857,8 +839,7 @@
                   "description": "The URL of the endpoint to send samples to.",
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "enabled": {
               "description": "Enable remote-write functionality.",
@@ -930,8 +911,7 @@
                   ],
                   "format": "int32"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "refreshPeriod": {
               "description": "Minimum period to wait between refreshing remote-write reconfigurations.",
@@ -941,11 +921,9 @@
               ],
               "pattern": "((([0-9]+)y)?(([0-9]+)w)?(([0-9]+)d)?(([0-9]+)h)?(([0-9]+)m)?(([0-9]+)s)?(([0-9]+)ms)?|0)"
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "RulerConfigStatus defines the observed state of RulerConfig",
@@ -1015,12 +993,10 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1030,6 +1006,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

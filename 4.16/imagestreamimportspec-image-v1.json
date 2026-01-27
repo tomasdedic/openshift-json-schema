@@ -27,6 +27,5 @@
       "$ref": "_definitions.json#/definitions/com.github.openshift.api.image.v1.RepositoryImportSpec"
     }
   },
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

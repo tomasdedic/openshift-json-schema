@@ -73,8 +73,7 @@
                     "podIP"
                   ]
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "type": {
               "description": "Type of hash ring implementation that should be used",
@@ -83,8 +82,7 @@
                 "memberlist"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         },
         "limits": {
           "description": "Limits defines the limits to be applied to log stream processing.",
@@ -187,8 +185,7 @@
                       ],
                       "format": "int32"
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "otlp": {
                   "description": "OTLP to configure which resource, scope and log attributes are stored as stream labels or structured metadata.\n\nTenancy modes can provide a default OTLP configuration, when no custom OTLP configuration is set or even\nenforce the use of some required attributes.",
@@ -230,8 +227,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         },
                         "resourceAttributes": {
@@ -260,8 +256,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         },
                         "scopeAttributes": {
@@ -290,12 +285,10 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "streamLabels": {
                       "description": "StreamLabels configures which resource attributes are converted to Loki stream labels.",
@@ -330,15 +323,12 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "queries": {
                   "description": "QueryLimits defines the limit applied on querying log streams.",
@@ -394,8 +384,7 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "retention": {
                   "description": "Retention defines how long logs are kept in storage.",
@@ -446,15 +435,12 @@
                             "description": "Selector contains the LogQL query used to define the log stream.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "tenants": {
               "description": "Tenants defines the limits applied per tenant.",
@@ -556,8 +542,7 @@
                         ],
                         "format": "int32"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "otlp": {
                     "description": "OTLP to configure which resource, scope and log attributes are stored as stream labels or structured metadata.\n\nTenancy modes can provide a default OTLP configuration, when no custom OTLP configuration is set or even\nenforce the use of some required attributes.\n\nThe per-tenant configuration for OTLP attributes will be merged with the global configuration.",
@@ -599,8 +584,7 @@
                                     "null"
                                   ]
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "resourceAttributes": {
@@ -629,8 +613,7 @@
                                     "null"
                                   ]
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "scopeAttributes": {
@@ -659,12 +642,10 @@
                                     "null"
                                   ]
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "streamLabels": {
                         "description": "StreamLabels configures which resource attributes are converted to Loki stream labels.",
@@ -699,15 +680,12 @@
                                     "null"
                                   ]
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "queries": {
                     "description": "QueryLimits defines the limit applied on querying log streams.",
@@ -771,8 +749,7 @@
                                 ]
                               }
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "cardinalityLimit": {
@@ -822,8 +799,7 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "retention": {
                     "description": "Retention defines how long logs are kept in storage.",
@@ -874,19 +850,15 @@
                               "description": "Selector contains the LogQL query used to define the log stream.",
                               "type": "string"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
-                },
-                "additionalProperties": false
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "managementState": {
           "description": "ManagementState defines if the CR should be managed by the operator or not.\nDefault is managed.",
@@ -927,8 +899,7 @@
                 "null"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         },
         "replication": {
           "description": "Replication defines the configuration for Loki data replication.",
@@ -971,12 +942,10 @@
                     "description": "TopologyKey is the key that defines a topology in the Nodes' labels.",
                     "type": "string"
                   }
-                },
-                "additionalProperties": false
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "replicationFactor": {
           "description": "Deprecated: Please use replication.factor instead. This field will be removed in future versions of this CRD.\nReplicationFactor defines the policy for log stream replication.",
@@ -1046,8 +1015,7 @@
                           ]
                         }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "matchLabels": {
@@ -1064,8 +1032,7 @@
                   }
                 }
               },
-              "x-kubernetes-map-type": "atomic",
-              "additionalProperties": false
+              "x-kubernetes-map-type": "atomic"
             },
             "selector": {
               "description": "A selector to select which LokiRules to mount for loading alerting/recording\nrules from.",
@@ -1112,8 +1079,7 @@
                           ]
                         }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "matchLabels": {
@@ -1130,11 +1096,9 @@
                   }
                 }
               },
-              "x-kubernetes-map-type": "atomic",
-              "additionalProperties": false
+              "x-kubernetes-map-type": "atomic"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "size": {
           "description": "Size defines one of the support Loki deployment scale out sizes.",
@@ -1186,8 +1150,7 @@
                       "v13"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "secret": {
@@ -1225,8 +1188,7 @@
                     "alibabacloud"
                   ]
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "tls": {
               "description": "TLS configuration for reaching the object storage endpoint.",
@@ -1249,11 +1211,9 @@
                   "description": "CA is the name of a ConfigMap containing a CA certificate.\nIt needs to be in the same namespace as the LokiStack custom resource.",
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "storageClassName": {
           "description": "Storage class name defines the storage class for ingester/querier PVCs.",
@@ -1362,8 +1322,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -1380,8 +1339,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaceSelector": {
                                 "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -1428,8 +1386,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -1446,8 +1403,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaces": {
                                 "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -1466,16 +1422,14 @@
                                 "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "weight": {
                             "description": "weight associated with matching the corresponding podAffinityTerm,\nin the range 1-100.",
                             "type": "integer",
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -1539,8 +1493,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -1557,8 +1510,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -1605,8 +1557,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -1623,8 +1574,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaces": {
                             "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -1643,12 +1593,10 @@
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "replicas": {
                   "description": "Replicas defines the number of replica pods of the component.",
@@ -1707,12 +1655,10 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "distributor": {
               "description": "Distributor defines the distributor component spec.",
@@ -1810,8 +1756,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -1828,8 +1773,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaceSelector": {
                                 "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -1876,8 +1820,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -1894,8 +1837,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaces": {
                                 "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -1914,16 +1856,14 @@
                                 "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "weight": {
                             "description": "weight associated with matching the corresponding podAffinityTerm,\nin the range 1-100.",
                             "type": "integer",
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -1987,8 +1927,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -2005,8 +1944,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -2053,8 +1991,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -2071,8 +2008,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaces": {
                             "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -2091,12 +2027,10 @@
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "replicas": {
                   "description": "Replicas defines the number of replica pods of the component.",
@@ -2155,12 +2089,10 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "gateway": {
               "description": "Gateway defines the lokistack gateway component spec.",
@@ -2258,8 +2190,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -2276,8 +2207,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaceSelector": {
                                 "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -2324,8 +2254,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -2342,8 +2271,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaces": {
                                 "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -2362,16 +2290,14 @@
                                 "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "weight": {
                             "description": "weight associated with matching the corresponding podAffinityTerm,\nin the range 1-100.",
                             "type": "integer",
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -2435,8 +2361,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -2453,8 +2378,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -2501,8 +2425,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -2519,8 +2442,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaces": {
                             "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -2539,12 +2461,10 @@
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "replicas": {
                   "description": "Replicas defines the number of replica pods of the component.",
@@ -2603,12 +2523,10 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "indexGateway": {
               "description": "IndexGateway defines the index gateway component spec.",
@@ -2706,8 +2624,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -2724,8 +2641,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaceSelector": {
                                 "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -2772,8 +2688,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -2790,8 +2705,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaces": {
                                 "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -2810,16 +2724,14 @@
                                 "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "weight": {
                             "description": "weight associated with matching the corresponding podAffinityTerm,\nin the range 1-100.",
                             "type": "integer",
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -2883,8 +2795,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -2901,8 +2812,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -2949,8 +2859,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -2967,8 +2876,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaces": {
                             "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -2987,12 +2895,10 @@
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "replicas": {
                   "description": "Replicas defines the number of replica pods of the component.",
@@ -3051,12 +2957,10 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "ingester": {
               "description": "Ingester defines the ingester component spec.",
@@ -3154,8 +3058,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -3172,8 +3075,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaceSelector": {
                                 "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -3220,8 +3122,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -3238,8 +3139,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaces": {
                                 "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -3258,16 +3158,14 @@
                                 "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "weight": {
                             "description": "weight associated with matching the corresponding podAffinityTerm,\nin the range 1-100.",
                             "type": "integer",
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -3331,8 +3229,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -3349,8 +3246,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -3397,8 +3293,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -3415,8 +3310,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaces": {
                             "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -3435,12 +3329,10 @@
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "replicas": {
                   "description": "Replicas defines the number of replica pods of the component.",
@@ -3499,12 +3391,10 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "querier": {
               "description": "Querier defines the querier component spec.",
@@ -3602,8 +3492,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -3620,8 +3509,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaceSelector": {
                                 "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -3668,8 +3556,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -3686,8 +3573,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaces": {
                                 "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -3706,16 +3592,14 @@
                                 "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "weight": {
                             "description": "weight associated with matching the corresponding podAffinityTerm,\nin the range 1-100.",
                             "type": "integer",
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -3779,8 +3663,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -3797,8 +3680,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -3845,8 +3727,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -3863,8 +3744,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaces": {
                             "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -3883,12 +3763,10 @@
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "replicas": {
                   "description": "Replicas defines the number of replica pods of the component.",
@@ -3947,12 +3825,10 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "queryFrontend": {
               "description": "QueryFrontend defines the query frontend component spec.",
@@ -4050,8 +3926,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -4068,8 +3943,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaceSelector": {
                                 "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -4116,8 +3990,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -4134,8 +4007,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaces": {
                                 "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -4154,16 +4026,14 @@
                                 "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "weight": {
                             "description": "weight associated with matching the corresponding podAffinityTerm,\nin the range 1-100.",
                             "type": "integer",
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -4227,8 +4097,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -4245,8 +4114,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -4293,8 +4161,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -4311,8 +4178,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaces": {
                             "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -4331,12 +4197,10 @@
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "replicas": {
                   "description": "Replicas defines the number of replica pods of the component.",
@@ -4395,12 +4259,10 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "ruler": {
               "description": "Ruler defines the ruler component spec.",
@@ -4498,8 +4360,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -4516,8 +4377,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaceSelector": {
                                 "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -4564,8 +4424,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -4582,8 +4441,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaces": {
                                 "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -4602,16 +4460,14 @@
                                 "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "weight": {
                             "description": "weight associated with matching the corresponding podAffinityTerm,\nin the range 1-100.",
                             "type": "integer",
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -4675,8 +4531,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -4693,8 +4548,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label query over the set of namespaces that the term applies to.\nThe term is applied to the union of the namespaces selected by this field\nand the ones listed in the namespaces field.\nnull selector and null or empty namespaces list means \"this pod's namespace\".\nAn empty selector ({}) matches all namespaces.",
@@ -4741,8 +4595,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "matchLabels": {
@@ -4759,8 +4612,7 @@
                                 }
                               }
                             },
-                            "x-kubernetes-map-type": "atomic",
-                            "additionalProperties": false
+                            "x-kubernetes-map-type": "atomic"
                           },
                           "namespaces": {
                             "description": "namespaces specifies a static list of namespace names that the term applies to.\nThe term is applied to the union of the namespaces listed in this field\nand the ones selected by namespaceSelector.\nnull or empty namespaces list and null namespaceSelector means \"this pod's namespace\".",
@@ -4779,12 +4631,10 @@
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching\nthe labelSelector in the specified namespaces, where co-located is defined as running on a node\nwhose value of the label with key topologyKey matches that of any node on which any of the\nselected pods is running.\nEmpty topologyKey is not allowed.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "replicas": {
                   "description": "Replicas defines the number of replica pods of the component.",
@@ -4843,15 +4693,12 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "tenants": {
           "description": "Tenants defines the per-tenant authentication and authorization spec for the lokistack-gateway component.",
@@ -4908,11 +4755,9 @@
                             "description": "CA is the name of a ConfigMap containing a CA certificate.\nIt needs to be in the same namespace as the LokiStack custom resource.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "oidc": {
                     "description": "OIDC defines the spec for the OIDC tenant's authentication.",
@@ -4953,8 +4798,7 @@
                             "description": "CA is the name of a ConfigMap containing a CA certificate.\nIt needs to be in the same namespace as the LokiStack custom resource.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "issuerURL": {
                         "description": "IssuerURL defines the URL for issuer.",
@@ -4978,8 +4822,7 @@
                             "description": "Name of a secret in the namespace configured for tenant secrets.",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "usernameClaim": {
                         "description": "User claim field from ID Token",
@@ -4988,8 +4831,7 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "tenantId": {
                     "description": "TenantID defines the id of the tenant.",
@@ -4999,8 +4841,7 @@
                     "description": "TenantName defines the name of the tenant.",
                     "type": "string"
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "authorization": {
@@ -5024,8 +4865,7 @@
                       "description": "URL defines the third-party endpoint for authorization.",
                       "type": "string"
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "roleBindings": {
                   "description": "RoleBindings defines configuration to bind a set of roles to a set of subjects.",
@@ -5081,12 +4921,10 @@
                             "name": {
                               "type": "string"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "roles": {
@@ -5143,12 +4981,10 @@
                           ]
                         }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "mode": {
               "description": "Mode defines the mode in which lokistack-gateway component will be configured.",
@@ -5194,17 +5030,13 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "LokiStack CR spec Status.",
@@ -5372,8 +5204,7 @@
                 }
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "conditions": {
           "description": "Conditions of the Loki deployment health.",
@@ -5436,8 +5267,7 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "storage": {
@@ -5490,15 +5320,12 @@
                       "v13"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -5508,6 +5335,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

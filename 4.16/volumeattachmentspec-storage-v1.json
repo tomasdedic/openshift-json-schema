@@ -26,6 +26,5 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeAttachmentSource"
     }
   },
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

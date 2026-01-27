@@ -85,8 +85,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "matchLabels": {
@@ -103,8 +102,7 @@
               }
             }
           },
-          "x-kubernetes-map-type": "atomic",
-          "additionalProperties": false
+          "x-kubernetes-map-type": "atomic"
         },
         "sourceIPBy": {
           "description": "Determines the source IP of egress traffic originating from the pods backing the LoadBalancer Service. When `LoadBalancerIP` the source IP is set to its LoadBalancer ingress IP. When `Network` the source IP is set according to the interface of the Network, leveraging the masquerade rules that are already in place. Typically these rules specify SNAT to the IP of the outgoing interface, which means the packet will typically leave with the IP of the node.",
@@ -117,8 +115,7 @@
             "Network"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "EgressServiceStatus defines the observed state of EgressService",
@@ -134,8 +131,7 @@
           "description": "The name of the node selected to handle the service's traffic. In case sourceIPBy=Network the field will be set to \"ALL\".",
           "type": "string"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -145,6 +141,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

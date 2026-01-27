@@ -119,8 +119,7 @@
                           "description": "Protocol is the network protocol (TCP, UDP, or SCTP) which traffic must\nmatch. If not specified, this field defaults to TCP.\n\n\nSupport: Core",
                           "type": "string"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "portRange": {
                       "description": "PortRange selects a port range on a pod(s) based on provided start and end\nvalues.\n\n\nSupport: Core",
@@ -154,11 +153,9 @@
                           "maximum": 65535,
                           "minimum": 1
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               },
               "to": {
@@ -220,8 +217,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         },
                         "matchLabels": {
@@ -238,8 +234,7 @@
                           }
                         }
                       },
-                      "x-kubernetes-map-type": "atomic",
-                      "additionalProperties": false
+                      "x-kubernetes-map-type": "atomic"
                     },
                     "networks": {
                       "description": "Networks defines a way to select peers via CIDR blocks.\nThis is intended for representing entities that live outside the cluster,\nwhich can't be selected by pods, namespaces and nodes peers, but note\nthat cluster-internal traffic will be checked against the rule as\nwell. So if you Allow or Deny traffic to `\"0.0.0.0/0\"`, that will allow\nor deny all IPv4 pod-to-pod traffic as well. If you don't want that,\nadd a rule that Passes all pod traffic before the Networks rule.\n\n\nEach item in Networks should be provided in the CIDR format and should be\nIPv4 or IPv6, for example \"10.0.0.0/8\" or \"fd00::/8\".\n\n\nNetworks can have upto 25 CIDRs specified.\n\n\nSupport: Extended\n\n\n<network-policy-api:experimental>",
@@ -314,8 +309,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         },
                         "matchLabels": {
@@ -332,8 +326,7 @@
                           }
                         }
                       },
-                      "x-kubernetes-map-type": "atomic",
-                      "additionalProperties": false
+                      "x-kubernetes-map-type": "atomic"
                     },
                     "pods": {
                       "description": "Pods defines a way to select a set of pods in\na set of namespaces. Note that host-networked pods\nare not included in this type of peer.\n\n\nSupport: Core",
@@ -388,8 +381,7 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
                             },
                             "matchLabels": {
@@ -406,8 +398,7 @@
                               }
                             }
                           },
-                          "x-kubernetes-map-type": "atomic",
-                          "additionalProperties": false
+                          "x-kubernetes-map-type": "atomic"
                         },
                         "podSelector": {
                           "description": "PodSelector is used to explicitly select pods within a namespace; if empty,\nit selects all Pods.",
@@ -451,8 +442,7 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
                             },
                             "matchLabels": {
@@ -469,14 +459,11 @@
                               }
                             }
                           },
-                          "x-kubernetes-map-type": "atomic",
-                          "additionalProperties": false
+                          "x-kubernetes-map-type": "atomic"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               }
             },
@@ -485,8 +472,7 @@
                 "message": "networks/nodes peer cannot be set with namedPorts since there are no namedPorts for networks/nodes",
                 "rule": "!(self.to.exists(peer, has(peer.networks) || has(peer.nodes)) && has(self.ports) && self.ports.exists(port, has(port.namedPort)))"
               }
-            ],
-            "additionalProperties": false
+            ]
           }
         },
         "ingress": {
@@ -574,8 +560,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         },
                         "matchLabels": {
@@ -592,8 +577,7 @@
                           }
                         }
                       },
-                      "x-kubernetes-map-type": "atomic",
-                      "additionalProperties": false
+                      "x-kubernetes-map-type": "atomic"
                     },
                     "pods": {
                       "description": "Pods defines a way to select a set of pods in\na set of namespaces. Note that host-networked pods\nare not included in this type of peer.\n\n\nSupport: Core",
@@ -648,8 +632,7 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
                             },
                             "matchLabels": {
@@ -666,8 +649,7 @@
                               }
                             }
                           },
-                          "x-kubernetes-map-type": "atomic",
-                          "additionalProperties": false
+                          "x-kubernetes-map-type": "atomic"
                         },
                         "podSelector": {
                           "description": "PodSelector is used to explicitly select pods within a namespace; if empty,\nit selects all Pods.",
@@ -711,8 +693,7 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
                             },
                             "matchLabels": {
@@ -729,14 +710,11 @@
                               }
                             }
                           },
-                          "x-kubernetes-map-type": "atomic",
-                          "additionalProperties": false
+                          "x-kubernetes-map-type": "atomic"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               },
               "name": {
@@ -792,8 +770,7 @@
                           "description": "Protocol is the network protocol (TCP, UDP, or SCTP) which traffic must\nmatch. If not specified, this field defaults to TCP.\n\n\nSupport: Core",
                           "type": "string"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "portRange": {
                       "description": "PortRange selects a port range on a pod(s) based on provided start and end\nvalues.\n\n\nSupport: Core",
@@ -827,15 +804,12 @@
                           "maximum": 65535,
                           "minimum": 1
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "subject": {
@@ -889,8 +863,7 @@
                           ]
                         }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "matchLabels": {
@@ -907,8 +880,7 @@
                   }
                 }
               },
-              "x-kubernetes-map-type": "atomic",
-              "additionalProperties": false
+              "x-kubernetes-map-type": "atomic"
             },
             "pods": {
               "description": "Pods is used to select pods via namespace AND pod selectors.",
@@ -963,8 +935,7 @@
                               ]
                             }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "matchLabels": {
@@ -981,8 +952,7 @@
                       }
                     }
                   },
-                  "x-kubernetes-map-type": "atomic",
-                  "additionalProperties": false
+                  "x-kubernetes-map-type": "atomic"
                 },
                 "podSelector": {
                   "description": "PodSelector is used to explicitly select pods within a namespace; if empty,\nit selects all Pods.",
@@ -1026,8 +996,7 @@
                               ]
                             }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "matchLabels": {
@@ -1044,17 +1013,13 @@
                       }
                     }
                   },
-                  "x-kubernetes-map-type": "atomic",
-                  "additionalProperties": false
+                  "x-kubernetes-map-type": "atomic"
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "Status is the status to be reported by the implementation.",
@@ -1123,16 +1088,14 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           },
           "x-kubernetes-list-map-keys": [
             "type"
           ],
           "x-kubernetes-list-type": "map"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1148,6 +1111,5 @@
       "rule": "self.metadata.name == 'default'"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

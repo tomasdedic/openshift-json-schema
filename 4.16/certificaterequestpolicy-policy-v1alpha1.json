@@ -84,8 +84,7 @@
                         "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "x-kubernetes-list-map-keys": [
                     "rule"
@@ -99,8 +98,7 @@
                     "null"
                   ]
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "dnsNames": {
               "description": "DNSNames defines the X.509 DNS SANs that may be requested.",
@@ -143,8 +141,7 @@
                         "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "x-kubernetes-list-map-keys": [
                     "rule"
@@ -164,8 +161,7 @@
                     ]
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "emailAddresses": {
               "description": "EmailAddresses defines the X.509 Email SANs that may be requested.",
@@ -208,8 +204,7 @@
                         "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "x-kubernetes-list-map-keys": [
                     "rule"
@@ -229,8 +224,7 @@
                     ]
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "ipAddresses": {
               "description": "IPAddresses defines the X.509 IP SANs that may be requested.",
@@ -273,8 +267,7 @@
                         "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "x-kubernetes-list-map-keys": [
                     "rule"
@@ -294,8 +287,7 @@
                     ]
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "isCA": {
               "description": "IsCA defines if a CertificateRequest is allowed to set the `spec.isCA`\nfield set to `true`.\nIf `true`, the `spec.isCA` field can be `true` or `false`.\nIf `false` or unset, the `spec.isCA` field must be `false`.",
@@ -352,8 +344,7 @@
                             "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "x-kubernetes-list-map-keys": [
                         "rule"
@@ -373,8 +364,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "localities": {
                   "description": "Localities defines the X.509 Subject Localities that may be requested.",
@@ -417,8 +407,7 @@
                             "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "x-kubernetes-list-map-keys": [
                         "rule"
@@ -438,8 +427,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "organizationalUnits": {
                   "description": "OrganizationalUnits defines the X.509 Subject Organizational Units that\nmay be requested.",
@@ -482,8 +470,7 @@
                             "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "x-kubernetes-list-map-keys": [
                         "rule"
@@ -503,8 +490,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "organizations": {
                   "description": "Organizations define the X.509 Subject Organizations that may be\nrequested.",
@@ -547,8 +533,7 @@
                             "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "x-kubernetes-list-map-keys": [
                         "rule"
@@ -568,8 +553,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "postalCodes": {
                   "description": "PostalCodes defines the X.509 Subject Postal Codes that may be requested.",
@@ -612,8 +596,7 @@
                             "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "x-kubernetes-list-map-keys": [
                         "rule"
@@ -633,8 +616,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "provinces": {
                   "description": "Provinces defines the X.509 Subject Provinces that may be requested.",
@@ -677,8 +659,7 @@
                             "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "x-kubernetes-list-map-keys": [
                         "rule"
@@ -698,8 +679,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "serialNumber": {
                   "description": "SerialNumber defines the X.509 Subject Serial Number that may be\nrequested.",
@@ -742,8 +722,7 @@
                             "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "x-kubernetes-list-map-keys": [
                         "rule"
@@ -757,8 +736,7 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "streetAddresses": {
                   "description": "StreetAddresses defines the X.509 Subject Street Addresses that may be\nrequested.",
@@ -801,8 +779,7 @@
                             "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "x-kubernetes-list-map-keys": [
                         "rule"
@@ -822,11 +799,9 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "uris": {
               "description": "URIs defines the X.509 URI SANs that may be requested.",
@@ -869,8 +844,7 @@
                         "description": "Rule represents the expression which will be evaluated by CEL.\nref: https://github.com/google/cel-spec\nThe Rule is scoped to the location of the validations in the schema.\nThe `self` variable in the CEL expression is bound to the scoped value.\nTo enable more advanced validation rules, approver-policy provides the\n`cr` (map) variable to the CEL expression containing `namespace` and\n`name` of the `CertificateRequest` resource.\n\n\nExample (rule for namespaced DNSNames):\n```\nrule: self.endsWith(cr.namespace + '.svc.cluster.local')\n```",
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "x-kubernetes-list-map-keys": [
                     "rule"
@@ -890,8 +864,7 @@
                     ]
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "usages": {
               "description": "Usages defines the key usages that may be included in a\nCertificateRequest `spec.keyUsages` field.\nIf set, `spec.keyUsages` in a CertificateRequest must be a subset of the\nspecified values.\nIf `[]` or unset, no `spec.keyUsages` are allowed.\nTODO: add x-kubernetes-list-type: set in v1alpha2",
@@ -932,8 +905,7 @@
                 ]
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "constraints": {
           "description": "Constraints define fields that _must_ be satisfied by a\nCertificateRequest for the request to be allowed by this policy.\nOmitted fields place no restrictions on the corresponding\nattribute in a request.",
@@ -989,11 +961,9 @@
                     "null"
                   ]
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "plugins": {
           "description": "Plugins are approvers that are built into approver-policy at\ncompile-time. This is an advanced feature typically used to extend\napprover-policy core features. This field define plugins and their\nconfiguration that should be executed when this policy is evaluated\nagainst a CertificateRequest.",
@@ -1021,8 +991,7 @@
                   ]
                 }
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "selector": {
@@ -1057,8 +1026,7 @@
                     "null"
                   ]
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "namespace": {
               "description": "Namespace is used to match by namespace, meaning the\nCertificateRequestPolicy will only match CertificateRequests\ncreated in matching namespaces.\nIf this field is omitted, resources in all namespaces are checked.",
@@ -1093,14 +1061,11 @@
                     ]
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "CertificateRequestPolicyStatus defines the observed state of the\nCertificateRequestPolicy.",
@@ -1164,16 +1129,14 @@
                 "description": "Type of the condition, known values are (`Ready`).",
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           },
           "x-kubernetes-list-map-keys": [
             "type"
           ],
           "x-kubernetes-list-type": "map"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -1183,6 +1146,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

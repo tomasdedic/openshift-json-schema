@@ -274,6 +274,11 @@
       "version": "v1"
     },
     {
+      "group": "openreports.io",
+      "kind": "WatchEvent",
+      "version": "v1alpha1"
+    },
+    {
       "group": "policy",
       "kind": "WatchEvent",
       "version": "v1"
@@ -307,6 +312,11 @@
       "group": "rbac.authorization.k8s.io",
       "kind": "WatchEvent",
       "version": "v1beta1"
+    },
+    {
+      "group": "reports.kyverno.io",
+      "kind": "WatchEvent",
+      "version": "v1"
     },
     {
       "group": "resource.k8s.io",
@@ -362,8 +372,12 @@
       "group": "user.openshift.io",
       "kind": "WatchEvent",
       "version": "v1"
+    },
+    {
+      "group": "wgpolicyk8s.io",
+      "kind": "WatchEvent",
+      "version": "v1alpha2"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

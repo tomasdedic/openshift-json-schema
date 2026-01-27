@@ -124,7 +124,7 @@
                   "null"
                 ],
                 "items": {
-                  "description": "MatchCondition represents a condition which must be fulfilled for a request to be sent to a webhook.",
+                  "description": "MatchCondition represents a condition which must by fulfilled for a request to be sent to a webhook.",
                   "type": [
                     "object",
                     "null"
@@ -3273,11 +3273,11 @@
                           ]
                         },
                         "patchStrategicMerge": {
-                          "description": "PatchStrategicMerge is a strategic merge patch used to modify resources.\nSee https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/\nand https://kubectl.docs.kubernetes.io/references/kustomize/patchesstrategicmerge/.",
+                          "description": "PatchStrategicMerge is a strategic merge patch used to modify resources.\nSee https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/\nand https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesstrategicmerge/.",
                           "x-kubernetes-preserve-unknown-fields": true
                         },
                         "patchesJson6902": {
-                          "description": "PatchesJSON6902 is a list of RFC 6902 JSON Patch declarations used to modify resources.\nSee https://tools.ietf.org/html/rfc6902 and https://kubectl.docs.kubernetes.io/references/kustomize/patchesjson6902/.",
+                          "description": "PatchesJSON6902 is a list of RFC 6902 JSON Patch declarations used to modify resources.\nSee https://tools.ietf.org/html/rfc6902 and https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesjson6902/.",
                           "type": [
                             "string",
                             "null"
@@ -3298,11 +3298,11 @@
                     ]
                   },
                   "patchStrategicMerge": {
-                    "description": "PatchStrategicMerge is a strategic merge patch used to modify resources.\nSee https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/\nand https://kubectl.docs.kubernetes.io/references/kustomize/patchesstrategicmerge/.",
+                    "description": "PatchStrategicMerge is a strategic merge patch used to modify resources.\nSee https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/\nand https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesstrategicmerge/.",
                     "x-kubernetes-preserve-unknown-fields": true
                   },
                   "patchesJson6902": {
-                    "description": "PatchesJSON6902 is a list of RFC 6902 JSON Patch declarations used to modify resources.\nSee https://tools.ietf.org/html/rfc6902 and https://kubectl.docs.kubernetes.io/references/kustomize/patchesjson6902/.",
+                    "description": "PatchesJSON6902 is a list of RFC 6902 JSON Patch declarations used to modify resources.\nSee https://tools.ietf.org/html/rfc6902 and https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesjson6902/.",
                     "type": [
                       "string",
                       "null"
@@ -3842,6 +3842,13 @@
                             }
                           }
                         }
+                      },
+                      "generate": {
+                        "description": "Generate specifies whether to generate a Kubernetes ValidatingAdmissionPolicy from the rule.\nOptional. Defaults to \"false\" if not specified.",
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
                       },
                       "paramKind": {
                         "description": "ParamKind is a tuple of Group Kind and Version.",
@@ -6501,7 +6508,7 @@
                       "null"
                     ],
                     "items": {
-                      "description": "MatchCondition represents a condition which must be fulfilled for a request to be sent to a webhook.",
+                      "description": "MatchCondition represents a condition which must by fulfilled for a request to be sent to a webhook.",
                       "type": [
                         "object",
                         "null"
@@ -9650,11 +9657,11 @@
                               ]
                             },
                             "patchStrategicMerge": {
-                              "description": "PatchStrategicMerge is a strategic merge patch used to modify resources.\nSee https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/\nand https://kubectl.docs.kubernetes.io/references/kustomize/patchesstrategicmerge/.",
+                              "description": "PatchStrategicMerge is a strategic merge patch used to modify resources.\nSee https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/\nand https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesstrategicmerge/.",
                               "x-kubernetes-preserve-unknown-fields": true
                             },
                             "patchesJson6902": {
-                              "description": "PatchesJSON6902 is a list of RFC 6902 JSON Patch declarations used to modify resources.\nSee https://tools.ietf.org/html/rfc6902 and https://kubectl.docs.kubernetes.io/references/kustomize/patchesjson6902/.",
+                              "description": "PatchesJSON6902 is a list of RFC 6902 JSON Patch declarations used to modify resources.\nSee https://tools.ietf.org/html/rfc6902 and https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesjson6902/.",
                               "type": [
                                 "string",
                                 "null"
@@ -9675,11 +9682,11 @@
                         ]
                       },
                       "patchStrategicMerge": {
-                        "description": "PatchStrategicMerge is a strategic merge patch used to modify resources.\nSee https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/\nand https://kubectl.docs.kubernetes.io/references/kustomize/patchesstrategicmerge/.",
+                        "description": "PatchStrategicMerge is a strategic merge patch used to modify resources.\nSee https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/\nand https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesstrategicmerge/.",
                         "x-kubernetes-preserve-unknown-fields": true
                       },
                       "patchesJson6902": {
-                        "description": "PatchesJSON6902 is a list of RFC 6902 JSON Patch declarations used to modify resources.\nSee https://tools.ietf.org/html/rfc6902 and https://kubectl.docs.kubernetes.io/references/kustomize/patchesjson6902/.",
+                        "description": "PatchesJSON6902 is a list of RFC 6902 JSON Patch declarations used to modify resources.\nSee https://tools.ietf.org/html/rfc6902 and https://kubectl.docs.kubernetes.io/references/kustomize/kustomization/patchesjson6902/.",
                         "type": [
                           "string",
                           "null"
@@ -10219,6 +10226,13 @@
                                 }
                               }
                             }
+                          },
+                          "generate": {
+                            "description": "Generate specifies whether to generate a Kubernetes ValidatingAdmissionPolicy from the rule.\nOptional. Defaults to \"false\" if not specified.",
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
                           },
                           "paramKind": {
                             "description": "ParamKind is a tuple of Group Kind and Version.",

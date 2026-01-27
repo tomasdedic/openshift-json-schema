@@ -73,8 +73,7 @@
                 "null"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         },
         "title": {
           "description": "title of the YAML sample.",
@@ -86,8 +85,7 @@
           "type": "string",
           "pattern": "^(.|\\s)*\\S(.|\\s)*$"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -97,6 +95,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

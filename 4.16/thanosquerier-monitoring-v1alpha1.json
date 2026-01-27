@@ -1,0 +1,236 @@
+{
+  "description": "ThanosQuerier outlines the Thanos querier components, managed by this stack",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "monitoring.rhobs/v1alpha1"
+      ]
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "ThanosQuerier"
+      ]
+    },
+    "metadata": {
+      "description": "Standard object's metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta"
+    },
+    "spec": {
+      "description": "ThanosQuerierSpec defines a single Thanos Querier instance. This means a\nlabel selector by which Monitoring Stack instances to query are selected, and\nan optional namespace selector and a list of replica labels by which to\ndeduplicate.",
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "selector"
+      ],
+      "properties": {
+        "namespaceSelector": {
+          "description": "namespaceSelector defines in which namespaces the MonitoringStack\nresources are discovered from.\n\nBy default, resources are only discovered in the current namespace.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "any": {
+              "description": "Boolean describing whether all namespaces are selected in contrast to a\nlist restricting them.",
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "matchNames": {
+              "description": "List of namespace names.",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        },
+        "replicaLabels": {
+          "description": "replicaLabels is the list of labels used to deduplicate the data between\nhighly-available replicas.\n\nThanos Querier is always configured with `prometheus_replica` as replica\nlabel.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "selector": {
+          "description": "selector is the label selector used to select MonitoringStack\nresources.\n\nBy default, all resources are matched.",
+          "type": "object",
+          "properties": {
+            "matchExpressions": {
+              "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "description": "A label selector requirement is a selector that contains values, a key, and an operator that\nrelates the key and values.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "key",
+                  "operator"
+                ],
+                "properties": {
+                  "key": {
+                    "description": "key is the label key that the selector applies to.",
+                    "type": "string"
+                  },
+                  "operator": {
+                    "description": "operator represents a key's relationship to a set of values.\nValid operators are In, NotIn, Exists and DoesNotExist.",
+                    "type": "string"
+                  },
+                  "values": {
+                    "description": "values is an array of string values. If the operator is In or NotIn,\nthe values array must be non-empty. If the operator is Exists or DoesNotExist,\nthe values array must be empty. This array is replaced during a strategic\nmerge patch.",
+                    "type": [
+                      "array",
+                      "null"
+                    ],
+                    "items": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "x-kubernetes-list-type": "atomic"
+                  }
+                }
+              },
+              "x-kubernetes-list-type": "atomic"
+            },
+            "matchLabels": {
+              "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels\nmap is equivalent to an element of matchExpressions, whose key field is \"key\", the\noperator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "x-kubernetes-map-type": "atomic"
+        },
+        "webTLSConfig": {
+          "description": "webTLSConfig configures the TLS options for the Thanos web server.",
+          "type": [
+            "object",
+            "null"
+          ],
+          "required": [
+            "certificate",
+            "certificateAuthority",
+            "privateKey"
+          ],
+          "properties": {
+            "certificate": {
+              "description": "Reference to the TLS public certificate for the web server.",
+              "type": "object",
+              "required": [
+                "key",
+                "name"
+              ],
+              "properties": {
+                "key": {
+                  "description": "The key of the secret to select from.  Must be a valid secret key.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name": {
+                  "description": "The name of the secret in the object's namespace to select from.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "certificateAuthority": {
+              "description": "Reference to the root Certificate Authority used to verify the web server's certificate.",
+              "type": "object",
+              "required": [
+                "key",
+                "name"
+              ],
+              "properties": {
+                "key": {
+                  "description": "The key of the secret to select from.  Must be a valid secret key.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name": {
+                  "description": "The name of the secret in the object's namespace to select from.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "privateKey": {
+              "description": "Reference to the TLS private key for the web server.",
+              "type": "object",
+              "required": [
+                "key",
+                "name"
+              ],
+              "properties": {
+                "key": {
+                  "description": "The key of the secret to select from.  Must be a valid secret key.",
+                  "type": "string",
+                  "minLength": 1
+                },
+                "name": {
+                  "description": "The name of the secret in the object's namespace to select from.",
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "description": "ThanosQuerierStatus defines the observed state of ThanosQuerier.\nIt should always be reconstructable from the state of the cluster and/or outside world.",
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "monitoring.rhobs",
+      "kind": "ThanosQuerier",
+      "version": "v1alpha1"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

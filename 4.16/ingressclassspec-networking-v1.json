@@ -14,6 +14,5 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.IngressClassParametersReference"
     }
   },
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

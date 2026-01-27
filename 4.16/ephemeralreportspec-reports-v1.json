@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "owner"
+  ],
+  "properties": {
+    "owner": {
+      "description": "Owner is a reference to the report owner (e.g. a Deployment, Namespace, or Node)",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference"
+    },
+    "results": {
+      "description": "PolicyReportResult provides result details",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "_definitions.json#/definitions/com.github.kyverno.kyverno.api.policyreport.v1alpha2.PolicyReportResult"
+      }
+    },
+    "summary": {
+      "description": "PolicyReportSummary provides a summary of results",
+      "$ref": "_definitions.json#/definitions/com.github.kyverno.kyverno.api.policyreport.v1alpha2.PolicyReportSummary"
+    }
+  },
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -43,8 +43,7 @@
             "x-kubernetes-int-or-string": true
           }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "HostFirmwareSettingsStatus defines the observed state of HostFirmwareSettings.",
@@ -117,8 +116,7 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           },
           "x-kubernetes-list-map-keys": [
             "type"
@@ -152,8 +150,7 @@
               "description": "`namespace` is the namespace of the where the schema is stored.",
               "type": "string"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "settings": {
           "description": "Settings are the firmware settings stored as name/value pairs",
@@ -165,8 +162,7 @@
             ]
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -176,6 +172,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

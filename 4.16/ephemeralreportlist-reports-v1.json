@@ -1,5 +1,5 @@
 {
-  "description": "EphemeralReportList is a list of EphemeralReport",
+  "description": "EphemeralReportList contains a list of EphemeralReport",
   "type": "object",
   "required": [
     "items"
@@ -16,13 +16,12 @@
       ]
     },
     "items": {
-      "description": "List of ephemeralreports. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md",
       "type": [
         "array",
         "null"
       ],
       "items": {
-        "$ref": "_definitions.json#/definitions/io.kyverno.reports.v1.EphemeralReport"
+        "$ref": "_definitions.json#/definitions/com.github.kyverno.kyverno.api.reports.v1.EphemeralReport"
       }
     },
     "kind": {
@@ -36,7 +35,6 @@
       ]
     },
     "metadata": {
-      "description": "Standard list metadata. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
     }
   },

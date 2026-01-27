@@ -1,0 +1,70 @@
+{
+  "description": "Report is the Schema for the reports API",
+  "type": "object",
+  "properties": {
+    "apiVersion": {
+      "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "openreports.io/v1alpha1"
+      ]
+    },
+    "configuration": {
+      "description": "Configuration is an optional field which can be used to specify a contract between Report generators and consumers",
+      "$ref": "_definitions.json#/definitions/io.openreports.apis.openreports.io.v1alpha1.ReportConfiguration"
+    },
+    "kind": {
+      "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "Report"
+      ]
+    },
+    "metadata": {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta_v2"
+    },
+    "results": {
+      "description": "ReportResult provides result details",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.openreports.apis.openreports.io.v1alpha1.ReportResult"
+      }
+    },
+    "scope": {
+      "description": "Scope is an optional reference to the report scope (e.g. a Deployment, Namespace, or Node)",
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference"
+    },
+    "scopeSelector": {
+      "description": "ScopeSelector is an optional selector for multiple scopes (e.g. Pods). Either one of, or none of, but not both of, Scope or ScopeSelector should be specified.",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector_v3"
+    },
+    "source": {
+      "description": "Source is an identifier for the source e.g. a policy engine that manages this report. Use this field if all the results are produced by a single policy engine. If the results are produced by multiple sources e.g. different engines or scanners, then use the Source field at the ReportResult level.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "summary": {
+      "description": "ReportSummary provides a summary of results",
+      "$ref": "_definitions.json#/definitions/io.openreports.apis.openreports.io.v1alpha1.ReportSummary"
+    }
+  },
+  "x-kubernetes-group-version-kind": [
+    {
+      "group": "openreports.io",
+      "kind": "Report",
+      "version": "v1alpha1"
+    }
+  ],
+  "$schema": "http://json-schema.org/schema#"
+}

@@ -92,8 +92,7 @@
                           ]
                         }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "matchLabels": {
@@ -109,8 +108,7 @@
                     ]
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "refs": {
               "description": "Refs are a set of references to the operator's component resources, selected with LabelSelector.",
@@ -187,8 +185,7 @@
                           "description": "Type of condition.",
                           "type": "string"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
                   },
                   "fieldPath": {
@@ -233,15 +230,12 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -251,6 +245,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

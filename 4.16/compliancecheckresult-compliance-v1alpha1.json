@@ -32,7 +32,7 @@
       ]
     },
     "instructions": {
-      "description": "How to evaluate if the rule status manually. If no automatic test is present, the rule status will be MANUAL and the administrator should follow these instructions.",
+      "description": "How to evaluate if the rule status manually. If no automatic test is present, the rule status will be MANUAL\nand the administrator should follow these instructions.",
       "type": [
         "string",
         "null"

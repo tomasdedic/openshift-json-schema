@@ -60,6 +60,12 @@
             "null"
           ]
         },
+        "appName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "args": {
           "type": [
             "array",
@@ -83,6 +89,12 @@
           "type": "string"
         },
         "enableContainerHostId": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "enableContainerd": {
           "type": [
             "boolean",
             "null"
@@ -126,7 +138,7 @@
                 "type": "string"
               },
               "value": {
-                "description": "Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".",
+                "description": "Variable references $(VAR_NAME) are expanded\nusing the previously defined environment variables in the container and\nany service environment variables. If a variable cannot be resolved,\nthe reference in the input string will be unchanged. Double $$ are reduced\nto a single $, which allows for escaping the $(VAR_NAME) syntax: i.e.\n\"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\".\nEscaped references will never be expanded, regardless of whether the variable\nexists or not.\nDefaults to \"\".",
                 "type": [
                   "string",
                   "null"
@@ -154,7 +166,7 @@
                         "type": "string"
                       },
                       "name": {
-                        "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?",
+                        "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                         "type": [
                           "string",
                           "null"
@@ -168,10 +180,10 @@
                         ]
                       }
                     },
-                    "additionalProperties": false
+                    "x-kubernetes-map-type": "atomic"
                   },
                   "fieldRef": {
-                    "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`, spec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.",
+                    "description": "Selects a field of the pod: supports metadata.name, metadata.namespace, `metadata.labels['<KEY>']`, `metadata.annotations['<KEY>']`,\nspec.nodeName, spec.serviceAccountName, status.hostIP, status.podIP, status.podIPs.",
                     "type": [
                       "object",
                       "null"
@@ -192,10 +204,10 @@
                         "type": "string"
                       }
                     },
-                    "additionalProperties": false
+                    "x-kubernetes-map-type": "atomic"
                   },
                   "resourceFieldRef": {
-                    "description": "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.",
+                    "description": "Selects a resource of the container: only resources limits and requests\n(limits.cpu, limits.memory, limits.ephemeral-storage, requests.cpu, requests.memory and requests.ephemeral-storage) are currently supported.",
                     "type": [
                       "object",
                       "null"
@@ -221,7 +233,7 @@
                         "type": "string"
                       }
                     },
-                    "additionalProperties": false
+                    "x-kubernetes-map-type": "atomic"
                   },
                   "secretKeyRef": {
                     "description": "Selects a key of a secret in the pod's namespace",
@@ -238,7 +250,7 @@
                         "type": "string"
                       },
                       "name": {
-                        "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?",
+                        "description": "Name of the referent.\nThis field is effectively required, but due to backwards compatibility is\nallowed to be empty. Instances of this type with an empty value here are\nalmost certainly wrong.\nMore info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                         "type": [
                           "string",
                           "null"
@@ -252,13 +264,11 @@
                         ]
                       }
                     },
-                    "additionalProperties": false
+                    "x-kubernetes-map-type": "atomic"
                   }
-                },
-                "additionalProperties": false
+                }
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "eventServiceUrl": {
@@ -266,6 +276,13 @@
             "string",
             "null"
           ]
+        },
+        "fsGroup": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
         },
         "globalAccount": {
           "type": [
@@ -279,6 +296,12 @@
             "null"
           ]
         },
+        "imagePullPolicy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "imagePullSecret": {
           "type": [
             "string",
@@ -286,6 +309,18 @@
           ]
         },
         "imageWin": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "keyStoreFileSecret": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "keyStorePasswordSecret": {
           "type": [
             "string",
             "null"
@@ -315,6 +350,195 @@
             "null"
           ],
           "format": "int32"
+        },
+        "netVizSecurityContext": {
+          "description": "NetViz Security Context Properties",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "allowPrivilegeEscalation": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "capabilities": {
+              "description": "Adds and removes POSIX capabilities from running containers.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "add": {
+                  "description": "Added capabilities",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "description": "Capability represent POSIX capabilities type",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "x-kubernetes-list-type": "atomic"
+                },
+                "drop": {
+                  "description": "Removed capabilities",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "description": "Capability represent POSIX capabilities type",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "x-kubernetes-list-type": "atomic"
+                }
+              }
+            },
+            "privileged": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "procMount": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "readOnlyRootFilesystem": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "runAsGroup": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "runAsNonRoot": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "runAsUser": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "seLinuxOptions": {
+              "description": "SELinuxOptions are the labels to be applied to the container",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "level": {
+                  "description": "Level is SELinux level label that applies to the container.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "role": {
+                  "description": "Role is a SELinux role label that applies to the container.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": {
+                  "description": "Type is a SELinux type label that applies to the container.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "user": {
+                  "description": "User is a SELinux user label that applies to the container.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "seccompProfile": {
+              "description": "SeccompProfile defines a pod/container's seccomp profile settings.\nOnly one profile source may be set.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "localhostProfile": {
+                  "description": "localhostProfile indicates a profile defined in a file on the node should be used.\nThe profile must be preconfigured on the node to work.\nMust be a descending path, relative to the kubelet's configured seccomp profile location.\nMust only be set if type is \"Localhost\".",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": {
+                  "description": "type indicates which kind of seccomp profile will be applied.\nValid options are:\n\nLocalhost - a profile defined in a file on the node should be used.\nRuntimeDefault - the container runtime default profile should be used.\nUnconfined - no profile should be applied.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "windowsOptions": {
+              "description": "WindowsSecurityContextOptions contain Windows-specific options and credentials.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "gmsaCredentialSpec": {
+                  "description": "GMSACredentialSpec is where the GMSA admission webhook\n(https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the\nGMSA credential spec named by the GMSACredentialSpecName field.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "gmsaCredentialSpecName": {
+                  "description": "GMSACredentialSpecName is the name of the GMSA credential spec to use.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "hostProcess": {
+                  "description": "HostProcess determines if a container should be run as a 'Host Process' container.\nAll of a Pod's containers must have the same effective HostProcess value\n(it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).\nIn addition, if HostProcess is true then HostNetwork must also be set to true.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "runAsUserName": {
+                  "description": "The UserName in Windows to run the entrypoint of the container process.\nDefaults to the user specified in image metadata if unspecified.\nMay also be set in PodSecurityContext. If set in both SecurityContext and\nPodSecurityContext, the value specified in SecurityContext takes precedence.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
         },
         "netlibEnabled": {
           "type": [
@@ -375,7 +599,7 @@
             ],
             "properties": {
               "containerPort": {
-                "description": "Number of port to expose on the pod's IP address. This must be a valid port number, 0 < x < 65536.",
+                "description": "Number of port to expose on the pod's IP address.\nThis must be a valid port number, 0 < x < 65536.",
                 "type": "integer",
                 "format": "int32"
               },
@@ -387,7 +611,7 @@
                 ]
               },
               "hostPort": {
-                "description": "Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.",
+                "description": "Number of port to expose on the host.\nIf specified, this must be a valid port number, 0 < x < 65536.\nIf HostNetwork is specified, this must match ContainerPort.\nMost containers do not need this.",
                 "type": [
                   "integer",
                   "null"
@@ -395,21 +619,20 @@
                 "format": "int32"
               },
               "name": {
-                "description": "If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.",
+                "description": "If specified, this must be an IANA_SVC_NAME and unique within the pod. Each\nnamed port in a pod must have a unique name. Name for the port that can be\nreferred to by services.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "protocol": {
-                "description": "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".",
+                "description": "Protocol for port. Must be UDP, TCP, or SCTP.\nDefaults to \"TCP\".",
                 "type": [
                   "string",
                   "null"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "priorityClassName": {
@@ -443,8 +666,42 @@
             "null"
           ],
           "properties": {
+            "claims": {
+              "description": "Claims lists the names of resources, defined in spec.resourceClaims,\nthat are used by this container.\n\nThis is an alpha field and requires enabling the\nDynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "description": "Name must match the name of one entry in pod.spec.resourceClaims of\nthe Pod where this field is used. It makes that resource available\ninside a container.",
+                    "type": "string"
+                  },
+                  "request": {
+                    "description": "Request is the name chosen for a request in the referenced claim.\nIf empty, everything from the claim is made available, otherwise\nonly the result of this request.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "x-kubernetes-list-map-keys": [
+                "name"
+              ],
+              "x-kubernetes-list-type": "map"
+            },
             "limits": {
-              "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "description": "Limits describes the maximum amount of compute resources allowed.\nMore info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
               "type": [
                 "object",
                 "null"
@@ -455,7 +712,7 @@
               }
             },
             "requests": {
-              "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "description": "Requests describes the minimum amount of compute resources required.\nIf Requests is omitted for a container, it defaults to Limits if that is explicitly specified,\notherwise to an implementation-defined value. Requests cannot exceed Limits.\nMore info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
               "type": [
                 "object",
                 "null"
@@ -465,8 +722,7 @@
                 "x-kubernetes-int-or-string": true
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "resourcesNetViz": {
           "description": "ResourceRequirements describes the compute resource requirements.",
@@ -475,8 +731,42 @@
             "null"
           ],
           "properties": {
+            "claims": {
+              "description": "Claims lists the names of resources, defined in spec.resourceClaims,\nthat are used by this container.\n\nThis is an alpha field and requires enabling the\nDynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
+              "type": [
+                "array",
+                "null"
+              ],
+              "items": {
+                "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "description": "Name must match the name of one entry in pod.spec.resourceClaims of\nthe Pod where this field is used. It makes that resource available\ninside a container.",
+                    "type": "string"
+                  },
+                  "request": {
+                    "description": "Request is the name chosen for a request in the referenced claim.\nIf empty, everything from the claim is made available, otherwise\nonly the result of this request.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              },
+              "x-kubernetes-list-map-keys": [
+                "name"
+              ],
+              "x-kubernetes-list-type": "map"
+            },
             "limits": {
-              "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "description": "Limits describes the maximum amount of compute resources allowed.\nMore info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
               "type": [
                 "object",
                 "null"
@@ -487,7 +777,7 @@
               }
             },
             "requests": {
-              "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+              "description": "Requests describes the minimum amount of compute resources required.\nIf Requests is omitted for a container, it defaults to Limits if that is explicitly specified,\notherwise to an implementation-defined value. Requests cannot exceed Limits.\nMore info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
               "type": [
                 "object",
                 "null"
@@ -497,8 +787,210 @@
                 "x-kubernetes-int-or-string": true
               }
             }
-          },
-          "additionalProperties": false
+          }
+        },
+        "runAsGroup": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "runAsUser": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int64"
+        },
+        "securityContext": {
+          "description": "Security Context Properties",
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "allowPrivilegeEscalation": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "capabilities": {
+              "description": "Adds and removes POSIX capabilities from running containers.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "add": {
+                  "description": "Added capabilities",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "description": "Capability represent POSIX capabilities type",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "x-kubernetes-list-type": "atomic"
+                },
+                "drop": {
+                  "description": "Removed capabilities",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "description": "Capability represent POSIX capabilities type",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "x-kubernetes-list-type": "atomic"
+                }
+              }
+            },
+            "privileged": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "procMount": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "readOnlyRootFilesystem": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "runAsGroup": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "runAsNonRoot": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "runAsUser": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int64"
+            },
+            "seLinuxOptions": {
+              "description": "SELinuxOptions are the labels to be applied to the container",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "level": {
+                  "description": "Level is SELinux level label that applies to the container.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "role": {
+                  "description": "Role is a SELinux role label that applies to the container.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": {
+                  "description": "Type is a SELinux type label that applies to the container.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "user": {
+                  "description": "User is a SELinux user label that applies to the container.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "seccompProfile": {
+              "description": "SeccompProfile defines a pod/container's seccomp profile settings.\nOnly one profile source may be set.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "localhostProfile": {
+                  "description": "localhostProfile indicates a profile defined in a file on the node should be used.\nThe profile must be preconfigured on the node to work.\nMust be a descending path, relative to the kubelet's configured seccomp profile location.\nMust only be set if type is \"Localhost\".",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "type": {
+                  "description": "type indicates which kind of seccomp profile will be applied.\nValid options are:\n\nLocalhost - a profile defined in a file on the node should be used.\nRuntimeDefault - the container runtime default profile should be used.\nUnconfined - no profile should be applied.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "windowsOptions": {
+              "description": "WindowsSecurityContextOptions contain Windows-specific options and credentials.",
+              "type": [
+                "object",
+                "null"
+              ],
+              "properties": {
+                "gmsaCredentialSpec": {
+                  "description": "GMSACredentialSpec is where the GMSA admission webhook\n(https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the\nGMSA credential spec named by the GMSACredentialSpecName field.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "gmsaCredentialSpecName": {
+                  "description": "GMSACredentialSpecName is the name of the GMSA credential spec to use.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "hostProcess": {
+                  "description": "HostProcess determines if a container should be run as a 'Host Process' container.\nAll of a Pod's containers must have the same effective HostProcess value\n(it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).\nIn addition, if HostProcess is true then HostNetwork must also be set to true.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
+                "runAsUserName": {
+                  "description": "The UserName in Windows to run the entrypoint of the container process.\nDefaults to the user specified in image metadata if unspecified.\nMay also be set in PodSecurityContext. If set in both SecurityContext and\nPodSecurityContext, the value specified in SecurityContext takes precedence.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
         },
         "stdoutLogging": {
           "type": [
@@ -519,35 +1011,35 @@
             "null"
           ],
           "items": {
-            "description": "The pod this Toleration is attached to tolerates any taint that matches the triple <key,value,effect> using the matching operator <operator>.",
+            "description": "The pod this Toleration is attached to tolerates any taint that matches\nthe triple <key,value,effect> using the matching operator <operator>.",
             "type": [
               "object",
               "null"
             ],
             "properties": {
               "effect": {
-                "description": "Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.",
+                "description": "Effect indicates the taint effect to match. Empty means match all taint effects.\nWhen specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "key": {
-                "description": "Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.",
+                "description": "Key is the taint key that the toleration applies to. Empty means match all taint keys.\nIf the key is empty, operator must be Exists; this combination means to match all values and all keys.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "operator": {
-                "description": "Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.",
+                "description": "Operator represents a key's relationship to the value.\nValid operators are Exists and Equal. Defaults to Equal.\nExists is equivalent to wildcard for value, so that a pod can\ntolerate all taints of a particular category.",
                 "type": [
                   "string",
                   "null"
                 ]
               },
               "tolerationSeconds": {
-                "description": "TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise this field is ignored) tolerates the taint. By default, it is not set, which means tolerate the taint forever (do not evict). Zero and negative values will be treated as 0 (evict immediately) by the system.",
+                "description": "TolerationSeconds represents the period of time the toleration (which must be\nof effect NoExecute, otherwise this field is ignored) tolerates the taint. By default,\nit is not set, which means tolerate the taint forever (do not evict). Zero and\nnegative values will be treated as 0 (evict immediately) by the system.",
                 "type": [
                   "integer",
                   "null"
@@ -555,14 +1047,13 @@
                 "format": "int64"
               },
               "value": {
-                "description": "Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.",
+                "description": "Value is the taint value the toleration matches to.\nIf the operator is Exists, the value should be empty, otherwise just a regular string.",
                 "type": [
                   "string",
                   "null"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "uniqueHostId": {
@@ -571,8 +1062,7 @@
             "null"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "InfraVizStatus defines the observed state of InfraViz",
@@ -586,7 +1076,7 @@
       ],
       "properties": {
         "lastUpdateTime": {
-          "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster Important: Run \"make\" to regenerate code after modifying this file",
+          "description": "INSERT ADDITIONAL STATUS FIELD - define observed state of cluster\nImportant: Run \"make\" to regenerate code after modifying this file",
           "type": "string",
           "format": "date-time"
         },
@@ -605,8 +1095,7 @@
         "version": {
           "type": "string"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -616,6 +1105,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

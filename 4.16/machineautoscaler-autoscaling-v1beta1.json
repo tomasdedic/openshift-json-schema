@@ -75,11 +75,9 @@
               "type": "string",
               "minLength": 1
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "Most recently observed status of a scalable resource",
@@ -116,11 +114,9 @@
               "type": "string",
               "minLength": 1
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -130,6 +126,5 @@
       "version": "v1beta1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

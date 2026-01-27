@@ -118,16 +118,14 @@
                     "maximum": 65535,
                     "minimum": 1
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "type": {
                 "description": "type is the type of the console plugin's proxy. Currently only \"Service\" is supported.",
                 "type": "string",
                 "pattern": "^(Service)$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "service": {
@@ -165,11 +163,9 @@
               "maximum": 65535,
               "minimum": 1
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -179,6 +175,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "properties": {
+    "maxResults": {
+      "description": "MaxResults is the maximum number of results contained in the report",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "format": "int32"
+    },
+    "statusFilter": {
+      "description": "StatusFilter indicates that the Report contains only those reports with statuses specified in this list",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/schema#"
+}

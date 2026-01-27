@@ -67,8 +67,7 @@
                 "type": "string",
                 "minLength": 1
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "recommend": {
@@ -149,8 +148,7 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               },
               "operand": {
@@ -181,11 +179,9 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "priority": {
                 "description": "Tuned profile priority. Highest priority is 0.",
@@ -198,12 +194,10 @@
                 "type": "string",
                 "minLength": 1
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "TunedStatus is the status for a Tuned resource.",
@@ -220,6 +214,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

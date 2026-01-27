@@ -56,8 +56,7 @@
             ]
           }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "LabelsStatus defines the observed state of Labels",
@@ -74,6 +73,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

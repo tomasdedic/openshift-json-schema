@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": [
+    "limits"
+  ],
+  "properties": {
+    "limits": {
+      "$ref": "_definitions.json#/definitions/io.openreports.apis.openreports.io.v1alpha1.Limits"
+    }
+  },
+  "$schema": "http://json-schema.org/schema#"
+}

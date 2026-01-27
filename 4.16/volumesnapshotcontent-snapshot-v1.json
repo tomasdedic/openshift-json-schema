@@ -72,8 +72,7 @@
                 "null"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         },
         "sourceVolumeMode": {
           "description": "SourceVolumeMode is the mode of the volume whose snapshot is taken. Can be either \u201cFilesystem\u201d or \u201cBlock\u201d. If not specified, it indicates the source volume's mode is unknown. This field is immutable. This field is an alpha field.",
@@ -143,11 +142,9 @@
               ]
             }
           },
-          "x-kubernetes-map-type": "atomic",
-          "additionalProperties": false
+          "x-kubernetes-map-type": "atomic"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "status represents the current information of a snapshot.",
@@ -186,8 +183,7 @@
               ],
               "format": "date-time"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "readyToUse": {
           "description": "readyToUse indicates if a snapshot is ready to be used to restore a volume. In dynamic snapshot creation case, this field will be filled in by the CSI snapshotter sidecar with the \"ready_to_use\" value returned from CSI \"CreateSnapshot\" gRPC call. For a pre-existing snapshot, this field will be filled with the \"ready_to_use\" value returned from the CSI \"ListSnapshots\" gRPC call if the driver supports it, otherwise, this field will be set to \"True\". If not specified, it means the readiness of a snapshot is unknown.",
@@ -219,8 +215,7 @@
             "null"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -230,6 +225,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -102,12 +102,10 @@
                   "null"
                 ]
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "GitopsServiceStatus defines the observed state of GitopsService",
@@ -124,6 +122,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

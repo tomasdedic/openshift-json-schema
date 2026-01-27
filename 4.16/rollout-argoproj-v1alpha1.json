@@ -54,8 +54,7 @@
               ],
               "format": "int32"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "minReadySeconds": {
           "type": [
@@ -117,8 +116,7 @@
               ],
               "format": "int32"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "selector": {
           "type": [
@@ -159,8 +157,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "matchLabels": {
@@ -176,8 +173,7 @@
               }
             }
           },
-          "x-kubernetes-map-type": "atomic",
-          "additionalProperties": false
+          "x-kubernetes-map-type": "atomic"
         },
         "strategy": {
           "type": [
@@ -231,8 +227,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "activeService": {
                   "type": "string"
@@ -256,8 +251,7 @@
                           "type": "integer",
                           "format": "int32"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
                       "type": [
@@ -265,8 +259,7 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "autoPromotionEnabled": {
                   "type": [
@@ -320,8 +313,7 @@
                             ]
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "args": {
                       "type": [
@@ -364,8 +356,7 @@
                                   "fieldPath": {
                                     "type": "string"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "podTemplateHashValue": {
                                 "type": [
@@ -373,11 +364,9 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "dryRun": {
@@ -397,8 +386,7 @@
                           "metricName": {
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "measurementRetention": {
@@ -423,8 +411,7 @@
                           "metricName": {
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "templates": {
@@ -450,12 +437,10 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "prePromotionAnalysis": {
                   "type": [
@@ -493,8 +478,7 @@
                             ]
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "args": {
                       "type": [
@@ -537,8 +521,7 @@
                                   "fieldPath": {
                                     "type": "string"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "podTemplateHashValue": {
                                 "type": [
@@ -546,11 +529,9 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "dryRun": {
@@ -570,8 +551,7 @@
                           "metricName": {
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "measurementRetention": {
@@ -596,8 +576,7 @@
                           "metricName": {
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "templates": {
@@ -623,12 +602,10 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "previewMetadata": {
                   "type": [
@@ -660,8 +637,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "previewReplicaCount": {
                   "type": [
@@ -690,8 +666,7 @@
                   ],
                   "format": "int32"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "canary": {
               "type": [
@@ -742,8 +717,7 @@
                             ]
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "args": {
                       "type": [
@@ -786,8 +760,7 @@
                                   "fieldPath": {
                                     "type": "string"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "podTemplateHashValue": {
                                 "type": [
@@ -795,11 +768,9 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "dryRun": {
@@ -819,8 +790,7 @@
                           "metricName": {
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "measurementRetention": {
@@ -845,8 +815,7 @@
                           "metricName": {
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "startingStep": {
@@ -879,12 +848,10 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "antiAffinity": {
                   "type": [
@@ -905,8 +872,7 @@
                           "type": "integer",
                           "format": "int32"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
                       "type": [
@@ -914,8 +880,7 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "canaryMetadata": {
                   "type": [
@@ -947,8 +912,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "canaryService": {
                   "type": [
@@ -991,8 +955,7 @@
                     "pongService": {
                       "type": "string"
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "scaleDownDelayRevisionLimit": {
                   "type": [
@@ -1038,8 +1001,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "stableService": {
                   "type": [
@@ -1094,8 +1056,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "args": {
                             "type": [
@@ -1138,8 +1099,7 @@
                                         "fieldPath": {
                                           "type": "string"
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     },
                                     "podTemplateHashValue": {
                                       "type": [
@@ -1147,11 +1107,9 @@
                                         "null"
                                       ]
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "dryRun": {
@@ -1171,8 +1129,7 @@
                                 "metricName": {
                                   "type": "string"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "measurementRetention": {
@@ -1197,8 +1154,7 @@
                                 "metricName": {
                                   "type": "string"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "templates": {
@@ -1224,12 +1180,10 @@
                                     "null"
                                   ]
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "experiment": {
                         "type": [
@@ -1296,8 +1250,7 @@
                                               "fieldPath": {
                                                 "type": "string"
                                               }
-                                            },
-                                            "additionalProperties": false
+                                            }
                                           },
                                           "podTemplateHashValue": {
                                             "type": [
@@ -1305,11 +1258,9 @@
                                               "null"
                                             ]
                                           }
-                                        },
-                                        "additionalProperties": false
+                                        }
                                       }
-                                    },
-                                    "additionalProperties": false
+                                    }
                                   }
                                 },
                                 "clusterScope": {
@@ -1330,8 +1281,7 @@
                                 "templateName": {
                                   "type": "string"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "analysisRunMetadata": {
@@ -1364,8 +1314,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "dryRun": {
                             "type": [
@@ -1384,8 +1333,7 @@
                                 "metricName": {
                                   "type": "string"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "duration": {
@@ -1436,8 +1384,7 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 },
                                 "name": {
                                   "type": "string"
@@ -1488,8 +1435,7 @@
                                               ]
                                             }
                                           }
-                                        },
-                                        "additionalProperties": false
+                                        }
                                       }
                                     },
                                     "matchLabels": {
@@ -1505,8 +1451,7 @@
                                       }
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 },
                                 "service": {
                                   "type": [
@@ -1520,8 +1465,7 @@
                                         "null"
                                       ]
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 },
                                 "specRef": {
                                   "type": "string"
@@ -1533,12 +1477,10 @@
                                   ],
                                   "format": "int32"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "pause": {
                         "type": [
@@ -1549,8 +1491,7 @@
                           "duration": {
                             "x-kubernetes-int-or-string": true
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "setCanaryScale": {
                         "type": [
@@ -1578,8 +1519,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "setHeaderRoute": {
                         "type": [
@@ -1626,11 +1566,9 @@
                                         "null"
                                       ]
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "name": {
@@ -1639,8 +1577,7 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "setMirrorRoute": {
                         "type": [
@@ -1691,8 +1628,7 @@
                                           "null"
                                         ]
                                       }
-                                    },
-                                    "additionalProperties": false
+                                    }
                                   }
                                 },
                                 "method": {
@@ -1719,8 +1655,7 @@
                                         "null"
                                       ]
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 },
                                 "path": {
                                   "type": [
@@ -1746,11 +1681,9 @@
                                         "null"
                                       ]
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "name": {
@@ -1763,8 +1696,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "setWeight": {
                         "type": [
@@ -1773,8 +1705,7 @@
                         ],
                         "format": "int32"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "trafficRouting": {
@@ -1843,11 +1774,9 @@
                             "enabled": {
                               "type": "boolean"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "ambassador": {
                       "type": [
@@ -1867,8 +1796,7 @@
                             ]
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "apisix": {
                       "type": [
@@ -1900,11 +1828,9 @@
                                 ]
                               }
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "appMesh": {
                       "type": [
@@ -1931,8 +1857,7 @@
                                 "name": {
                                   "type": "string"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             },
                             "stableVirtualNodeRef": {
                               "type": "object",
@@ -1943,11 +1868,9 @@
                                 "name": {
                                   "type": "string"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         },
                         "virtualService": {
                           "type": [
@@ -1973,11 +1896,9 @@
                                 ]
                               }
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "istio": {
                       "type": [
@@ -2005,8 +1926,7 @@
                             "stableSubsetName": {
                               "type": "string"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         },
                         "virtualService": {
                           "type": [
@@ -2050,8 +1970,7 @@
                                     ],
                                     "format": "int64"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
                             },
                             "tlsRoutes": {
@@ -2084,12 +2003,10 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         },
                         "virtualServices": {
                           "type": [
@@ -2138,8 +2055,7 @@
                                       ],
                                       "format": "int64"
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "tlsRoutes": {
@@ -2172,16 +2088,13 @@
                                         ]
                                       }
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "managedRoutes": {
                       "type": [
@@ -2200,8 +2113,7 @@
                           "name": {
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "maxTrafficWeight": {
@@ -2253,8 +2165,7 @@
                             ]
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "plugins": {
                       "x-kubernetes-preserve-unknown-fields": true
@@ -2277,8 +2188,7 @@
                             "null"
                           ]
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "traefik": {
                       "type": [
@@ -2292,17 +2202,13 @@
                         "weightedTraefikServiceName": {
                           "type": "string"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "template": {
           "type": [
@@ -2340,8 +2246,7 @@
                     ]
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "spec": {
               "type": [
@@ -2422,8 +2327,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchFields": {
@@ -2459,20 +2363,17 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "weight": {
                                 "type": "integer",
                                 "format": "int32"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         },
                         "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -2525,8 +2426,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchFields": {
@@ -2562,21 +2462,17 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               }
                             }
                           },
-                          "x-kubernetes-map-type": "atomic",
-                          "additionalProperties": false
+                          "x-kubernetes-map-type": "atomic"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "podAffinity": {
                       "type": [
@@ -2644,8 +2540,7 @@
                                                 ]
                                               }
                                             }
-                                          },
-                                          "additionalProperties": false
+                                          }
                                         }
                                       },
                                       "matchLabels": {
@@ -2661,8 +2556,7 @@
                                         }
                                       }
                                     },
-                                    "x-kubernetes-map-type": "atomic",
-                                    "additionalProperties": false
+                                    "x-kubernetes-map-type": "atomic"
                                   },
                                   "matchLabelKeys": {
                                     "type": [
@@ -2729,8 +2623,7 @@
                                                 ]
                                               }
                                             }
-                                          },
-                                          "additionalProperties": false
+                                          }
                                         }
                                       },
                                       "matchLabels": {
@@ -2746,8 +2639,7 @@
                                         }
                                       }
                                     },
-                                    "x-kubernetes-map-type": "atomic",
-                                    "additionalProperties": false
+                                    "x-kubernetes-map-type": "atomic"
                                   },
                                   "namespaces": {
                                     "type": [
@@ -2764,15 +2656,13 @@
                                   "topologyKey": {
                                     "type": "string"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "weight": {
                                 "type": "integer",
                                 "format": "int32"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         },
                         "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -2828,8 +2718,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -2845,8 +2734,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "matchLabelKeys": {
                                 "type": [
@@ -2913,8 +2801,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -2930,8 +2817,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaces": {
                                 "type": [
@@ -2948,12 +2834,10 @@
                               "topologyKey": {
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "podAntiAffinity": {
                       "type": [
@@ -3021,8 +2905,7 @@
                                                 ]
                                               }
                                             }
-                                          },
-                                          "additionalProperties": false
+                                          }
                                         }
                                       },
                                       "matchLabels": {
@@ -3038,8 +2921,7 @@
                                         }
                                       }
                                     },
-                                    "x-kubernetes-map-type": "atomic",
-                                    "additionalProperties": false
+                                    "x-kubernetes-map-type": "atomic"
                                   },
                                   "matchLabelKeys": {
                                     "type": [
@@ -3106,8 +2988,7 @@
                                                 ]
                                               }
                                             }
-                                          },
-                                          "additionalProperties": false
+                                          }
                                         }
                                       },
                                       "matchLabels": {
@@ -3123,8 +3004,7 @@
                                         }
                                       }
                                     },
-                                    "x-kubernetes-map-type": "atomic",
-                                    "additionalProperties": false
+                                    "x-kubernetes-map-type": "atomic"
                                   },
                                   "namespaces": {
                                     "type": [
@@ -3141,15 +3021,13 @@
                                   "topologyKey": {
                                     "type": "string"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "weight": {
                                 "type": "integer",
                                 "format": "int32"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         },
                         "requiredDuringSchedulingIgnoredDuringExecution": {
@@ -3205,8 +3083,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -3222,8 +3099,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "matchLabelKeys": {
                                 "type": [
@@ -3290,8 +3166,7 @@
                                             ]
                                           }
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "matchLabels": {
@@ -3307,8 +3182,7 @@
                                     }
                                   }
                                 },
-                                "x-kubernetes-map-type": "atomic",
-                                "additionalProperties": false
+                                "x-kubernetes-map-type": "atomic"
                               },
                               "namespaces": {
                                 "type": [
@@ -3325,15 +3199,12 @@
                               "topologyKey": {
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "automountServiceAccountToken": {
                   "type": [
@@ -3430,8 +3301,7 @@
                                       ]
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 },
                                 "fieldRef": {
                                   "type": [
@@ -3452,8 +3322,7 @@
                                       "type": "string"
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 },
                                 "resourceFieldRef": {
                                   "type": [
@@ -3478,8 +3347,7 @@
                                       "type": "string"
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 },
                                 "secretKeyRef": {
                                   "type": [
@@ -3506,14 +3374,11 @@
                                       ]
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "envFrom": {
@@ -3546,8 +3411,7 @@
                                   ]
                                 }
                               },
-                              "x-kubernetes-map-type": "atomic",
-                              "additionalProperties": false
+                              "x-kubernetes-map-type": "atomic"
                             },
                             "prefix": {
                               "type": [
@@ -3574,11 +3438,9 @@
                                   ]
                                 }
                               },
-                              "x-kubernetes-map-type": "atomic",
-                              "additionalProperties": false
+                              "x-kubernetes-map-type": "atomic"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "image": {
@@ -3623,8 +3485,7 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "httpGet": {
                                 "type": [
@@ -3662,8 +3523,7 @@
                                         "value": {
                                           "type": "string"
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "path": {
@@ -3681,8 +3541,7 @@
                                       "null"
                                     ]
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "sleep": {
                                 "type": [
@@ -3697,8 +3556,7 @@
                                     "type": "integer",
                                     "format": "int64"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "tcpSocket": {
                                 "type": [
@@ -3718,11 +3576,9 @@
                                   "port": {
                                     "x-kubernetes-int-or-string": true
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "preStop": {
                             "type": [
@@ -3748,8 +3604,7 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "httpGet": {
                                 "type": [
@@ -3787,8 +3642,7 @@
                                         "value": {
                                           "type": "string"
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "path": {
@@ -3806,8 +3660,7 @@
                                       "null"
                                     ]
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "sleep": {
                                 "type": [
@@ -3822,8 +3675,7 @@
                                     "type": "integer",
                                     "format": "int64"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "tcpSocket": {
                                 "type": [
@@ -3843,14 +3695,11 @@
                                   "port": {
                                     "x-kubernetes-int-or-string": true
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "livenessProbe": {
                         "type": [
@@ -3876,8 +3725,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "failureThreshold": {
                             "type": [
@@ -3905,8 +3753,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "httpGet": {
                             "type": [
@@ -3944,8 +3791,7 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "path": {
@@ -3963,8 +3809,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "initialDelaySeconds": {
                             "type": [
@@ -4005,8 +3850,7 @@
                               "port": {
                                 "x-kubernetes-int-or-string": true
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "terminationGracePeriodSeconds": {
                             "type": [
@@ -4022,8 +3866,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "name": {
                         "type": "string"
@@ -4071,8 +3914,7 @@
                                 "null"
                               ]
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         },
                         "x-kubernetes-list-map-keys": [
                           "containerPort",
@@ -4104,8 +3946,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "failureThreshold": {
                             "type": [
@@ -4133,8 +3974,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "httpGet": {
                             "type": [
@@ -4172,8 +4012,7 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "path": {
@@ -4191,8 +4030,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "initialDelaySeconds": {
                             "type": [
@@ -4233,8 +4071,7 @@
                               "port": {
                                 "x-kubernetes-int-or-string": true
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "terminationGracePeriodSeconds": {
                             "type": [
@@ -4250,8 +4087,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "resizePolicy": {
                         "type": [
@@ -4274,8 +4110,7 @@
                             "restartPolicy": {
                               "type": "string"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         },
                         "x-kubernetes-list-type": "atomic"
                       },
@@ -4302,8 +4137,7 @@
                                 "name": {
                                   "type": "string"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             },
                             "x-kubernetes-list-map-keys": [
                               "name"
@@ -4316,8 +4150,7 @@
                           "requests": {
                             "x-kubernetes-preserve-unknown-fields": true
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "restartPolicy": {
                         "type": [
@@ -4367,8 +4200,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "privileged": {
                             "type": [
@@ -4438,8 +4270,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "seccompProfile": {
                             "type": [
@@ -4459,8 +4290,7 @@
                               "type": {
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "windowsOptions": {
                             "type": [
@@ -4492,11 +4322,9 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "startupProbe": {
                         "type": [
@@ -4522,8 +4350,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "failureThreshold": {
                             "type": [
@@ -4551,8 +4378,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "httpGet": {
                             "type": [
@@ -4590,8 +4416,7 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "path": {
@@ -4609,8 +4434,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "initialDelaySeconds": {
                             "type": [
@@ -4651,8 +4475,7 @@
                               "port": {
                                 "x-kubernetes-int-or-string": true
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "terminationGracePeriodSeconds": {
                             "type": [
@@ -4668,8 +4491,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "stdin": {
                         "type": [
@@ -4722,8 +4544,7 @@
                             "name": {
                               "type": "string"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "volumeMounts": {
@@ -4771,8 +4592,7 @@
                                 "null"
                               ]
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "workingDir": {
@@ -4781,8 +4601,7 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "dnsConfig": {
@@ -4826,8 +4645,7 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "searches": {
@@ -4842,8 +4660,7 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "dnsPolicy": {
                   "type": [
@@ -4949,8 +4766,7 @@
                                       ]
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 },
                                 "fieldRef": {
                                   "type": [
@@ -4971,8 +4787,7 @@
                                       "type": "string"
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 },
                                 "resourceFieldRef": {
                                   "type": [
@@ -4997,8 +4812,7 @@
                                       "type": "string"
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 },
                                 "secretKeyRef": {
                                   "type": [
@@ -5025,14 +4839,11 @@
                                       ]
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "envFrom": {
@@ -5065,8 +4876,7 @@
                                   ]
                                 }
                               },
-                              "x-kubernetes-map-type": "atomic",
-                              "additionalProperties": false
+                              "x-kubernetes-map-type": "atomic"
                             },
                             "prefix": {
                               "type": [
@@ -5093,11 +4903,9 @@
                                   ]
                                 }
                               },
-                              "x-kubernetes-map-type": "atomic",
-                              "additionalProperties": false
+                              "x-kubernetes-map-type": "atomic"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "image": {
@@ -5142,8 +4950,7 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "httpGet": {
                                 "type": [
@@ -5181,8 +4988,7 @@
                                         "value": {
                                           "type": "string"
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "path": {
@@ -5200,8 +5006,7 @@
                                       "null"
                                     ]
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "sleep": {
                                 "type": [
@@ -5216,8 +5021,7 @@
                                     "type": "integer",
                                     "format": "int64"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "tcpSocket": {
                                 "type": [
@@ -5237,11 +5041,9 @@
                                   "port": {
                                     "x-kubernetes-int-or-string": true
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "preStop": {
                             "type": [
@@ -5267,8 +5069,7 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "httpGet": {
                                 "type": [
@@ -5306,8 +5107,7 @@
                                         "value": {
                                           "type": "string"
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "path": {
@@ -5325,8 +5125,7 @@
                                       "null"
                                     ]
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "sleep": {
                                 "type": [
@@ -5341,8 +5140,7 @@
                                     "type": "integer",
                                     "format": "int64"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "tcpSocket": {
                                 "type": [
@@ -5362,14 +5160,11 @@
                                   "port": {
                                     "x-kubernetes-int-or-string": true
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "livenessProbe": {
                         "type": [
@@ -5395,8 +5190,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "failureThreshold": {
                             "type": [
@@ -5424,8 +5218,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "httpGet": {
                             "type": [
@@ -5463,8 +5256,7 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "path": {
@@ -5482,8 +5274,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "initialDelaySeconds": {
                             "type": [
@@ -5524,8 +5315,7 @@
                               "port": {
                                 "x-kubernetes-int-or-string": true
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "terminationGracePeriodSeconds": {
                             "type": [
@@ -5541,8 +5331,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "name": {
                         "type": "string"
@@ -5590,8 +5379,7 @@
                                 "null"
                               ]
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         },
                         "x-kubernetes-list-map-keys": [
                           "containerPort",
@@ -5623,8 +5411,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "failureThreshold": {
                             "type": [
@@ -5652,8 +5439,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "httpGet": {
                             "type": [
@@ -5691,8 +5477,7 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "path": {
@@ -5710,8 +5495,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "initialDelaySeconds": {
                             "type": [
@@ -5752,8 +5536,7 @@
                               "port": {
                                 "x-kubernetes-int-or-string": true
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "terminationGracePeriodSeconds": {
                             "type": [
@@ -5769,8 +5552,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "resizePolicy": {
                         "type": [
@@ -5793,8 +5575,7 @@
                             "restartPolicy": {
                               "type": "string"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         },
                         "x-kubernetes-list-type": "atomic"
                       },
@@ -5821,8 +5602,7 @@
                                 "name": {
                                   "type": "string"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             },
                             "x-kubernetes-list-map-keys": [
                               "name"
@@ -5835,8 +5615,7 @@
                           "requests": {
                             "x-kubernetes-preserve-unknown-fields": true
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "restartPolicy": {
                         "type": [
@@ -5886,8 +5665,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "privileged": {
                             "type": [
@@ -5957,8 +5735,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "seccompProfile": {
                             "type": [
@@ -5978,8 +5755,7 @@
                               "type": {
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "windowsOptions": {
                             "type": [
@@ -6011,11 +5787,9 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "startupProbe": {
                         "type": [
@@ -6041,8 +5815,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "failureThreshold": {
                             "type": [
@@ -6070,8 +5843,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "httpGet": {
                             "type": [
@@ -6109,8 +5881,7 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "path": {
@@ -6128,8 +5899,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "initialDelaySeconds": {
                             "type": [
@@ -6170,8 +5940,7 @@
                               "port": {
                                 "x-kubernetes-int-or-string": true
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "terminationGracePeriodSeconds": {
                             "type": [
@@ -6187,8 +5956,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "stdin": {
                         "type": [
@@ -6247,8 +6015,7 @@
                             "name": {
                               "type": "string"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "volumeMounts": {
@@ -6296,8 +6063,7 @@
                                 "null"
                               ]
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "workingDir": {
@@ -6306,8 +6072,7 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "hostAliases": {
@@ -6339,8 +6104,7 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "hostIPC": {
@@ -6391,8 +6155,7 @@
                         ]
                       }
                     },
-                    "x-kubernetes-map-type": "atomic",
-                    "additionalProperties": false
+                    "x-kubernetes-map-type": "atomic"
                   }
                 },
                 "initContainers": {
@@ -6487,8 +6250,7 @@
                                       ]
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 },
                                 "fieldRef": {
                                   "type": [
@@ -6509,8 +6271,7 @@
                                       "type": "string"
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 },
                                 "resourceFieldRef": {
                                   "type": [
@@ -6535,8 +6296,7 @@
                                       "type": "string"
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 },
                                 "secretKeyRef": {
                                   "type": [
@@ -6563,14 +6323,11 @@
                                       ]
                                     }
                                   },
-                                  "x-kubernetes-map-type": "atomic",
-                                  "additionalProperties": false
+                                  "x-kubernetes-map-type": "atomic"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "envFrom": {
@@ -6603,8 +6360,7 @@
                                   ]
                                 }
                               },
-                              "x-kubernetes-map-type": "atomic",
-                              "additionalProperties": false
+                              "x-kubernetes-map-type": "atomic"
                             },
                             "prefix": {
                               "type": [
@@ -6631,11 +6387,9 @@
                                   ]
                                 }
                               },
-                              "x-kubernetes-map-type": "atomic",
-                              "additionalProperties": false
+                              "x-kubernetes-map-type": "atomic"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "image": {
@@ -6680,8 +6434,7 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "httpGet": {
                                 "type": [
@@ -6719,8 +6472,7 @@
                                         "value": {
                                           "type": "string"
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "path": {
@@ -6738,8 +6490,7 @@
                                       "null"
                                     ]
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "sleep": {
                                 "type": [
@@ -6754,8 +6505,7 @@
                                     "type": "integer",
                                     "format": "int64"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "tcpSocket": {
                                 "type": [
@@ -6775,11 +6525,9 @@
                                   "port": {
                                     "x-kubernetes-int-or-string": true
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "preStop": {
                             "type": [
@@ -6805,8 +6553,7 @@
                                       ]
                                     }
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "httpGet": {
                                 "type": [
@@ -6844,8 +6591,7 @@
                                         "value": {
                                           "type": "string"
                                         }
-                                      },
-                                      "additionalProperties": false
+                                      }
                                     }
                                   },
                                   "path": {
@@ -6863,8 +6609,7 @@
                                       "null"
                                     ]
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "sleep": {
                                 "type": [
@@ -6879,8 +6624,7 @@
                                     "type": "integer",
                                     "format": "int64"
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               },
                               "tcpSocket": {
                                 "type": [
@@ -6900,14 +6644,11 @@
                                   "port": {
                                     "x-kubernetes-int-or-string": true
                                   }
-                                },
-                                "additionalProperties": false
+                                }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "livenessProbe": {
                         "type": [
@@ -6933,8 +6674,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "failureThreshold": {
                             "type": [
@@ -6962,8 +6702,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "httpGet": {
                             "type": [
@@ -7001,8 +6740,7 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "path": {
@@ -7020,8 +6758,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "initialDelaySeconds": {
                             "type": [
@@ -7062,8 +6799,7 @@
                               "port": {
                                 "x-kubernetes-int-or-string": true
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "terminationGracePeriodSeconds": {
                             "type": [
@@ -7079,8 +6815,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "name": {
                         "type": "string"
@@ -7128,8 +6863,7 @@
                                 "null"
                               ]
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         },
                         "x-kubernetes-list-map-keys": [
                           "containerPort",
@@ -7161,8 +6895,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "failureThreshold": {
                             "type": [
@@ -7190,8 +6923,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "httpGet": {
                             "type": [
@@ -7229,8 +6961,7 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "path": {
@@ -7248,8 +6979,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "initialDelaySeconds": {
                             "type": [
@@ -7290,8 +7020,7 @@
                               "port": {
                                 "x-kubernetes-int-or-string": true
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "terminationGracePeriodSeconds": {
                             "type": [
@@ -7307,8 +7036,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "resizePolicy": {
                         "type": [
@@ -7331,8 +7059,7 @@
                             "restartPolicy": {
                               "type": "string"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         },
                         "x-kubernetes-list-type": "atomic"
                       },
@@ -7359,8 +7086,7 @@
                                 "name": {
                                   "type": "string"
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             },
                             "x-kubernetes-list-map-keys": [
                               "name"
@@ -7373,8 +7099,7 @@
                           "requests": {
                             "x-kubernetes-preserve-unknown-fields": true
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "restartPolicy": {
                         "type": [
@@ -7424,8 +7149,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "privileged": {
                             "type": [
@@ -7495,8 +7219,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "seccompProfile": {
                             "type": [
@@ -7516,8 +7239,7 @@
                               "type": {
                                 "type": "string"
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "windowsOptions": {
                             "type": [
@@ -7549,11 +7271,9 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "startupProbe": {
                         "type": [
@@ -7579,8 +7299,7 @@
                                   ]
                                 }
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "failureThreshold": {
                             "type": [
@@ -7608,8 +7327,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "httpGet": {
                             "type": [
@@ -7647,8 +7365,7 @@
                                     "value": {
                                       "type": "string"
                                     }
-                                  },
-                                  "additionalProperties": false
+                                  }
                                 }
                               },
                               "path": {
@@ -7666,8 +7383,7 @@
                                   "null"
                                 ]
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "initialDelaySeconds": {
                             "type": [
@@ -7708,8 +7424,7 @@
                               "port": {
                                 "x-kubernetes-int-or-string": true
                               }
-                            },
-                            "additionalProperties": false
+                            }
                           },
                           "terminationGracePeriodSeconds": {
                             "type": [
@@ -7725,8 +7440,7 @@
                             ],
                             "format": "int32"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       },
                       "stdin": {
                         "type": [
@@ -7779,8 +7493,7 @@
                             "name": {
                               "type": "string"
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "volumeMounts": {
@@ -7828,8 +7541,7 @@
                                 "null"
                               ]
                             }
-                          },
-                          "additionalProperties": false
+                          }
                         }
                       },
                       "workingDir": {
@@ -7838,8 +7550,7 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "nodeName": {
@@ -7873,8 +7584,7 @@
                     "name": {
                       "type": "string"
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "overhead": {
                   "type": [
@@ -7922,8 +7632,7 @@
                       "conditionType": {
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "resourceClaims": {
@@ -7961,11 +7670,9 @@
                               "null"
                             ]
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
@@ -8007,8 +7714,7 @@
                       "name": {
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "x-kubernetes-list-map-keys": [
                     "name"
@@ -8084,8 +7790,7 @@
                             "null"
                           ]
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "seccompProfile": {
                       "type": [
@@ -8105,8 +7810,7 @@
                         "type": {
                           "type": "string"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     },
                     "supplementalGroups": {
                       "type": [
@@ -8142,8 +7846,7 @@
                           "value": {
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     },
                     "windowsOptions": {
@@ -8176,11 +7879,9 @@
                             "null"
                           ]
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "serviceAccount": {
                   "type": [
@@ -8261,8 +7962,7 @@
                           "null"
                         ]
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "topologySpreadConstraints": {
@@ -8320,8 +8020,7 @@
                                     ]
                                   }
                                 }
-                              },
-                              "additionalProperties": false
+                              }
                             }
                           },
                           "matchLabels": {
@@ -8337,8 +8036,7 @@
                             }
                           }
                         },
-                        "x-kubernetes-map-type": "atomic",
-                        "additionalProperties": false
+                        "x-kubernetes-map-type": "atomic"
                       },
                       "matchLabelKeys": {
                         "type": [
@@ -8382,8 +8080,7 @@
                       "whenUnsatisfiable": {
                         "type": "string"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "x-kubernetes-list-map-keys": [
                     "topologyKey",
@@ -8400,11 +8097,9 @@
                     "x-kubernetes-preserve-unknown-fields": true
                   }
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "workloadRef": {
           "type": [
@@ -8436,11 +8131,9 @@
                 "null"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "type": [
@@ -8496,8 +8189,7 @@
                 "name": {
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "ingress": {
               "type": [
@@ -8527,8 +8219,7 @@
                 "name": {
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "stableTargetGroup": {
               "type": [
@@ -8552,11 +8243,9 @@
                 "name": {
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "albs": {
           "type": [
@@ -8591,8 +8280,7 @@
                   "name": {
                     "type": "string"
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "ingress": {
                 "type": [
@@ -8622,8 +8310,7 @@
                   "name": {
                     "type": "string"
                   }
-                },
-                "additionalProperties": false
+                }
               },
               "stableTargetGroup": {
                 "type": [
@@ -8647,11 +8334,9 @@
                   "name": {
                     "type": "string"
                   }
-                },
-                "additionalProperties": false
+                }
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "availableReplicas": {
@@ -8695,8 +8380,7 @@
                 "status": {
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "prePromotionAnalysisRunStatus": {
               "type": [
@@ -8720,8 +8404,7 @@
                 "status": {
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "previewSelector": {
               "type": [
@@ -8735,8 +8418,7 @@
                 "null"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         },
         "canary": {
           "type": [
@@ -8766,8 +8448,7 @@
                 "status": {
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "currentExperiment": {
               "type": [
@@ -8797,8 +8478,7 @@
                 "status": {
                   "type": "string"
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "stablePingPong": {
               "type": [
@@ -8846,8 +8526,7 @@
                         "type": "integer",
                         "format": "int32"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   }
                 },
                 "canary": {
@@ -8872,8 +8551,7 @@
                       "type": "integer",
                       "format": "int32"
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "stable": {
                   "type": "object",
@@ -8897,8 +8575,7 @@
                       "type": "integer",
                       "format": "int32"
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 },
                 "verified": {
                   "type": [
@@ -8906,11 +8583,9 @@
                     "null"
                   ]
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "collisionCount": {
           "type": [
@@ -8958,8 +8633,7 @@
               "type": {
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "controllerPause": {
@@ -9021,8 +8695,7 @@
                 "type": "string",
                 "format": "date-time"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "phase": {
@@ -9083,8 +8756,7 @@
             "null"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -9094,6 +8766,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

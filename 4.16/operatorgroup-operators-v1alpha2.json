@@ -81,8 +81,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "matchLabels": {
@@ -98,8 +97,7 @@
                 ]
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "serviceAccountName": {
           "description": "ServiceAccountName is the admin specified service account which will be used to deploy operator(s) in this operator group.",
@@ -128,8 +126,7 @@
             ]
           }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "OperatorGroupStatus is the status for an OperatorGroupResource.",
@@ -215,11 +212,9 @@
                 "null"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -229,6 +224,5 @@
       "version": "v1alpha2"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

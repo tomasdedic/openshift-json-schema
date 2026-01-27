@@ -1,0 +1,97 @@
+{
+  "description": "ReportResult provides the result for an individual policy",
+  "type": "object",
+  "required": [
+    "policy"
+  ],
+  "properties": {
+    "category": {
+      "description": "Category indicates policy category",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "message": {
+      "description": "Description is a short user friendly message for the policy rule",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "policy": {
+      "description": "Policy is the name or identifier of the policy",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "properties": {
+      "description": "Properties provides additional information for the policy rule",
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "resourceSelector": {
+      "description": "ResourceSelector is an optional label selector for checked Kubernetes resources. For example, a policy result may apply to all pods that match a label. Either a Subject or a ResourceSelector can be specified. If neither are provided, the result is assumed to be for the policy report scope.",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.LabelSelector_v3"
+    },
+    "resources": {
+      "description": "Subjects is an optional reference to the checked Kubernetes resources",
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ObjectReference"
+      }
+    },
+    "result": {
+      "description": "Result indicates the outcome of the policy rule execution",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rule": {
+      "description": "Rule is the name or identifier of the rule within the policy",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scored": {
+      "description": "Scored indicates if this result is scored",
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "severity": {
+      "description": "Severity indicates policy check result criticality",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source": {
+      "description": "Source is an identifier for the policy engine that manages this report If the Source is specified at this level, it will override the Source field set at the Report level",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "timestamp": {
+      "description": "Timestamp indicates the time the result was found",
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.Timestamp"
+    }
+  },
+  "$schema": "http://json-schema.org/schema#"
+}

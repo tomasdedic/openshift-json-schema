@@ -129,20 +129,17 @@
                         ]
                       }
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               }
-            },
-            "additionalProperties": false
+            }
           },
           "x-kubernetes-list-map-keys": [
             "name"
           ],
           "x-kubernetes-list-type": "map"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "status describes the current state of this AlertOverrides object.",
@@ -175,11 +172,9 @@
               "maxLength": 2048,
               "minLength": 1
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -189,6 +184,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -72,8 +72,7 @@
           "message": ".spec.featureSet cannot be removed",
           "rule": "has(oldSelf.featureSet) ? has(self.featureSet) : true"
         }
-      ],
-      "additionalProperties": false
+      ]
     },
     "status": {
       "description": "status holds observed values from the cluster. They may not be overridden.",
@@ -143,8 +142,7 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           },
           "x-kubernetes-list-map-keys": [
             "type"
@@ -186,8 +184,7 @@
                       "type": "string",
                       "pattern": "^([A-Za-z0-9-]+\\.)*[A-Za-z0-9-]+\\.?$"
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               },
               "enabled": {
@@ -210,24 +207,21 @@
                       "type": "string",
                       "pattern": "^([A-Za-z0-9-]+\\.)*[A-Za-z0-9-]+\\.?$"
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
               },
               "version": {
                 "description": "version matches the version provided by the ClusterVersion and in the ClusterOperator.Status.Versions field.",
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           },
           "x-kubernetes-list-map-keys": [
             "version"
           ],
           "x-kubernetes-list-type": "map"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -237,6 +231,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

@@ -284,6 +284,13 @@
                 "roles": {
                   "description": "Roles is a list of possible role send the request."
                 },
+                "synchronize": {
+                  "description": "DryRun indicates that modifications will definitely not be persisted for this request.\nDefaults to false.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                },
                 "userInfo": {
                   "description": "UserInfo is the userInfo carried in the admission request.",
                   "type": [

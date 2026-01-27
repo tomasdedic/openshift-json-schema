@@ -92,8 +92,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "matchLabels": {
@@ -109,8 +108,7 @@
                 ]
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "podSelector": {
           "description": "PodSelector applies the egress IP only to the pods whose label matches this definition. This field is optional, and in case it is not set: results in the egress IP being applied to all pods in the namespace(s) matched by the NamespaceSelector. In case it is set: is intersected with the NamespaceSelector, thus applying the egress IP to the pods (in the namespace(s) already matched by the NamespaceSelector) which match this pod selector.",
@@ -157,8 +155,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "matchLabels": {
@@ -174,11 +171,9 @@
                 ]
               }
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "Observed status of EgressIP. Read-only.",
@@ -212,12 +207,10 @@
                 "description": "Assigned node name",
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -227,6 +220,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

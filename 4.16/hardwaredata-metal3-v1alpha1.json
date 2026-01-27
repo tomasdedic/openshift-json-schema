@@ -85,8 +85,7 @@
                     "null"
                   ]
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "firmware": {
               "description": "Firmware describes the firmware on the host.",
@@ -123,11 +122,9 @@
                         "null"
                       ]
                     }
-                  },
-                  "additionalProperties": false
+                  }
                 }
-              },
-              "additionalProperties": false
+              }
             },
             "hostname": {
               "type": [
@@ -229,12 +226,10 @@
                             "null"
                           ]
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "ramMebibytes": {
@@ -351,8 +346,7 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "systemVendor": {
@@ -380,14 +374,11 @@
                     "null"
                   ]
                 }
-              },
-              "additionalProperties": false
+              }
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -397,6 +388,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

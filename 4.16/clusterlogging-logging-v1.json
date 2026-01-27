@@ -68,8 +68,7 @@
             "type"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "Status defines the observed state of ClusterLogging",
@@ -125,8 +124,7 @@
                 "description": "ConditionType is the type of the condition and is typically a CamelCased\nword or short phrase.\n\n\nCondition types should indicate state in the \"abnormal-true\" polarity. For\nexample, if the condition indicates when a policy is invalid, the \"is valid\"\ncase is probably the norm, so the condition should be called \"Invalid\".",
                 "type": "string"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "curation": {
@@ -195,8 +193,7 @@
                             "description": "ConditionType is the type of the condition and is typically a CamelCased\nword or short phrase.\n\n\nCondition types should indicate state in the \"abnormal-true\" polarity. For\nexample, if the condition indicates when a policy is invalid, the \"is valid\"\ncase is probably the norm, so the condition should be called \"Invalid\".",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
                   },
@@ -218,12 +215,10 @@
                       "null"
                     ]
                   }
-                },
-                "additionalProperties": false
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "logStore": {
           "type": [
@@ -302,8 +297,7 @@
                         "type": "integer",
                         "format": "int32"
                       }
-                    },
-                    "additionalProperties": false
+                    }
                   },
                   "clusterConditions": {
                     "type": [
@@ -347,8 +341,7 @@
                           "description": "ClusterConditionType is a valid value for ClusterCondition.Type",
                           "type": "string"
                         }
-                      },
-                      "additionalProperties": false
+                      }
                     }
                   },
                   "clusterHealth": {
@@ -422,8 +415,7 @@
                             "description": "ClusterConditionType is a valid value for ClusterCondition.Type",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
                   },
@@ -488,12 +480,10 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "visualization": {
           "type": [
@@ -560,8 +550,7 @@
                             "description": "ClusterConditionType is a valid value for ClusterCondition.Type",
                             "type": "string"
                           }
-                        },
-                        "additionalProperties": false
+                        }
                       }
                     }
                   },
@@ -609,15 +598,12 @@
                     ],
                     "format": "int32"
                   }
-                },
-                "additionalProperties": false
+                }
               }
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -627,6 +613,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

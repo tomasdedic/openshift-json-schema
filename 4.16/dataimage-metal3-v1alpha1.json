@@ -40,8 +40,7 @@
           "description": "Url is the address of the dataImage that we want to attach to a BareMetalHost",
           "type": "string"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "DataImageStatus defines the observed state of DataImage.",
@@ -63,8 +62,7 @@
             "url": {
               "type": "string"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "error": {
           "description": "Error count and message when attaching/detaching",
@@ -83,8 +81,7 @@
             "message": {
               "type": "string"
             }
-          },
-          "additionalProperties": false
+          }
         },
         "lastReconciled": {
           "description": "Time of last reconciliation",
@@ -94,8 +91,7 @@
           ],
           "format": "date-time"
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -105,6 +101,5 @@
       "version": "v1alpha1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }

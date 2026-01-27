@@ -81,8 +81,7 @@
                       ]
                     }
                   }
-                },
-                "additionalProperties": false
+                }
               }
             },
             "matchLabels": {
@@ -98,8 +97,7 @@
                 ]
               }
             }
-          },
-          "additionalProperties": false
+          }
         },
         "serviceAccountName": {
           "description": "ServiceAccountName is the admin specified service account which will be used to deploy operator(s) in this operator group.",
@@ -140,8 +138,7 @@
             "TechPreviewUnsafeFailForward"
           ]
         }
-      },
-      "additionalProperties": false
+      }
     },
     "status": {
       "description": "OperatorGroupStatus is the status for an OperatorGroupResource.",
@@ -214,8 +211,7 @@
                 "maxLength": 316,
                 "pattern": "^([a-z0-9]([-a-z0-9]*[a-z0-9])?(\\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*/)?(([A-Za-z0-9][-A-Za-z0-9_.]*)?[A-Za-z0-9])$"
               }
-            },
-            "additionalProperties": false
+            }
           }
         },
         "lastUpdated": {
@@ -293,11 +289,9 @@
                 "null"
               ]
             }
-          },
-          "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     }
   },
   "x-kubernetes-group-version-kind": [
@@ -307,6 +301,5 @@
       "version": "v1"
     }
   ],
-  "additionalProperties": false,
   "$schema": "http://json-schema.org/schema#"
 }
